@@ -28,8 +28,12 @@ namespace CreatureContainers
 [RequireComponent(typeof(NavMeshAgent))]
 public class TestCreature : MonoBehaviour
 {
+    public CreatureInfo info;
+
+
     //the main state of the agent
-    public CreatureState AgentState;
+    //public CreatureState AgentState;
+
     //a way to store the previous state of the agent
     public CreatureState PreviousState;
 
@@ -45,7 +49,8 @@ public class TestCreature : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        AgentState = 0;
+        info.agentState = 0;
+        //AgentState = 0;
         navMeshAgent = this.GetComponent<NavMeshAgent>();
     }
 
@@ -55,7 +60,7 @@ public class TestCreature : MonoBehaviour
 
         UpdateTimeState();
         
-        switch(AgentState)
+        switch(/*AgentState*/ info.agentState)
         {
             case (CreatureState)0:
                 {
@@ -84,10 +89,11 @@ public class TestCreature : MonoBehaviour
         if((int)timeState == 0)
         {
             //if the AgentState is not in the desired state yet it becomes the desired state
-            if(AgentState != (CreatureState)2) //it may lead to bugs down the line when agent state does not match the state the time gives -- (add other states to the check here) 
+            if(/*AgentState*/ info.agentState != (CreatureState)2) //it may lead to bugs down the line when agent state does not match the state the time gives -- (add other states to the check here) 
             {
-                PreviousState = AgentState; //assign the previous state
-                AgentState = (CreatureState)2; //agent goes to sleep
+                PreviousState = info.agentState; //assign the previous state
+                /*AgentState*/
+                info.agentState = (CreatureState)2; //agent goes to sleep
                 stateJustChanged = true;
                 return;
             }
@@ -97,10 +103,10 @@ public class TestCreature : MonoBehaviour
         //if it is Morning
         if ((int)timeState == 1)
         {
-            if(AgentState != (CreatureState)0)
+            if(info.agentState != (CreatureState)0)
             {
-                PreviousState = AgentState; //assign the previous state
-                AgentState = (CreatureState)0; //agent walks
+                PreviousState = info.agentState; //assign the previous state
+                info.agentState = (CreatureState)0; //agent walks
                 stateJustChanged = true;
                 return;
             }
@@ -111,10 +117,10 @@ public class TestCreature : MonoBehaviour
         //if it is Afternoon
         if ((int)timeState == 2)
         {
-            if(AgentState != (CreatureState)1)
+            if(info.agentState != (CreatureState)1)
             {
-                PreviousState = AgentState; //assign the previous state
-                AgentState = (CreatureState)1; //agent notices
+                PreviousState = info.agentState; //assign the previous state
+                info.agentState = (CreatureState)1; //agent notices
                 stateJustChanged = true;
                 return;                
             }
@@ -124,10 +130,10 @@ public class TestCreature : MonoBehaviour
         //if it is Night
         if ((int)timeState == 3)
         {
-            if(AgentState != (CreatureState)2)
+            if(info.agentState != (CreatureState)2)
             {
-                PreviousState = AgentState; //assign the previous state
-                AgentState = (CreatureState)2; //agent sleeps
+                PreviousState = info.agentState; //assign the previous state
+                info.agentState = (CreatureState)2; //agent sleeps
                 stateJustChanged = true;
                 return;
             }            

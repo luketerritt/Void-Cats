@@ -193,7 +193,7 @@ Light:
   m_BounceIntensity: 1
   m_ColorTemperature: 6570
   m_UseColorTemperature: 0
-  m_BoundingSphereOverride: {x: 0, y: 0, z: 0, w: 4e-45}
+  m_BoundingSphereOverride: {x: 7.16e-43, y: 6.9754424e-10, z: 4.5904e-41, w: 6.9749717e-10}
   m_UseBoundingSphereOverride: 0
   m_ShadowRadius: 0
   m_ShadowAngle: 0
@@ -474,6 +474,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: CubeCreature
       objectReference: {fileID: 0}
+    - target: {fileID: 3227816162533401674, guid: d1482b1398f187f4f95bd9482c630555,
+        type: 3}
+      propertyPath: m_Layer
+      value: 9
+      objectReference: {fileID: 0}
     - target: {fileID: 3227816162533401675, guid: d1482b1398f187f4f95bd9482c630555,
         type: 3}
       propertyPath: lightingManager
@@ -548,6 +553,26 @@ PrefabInstance:
       propertyPath: thirdPersonCamera
       value: 
       objectReference: {fileID: 963194227}
+    - target: {fileID: 7360064396446782933, guid: 9227f76552bf1a64b9f16a50a7988a8a,
+        type: 3}
+      propertyPath: HalfExtentsSize.x
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 7360064396446782933, guid: 9227f76552bf1a64b9f16a50a7988a8a,
+        type: 3}
+      propertyPath: HalfExtentsSize.z
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 7360064396446782933, guid: 9227f76552bf1a64b9f16a50a7988a8a,
+        type: 3}
+      propertyPath: HalfExtentsSize.y
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 7360064396446782933, guid: 9227f76552bf1a64b9f16a50a7988a8a,
+        type: 3}
+      propertyPath: CreatureCheckDistance
+      value: 20
+      objectReference: {fileID: 0}
     - target: {fileID: 7360064396446782934, guid: 9227f76552bf1a64b9f16a50a7988a8a,
         type: 3}
       propertyPath: m_LocalPosition.x

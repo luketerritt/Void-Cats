@@ -12,15 +12,25 @@ public class PlayableCamera : MonoBehaviour
     public Camera firstPersonCamera;
     public bool inFirstPerson = false;
 
+    //mouse camera rotation variables
     public float verticalSpeed = 2.0f;
     public float horizontalSpeed = 2.0f;
-
     private float yaw = 0.0f;
     private float pitch = 0.0f;
 
+    //zoom variables
     public float zoomSpeed = 1.0f;
     public float zoomMinFov = 60;
     public float zoomMaxFov = 100;
+
+    //boxcast variables
+    public Vector3 HalfExtentsSize = new Vector3 ( 5.0f, 5.0f, 5.0f );
+    public float CreatureCheckDistance = 10.0f;
+    [HideInInspector]
+    public RaycastHit hit; //only use this in creature boxcast and drawGizmos code!
+    [HideInInspector]
+    public bool hitDetection;
+
 
     // Start is called before the first frame update
     void Start()
@@ -98,11 +108,58 @@ public class PlayableCamera : MonoBehaviour
                 }
             }
 
+            //creature detection code
+           
+            if (Input.GetKeyDown(KeyCode.Mouse0))
+            {
+                Debug.Log("Left mouse clicked!");
 
+                //it should hit only things in layer 9, which is assigned for the creatures
+                int layerMask = 1 << 9;
 
+                //hitDetection = Physics.BoxCast(firstPersonCamera.transform.position, HalfExtentsSize,
+                //  firstPersonCamera.transform.forward, out hit ,firstPersonCamera.transform.rotation,
+                //CreatureCheckDistance, layerMask);
 
-            //creature detection code, photo capture code below
+                hitDetection = Physics.BoxCast(firstPersonCamera.transform.position, firstPersonCamera.transform.localScale,
+                  firstPersonCamera.transform.forward, out hit, firstPersonCamera.transform.rotation,
+                CreatureCheckDistance, layerMask);
+
+                //test raycast THAT WORKS BUT IS NOT FORGIVING AT ALL
+                //hitDetection = Physics.Raycast(firstPersonCamera.transform.position, firstPersonCamera.transform.forward,
+                  //  out hit, CreatureCheckDistance, layerMask);
+                if(hitDetection)
+                {
+                    //creature info = the hit creatures information
+                    var creatureInfo = hit.collider.gameObject.GetComponent<TestCreature>().info;
+                    Debug.Log("You hit creature type " + creatureInfo.CreatureID + " in the state: "
+                        + creatureInfo.agentState);
+                }
+
+            }
+
+            //photo capture code below
         }
+    }
+    void OnDrawGizmos()
+    {
+        Gizmos.color = Color.red;
 
+        //Gizmos.DrawRay(firstPersonCamera.transform.position, firstPersonCamera.transform.forward * CreatureCheckDistance);
+
+        //Gizmos.DrawWireCube(firstPersonCamera.transform.position + firstPersonCamera.transform.forward * CreatureCheckDistance, firstPersonCamera.transform.localScale);
+        
+        if(hitDetection)
+        {
+            Gizmos.DrawRay(firstPersonCamera.transform.position, firstPersonCamera.transform.forward * hit.distance);
+
+            Gizmos.DrawWireCube(firstPersonCamera.transform.position + firstPersonCamera.transform.forward * hit.distance, firstPersonCamera.transform.localScale);
+        }
+        else
+        {
+            Gizmos.DrawRay(firstPersonCamera.transform.position, firstPersonCamera.transform.forward * CreatureCheckDistance);
+
+            Gizmos.DrawWireCube(firstPersonCamera.transform.position + firstPersonCamera.transform.forward * CreatureCheckDistance, firstPersonCamera.transform.localScale);
+        }
     }
 }
