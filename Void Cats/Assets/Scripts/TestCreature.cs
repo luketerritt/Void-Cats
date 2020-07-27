@@ -10,15 +10,16 @@ namespace CreatureContainers
 {
     public enum CreatureState
     {
-        WALK,
-        NOTICE,
-        SLEEP,
+        Walk,
+        Notice,
+        Sleep,
     }
 
     public struct CreatureInfo
     {
         public int CreatureID;
         public CreatureState agentState;
+        public string CreatureName;
 
     }
 }
@@ -50,6 +51,7 @@ public class TestCreature : MonoBehaviour
     void Start()
     {
         info.agentState = 0;
+        info.CreatureName = "Block";
         //AgentState = 0;
         navMeshAgent = this.GetComponent<NavMeshAgent>();
     }

@@ -10,6 +10,7 @@ public class PlayableCamera : MonoBehaviour
 {
     public Camera thirdPersonCamera;
     public Camera firstPersonCamera;
+    [HideInInspector]
     public bool inFirstPerson = false;
 
     //mouse camera rotation variables
@@ -23,13 +24,17 @@ public class PlayableCamera : MonoBehaviour
     public float zoomMinFov = 60;
     public float zoomMaxFov = 100;
 
-    //boxcast variables
-    public Vector3 HalfExtentsSize = new Vector3 ( 5.0f, 5.0f, 5.0f );
+    //boxcast variables   
     public float CreatureCheckDistance = 10.0f;
     [HideInInspector]
     public RaycastHit hit; //only use this in creature boxcast and drawGizmos code!
     [HideInInspector]
     public bool hitDetection;
+    //scales the detection, would not recommend going over 2
+    public float detectionSizeModifier = 1.5f;
+
+    //created for debug purposes, determines if a photo can be taken
+    public bool canTakePhoto = false;
 
 
     // Start is called before the first frame update
@@ -114,26 +119,56 @@ public class PlayableCamera : MonoBehaviour
             {
                 Debug.Log("Left mouse clicked!");
 
+
+                //hit detection based on layer
+                //(the problem is that it ignores ALL but creature so if there is a tree in front of the creature it stills works)
+
                 //it should hit only things in layer 9, which is assigned for the creatures
-                int layerMask = 1 << 9;
+                //int layerMask = 1 << 9;
 
-                //hitDetection = Physics.BoxCast(firstPersonCamera.transform.position, HalfExtentsSize,
-                //  firstPersonCamera.transform.forward, out hit ,firstPersonCamera.transform.rotation,
+                //hitDetection = Physics.BoxCast(firstPersonCamera.transform.position, firstPersonCamera.transform.localScale,
+                //  firstPersonCamera.transform.forward, out hit, firstPersonCamera.transform.rotation,
                 //CreatureCheckDistance, layerMask);
-
-                hitDetection = Physics.BoxCast(firstPersonCamera.transform.position, firstPersonCamera.transform.localScale,
-                  firstPersonCamera.transform.forward, out hit, firstPersonCamera.transform.rotation,
-                CreatureCheckDistance, layerMask);
 
                 //test raycast THAT WORKS BUT IS NOT FORGIVING AT ALL
                 //hitDetection = Physics.Raycast(firstPersonCamera.transform.position, firstPersonCamera.transform.forward,
-                  //  out hit, CreatureCheckDistance, layerMask);
-                if(hitDetection)
+                //  out hit, CreatureCheckDistance, layerMask);
+
+                //create a bitmask to ignore layer 9, should be used for forms of foilage, tall grass etc
+                int layerMask = 1 << 9;
+                layerMask = ~layerMask;
+
+                hitDetection = Physics.BoxCast(firstPersonCamera.transform.position, firstPersonCamera.transform.localScale * detectionSizeModifier,
+                  firstPersonCamera.transform.forward, out hit, firstPersonCamera.transform.rotation,
+                CreatureCheckDistance, layerMask);
+
+                //if there is a hit
+                if (hitDetection)
                 {
-                    //creature info = the hit creatures information
-                    var creatureInfo = hit.collider.gameObject.GetComponent<TestCreature>().info;
-                    Debug.Log("You hit creature type " + creatureInfo.CreatureID + " in the state: "
-                        + creatureInfo.agentState);
+                    //make sure the hit has the tag Creature
+                    if(hit.collider.gameObject.CompareTag("Creature"))
+                    {
+                        //creature info = the hit creatures information
+                        var creatureInfo = hit.collider.gameObject.GetComponent<TestCreature>().info;
+                        Debug.Log("You hit creature type " + creatureInfo.CreatureID + " in the state: "
+                            + creatureInfo.agentState);
+
+                        if(canTakePhoto)
+                        {
+                            //create a string with time formatting so they dont overwrite if the same condtions are met
+                            //an example PNG name will end up like "Block-Sleep-31-Jan-11-59-59"
+                            string time = DateTime.Now.ToString("dd MMM HH:mm:ss"); //dd MMM HH:mm:ss HH:mm:ss.ffffzzz
+                            time = time.Replace(":", "-");//replace instances of : with -
+                            time = time.Replace(" ", "-");//replace instances of "space" with -
+                            time = time.Replace(".", "");//replace instances of . with nothing
+                            ScreenCapture.CaptureScreenshot("" + creatureInfo.CreatureName + "-" + creatureInfo.agentState + "-" + time + ".png");
+                        }
+                        else
+                        {
+                            Debug.Log("Photo mode disabled! Turn on canTakePhoto on the player to take photos!");
+                        }
+                    }
+                    
                 }
 
             }
@@ -153,13 +188,13 @@ public class PlayableCamera : MonoBehaviour
         {
             Gizmos.DrawRay(firstPersonCamera.transform.position, firstPersonCamera.transform.forward * hit.distance);
 
-            Gizmos.DrawWireCube(firstPersonCamera.transform.position + firstPersonCamera.transform.forward * hit.distance, firstPersonCamera.transform.localScale);
+            Gizmos.DrawWireCube(firstPersonCamera.transform.position + firstPersonCamera.transform.forward * hit.distance, firstPersonCamera.transform.localScale * detectionSizeModifier);
         }
         else
         {
             Gizmos.DrawRay(firstPersonCamera.transform.position, firstPersonCamera.transform.forward * CreatureCheckDistance);
 
-            Gizmos.DrawWireCube(firstPersonCamera.transform.position + firstPersonCamera.transform.forward * CreatureCheckDistance, firstPersonCamera.transform.localScale);
+            Gizmos.DrawWireCube(firstPersonCamera.transform.position + firstPersonCamera.transform.forward * CreatureCheckDistance, firstPersonCamera.transform.localScale * detectionSizeModifier);
         }
     }
 }
