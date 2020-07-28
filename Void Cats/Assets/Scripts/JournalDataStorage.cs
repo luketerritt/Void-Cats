@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using CreatureContainers;
+using UnityEngine.UI;
 
 //this script stores information taken from the camera to be displayed in the journal
 public class JournalDataStorage : MonoBehaviour
@@ -15,13 +16,14 @@ public class JournalDataStorage : MonoBehaviour
     //block info -- comment out later in development when creatures are implemented
     public CreatureInfo[] BlockPhotoRequirements = new CreatureInfo[defaultArraySize];
     public bool[] BlockPhotosIsTaken = new bool[defaultArraySize] {false, false, false };
-    public Texture2D[] BlockPhotos = new Texture2D[defaultArraySize];
+    //public Texture2D[] BlockPhotos = new Texture2D[defaultArraySize];
     public GameObject[] BlockJournalSpots = new GameObject[defaultArraySize]; //modify in editor
 
 
     public CreatureInfo[] FishPhotoRequirements = new CreatureInfo[defaultArraySize];
     public bool[] FishPhotosIsTaken = new bool[defaultArraySize] { false, false, false };
-    public Texture2D[] FishPhotos = new Texture2D[defaultArraySize];
+    //public Texture2D[] FishPhotos = new Texture2D[defaultArraySize];
+    public Sprite[] FishSprites = new Sprite[defaultArraySize];
     public GameObject[] FishJournalSpots = new GameObject[defaultArraySize]; //modify in editor
 
     //copy this per creature EXTEND SECTION
@@ -70,13 +72,14 @@ public class JournalDataStorage : MonoBehaviour
         //update the textures for block materials
         for (int i = 0; i < defaultArraySize; i++)
         {
-            BlockPhotos[i] = temp.BlockPhotos[i];
-            BlockPhotosIsTaken[i] = temp.BlockPhotosIsTaken[i];          
-            BlockJournalSpots[i].gameObject.GetComponent<MeshRenderer>().material.SetTexture("_BaseMap", BlockPhotos[i]);
+            //BlockPhotos[i] = temp.BlockPhotos[i];
+            //BlockPhotosIsTaken[i] = temp.BlockPhotosIsTaken[i];          
+            //BlockJournalSpots[i].gameObject.GetComponent<MeshRenderer>().material.SetTexture("_BaseMap", BlockPhotos[i]);
             
-            FishPhotos[i] = temp.FishPhotos[i];
+            //FishPhotos[i] = temp.FishPhotos[i];
             FishPhotosIsTaken[i] = temp.FishPhotosIsTaken[i];
-            FishJournalSpots[i].gameObject.GetComponent<MeshRenderer>().material.SetTexture("_BaseMap", FishPhotos[i]);
+            FishSprites[i] = temp.FishSprites[i];            
+            FishJournalSpots[i].gameObject.GetComponent<Image>().sprite = FishSprites[i];
             //repeat EXTEND SECTION
         }
     }

@@ -1,7 +1,6 @@
 ﻿using System;
 using System.Collections;
 using System.Collections.Generic;
-using UnityEditorInternal;
 using UnityEngine;
 
 //this is a prototype class which WILL need to be merged with a character controller
@@ -246,20 +245,24 @@ public class PlayableCamera : MonoBehaviour
    {
         yield return new WaitForEndOfFrame();
         var texture = ScreenCapture.CaptureScreenshotAsTexture();
+        Sprite newSprite = Sprite.Create
+            (texture, new Rect(0f, 0f, texture.width, texture.height), Vector2.zero);
 
         //assign texture to the spot in the array
-        switch(textureCaptureCreatureType)
+        switch (textureCaptureCreatureType)
         {
             case (0): //Block test creature
             {   //assign texture, then bool stating texture has been asigned already
-                GameStorageData.BlockPhotos[textureLocationInArray] = texture;
+                //GameStorageData.BlockPhotos[textureLocationInArray] = texture;
                 GameStorageData.BlockPhotosIsTaken[textureLocationInArray] = true;
+
                 break;
             }
             case (1): //FISH test creature
             {   //assign texture, then bool stating texture has been asigned already
-                GameStorageData.FishPhotos[textureLocationInArray] = texture;
+                //GameStorageData.FishPhotos[textureLocationInArray] = texture;
                 GameStorageData.FishPhotosIsTaken[textureLocationInArray] = true;
+                GameStorageData.FishSprites[textureLocationInArray] = newSprite;
                 break;
             }
 
