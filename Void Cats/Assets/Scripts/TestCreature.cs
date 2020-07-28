@@ -22,6 +22,19 @@ namespace CreatureContainers
         public string CreatureName;
 
     }
+
+    //Creature information which needs to be persistent!!!!!
+    //replace CreatureName string with final names later in development!
+
+    //CreatureID 0 = Block -- (a test creature in debugging)
+    //CreatureID 1 = Fish -- Nocturnal/Scared - Water Clean Action
+    //CreatureID 2 = Dog -- Day/Passive - Chase tail Action
+    //CreatureID 3 = Tiger -- Day/Passive - Roar Action
+    //CreatureID 4 = Dragon -- Day/Passive - Run and Slide Action
+    //CreatureID 5 = Cow -- Nocturnal/Passive - Snow Angel/Roll (still deciding)
+    //CreatureID 6 = Duck -- Day/Scared - Peck Ground
+    //CreatureID 7 = Cat -- Nocturnal/Scared - Levitate
+    //CreatureID 8 = Rabbit -- Nocturnal/Scared - Tree Punch  
 }
 
 //this class contains creature behaviours
@@ -31,6 +44,7 @@ public class TestCreature : MonoBehaviour
 {
     public CreatureInfo info;
 
+    public int ID;
 
     //the main state of the agent
     //public CreatureState AgentState;
@@ -51,8 +65,58 @@ public class TestCreature : MonoBehaviour
     void Start()
     {
         info.agentState = 0;
-        info.CreatureName = "Block";
-        //AgentState = 0;
+        info.CreatureID = ID;
+        //assign name based on ID - EXTEND SECTION -- replace with final names as they appear on file name!
+        switch (info.CreatureID)
+        {
+            case (0):
+                {
+                    info.CreatureName = "Block";
+                    break;
+                }
+            case (1):
+                {
+                    info.CreatureName = "Fish";
+                    break;
+                }
+            case (2):
+                {
+                    info.CreatureName = "Dog";
+                    break;
+                }
+            case (3):
+                {
+                    info.CreatureName = "Tiger";
+                    break;
+                }
+            case (4):
+                {
+                    info.CreatureName = "Dragon";
+                    break;
+                }
+            case (5):
+                {
+                    info.CreatureName = "Cow";
+                    break;
+                }
+            case (6):
+                {
+                    info.CreatureName = "Duck";
+                    break;
+                }
+            case (7):
+                {
+                    info.CreatureName = "Cat";
+                    break;
+                }
+            case (8):
+                {
+                    info.CreatureName = "Rabbit";
+                    break;
+                }
+            
+        }
+        
         navMeshAgent = this.GetComponent<NavMeshAgent>();
     }
 

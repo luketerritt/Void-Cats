@@ -33,9 +33,20 @@ public class PlayableCamera : MonoBehaviour
     //scales the detection, would not recommend going over 2
     public float detectionSizeModifier = 1.5f;
 
-    //created for debug purposes, determines if a photo can be taken
-    public bool canTakePhoto = false;
+    //created for debug purposes, determines if a photo can be taken at all
+    public bool debugCanTakePhoto = false;
 
+    //set this to on if you want photos to be saved to computer (does not tamper with journal)
+    public bool optionToSavePhoto = false;
+
+    //values which get overwritten to apply correct type of texture2d to the storageData
+    private bool canCaptureAsTexture = false;
+    private int textureLocationInArray = 0;
+    private int textureCaptureCreatureType = 0;
+
+    public JournalDataStorage GameStorageData;
+
+    
 
     // Start is called before the first frame update
     void Start()
@@ -119,8 +130,7 @@ public class PlayableCamera : MonoBehaviour
             {
                 Debug.Log("Left mouse clicked!");
 
-
-                //hit detection based on layer
+                /*//hit detection based on layer
                 //(the problem is that it ignores ALL but creature so if there is a tree in front of the creature it stills works)
 
                 //it should hit only things in layer 9, which is assigned for the creatures
@@ -132,7 +142,7 @@ public class PlayableCamera : MonoBehaviour
 
                 //test raycast THAT WORKS BUT IS NOT FORGIVING AT ALL
                 //hitDetection = Physics.Raycast(firstPersonCamera.transform.position, firstPersonCamera.transform.forward,
-                //  out hit, CreatureCheckDistance, layerMask);
+                //  out hit, CreatureCheckDistance, layerMask);*/
 
                 //create a bitmask to ignore layer 9, should be used for forms of foilage, tall grass etc
                 int layerMask = 1 << 9;
@@ -153,20 +163,66 @@ public class PlayableCamera : MonoBehaviour
                         Debug.Log("You hit creature type " + creatureInfo.CreatureID + " in the state: "
                             + creatureInfo.agentState);
 
-                        if(canTakePhoto)
+                        if(debugCanTakePhoto)
                         {
-                            //create a string with time formatting so they dont overwrite if the same condtions are met
-                            //an example PNG name will end up like "Block-Sleep-31-Jan-11-59-59"
-                            string time = DateTime.Now.ToString("dd MMM HH:mm:ss"); //dd MMM HH:mm:ss HH:mm:ss.ffffzzz
-                            time = time.Replace(":", "-");//replace instances of : with -
-                            time = time.Replace(" ", "-");//replace instances of "space" with -
-                            time = time.Replace(".", "");//replace instances of . with nothing
-                            ScreenCapture.CaptureScreenshot("" + creatureInfo.CreatureName + "-" + creatureInfo.agentState + "-" + time + ".png");
+                            if (optionToSavePhoto)
+                            { //create a string with time formatting so they dont overwrite if the same condtions are met
+                              //an example PNG name will end up like "Block-Sleep-31-Jan-11-59-59"
+                                string time = DateTime.Now.ToString("dd MMM HH:mm:ss"); //dd MMM HH:mm:ss HH:mm:ss.ffffzzz
+                                time = time.Replace(":", "-");//replace instances of : with -
+                                time = time.Replace(" ", "-");//replace instances of "space" with -
+                                time = time.Replace(".", "");//replace instances of . with nothing
+                                ScreenCapture.CaptureScreenshot("" + creatureInfo.CreatureName + "-" + creatureInfo.agentState + "-" + time + ".png");
+                                Debug.Log("Photo Should have saved!");
+                            }
+                            else
+                            {
+                                Debug.Log("Photo Saving Disabled!");
+                            }
+
+
+                            switch(creatureInfo.CreatureID)
+                            {
+                                case (0): //the hit creature is DEBUG BLOCK, COMMENT OUT ONCE ACTUAL CREATURES IMPLEMENTED!
+                                    {
+                                        for (int i = 0; i < GameStorageData.BlockPhotoRequirements.Length; i++)
+                                        {
+                                            //check the state of the required photo vs state we found and that a photo does not exist there already
+                                            if (creatureInfo.agentState == GameStorageData.BlockPhotoRequirements[i].agentState
+                                                && !GameStorageData.BlockPhotosIsTaken[i])
+                                            {
+                                                //assign variables based on check and set boolean to allow coroutine
+                                                textureCaptureCreatureType = creatureInfo.CreatureID; //you equal 0 as this check only happens if ID is 0
+                                                textureLocationInArray = i;
+                                                canCaptureAsTexture = true;
+                                            }
+                                        }
+                                        break;
+                                    }
+                                case (1): // the hit creature is a FISH
+                                    {
+                                        for (int i = 0; i < GameStorageData.FishPhotoRequirements.Length; i++)
+                                        {
+                                            //check the state of the required photo vs state we found and that a photo does not exist there already
+                                            if (creatureInfo.agentState == GameStorageData.FishPhotoRequirements[i].agentState
+                                                && !GameStorageData.FishPhotosIsTaken[i])
+                                            {
+                                                //assign variables based on check and set boolean to allow coroutine
+                                                textureCaptureCreatureType = creatureInfo.CreatureID; //you equal 0 as this check only happens if ID is 0
+                                                textureLocationInArray = i;
+                                                canCaptureAsTexture = true;
+                                            }
+                                        }
+                                        break;
+                                    }
+                                //case (2): //the hit creature is a Dog (copy above code below) EXTEND SECTION
+
+
+                            }
+
+                            
                         }
-                        else
-                        {
-                            Debug.Log("Photo mode disabled! Turn on canTakePhoto on the player to take photos!");
-                        }
+                        
                     }
                     
                 }
@@ -176,6 +232,45 @@ public class PlayableCamera : MonoBehaviour
             //photo capture code below
         }
     }
+
+    public void LateUpdate()
+    {
+        if(canCaptureAsTexture)
+        {
+            StartCoroutine(TakeAndGetTexturePhoto());
+            //canCaptureAsTexture = false;
+        }
+    }
+
+   private IEnumerator TakeAndGetTexturePhoto()
+   {
+        yield return new WaitForEndOfFrame();
+        var texture = ScreenCapture.CaptureScreenshotAsTexture();
+
+        //assign texture to the spot in the array
+        switch(textureCaptureCreatureType)
+        {
+            case (0): //Block test creature
+            {   //assign texture, then bool stating texture has been asigned already
+                GameStorageData.BlockPhotos[textureLocationInArray] = texture;
+                GameStorageData.BlockPhotosIsTaken[textureLocationInArray] = true;
+                break;
+            }
+            case (1): //FISH test creature
+            {   //assign texture, then bool stating texture has been asigned already
+                GameStorageData.FishPhotos[textureLocationInArray] = texture;
+                GameStorageData.FishPhotosIsTaken[textureLocationInArray] = true;
+                break;
+            }
+
+                //extend for other creatures!!! EXTEND SECTION
+        }
+
+        canCaptureAsTexture = false;
+        //UnityEngine.Object.Destroy(texture); //really should call this...
+   }
+
+    //code to display hit detection
     void OnDrawGizmos()
     {
         Gizmos.color = Color.red;
