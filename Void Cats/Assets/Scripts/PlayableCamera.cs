@@ -50,7 +50,7 @@ public class PlayableCamera : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        
+        GameStorageData.UpdateInfo = false;
     }
 
     // Update is called once per frame
@@ -209,7 +209,7 @@ public class PlayableCamera : MonoBehaviour
                                                 //assign variables based on check and set boolean to allow coroutine
                                                 textureCaptureCreatureType = creatureInfo.CreatureID; //you equal 0 as this check only happens if ID is 0
                                                 textureLocationInArray = i;
-                                                canCaptureAsTexture = true;
+                                                canCaptureAsTexture = true;                                                
                                             }
                                         }
                                         break;
@@ -263,7 +263,8 @@ public class PlayableCamera : MonoBehaviour
                 //GameStorageData.FishPhotos[textureLocationInArray] = texture;
                 GameStorageData.FishPhotosIsTaken[textureLocationInArray] = true;
                 GameStorageData.FishSprites[textureLocationInArray] = newSprite;
-                break;
+                GameStorageData.UpdateInfo = true;
+                    break;
             }
 
                 //extend for other creatures!!! EXTEND SECTION
