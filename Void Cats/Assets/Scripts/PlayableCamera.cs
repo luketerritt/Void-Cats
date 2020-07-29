@@ -182,20 +182,20 @@ public class PlayableCamera : MonoBehaviour
 
                             switch(creatureInfo.CreatureID)
                             {
-                                case (0): //the hit creature is DEBUG BLOCK, COMMENT OUT ONCE ACTUAL CREATURES IMPLEMENTED!
+                                case (0): //the hit creature is DEBUG BLOCK, dont do anything as FISH should be implemented
                                     {
-                                        for (int i = 0; i < GameStorageData.BlockPhotoRequirements.Length; i++)
+                                      /*  //for (int i = 0; i < GameStorageData.BlockPhotoRequirements.Length; i++)
                                         {
                                             //check the state of the required photo vs state we found and that a photo does not exist there already
                                             if (creatureInfo.agentState == GameStorageData.BlockPhotoRequirements[i].agentState
                                                 && !GameStorageData.BlockPhotosIsTaken[i])
                                             {
                                                 //assign variables based on check and set boolean to allow coroutine
-                                                textureCaptureCreatureType = creatureInfo.CreatureID; //you equal 0 as this check only happens if ID is 0
-                                                textureLocationInArray = i;
-                                                canCaptureAsTexture = true;
+                                                //textureCaptureCreatureType = creatureInfo.CreatureID; //you equal 0 as this check only happens if ID is 0
+                                                //textureLocationInArray = i;
+                                                //canCaptureAsTexture = true;
                                             }
-                                        }
+                                        }*/
                                         break;
                                     }
                                 case (1): // the hit creature is a FISH
@@ -254,8 +254,8 @@ public class PlayableCamera : MonoBehaviour
             case (0): //Block test creature
             {   //assign texture, then bool stating texture has been asigned already
                 //GameStorageData.BlockPhotos[textureLocationInArray] = texture;
-                GameStorageData.BlockPhotosIsTaken[textureLocationInArray] = true;
-
+                //GameStorageData.BlockPhotosIsTaken[textureLocationInArray] = true;
+                Debug.Log("Block pictures cannot be displayed in the journal!");
                 break;
             }
             case (1): //FISH test creature

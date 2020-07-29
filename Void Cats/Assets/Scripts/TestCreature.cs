@@ -13,6 +13,7 @@ namespace CreatureContainers
         Walk,
         Notice,
         Sleep,
+        TempExample
     }
 
     public struct CreatureInfo
