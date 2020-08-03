@@ -103,11 +103,11 @@ public class JournalDataStorage : MonoBehaviour
 
     */
 
-
+    //a boolean used to determine if the photo info should be copied from the playerCameraInput
     [HideInInspector]
     public bool UpdateInfo = false;
 
-
+    //the gameobject which has the first person player camera attached
     public GameObject playerCameraInput;
 
     // Start is called before the first frame update
@@ -144,7 +144,7 @@ public class JournalDataStorage : MonoBehaviour
     void Update()
     {
         var temp = playerCameraInput.gameObject.GetComponent<PlayableCamera>().GameStorageData;
-
+        //if we need to update journal picture information
         if(temp.UpdateInfo)
         {
             //update the textures for block materials

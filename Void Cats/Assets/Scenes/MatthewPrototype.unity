@@ -644,7 +644,7 @@ MonoBehaviour:
     type: 3}
   m_PrefabInstance: {fileID: 5179128060929110966}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
+  m_GameObject: {fileID: 1745791616}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: d2dc4b105a78be0489ec796274b8fff1, type: 3}
@@ -723,7 +723,7 @@ Light:
   m_BounceIntensity: 1
   m_ColorTemperature: 6570
   m_UseColorTemperature: 0
-  m_BoundingSphereOverride: {x: 0.09375, y: 0.14453125, z: 0.03515625, w: -0.0546875}
+  m_BoundingSphereOverride: {x: -1.114e-42, y: 6e-45, z: 2.4e-44, w: 0}
   m_UseBoundingSphereOverride: 0
   m_ShadowRadius: 0
   m_ShadowAngle: 0
@@ -2280,6 +2280,12 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: ee70e03a41cc5a044ada690cf20c1ca5, type: 3}
+--- !u!1 &1745791616 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 5775938594975263789, guid: 041cdc5d538c97144b407014a2e32b57,
+    type: 3}
+  m_PrefabInstance: {fileID: 5179128060929110966}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1799062479
 GameObject:
   m_ObjectHideFlags: 0
@@ -2902,6 +2908,16 @@ PrefabInstance:
     - target: {fileID: 7360064396446782933, guid: 9227f76552bf1a64b9f16a50a7988a8a,
         type: 3}
       propertyPath: optionToSavePhoto
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7360064396446782933, guid: 9227f76552bf1a64b9f16a50a7988a8a,
+        type: 3}
+      propertyPath: JournalDataObject
+      value: 
+      objectReference: {fileID: 1745791616}
+    - target: {fileID: 7360064396446782933, guid: 9227f76552bf1a64b9f16a50a7988a8a,
+        type: 3}
+      propertyPath: debugCanTakePhotoAtAll
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 7360064396446782934, guid: 9227f76552bf1a64b9f16a50a7988a8a,

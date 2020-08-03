@@ -32,9 +32,6 @@ public class PlayableCamera : MonoBehaviour
     //scales the detection, would not recommend going over 2
     public float detectionSizeModifier = 1.5f;
 
-    //created for debug purposes, determines if a photo can be taken at all
-    public bool debugCanTakePhoto = false;
-
     //set this to on if you want photos to be saved to computer (does not tamper with journal)
     public bool optionToSavePhoto = false;
 
@@ -43,6 +40,8 @@ public class PlayableCamera : MonoBehaviour
     private int textureLocationInArray = 0;
     private int textureCaptureCreatureType = 0;
 
+
+    //instance of journalDataStorage, should be the component from the JournalDataStorage object!!!
     public JournalDataStorage GameStorageData;
 
     
@@ -109,7 +108,6 @@ public class PlayableCamera : MonoBehaviour
                 float zoomCurrent = 0;
                 zoomCurrent -= temp * zoomSpeed;
                 
-
                 firstPersonCamera.fieldOfView += zoomCurrent;    
                 //checks to ensure the cameraFOV doesnt go over (or under) the bounds :/
                 if(firstPersonCamera.fieldOfView < zoomMinFov)
@@ -133,11 +131,7 @@ public class PlayableCamera : MonoBehaviour
                 //(the problem is that it ignores ALL but creature so if there is a tree in front of the creature it stills works)
 
                 //it should hit only things in layer 9, which is assigned for the creatures
-                //int layerMask = 1 << 9;
-
-                //hitDetection = Physics.BoxCast(firstPersonCamera.transform.position, firstPersonCamera.transform.localScale,
-                //  firstPersonCamera.transform.forward, out hit, firstPersonCamera.transform.rotation,
-                //CreatureCheckDistance, layerMask);
+                //int layerMask = 1 << 9;                
 
                 //test raycast THAT WORKS BUT IS NOT FORGIVING AT ALL
                 //hitDetection = Physics.Raycast(firstPersonCamera.transform.position, firstPersonCamera.transform.forward,
@@ -147,6 +141,7 @@ public class PlayableCamera : MonoBehaviour
                 int layerMask = 1 << 9;
                 layerMask = ~layerMask;
 
+                //peform the boxcast
                 hitDetection = Physics.BoxCast(firstPersonCamera.transform.position, firstPersonCamera.transform.localScale * detectionSizeModifier,
                   firstPersonCamera.transform.forward, out hit, firstPersonCamera.transform.rotation,
                 CreatureCheckDistance, layerMask);
@@ -162,8 +157,8 @@ public class PlayableCamera : MonoBehaviour
                         Debug.Log("You hit creature type " + creatureInfo.CreatureID + " in the state: "
                             + creatureInfo.agentState);
 
-                        if(debugCanTakePhoto)
-                        {
+                        
+                            //if saving photos is allowed
                             if (optionToSavePhoto)
                             { //create a string with time formatting so they dont overwrite if the same condtions are met
                               //an example PNG name will end up like "Block-Sleep-31-Jan-11-59-59"
@@ -218,9 +213,6 @@ public class PlayableCamera : MonoBehaviour
 
 
                             }
-
-                            
-                        }
                         
                     }
                     
@@ -232,8 +224,10 @@ public class PlayableCamera : MonoBehaviour
         }
     }
 
+    //this exists so we can set up the coroutine
     public void LateUpdate()
     {
+        //if we can capture the picture we just took and display it ingame
         if(canCaptureAsTexture)
         {
             StartCoroutine(TakeAndGetTexturePhoto());
@@ -244,6 +238,7 @@ public class PlayableCamera : MonoBehaviour
    private IEnumerator TakeAndGetTexturePhoto()
    {
         yield return new WaitForEndOfFrame();
+        //creation of texture and sprite
         var texture = ScreenCapture.CaptureScreenshotAsTexture();
         Sprite newSprite = Sprite.Create
             (texture, new Rect(0f, 0f, texture.width, texture.height), Vector2.zero);
@@ -252,15 +247,12 @@ public class PlayableCamera : MonoBehaviour
         switch (textureCaptureCreatureType)
         {
             case (0): //Block test creature
-            {   //assign texture, then bool stating texture has been asigned already
-                //GameStorageData.BlockPhotos[textureLocationInArray] = texture;
-                //GameStorageData.BlockPhotosIsTaken[textureLocationInArray] = true;
-                Debug.Log("Block pictures cannot be displayed in the journal!");
+            {   //the block itself is not supposed to bein the journal (if this debug)
+                Debug.Log("Block pictures cannot be displayed in the journal! Set the Block to be a Fish for debug if needed!");
                 break;
             }
             case (1): //FISH test creature
-            {   //assign texture, then bool stating texture has been asigned already
-                //GameStorageData.FishPhotos[textureLocationInArray] = texture;
+            {   //assign bool stating texture has been asigned, and assign sprite                
                 GameStorageData.FishPhotosIsTaken[textureLocationInArray] = true;
                 GameStorageData.FishSprites[textureLocationInArray] = newSprite;
                 GameStorageData.UpdateInfo = true;
