@@ -10,10 +10,18 @@ namespace CreatureContainers
 {
     public enum CreatureState
     {
-        Walk,
-        Notice,
-        Sleep,
-        TempExample
+        Flee, //0 = Flee -- a walk/run away from player
+        Notice, //1 = notice -- a turn around towards player
+        Sleep, //2 = sleep -- goto set location, play sleep animation
+        Eat, //3 = eat -- goto a set location (or the player if they have a berry?), play eat animation
+        Wash, //4 = Wash -- UNIQUE to the Fish - goto a set location, play wash animation
+        TailChase, //5 = chase tail -- UNIQUE* to the Dog - update set position near self and play chase tail animation
+        Roar, //6 = roar -- UNIQUE to the Tiger - goto a set locaton, play roar animation
+        Flop, //7 = flop -- UNIQUE* to the Dragon - find clear area, run forward, play flop animation as moving like a slide?
+        Roll, //8 = roll -- UNIQUE* to the Cow - find clear area, move while playing animation? (similar to flop?)
+        Peck, //9 = peck -- UNIQUE to the Duck - goto location, play peck animation
+        Levitate, //10 = levitate -- UNIQUE to the Cat - goto location, play levitate animation
+        Anger //11 = anger -- UNIQUE* to the rabbit - goto location, play punch animation and audio cue
     }
 
     public struct CreatureInfo
@@ -32,7 +40,7 @@ namespace CreatureContainers
     //CreatureID 2 = Dog -- Day/Passive - Chase tail Action
     //CreatureID 3 = Tiger -- Day/Passive - Roar Action
     //CreatureID 4 = Dragon -- Day/Passive - Run and Slide Action
-    //CreatureID 5 = Cow -- Nocturnal/Passive - Snow Angel/Roll (still deciding)
+    //CreatureID 5 = Cow -- Nocturnal/Passive - Roll 
     //CreatureID 6 = Duck -- Day/Scared - Peck Ground
     //CreatureID 7 = Cat -- Nocturnal/Scared - Levitate
     //CreatureID 8 = Rabbit -- Nocturnal/Scared - Tree Punch  
@@ -67,7 +75,7 @@ public class TestCreature : MonoBehaviour
     {
         info.agentState = 0;
         info.CreatureID = ID;
-        //assign name based on ID - EXTEND SECTION -- replace with final names as they appear on file name!
+        //assign name based on ID -- replace with final names as they appear on file name!
         switch (info.CreatureID)
         {
             case (0):
@@ -152,61 +160,136 @@ public class TestCreature : MonoBehaviour
     {
         var timeState = lightingManager.GetComponent<LightingManager>().currentQuater;
 
-        //if it is LateNight
-        if((int)timeState == 0)
+        //determine which creature type this is by using a switch statement with creature ID
+        switch(info.CreatureID)
         {
-            //if the AgentState is not in the desired state yet it becomes the desired state
-            if(/*AgentState*/ info.agentState != (CreatureState)2) //it may lead to bugs down the line when agent state does not match the state the time gives -- (add other states to the check here) 
-            {
-                PreviousState = info.agentState; //assign the previous state
-                /*AgentState*/
-                info.agentState = (CreatureState)2; //agent goes to sleep
-                stateJustChanged = true;
-                return;
-            }
-            return;
+            case 0: //Block debug code
+                {
+                    //if it is LateNight
+                    if ((int)timeState == 0)
+                    {
+                        //if the AgentState is not in the desired state yet it becomes the desired state
+                        if (/*AgentState*/ info.agentState != (CreatureState)2) //it may lead to bugs down the line when agent state does not match the state the time gives -- (add other states to the check here) 
+                        {
+                            PreviousState = info.agentState; //assign the previous state
+                            /*AgentState*/
+                            info.agentState = (CreatureState)2; //agent goes to sleep
+                            stateJustChanged = true;
+                            //return;
+                            break;
+                        }
+                        break;
+                    }
+
+                    //if it is Morning
+                    if ((int)timeState == 1)
+                    {
+                        if (info.agentState != (CreatureState)0)
+                        {
+                            PreviousState = info.agentState; //assign the previous state
+                            info.agentState = (CreatureState)0; //agent walks
+                            stateJustChanged = true;
+                            break;
+                        }
+
+                        break;
+                    }
+
+                    //if it is Afternoon
+                    if ((int)timeState == 2)
+                    {
+                        if (info.agentState != (CreatureState)1)
+                        {
+                            PreviousState = info.agentState; //assign the previous state
+                            info.agentState = (CreatureState)1; //agent notices
+                            stateJustChanged = true;
+                            break;
+                        }
+                        break;
+                    }
+
+                    //if it is Night
+                    if ((int)timeState == 3)
+                    {
+                        if (info.agentState != (CreatureState)2)
+                        {
+                            PreviousState = info.agentState; //assign the previous state
+                            info.agentState = (CreatureState)2; //agent sleeps
+                            stateJustChanged = true;
+                            break;
+                        }
+                        break;
+                    }
+                    break;
+                    
+                }
+            case 1: //Fish
+                {
+                    //if it is LateNight
+                    if ((int)timeState == 0)
+                    {
+                        //if the AgentState is not in the desired state yet it becomes the desired state
+                        if (/*AgentState*/ info.agentState != (CreatureState)2) //it may lead to bugs down the line when agent state does not match the state the time gives -- (add other states to the check here) 
+                        {
+                            PreviousState = info.agentState; //assign the previous state
+                            /*AgentState*/
+                            info.agentState = (CreatureState)2; //agent goes to sleep
+                            stateJustChanged = true;
+                            //return;
+                            break;
+                        }
+                        break;
+                    }
+
+                    //if it is Morning
+                    if ((int)timeState == 1)
+                    {
+                        if (info.agentState != (CreatureState)0)
+                        {
+                            PreviousState = info.agentState; //assign the previous state
+                            info.agentState = (CreatureState)0; //agent walks
+                            stateJustChanged = true;
+                            break;
+                        }
+
+                        break;
+                    }
+
+                    //if it is Afternoon
+                    if ((int)timeState == 2)
+                    {
+                        if (info.agentState != (CreatureState)1)
+                        {
+                            PreviousState = info.agentState; //assign the previous state
+                            info.agentState = (CreatureState)1; //agent notices
+                            stateJustChanged = true;
+                            break;
+                        }
+                        break;
+
+                    }
+                    //if it is Night
+                    if ((int)timeState == 3)
+                    {
+                        if (info.agentState != (CreatureState)2)
+                        {
+                            PreviousState = info.agentState; //assign the previous state
+                            info.agentState = (CreatureState)2; //agent sleeps
+                            stateJustChanged = true;
+                            break;
+                        }
+                        break;
+                    }
+                    break;
+                }
         }
 
-        //if it is Morning
-        if ((int)timeState == 1)
-        {
-            if(info.agentState != (CreatureState)0)
-            {
-                PreviousState = info.agentState; //assign the previous state
-                info.agentState = (CreatureState)0; //agent walks
-                stateJustChanged = true;
-                return;
-            }
-           
-            return;
+
+        
         }
 
-        //if it is Afternoon
-        if ((int)timeState == 2)
-        {
-            if(info.agentState != (CreatureState)1)
-            {
-                PreviousState = info.agentState; //assign the previous state
-                info.agentState = (CreatureState)1; //agent notices
-                stateJustChanged = true;
-                return;                
-            }
-            return;
-        }
-
-        //if it is Night
-        if ((int)timeState == 3)
-        {
-            if(info.agentState != (CreatureState)2)
-            {
-                PreviousState = info.agentState; //assign the previous state
-                info.agentState = (CreatureState)2; //agent sleeps
-                stateJustChanged = true;
-                return;
-            }            
-            return;
-        }
-    }
+        
+      
 
     
     void walkState()
