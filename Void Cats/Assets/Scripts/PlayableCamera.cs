@@ -44,7 +44,11 @@ public class PlayableCamera : MonoBehaviour
     //instance of journalDataStorage, should be the component from the JournalDataStorage object!!!
     public JournalDataStorage GameStorageData;
 
-    
+    //camera UI overlay object -- only enabled when phototaking
+    public GameObject uiCameraOverlay;
+
+    //standard UI overlay object -- only DISABLED when taking photo
+    public GameObject uiStandardOverlay;
 
     // Start is called before the first frame update
     void Start()
@@ -63,19 +67,26 @@ public class PlayableCamera : MonoBehaviour
     //updates all camera related info (movement/controls, checking for creatures, taking the photo?)
     void UpdateCamera()
     {
+        //if the game is in the journal
+        var tempJournal = uiStandardOverlay.GetComponentInChildren<PanelOpen>().Panel;
+
         //if the C key is pressed
-        if (Input.GetKeyDown(KeyCode.C))
+        if (Input.GetKeyDown(KeyCode.C) && !tempJournal.activeSelf)
         {
             //swap cameras
             inFirstPerson = !inFirstPerson;
             firstPersonCamera.gameObject.SetActive(inFirstPerson);
             thirdPersonCamera.gameObject.SetActive(!inFirstPerson);
         }
-
-        //if we are in first person
-        if(inFirstPerson)
+     
+        //if we are in first person and the journal is NOT open
+        if(inFirstPerson && !tempJournal.activeSelf)
         {
-            //we need camera movement code, creature detection code, photo capture code
+            //camera movement code, creature detection code, photo capture code
+
+            //if we are in first person, the camera overlay should be turned on
+            uiCameraOverlay.SetActive(true);
+            uiStandardOverlay.SetActive(true);
 
             //temp mouse lock code
             if (Input.GetKeyDown(KeyCode.V))
@@ -160,14 +171,18 @@ public class PlayableCamera : MonoBehaviour
                         
                             //if saving photos is allowed
                             if (optionToSavePhoto)
-                            { //create a string with time formatting so they dont overwrite if the same condtions are met
-                              //an example PNG name will end up like "Block-Sleep-31-Jan-11-59-59"
+                            {   //turn off the UI
+                                uiCameraOverlay.SetActive(false);
+                                uiStandardOverlay.SetActive(false);
+                                //create a string with time formatting so they dont overwrite if the same condtions are met
+                                //an example PNG name will end up like "Block-Sleep-31-Jan-11-59-59"
                                 string time = DateTime.Now.ToString("dd MMM HH:mm:ss"); //dd MMM HH:mm:ss HH:mm:ss.ffffzzz
                                 time = time.Replace(":", "-");//replace instances of : with -
                                 time = time.Replace(" ", "-");//replace instances of "space" with -
                                 time = time.Replace(".", "");//replace instances of . with nothing
                                 ScreenCapture.CaptureScreenshot("" + creatureInfo.CreatureName + "-" + creatureInfo.agentState + "-" + time + ".png");
                                 Debug.Log("Photo Should have saved!");
+                                
                             }
                             else
                             {
@@ -219,8 +234,10 @@ public class PlayableCamera : MonoBehaviour
                 }
 
             }
-
-            //photo capture code below
+        }
+        else //we are not in the first person camera!
+        {
+            uiCameraOverlay.SetActive(false);
         }
     }
 
@@ -238,6 +255,11 @@ public class PlayableCamera : MonoBehaviour
    private IEnumerator TakeAndGetTexturePhoto()
    {
         yield return new WaitForEndOfFrame();
+
+        //turn off UI
+        uiCameraOverlay.SetActive(false);
+        uiStandardOverlay.SetActive(false);
+
         //creation of texture and sprite
         var texture = ScreenCapture.CaptureScreenshotAsTexture();
         Sprite newSprite = Sprite.Create
@@ -261,7 +283,9 @@ public class PlayableCamera : MonoBehaviour
 
                 //extend for other creatures!!! EXTEND SECTION
         }
-
+        //turn UI back on
+        uiCameraOverlay.SetActive(true);
+        uiStandardOverlay.SetActive(true);
         canCaptureAsTexture = false;
         //UnityEngine.Object.Destroy(texture); //really should call this...
    }
