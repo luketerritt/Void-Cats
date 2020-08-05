@@ -8,26 +8,20 @@ using UnityEngine.Events;
 [RequireComponent(typeof(Image))]
 public class TabButton : MonoBehaviour, IPointerEnterHandler, IPointerClickHandler, IPointerExitHandler
 {
-    public TabGroup tabGroup;
-    public Image background;
+    public TabGroup tabGroup;           // ref to tabgroup script
+    public Image background;            // ref to background of tab
 
-    public UnityEvent onTabSelected;
+    public UnityEvent onTabSelected;    // allow you to play audio or other events when selected through the inspector
     public UnityEvent onTabDeselected;
 
 
     // Start is called before the first frame update
     void Start()
     {
-        background = GetComponent<Image>();
-            tabGroup.Subscribe(this);
+        background = GetComponent<Image>();      // 
+            tabGroup.Subscribe(this);           // tells the tab button to "subscribe" to the tab group
     }
 
-
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
     public void Select()
     {
         if(onTabSelected != null)
