@@ -67,11 +67,14 @@ public class PlayableCamera : MonoBehaviour
     //updates all camera related info (movement/controls, checking for creatures, taking the photo?)
     void UpdateCamera()
     {
-        //if the game is in the journal
+        //temp var to see if the game is in the journal?
         var tempJournal = uiStandardOverlay.GetComponentInChildren<PanelOpen>().Panel;
 
-        //if the C key is pressed
-        if (Input.GetKeyDown(KeyCode.C) && !tempJournal.activeSelf)
+        //temp bool to see if the character controller is on the ground?
+        bool tempGrounded = this.gameObject.GetComponent<CharacterController>().isGrounded; 
+
+        //if the C key is pressed, the journal is not active and the player character controller is on the ground
+        if (Input.GetKeyDown(KeyCode.C) && !tempJournal.activeSelf && tempGrounded)
         {
             //swap cameras
             inFirstPerson = !inFirstPerson;

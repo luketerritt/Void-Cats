@@ -36,23 +36,31 @@ public class PlayerController3D : MonoBehaviour
    
     void Update()
     {
-        // Basic Input 
-        Vector2 input = new Vector2(Input.GetAxisRaw("Horizontal"), Input.GetAxisRaw("Vertical"));
-        // normalise input
-        Vector2 inputDir = input.normalized;
-        //shifting Running
-        bool running = Input.GetKey(KeyCode.LeftShift);
-        Move(inputDir, running);
-        
-        if(Input.GetKeyDown (KeyCode.Space))
-        {
-            jump();
-        }
+        //check if the playable camera is in first person
+        bool temp = this.gameObject.GetComponent<PlayableCamera>().inFirstPerson;
 
-        // controlling the speed percent in the animator - idle - walk - run
-        float animationSpeedPercent = ((running) ? currentSpeed / runSpeed : currentSpeed / walkSpeed * .5f);
-        // changing the float in the animator
-        animator.SetFloat("SpeedPercent", animationSpeedPercent, speedSmoothTime, Time.deltaTime);
+        //false for third person, true for first person
+        if(!temp)
+        {
+            // Basic Input 
+            Vector2 input = new Vector2(Input.GetAxisRaw("Horizontal"), Input.GetAxisRaw("Vertical"));
+            // normalise input
+            Vector2 inputDir = input.normalized;
+            //shifting Running
+            bool running = Input.GetKey(KeyCode.LeftShift);
+            Move(inputDir, running);
+
+            if (Input.GetKeyDown(KeyCode.Space))
+            {
+                jump();
+            }
+
+            // controlling the speed percent in the animator - idle - walk - run
+            float animationSpeedPercent = ((running) ? currentSpeed / runSpeed : currentSpeed / walkSpeed * .5f);
+            // changing the float in the animator
+            animator.SetFloat("SpeedPercent", animationSpeedPercent, speedSmoothTime, Time.deltaTime);
+        }
+        
 
     }
      void Move(Vector2 inputDir, bool running)
