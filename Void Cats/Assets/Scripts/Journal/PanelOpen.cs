@@ -5,10 +5,16 @@ using UnityEngine;
 
 public class PanelOpen : MonoBehaviour
 {
+    public GameObject thirdPersonCamera;
+    private ThirdPersonCamera thirdPersonCameraScript;
     public GameObject Panel;
     public static bool gameIsPaused = false;
-    //public GameObject pauseMenuUi;
+    
 
+    private void Start()
+    {
+        thirdPersonCameraScript = thirdPersonCamera.GetComponent<ThirdPersonCamera>();
+    }
     public void OpenPanel()
     {
         if(Panel != null)
@@ -37,6 +43,7 @@ public class PanelOpen : MonoBehaviour
     void Resume()
     {
         OpenPanel();
+        thirdPersonCameraScript.isCursorLocked = true;
         Time.timeScale = 1f;
         gameIsPaused = false;
 
@@ -45,8 +52,8 @@ public class PanelOpen : MonoBehaviour
     void Pause()
     {
         OpenPanel();
+        thirdPersonCameraScript.isCursorLocked = false;
         Time.timeScale = 0f;
-        Debug.Log("Game Is Paused");
         gameIsPaused = true;
     }
 

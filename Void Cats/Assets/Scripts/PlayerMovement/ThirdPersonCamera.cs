@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class ThirdPersonCamera : MonoBehaviour
 {
-    public bool lockCursor;
+    public bool isCursorLocked;
     public float mouseSensitivity = 10;
     public Transform target; // player
     public float distancefromTarget = 2; // distance from target
@@ -17,11 +17,21 @@ public class ThirdPersonCamera : MonoBehaviour
     Vector3 currentRotation;
     void Start()
     {
+        isCursorLocked = true;
+    }
+
+    void Update()
+    {
         //locks cursor...(duh)
-        if (lockCursor)
+        if (isCursorLocked == true)
         {
             Cursor.lockState = CursorLockMode.Locked;
             Cursor.visible = false;
+        }
+        if (isCursorLocked == false)
+        {
+            Cursor.lockState = CursorLockMode.None;
+            Cursor.visible = true;
         }
     }
 
