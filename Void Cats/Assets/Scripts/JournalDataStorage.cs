@@ -12,14 +12,7 @@ public class JournalDataStorage : MonoBehaviour
 
     [HideInInspector]
     public int arrayLength = defaultArraySize; //a public version of the array size 
-
-    //block info -- comment out later in development when creatures are implemented
-    //public CreatureInfo[] BlockPhotoRequirements = new CreatureInfo[defaultArraySize];
-    //public bool[] BlockPhotosIsTaken = new bool[defaultArraySize] {false, false, false };
-    //public Texture2D[] BlockPhotos = new Texture2D[defaultArraySize];
-    //public GameObject[] BlockJournalSpots = new GameObject[defaultArraySize]; //modify in editor
     
-
     //Fish Containers
     [HideInInspector]
     public CreatureInfo[] FishPhotoRequirements = new CreatureInfo[defaultArraySize];
@@ -27,8 +20,10 @@ public class JournalDataStorage : MonoBehaviour
     public bool[] FishPhotosIsTaken = new bool[defaultArraySize] { false, false, false, false };
     //[HideInInspector]
     public Sprite[] FishSprites = new Sprite[defaultArraySize];
-    //modify in editor
+    //modify in editor - the spots where the new photo will exist - photo gallery
     public GameObject[] FishJournalSpots = new GameObject[defaultArraySize];
+    //modify in editor - the spots where a tick or checkmark (etc) - checklist 
+    public GameObject[] FishChecklistSpots = new GameObject[defaultArraySize];
 
     /*
     //Dog Containers
@@ -110,6 +105,8 @@ public class JournalDataStorage : MonoBehaviour
     //the gameobject which has the first person player camera attached
     public GameObject playerCameraInput;
 
+    public Sprite ChecklistTick;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -125,17 +122,13 @@ public class JournalDataStorage : MonoBehaviour
 
             //EXTEND SECTION
 
-        }
-        //only here as testing
-        //BlockPhotoRequirements[0].agentState = (CreatureState)0; //walk
-        //BlockPhotoRequirements[1].agentState = (CreatureState)1; //notice
-        //BlockPhotoRequirements[2].agentState = (CreatureState)2; //sleep
+        }        
 
         //modify to relevant photos requirements
-        FishPhotoRequirements[0].agentState = (CreatureState)0; //walk
-        FishPhotoRequirements[1].agentState = (CreatureState)1; //notice
-        FishPhotoRequirements[2].agentState = (CreatureState)2; //sleep
-        FishPhotoRequirements[3].agentState = (CreatureState)3; //unique one here!
+        FishPhotoRequirements[0].agentState = (CreatureState)3; //eat
+        FishPhotoRequirements[1].agentState = (CreatureState)2; //sleep
+        FishPhotoRequirements[2].agentState = (CreatureState)1; //notice
+        FishPhotoRequirements[3].agentState = (CreatureState)4; //unique one here! -- wash face
 
         //EXTEND SECTION
     }
@@ -159,6 +152,12 @@ public class JournalDataStorage : MonoBehaviour
                 FishPhotosIsTaken[i] = temp.FishPhotosIsTaken[i];
                 FishSprites[i] = temp.FishSprites[i];
                 FishJournalSpots[i].gameObject.GetComponent<Image>().sprite = FishSprites[i];
+
+                if(FishPhotosIsTaken[i])
+                {
+                    FishChecklistSpots[i].gameObject.GetComponent<Image>().sprite = ChecklistTick;
+                }
+
                 //repeat EXTEND SECTION
             }
             temp.UpdateInfo = false;

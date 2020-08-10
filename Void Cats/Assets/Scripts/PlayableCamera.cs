@@ -92,16 +92,16 @@ public class PlayableCamera : MonoBehaviour
             uiStandardOverlay.SetActive(true);
 
             //temp mouse lock code
-            if (Input.GetKeyDown(KeyCode.V))
-            {
-                Cursor.lockState = CursorLockMode.Locked;
-                
-            }
-            if (Input.GetKeyDown(KeyCode.B))
-            {
-                Cursor.lockState = CursorLockMode.None;
+            //if (Input.GetKeyDown(KeyCode.V))
+            //{
+            //    Cursor.lockState = CursorLockMode.Locked;
 
-            }
+            //}
+            //if (Input.GetKeyDown(KeyCode.B))
+            //{
+            //    Cursor.lockState = CursorLockMode.None;
+
+            //}
 
             //movement code (a lot simpler than openGL)
             yaw += horizontalSpeed * Input.GetAxis("Mouse X");
