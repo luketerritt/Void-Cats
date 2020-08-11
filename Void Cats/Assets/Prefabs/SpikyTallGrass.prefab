@@ -1,6 +1,6 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!1 &9016180749576027450
+--- !u!1 &8156157432895490381
 GameObject:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -8,9 +8,9 @@ GameObject:
   m_PrefabAsset: {fileID: 0}
   serializedVersion: 6
   m_Component:
-  - component: {fileID: 5423654773363003177}
-  - component: {fileID: 3900038081333982495}
-  - component: {fileID: 7287737425456237030}
+  - component: {fileID: 5146246720005552990}
+  - component: {fileID: 4192889320161149288}
+  - component: {fileID: 7569614139815361937}
   m_Layer: 0
   m_Name: SpikyTallGrass
   m_TagString: Untagged
@@ -18,35 +18,35 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!4 &5423654773363003177
+--- !u!4 &5146246720005552990
 Transform:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 9016180749576027450}
+  m_GameObject: {fileID: 8156157432895490381}
   m_LocalRotation: {x: 0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 2.565, y: 0.113, z: -0.081}
+  m_LocalPosition: {x: 4.275344, y: 1.332978, z: 5.6348395}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!33 &3900038081333982495
+--- !u!33 &4192889320161149288
 MeshFilter:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 9016180749576027450}
-  m_Mesh: {fileID: -956321417805586931, guid: fa14801a110f26b40b3e4e93a403abd4, type: 3}
---- !u!23 &7287737425456237030
+  m_GameObject: {fileID: 8156157432895490381}
+  m_Mesh: {fileID: -956321417805586931, guid: e129c78e6ce20d54e91d118e2c5a8703, type: 3}
+--- !u!23 &7569614139815361937
 MeshRenderer:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 9016180749576027450}
+  m_GameObject: {fileID: 8156157432895490381}
   m_Enabled: 1
   m_CastShadows: 1
   m_ReceiveShadows: 1
