@@ -15,12 +15,12 @@ RenderSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 9
   m_Fog: 0
-  m_FogColor: {r: 0.8890627, g: 0.8774798, b: 0.748593, a: 1}
+  m_FogColor: {r: 0.988252, g: 1, b: 0.8355278, a: 1}
   m_FogMode: 3
   m_FogDensity: 0.01
   m_LinearFogStart: 0
   m_LinearFogEnd: 300
-  m_AmbientSkyColor: {r: 0.95766544, g: 1, b: 0.5889754, a: 1}
+  m_AmbientSkyColor: {r: 0.9679368, g: 1, b: 0.6578884, a: 1}
   m_AmbientEquatorColor: {r: 0.114, g: 0.125, b: 0.133, a: 1}
   m_AmbientGroundColor: {r: 0.047, g: 0.043, b: 0.035, a: 1}
   m_AmbientIntensity: 1
@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 705507994}
-  m_IndirectSpecularColor: {r: 0.18253814, g: 0.22824955, b: 0.307211, a: 1}
+  m_IndirectSpecularColor: {r: 0.1741279, g: 0.21774685, b: 0.29994282, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -573,7 +573,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a0b2642cdd915cb449ae6f7e6e1eafaa, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  lockCursor: 0
+  isCursorLocked: 0
   mouseSensitivity: 10
   target: {fileID: 519209876}
   distancefromTarget: 3
@@ -637,8 +637,8 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 53802383}
-  m_LocalRotation: {x: -0.07040321, y: -0.5591954, z: -0.047739834, w: 0.8246605}
-  m_LocalPosition: {x: 6.5173454, y: 1.1962415, z: -9.897814}
+  m_LocalRotation: {x: -0.11339339, y: -0.67952496, z: -0.107493475, w: 0.7168215}
+  m_LocalPosition: {x: -0.33193254, y: 1.5568203, z: -5.6115284}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 1769084449}
@@ -1074,12 +1074,12 @@ PrefabInstance:
     - target: {fileID: 2044046233691022735, guid: 5808bc468c0c33045b0583429f1c40ee,
         type: 3}
       propertyPath: currentTimeOfDay
-      value: 8.7
+      value: 13
       objectReference: {fileID: 0}
     - target: {fileID: 2044046233691022735, guid: 5808bc468c0c33045b0583429f1c40ee,
         type: 3}
       propertyPath: currentQuater
-      value: 0
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 2044046233691022735, guid: 5808bc468c0c33045b0583429f1c40ee,
         type: 3}
@@ -1092,6 +1092,11 @@ PrefabInstance:
       propertyPath: directionalLight
       value: 
       objectReference: {fileID: 705507994}
+    - target: {fileID: 2044046233691022735, guid: 5808bc468c0c33045b0583429f1c40ee,
+        type: 3}
+      propertyPath: timeScaleMultiplier
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 5808bc468c0c33045b0583429f1c40ee, type: 3}
 --- !u!1 &138654765 stripped
@@ -1568,7 +1573,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 193198125}
-  m_LocalRotation: {x: -0.0056331526, y: -0.10384475, z: -0.02115327, w: 0.9943526}
+  m_LocalRotation: {x: -0.09373534, y: -0.10337168, z: -0.027017932, w: 0.9898475}
   m_LocalPosition: {x: 2.6602407, y: -2.26, z: -0.2452488}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
@@ -3853,7 +3858,7 @@ Light:
   m_Enabled: 1
   serializedVersion: 9
   m_Type: 1
-  m_Color: {r: 0.95766544, g: 1, b: 0.5889754, a: 1}
+  m_Color: {r: 0.9679368, g: 1, b: 0.6578884, a: 1}
   m_Intensity: 1
   m_Range: 10
   m_SpotAngle: 30
@@ -3910,7 +3915,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 705507993}
-  m_LocalRotation: {x: 0.030166104, y: 0.9346213, z: -0.3447999, w: 0.08176882}
+  m_LocalRotation: {x: 0.06914535, y: 0.60644484, z: -0.79033446, w: 0.053057086}
   m_LocalPosition: {x: -2.5510187, y: 2.4152408, z: 0.17561245}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
@@ -3968,6 +3973,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6e5b1479ce613d346972a9b6fa529991, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  thirdPersonCamera: {fileID: 0}
   Panel: {fileID: 844096520}
 --- !u!114 &733053448
 MonoBehaviour:
@@ -6808,6 +6814,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6e5b1479ce613d346972a9b6fa529991, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  thirdPersonCamera: {fileID: 53802383}
   Panel: {fileID: 1794945542}
 --- !u!114 &1508232622
 MonoBehaviour:
@@ -8424,7 +8431,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1769084447}
-  m_LocalRotation: {x: 0.030490378, y: -0.10454459, z: -0.01736715, w: 0.993901}
+  m_LocalRotation: {x: -0.057717316, y: -0.10428484, z: -0.023245122, w: 0.9925991}
   m_LocalPosition: {x: 2.6602407, y: -2.26, z: -0.2452488}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
@@ -8572,7 +8579,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1783207615}
-  m_LocalRotation: {x: 0.012406775, y: -0.10421143, z: -0.019265888, w: 0.9942912}
+  m_LocalRotation: {x: -0.07576261, y: -0.10384482, z: -0.025138162, w: 0.9913851}
   m_LocalPosition: {x: 2.6602407, y: -2.26, z: -0.2452488}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:

@@ -18,6 +18,8 @@ public class LightingManager : MonoBehaviour
     [SerializeField] private LightingPreset preset;
     [SerializeField, Range(0,24)] private float currentTimeOfDay;
     public Quater currentQuater;
+    public float timeScaleMultiplier = 1.0f;
+    public float daysPast = 0;
     
 
     //main update function of the day/night cycle
@@ -30,11 +32,26 @@ public class LightingManager : MonoBehaviour
             return;
         }
 
+        //temp code to reverse time based on key input
+        //if(Input.GetKey(KeyCode.V))
+        //{
+        //    timeScaleMultiplier = -1;
+        //}
+        //else
+        //{
+        //    timeScaleMultiplier = 1;
+        //}
+
         //if the application is playing
         if(Application.isPlaying)
         {
-            currentTimeOfDay += Time.deltaTime;
+            //current time of day becomes deltatime * timeScale, then becomes the modulus of itself and 24
+            currentTimeOfDay += Time.deltaTime * timeScaleMultiplier;
             currentTimeOfDay %= 24;
+            if(currentTimeOfDay < -0.1f)
+            {
+                currentTimeOfDay = 24;
+            }            
             UpdateLighting(currentTimeOfDay / 24f);
         }
         else
@@ -42,9 +59,24 @@ public class LightingManager : MonoBehaviour
             UpdateLighting(currentTimeOfDay / 24f);
         }
 
+        //Quater setup
+
         //setup of quater change - LateNight
         if(currentTimeOfDay > 0 && currentTimeOfDay < 6)
         {
+            //if we were in night but became late night
+            if(currentQuater == (Quater)3)
+            {
+                //a quater of the day has passed
+                daysPast += 0.25f;
+            }
+            //if we were in the morning but time travelled backwards
+            if (currentQuater == (Quater)1)
+            {
+                //we lost quater of the day
+                daysPast -= 0.25f;
+            }
+
             currentQuater = (Quater)0;
             return;
         }
@@ -52,6 +84,19 @@ public class LightingManager : MonoBehaviour
         //setup of quater change - Morning
         if (currentTimeOfDay > 6 && currentTimeOfDay < 12)
         {
+            //if we were in late night but became morning
+            if (currentQuater == (Quater)0)
+            {
+                //a quater of the day has passed
+                daysPast += 0.25f;
+            }
+            //if we were in the afternoon but time travelled backwards
+            if (currentQuater == (Quater)2)
+            {
+                //we lost quater of the day
+                daysPast -= 0.25f;
+            }
+
             currentQuater = (Quater)1;
             return;
         }
@@ -59,6 +104,19 @@ public class LightingManager : MonoBehaviour
         //setup of quater change - Afternoon
         if (currentTimeOfDay > 12 && currentTimeOfDay < 18)
         {
+            //if we were in morning but became late afternoon
+            if (currentQuater == (Quater)1)
+            {
+                //a quater of the day has passed
+                daysPast += 0.25f;
+            }
+            //if we were in the night but time travelled backwards
+            if (currentQuater == (Quater)3)
+            {
+                //we lost quater of the day
+                daysPast -= 0.25f;
+            }
+
             currentQuater = (Quater)2;
             return;
         }
@@ -66,6 +124,19 @@ public class LightingManager : MonoBehaviour
         //setup of quater change - Night
         if (currentTimeOfDay > 18 && currentTimeOfDay < 24)
         {
+            //if we were in afternoon but became late night
+            if (currentQuater == (Quater)2)
+            {
+                //a quater of the day has passed
+                daysPast += 0.25f;
+            }
+            //if we were in the late night but time travelled backwards
+            if (currentQuater == (Quater)0)
+            {
+                //we lost quater of the day
+                daysPast -= 0.25f;
+            }
+
             currentQuater = (Quater)3;
             return;
         }
