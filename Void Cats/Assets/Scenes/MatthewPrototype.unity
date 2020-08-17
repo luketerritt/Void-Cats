@@ -20,7 +20,7 @@ RenderSettings:
   m_FogDensity: 0.01
   m_LinearFogStart: 0
   m_LinearFogEnd: 300
-  m_AmbientSkyColor: {r: 0.9679368, g: 1, b: 0.6578884, a: 1}
+  m_AmbientSkyColor: {r: 0.9745045, g: 0.9977922, b: 0.89524555, a: 1}
   m_AmbientEquatorColor: {r: 0.114, g: 0.125, b: 0.133, a: 1}
   m_AmbientGroundColor: {r: 0.047, g: 0.043, b: 0.035, a: 1}
   m_AmbientIntensity: 1
@@ -335,7 +335,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!114 &53802384
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -637,8 +637,8 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 53802383}
-  m_LocalRotation: {x: -0.11339339, y: -0.67952496, z: -0.107493475, w: 0.7168215}
-  m_LocalPosition: {x: -0.33193254, y: 1.5568203, z: -5.6115284}
+  m_LocalRotation: {x: -0.19283481, y: 0.3277844, z: 0.06853173, w: 0.9223208}
+  m_LocalPosition: {x: -8.80795, y: 0.3703636, z: -10.235137}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 1769084449}
@@ -1573,7 +1573,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 193198125}
-  m_LocalRotation: {x: -0.09373534, y: -0.10337168, z: -0.027017932, w: 0.9898475}
+  m_LocalRotation: {x: -0.007574231, y: -0.24269895, z: -0.11444648, w: 0.9632974}
   m_LocalPosition: {x: 2.6602407, y: -2.26, z: -0.2452488}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
@@ -3858,7 +3858,7 @@ Light:
   m_Enabled: 1
   serializedVersion: 9
   m_Type: 1
-  m_Color: {r: 0.9679368, g: 1, b: 0.6578884, a: 1}
+  m_Color: {r: 0.9745045, g: 0.9977922, b: 0.89524555, a: 1}
   m_Intensity: 1
   m_Range: 10
   m_SpotAngle: 30
@@ -3973,7 +3973,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6e5b1479ce613d346972a9b6fa529991, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  thirdPersonCamera: {fileID: 0}
+  PlayableCharacterObject: {fileID: 0}
   Panel: {fileID: 844096520}
 --- !u!114 &733053448
 MonoBehaviour:
@@ -5705,7 +5705,7 @@ PrefabInstance:
     - target: {fileID: -4216859302048453862, guid: 98763ad506abfd140a4c0bc699c5ae68,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: -4.85
+      value: -0.85
       objectReference: {fileID: 0}
     - target: {fileID: -4216859302048453862, guid: 98763ad506abfd140a4c0bc699c5ae68,
         type: 3}
@@ -5808,7 +5808,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b658f3ff793629941bbce17362f437e3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  thirdPersonCamera: {fileID: 53802390}
   firstPersonCamera: {fileID: 1820572265}
   inFirstPerson: 0
   verticalSpeed: 2
@@ -5823,6 +5822,7 @@ MonoBehaviour:
   GameStorageData: {fileID: 1304797088}
   uiCameraOverlay: {fileID: 333409986}
   uiStandardOverlay: {fileID: 663467461}
+  isCursorLocked: 0
 --- !u!114 &1223412184
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5835,6 +5835,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bdb3e22c32aad37459ef23f791d180a0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  cameraWalkSpeed: 0.5
   walkSpeed: 2
   runSpeed: 6
   gravity: -12
@@ -6814,7 +6815,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6e5b1479ce613d346972a9b6fa529991, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  thirdPersonCamera: {fileID: 53802383}
+  PlayableCharacterObject: {fileID: 1223412182}
   Panel: {fileID: 1794945542}
 --- !u!114 &1508232622
 MonoBehaviour:
@@ -8431,7 +8432,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1769084447}
-  m_LocalRotation: {x: -0.057717316, y: -0.10428484, z: -0.023245122, w: 0.9925991}
+  m_LocalRotation: {x: 0.027422518, y: -0.24669605, z: -0.105554916, w: 0.9629368}
   m_LocalPosition: {x: 2.6602407, y: -2.26, z: -0.2452488}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
@@ -8579,7 +8580,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1783207615}
-  m_LocalRotation: {x: -0.07576261, y: -0.10384482, z: -0.025138162, w: 0.9913851}
+  m_LocalRotation: {x: 0.009902611, y: -0.24473527, z: -0.110024735, w: 0.96327627}
   m_LocalPosition: {x: 2.6602407, y: -2.26, z: -0.2452488}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
@@ -9851,11 +9852,11 @@ GameObject:
   - component: {fileID: 1820572263}
   m_Layer: 0
   m_Name: FirstPersonCamera
-  m_TagString: Untagged
+  m_TagString: MainCamera
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &1820572262
 Transform:
   m_ObjectHideFlags: 0

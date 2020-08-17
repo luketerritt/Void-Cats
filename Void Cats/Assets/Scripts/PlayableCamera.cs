@@ -7,7 +7,7 @@ using UnityEngine;
 //this script contains code related to the first person camera used in Clic
 public class PlayableCamera : MonoBehaviour
 {
-    public Camera thirdPersonCamera;
+    //public Camera thirdPersonCamera;
     public Camera firstPersonCamera;
     [HideInInspector]
     public bool inFirstPerson = false;
@@ -22,6 +22,7 @@ public class PlayableCamera : MonoBehaviour
     public float zoomSpeed = 1.0f;
     public float zoomMinFov = 60;
     public float zoomMaxFov = 100;
+    private float defaultFov;
 
     //boxcast variables   
     public float CreatureCheckDistance = 10.0f;
@@ -50,10 +51,14 @@ public class PlayableCamera : MonoBehaviour
     //standard UI overlay object -- only DISABLED when taking photo
     public GameObject uiStandardOverlay;
 
+    public bool isCursorLocked;
+
     // Start is called before the first frame update
     void Start()
     {
         GameStorageData.UpdateInfo = false;
+        defaultFov = firstPersonCamera.fieldOfView;
+        isCursorLocked = true;
     }
 
     // Update is called once per frame
@@ -62,6 +67,18 @@ public class PlayableCamera : MonoBehaviour
         //other player related code here
 
         UpdateCamera();
+
+        //cursor lock code (taken from the old ThirdPersonCamera Script)
+        if (isCursorLocked == true)
+        {
+            Cursor.lockState = CursorLockMode.Locked;
+            Cursor.visible = false;
+        }
+        if (isCursorLocked == false)
+        {
+            Cursor.lockState = CursorLockMode.None;
+            Cursor.visible = true;
+        }
     }
 
     //updates all camera related info (movement/controls, checking for creatures, taking the photo?)
@@ -71,15 +88,35 @@ public class PlayableCamera : MonoBehaviour
         var tempJournal = uiStandardOverlay.GetComponentInChildren<PanelOpen>().Panel;
 
         //temp bool to see if the character controller is on the ground?
-        bool tempGrounded = this.gameObject.GetComponent<CharacterController>().isGrounded; 
+        bool tempGrounded = this.gameObject.GetComponent<CharacterController>().isGrounded;
+
+
+        if(!tempJournal.activeSelf)
+        {
+            //camera rotation code moved out from camera mode, as entire game is now first person
+            //movement code (a lot simpler than openGL)
+            yaw += horizontalSpeed * Input.GetAxis("Mouse X");
+            pitch -= verticalSpeed * Input.GetAxis("Mouse Y");
+
+            //yaw = Mathf.Clamp(yaw, -90f, 90f); //ensures we dont do a 360 spin (subject to change)          
+            pitch = Mathf.Clamp(pitch, -60f, 90f); //ensures we dont break our neck looking up/down         
+
+            //yaw affects x --> rotation affects left and right (comes in through y input)
+            //pitch affects y --> rotation affects up and down (comes in through x input)
+
+            firstPersonCamera.transform.eulerAngles = new Vector3(pitch, yaw, 0.0f);
+        }
+        
+
 
         //if the C key is pressed, the journal is not active and the player character controller is on the ground
         if (Input.GetKeyDown(KeyCode.C) && !tempJournal.activeSelf && tempGrounded)
         {
             //swap cameras
             inFirstPerson = !inFirstPerson;
-            firstPersonCamera.gameObject.SetActive(inFirstPerson);
-            thirdPersonCamera.gameObject.SetActive(!inFirstPerson);
+            firstPersonCamera.fieldOfView = defaultFov;
+            //firstPersonCamera.gameObject.SetActive(inFirstPerson);
+            //thirdPersonCamera.gameObject.SetActive(!inFirstPerson);
         }
      
         //if we are in first person and the journal is NOT open
@@ -103,17 +140,7 @@ public class PlayableCamera : MonoBehaviour
 
             //}
 
-            //movement code (a lot simpler than openGL)
-            yaw += horizontalSpeed * Input.GetAxis("Mouse X");
-            pitch -= verticalSpeed * Input.GetAxis("Mouse Y");
-
-            yaw = Mathf.Clamp(yaw, -90f, 90f); //ensures we dont do a 360 spin (subject to change)          
-            pitch = Mathf.Clamp(pitch, -60f, 90f); //ensures we dont break our neck looking up/down         
-
-            //yaw affects x --> rotation affects left and right (comes in through y input)
-            //pitch affects y --> rotation affects up and down (comes in through x input)
-
-            firstPersonCamera.transform.eulerAngles = new Vector3(pitch, yaw, 0.0f);
+            
            
             //zoom code            
             float temp = Input.mouseScrollDelta.y;

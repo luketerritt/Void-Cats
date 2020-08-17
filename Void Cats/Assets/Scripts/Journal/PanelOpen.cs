@@ -5,15 +5,15 @@ using UnityEngine;
 
 public class PanelOpen : MonoBehaviour
 {
-    public GameObject thirdPersonCamera;
-    private ThirdPersonCamera thirdPersonCameraScript;
+    public GameObject PlayableCharacterObject;
+    private PlayableCamera PlayableCameraScript;
     public GameObject Panel;
     public static bool gameIsPaused = false;
     
 
     private void Start()
     {
-        thirdPersonCameraScript = thirdPersonCamera.GetComponent<ThirdPersonCamera>();
+        PlayableCameraScript = PlayableCharacterObject.GetComponent<PlayableCamera>();
     }
     public void OpenPanel()
     {
@@ -25,17 +25,25 @@ public class PanelOpen : MonoBehaviour
     }
 
      void Update()
-    {
-        if(Input.GetKeyDown(KeyCode.Tab))
+     {
+        
+        if (Input.GetKeyDown(KeyCode.Tab))
         {
-         
-            if(gameIsPaused)
+           
+
+            if (gameIsPaused)
             {
                 Resume();
             }
             else
             {
-                Pause();
+                //check the player is on the ground
+                bool temp = PlayableCharacterObject.GetComponent<CharacterController>().isGrounded;
+                if (temp)
+                {
+                    Pause();
+                }
+               
             }
         }
     }
@@ -43,7 +51,7 @@ public class PanelOpen : MonoBehaviour
     void Resume()
     {
         OpenPanel();
-        thirdPersonCameraScript.isCursorLocked = true;
+        PlayableCameraScript.isCursorLocked = true;
         Time.timeScale = 1f;
         gameIsPaused = false;
 
@@ -52,7 +60,7 @@ public class PanelOpen : MonoBehaviour
     void Pause()
     {
         OpenPanel();
-        thirdPersonCameraScript.isCursorLocked = false;
+        PlayableCameraScript.isCursorLocked = false;
         Time.timeScale = 0f;
         gameIsPaused = true;
     }

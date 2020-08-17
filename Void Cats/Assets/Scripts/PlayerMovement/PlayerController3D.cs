@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class PlayerController3D : MonoBehaviour
 {
-    
+    public float cameraWalkSpeed = 0.5f; //cameraWalkspeed (used when camera mode is on)
     public float walkSpeed = 2; //walk speed
     public float runSpeed = 6; // run speed
 
@@ -36,21 +36,20 @@ public class PlayerController3D : MonoBehaviour
    
     void Update()
     {
-        //check if the playable camera is in first person
-        bool temp = this.gameObject.GetComponent<PlayableCamera>().inFirstPerson;
 
+        bool temp = this.gameObject.GetComponent<PlayableCamera>().inFirstPerson;
         //false for third person, true for first person
-        if(!temp)
-        {
-            // Basic Input 
+        //if(!temp)
+        //{
+        // Basic Input 
             Vector2 input = new Vector2(Input.GetAxisRaw("Horizontal"), Input.GetAxisRaw("Vertical"));
             // normalise input
             Vector2 inputDir = input.normalized;
             //shifting Running
             bool running = Input.GetKey(KeyCode.LeftShift);
-            Move(inputDir, running);
+            Move(inputDir, running, temp);
 
-            if (Input.GetKeyDown(KeyCode.Space))
+            if (Input.GetKeyDown(KeyCode.Space) && !temp)
             {
                 jump();
             }
@@ -59,31 +58,43 @@ public class PlayerController3D : MonoBehaviour
             float animationSpeedPercent = ((running) ? currentSpeed / runSpeed : currentSpeed / walkSpeed * .5f);
             // changing the float in the animator
             animator.SetFloat("SpeedPercent", animationSpeedPercent, speedSmoothTime, Time.deltaTime);
-        }
+        //}
+
         
 
     }
-     void Move(Vector2 inputDir, bool running)
-    {
+     void Move(Vector2 inputDir, bool running, bool cameraModeActive)
+     {
+        /* //old rotation code by Max - removed during the 3rd person to 1st person shift
         if (inputDir != Vector2.zero) // avoids character snapping back to 0 degrees
-        {
+        {   
             // Player Rotation 
-            float targetRotation = Mathf.Atan2(inputDir.x, inputDir.y) * Mathf.Rad2Deg + cameraT.eulerAngles.y;
+            float targetRotation = Mathf.Atan2(inputDir.x, inputDir.y) * Mathf.Rad2Deg; //+ cameraT.eulerAngles.y;
             // smooths the turning/rotation of the character 
             transform.eulerAngles = Vector3.up * Mathf.SmoothDampAngle(transform.eulerAngles.y, targetRotation,
                 ref turnSmoothVelocity, GetModifiedSmoothTime(turnSmoothTime));
+        }*/
 
+        float targetspeed = 0.0f;
+        if(!cameraModeActive)
+        {
+            targetspeed = ((running) ? runSpeed : walkSpeed) * inputDir.magnitude;
         }
-
-       
-        float targetspeed = ((running) ? runSpeed : walkSpeed) * inputDir.magnitude;
+        else
+        {
+            targetspeed = cameraWalkSpeed;
+        }
+        
         // smoothing speed control
         currentSpeed = Mathf.SmoothDamp(currentSpeed, targetspeed, ref speedSmoothVelocity, GetModifiedSmoothTime(speedSmoothTime));
 
-        velocityY += Time.deltaTime * gravity;
+        velocityY += Time.deltaTime * gravity;       
 
-        // Moves the character to face the right direction
-        Vector3 velocity = transform.forward * currentSpeed + Vector3.up * velocityY;
+        //normalise the x input * camera's right vector added to the y input * camera's forward vector
+        Vector3 direction = (inputDir.x * cameraT.transform.right + inputDir.y * cameraT.transform.forward).normalized;               
+
+        //Moves the character to face the right direction
+        Vector3 velocity = /*transform.forward*/direction  * currentSpeed + Vector3.up * velocityY;
 
         controller.Move(velocity * Time.deltaTime);
         currentSpeed = new Vector2(controller.velocity.x, controller.velocity.z).magnitude;
@@ -94,7 +105,7 @@ public class PlayerController3D : MonoBehaviour
         }
 
        
-    }
+     }
     void jump()
     {
         if(controller.isGrounded)
