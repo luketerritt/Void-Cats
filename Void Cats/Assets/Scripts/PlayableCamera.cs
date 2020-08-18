@@ -2,6 +2,9 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Assertions.Must;
+using UnityEngine.Rendering.PostProcessing;
+
 
 //this is a prototype class which WILL need to be merged with a character controller
 //this script contains code related to the first person camera used in Clic
@@ -51,7 +54,21 @@ public class PlayableCamera : MonoBehaviour
     //standard UI overlay object -- only DISABLED when taking photo
     public GameObject uiStandardOverlay;
 
+    [HideInInspector]
     public bool isCursorLocked;
+
+    public float cameraChargesMaxLimit = 3;
+    public float cameraChargesCurrent = 3;
+    public float cameraChargeCooldown = 5;
+    private float cameraChargeIterator = 0;
+    [HideInInspector]
+    public bool cameraChargeWaiting = false;
+
+    public GameObject PostProcessingObject;
+    private PostProcessVolume ppVolume;    
+    private DepthOfField blurryEffect;
+
+    public float defaultBlur;
 
     // Start is called before the first frame update
     void Start()
@@ -59,6 +76,10 @@ public class PlayableCamera : MonoBehaviour
         GameStorageData.UpdateInfo = false;
         defaultFov = firstPersonCamera.fieldOfView;
         isCursorLocked = true;
+        ppVolume = PostProcessingObject.GetComponent<PostProcessVolume>();
+        ppVolume.sharedProfile.TryGetSettings<DepthOfField>(out blurryEffect);
+        blurryEffect.focusDistance.value = defaultBlur;
+        blurryEffect.active = false;
     }
 
     // Update is called once per frame
@@ -79,6 +100,32 @@ public class PlayableCamera : MonoBehaviour
             Cursor.lockState = CursorLockMode.None;
             Cursor.visible = true;
         }
+
+        //update camera charges
+        //if the current number of charges is less than the max number of stored charges
+        if(cameraChargesCurrent < cameraChargesMaxLimit)
+        {
+            //add to iterator
+            cameraChargeIterator += Time.deltaTime;
+            //if the iterator is greater or equal to the cooldown length
+            if(cameraChargeIterator >= cameraChargeCooldown)
+            {
+                cameraChargesCurrent++;
+                cameraChargeIterator -= cameraChargeCooldown;
+                cameraChargeWaiting = false;
+            }
+        }
+
+
+        //temp test code
+
+        if(Input.GetKeyDown(KeyCode.Space))
+        {
+            blurryEffect.active = false;
+            ppVolume.enabled = false;
+            PostProcessingObject.SetActive(false);
+            firstPersonCamera.GetComponent<PostProcessLayer>().enabled = false;
+        }
     }
 
     //updates all camera related info (movement/controls, checking for creatures, taking the photo?)
@@ -90,7 +137,7 @@ public class PlayableCamera : MonoBehaviour
         //temp bool to see if the character controller is on the ground?
         bool tempGrounded = this.gameObject.GetComponent<CharacterController>().isGrounded;
 
-
+        //if the journal is not active
         if(!tempJournal.activeSelf)
         {
             //camera rotation code moved out from camera mode, as entire game is now first person
@@ -117,6 +164,11 @@ public class PlayableCamera : MonoBehaviour
             firstPersonCamera.fieldOfView = defaultFov;
             //firstPersonCamera.gameObject.SetActive(inFirstPerson);
             //thirdPersonCamera.gameObject.SetActive(!inFirstPerson);
+            //var test = true;
+            
+            blurryEffect.active = !blurryEffect.active;
+            blurryEffect.focusDistance.value = defaultBlur;
+            //firstPersonCamera.GetComponent<PostProcessLayer>().enabled = !firstPersonCamera.GetComponent<PostProcessLayer>().enabled;
         }
      
         //if we are in first person and the journal is NOT open
@@ -127,21 +179,7 @@ public class PlayableCamera : MonoBehaviour
             //if we are in first person, the camera overlay should be turned on
             uiCameraOverlay.SetActive(true);
             uiStandardOverlay.SetActive(true);
-
-            //temp mouse lock code
-            //if (Input.GetKeyDown(KeyCode.V))
-            //{
-            //    Cursor.lockState = CursorLockMode.Locked;
-
-            //}
-            //if (Input.GetKeyDown(KeyCode.B))
-            //{
-            //    Cursor.lockState = CursorLockMode.None;
-
-            //}
-
-            
-           
+                    
             //zoom code            
             float temp = Input.mouseScrollDelta.y;
             if(temp != 0)
@@ -149,22 +187,45 @@ public class PlayableCamera : MonoBehaviour
                 float zoomCurrent = 0;
                 zoomCurrent -= temp * zoomSpeed;
                 
-                firstPersonCamera.fieldOfView += zoomCurrent;    
+                firstPersonCamera.fieldOfView += zoomCurrent;
+
+                //raycast to modify focus distance (a headache)
+                //RaycastHit hitFocusDistance;
+                //Ray FocusRay = new Ray(firstPersonCamera.transform.position, firstPersonCamera.transform.forward);
+                //Vector3 justAhead = firstPersonCamera.transform.forward + firstPersonCamera.transform.position;
+                //justAhead *= zoomCurrent;
+                //FloatParameter newDistance = new FloatParameter
+                //{
+                //value =
+                //Vector3.Distance(firstPersonCamera.transform.position, justAhead)
+                //};
+
+                //true if the zoomFOV was NOT above limit and can be modified
+                bool canModifyEffect = true;
+
+                
                 //checks to ensure the cameraFOV doesnt go over (or under) the bounds :/
-                if(firstPersonCamera.fieldOfView < zoomMinFov)
+                if (firstPersonCamera.fieldOfView < zoomMinFov)
                 {
                     firstPersonCamera.fieldOfView = zoomMinFov;
+                    canModifyEffect = false;
                 }
 
                 if (firstPersonCamera.fieldOfView > zoomMaxFov)
                 {
                     firstPersonCamera.fieldOfView = zoomMaxFov;
+                    canModifyEffect = false;
+                }
+
+                if(canModifyEffect)
+                {
+                    blurryEffect.focusDistance.value -= zoomCurrent;
                 }
             }
 
             //creature detection code
            
-            if (Input.GetKeyDown(KeyCode.Mouse0))
+            if (Input.GetKeyDown(KeyCode.Mouse0) && !cameraChargeWaiting)
             {
                 Debug.Log("Left mouse clicked!");
 
@@ -198,6 +259,13 @@ public class PlayableCamera : MonoBehaviour
                         Debug.Log("You hit creature type " + creatureInfo.CreatureID + " in the state: "
                             + creatureInfo.agentState);
 
+                        //as we have a photo, a camera charge gets consumed
+                        cameraChargesCurrent -= 1;
+                        //if all charges get consumed
+                        if(cameraChargesCurrent == 0)
+                        {
+                            cameraChargeWaiting = true;
+                        }
                         
                             //if saving photos is allowed
                             if (optionToSavePhoto)
@@ -277,6 +345,9 @@ public class PlayableCamera : MonoBehaviour
         //if we can capture the picture we just took and display it ingame
         if(canCaptureAsTexture)
         {
+            //blurryEffect.active = false;
+            uiCameraOverlay.SetActive(false);
+            firstPersonCamera.GetComponent<PostProcessLayer>().enabled = false;
             StartCoroutine(TakeAndGetTexturePhoto());
             //canCaptureAsTexture = false;
         }
@@ -289,6 +360,9 @@ public class PlayableCamera : MonoBehaviour
         //turn off UI
         uiCameraOverlay.SetActive(false);
         uiStandardOverlay.SetActive(false);
+        blurryEffect.active = false;
+        ppVolume.enabled = false;
+        PostProcessingObject.SetActive(false);
 
         //creation of texture and sprite
         var texture = ScreenCapture.CaptureScreenshotAsTexture();
@@ -317,8 +391,12 @@ public class PlayableCamera : MonoBehaviour
         uiCameraOverlay.SetActive(true);
         uiStandardOverlay.SetActive(true);
         canCaptureAsTexture = false;
+        blurryEffect.active = true;
+        PostProcessingObject.SetActive(true);
+        ppVolume.enabled = true;
+        firstPersonCamera.GetComponent<PostProcessLayer>().enabled = true;
         //UnityEngine.Object.Destroy(texture); //really should call this...
-   }
+    }
 
     //code to display hit detection
     void OnDrawGizmos()
