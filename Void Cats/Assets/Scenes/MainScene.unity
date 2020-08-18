@@ -718,7 +718,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 679901035}
-  m_Enabled: 0
+  m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 948f4100a11a5c24981795d21301da5c, type: 3}
   m_Name: 
@@ -1850,9 +1850,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bdb3e22c32aad37459ef23f791d180a0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  cameraWalkSpeed: 0.5
-  walkSpeed: 2
-  runSpeed: 6
+  cameraWalkSpeed: 1
+  walkSpeed: 4
+  runSpeed: 7
   gravity: -12
   jumpHeight: 1
   airControlPercent: 0
@@ -1903,6 +1903,12 @@ MonoBehaviour:
   uiCameraOverlay: {fileID: 815289730}
   uiStandardOverlay: {fileID: 2068112017}
   isCursorLocked: 0
+  cameraChargesMaxLimit: 3
+  cameraChargesCurrent: 3
+  cameraChargeCooldown: 5
+  cameraChargeWaiting: 0
+  PostProcessingObject: {fileID: 1082105765}
+  defaultBlur: 0.1
 --- !u!1 &1970880104
 GameObject:
   m_ObjectHideFlags: 0

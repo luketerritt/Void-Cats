@@ -119,13 +119,13 @@ public class PlayableCamera : MonoBehaviour
 
         //temp test code
 
-        if(Input.GetKeyDown(KeyCode.Space))
-        {
-            blurryEffect.active = false;
-            ppVolume.enabled = false;
-            PostProcessingObject.SetActive(false);
-            firstPersonCamera.GetComponent<PostProcessLayer>().enabled = false;
-        }
+        //if(Input.GetKeyDown(KeyCode.Space))
+        //{
+        //    blurryEffect.active = false;
+        //    ppVolume.enabled = false;
+        //    PostProcessingObject.SetActive(false);
+        //    firstPersonCamera.GetComponent<PostProcessLayer>().enabled = false;
+        //}
     }
 
     //updates all camera related info (movement/controls, checking for creatures, taking the photo?)
