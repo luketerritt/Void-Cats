@@ -16,7 +16,7 @@ public class LightingManager : MonoBehaviour
 
     [SerializeField] private Light directionalLight;
     [SerializeField] private LightingPreset preset;
-    [SerializeField, Range(0,24)] private float currentTimeOfDay;
+    [SerializeField, Range(0,24)] public float currentTimeOfDay;
     public Quater currentQuater;
     public float timeScaleMultiplier = 1.0f;
     public float daysPast = 0;
