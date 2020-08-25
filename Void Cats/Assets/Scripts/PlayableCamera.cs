@@ -69,6 +69,7 @@ public class PlayableCamera : MonoBehaviour
     private DepthOfField blurryEffect;
 
     public float defaultBlur;
+    public bool readyFlash = false;
 
     // Start is called before the first frame update
     void Start()
@@ -101,9 +102,11 @@ public class PlayableCamera : MonoBehaviour
             Cursor.visible = true;
         }
 
+        
+
         //update camera charges
         //if the current number of charges is less than the max number of stored charges
-        if(cameraChargesCurrent < cameraChargesMaxLimit)
+        if (cameraChargesCurrent < cameraChargesMaxLimit)
         {
             //add to iterator
             cameraChargeIterator += Time.deltaTime;
@@ -169,7 +172,8 @@ public class PlayableCamera : MonoBehaviour
             blurryEffect.active = !blurryEffect.active;
             blurryEffect.focusDistance.value = defaultBlur;
             //firstPersonCamera.GetComponent<PostProcessLayer>().enabled = !firstPersonCamera.GetComponent<PostProcessLayer>().enabled;
-        }
+            readyFlash = false;
+        }        
      
         //if we are in first person and the journal is NOT open
         if(inFirstPerson && !tempJournal.activeSelf)
@@ -228,6 +232,7 @@ public class PlayableCamera : MonoBehaviour
             if (Input.GetKeyDown(KeyCode.Mouse0) && !cameraChargeWaiting)
             {
                 Debug.Log("Left mouse clicked!");
+                readyFlash = true;
 
                 //as we have tried to take a photo, a camera charge gets consumed
                 cameraChargesCurrent -= 1;
@@ -263,92 +268,102 @@ public class PlayableCamera : MonoBehaviour
                 if (hitDetection)
                 {
                     //make sure the hit has the tag Creature
-                    if(hit.collider.gameObject.CompareTag("Creature"))
+                    if (hit.collider.gameObject.CompareTag("Creature"))
                     {
                         //creature info = the hit creatures information
                         var creatureInfo = hit.collider.gameObject.GetComponent<TestCreature>().info;
                         Debug.Log("You hit creature type " + creatureInfo.CreatureID + " in the state: "
                             + creatureInfo.agentState);
 
-                        
-                        
-                            //if saving photos is allowed
-                            if (optionToSavePhoto)
-                            {   //turn off the UI
-                                uiCameraOverlay.SetActive(false);
-                                uiStandardOverlay.SetActive(false);
-                                //create a string with time formatting so they dont overwrite if the same condtions are met
-                                //an example PNG name will end up like "Block-Sleep-31-Jan-11-59-59"
-                                string time = DateTime.Now.ToString("dd MMM HH:mm:ss"); //dd MMM HH:mm:ss HH:mm:ss.ffffzzz
-                                time = time.Replace(":", "-");//replace instances of : with -
-                                time = time.Replace(" ", "-");//replace instances of "space" with -
-                                time = time.Replace(".", "");//replace instances of . with nothing
-                                ScreenCapture.CaptureScreenshot("" + creatureInfo.CreatureName + "-" + creatureInfo.agentState + "-" + time + ".png");
-                                Debug.Log("Photo Should have saved!");
-                                
-                            }
-                            else
-                            {
-                                Debug.Log("Photo Saving Disabled!");
-                            }
 
 
-                            switch(creatureInfo.CreatureID)
-                            {
-                                case (0): //the hit creature is DEBUG BLOCK, dont do anything as FISH should be implemented
-                                    {
-                                      /*  //for (int i = 0; i < GameStorageData.BlockPhotoRequirements.Length; i++)
-                                        {
-                                            //check the state of the required photo vs state we found and that a photo does not exist there already
-                                            if (creatureInfo.agentState == GameStorageData.BlockPhotoRequirements[i].agentState
-                                                && !GameStorageData.BlockPhotosIsTaken[i])
-                                            {
-                                                //assign variables based on check and set boolean to allow coroutine
-                                                //textureCaptureCreatureType = creatureInfo.CreatureID; //you equal 0 as this check only happens if ID is 0
-                                                //textureLocationInArray = i;
-                                                //canCaptureAsTexture = true;
-                                            }
-                                        }*/
-                                        break;
-                                    }
-                                case (1): // the hit creature is a FISH
-                                    {
-                                        for (int i = 0; i < GameStorageData.FishPhotoRequirements.Length; i++)
-                                        {
-                                            //check the state of the required photo vs state we found and that a photo does not exist there already
-                                            if (creatureInfo.agentState == GameStorageData.FishPhotoRequirements[i].agentState
-                                                && !GameStorageData.FishPhotosIsTaken[i])
-                                            {
-                                                //assign variables based on check and set boolean to allow coroutine
-                                                textureCaptureCreatureType = creatureInfo.CreatureID; //you equal 0 as this check only happens if ID is 0
-                                                textureLocationInArray = i;
-                                                canCaptureAsTexture = true;                                                
-                                            }
-                                        }
-                                        break;
-                                    }
-                                case (2): //the hit creature is a Dog (copy above code below) EXTEND SECTION
-                                    {
-                                        for (int i = 0; i < GameStorageData.DogPhotoRequirements.Length; i++)
-                                        {
-                                            //check the state of the required photo vs state we found and that a photo does not exist there already
-                                            if (creatureInfo.agentState == GameStorageData.DogPhotoRequirements[i].agentState
-                                                && !GameStorageData.DogPhotosIsTaken[i])
-                                            {
-                                                //assign variables based on check and set boolean to allow coroutine
-                                                textureCaptureCreatureType = creatureInfo.CreatureID; //you equal 0 as this check only happens if ID is 0
-                                                textureLocationInArray = i;
-                                                canCaptureAsTexture = true;
-                                            }
-                                        }
+                        //if saving photos is allowed
+                        if (optionToSavePhoto)
+                        {   //turn off the UI
+                            uiCameraOverlay.SetActive(false);
+                            uiStandardOverlay.SetActive(false);
+                            //create a string with time formatting so they dont overwrite if the same condtions are met
+                            //an example PNG name will end up like "Block-Sleep-31-Jan-11-59-59"
+                            string time = DateTime.Now.ToString("dd MMM HH:mm:ss"); //dd MMM HH:mm:ss HH:mm:ss.ffffzzz
+                            time = time.Replace(":", "-");//replace instances of : with -
+                            time = time.Replace(" ", "-");//replace instances of "space" with -
+                            time = time.Replace(".", "");//replace instances of . with nothing
+                            ScreenCapture.CaptureScreenshot("" + creatureInfo.CreatureName + "-" + creatureInfo.agentState + "-" + time + ".png");
+                            Debug.Log("Photo Should have saved!");
+
+                        }
+                        else
+                        {
+                            Debug.Log("Photo Saving Disabled!");
+                        }
+
+
+                        switch (creatureInfo.CreatureID)
+                        {
+                            case (0): //the hit creature is DEBUG BLOCK, dont do anything as FISH should be implemented
+                                {
+                                    /*  //for (int i = 0; i < GameStorageData.BlockPhotoRequirements.Length; i++)
+                                      {
+                                          //check the state of the required photo vs state we found and that a photo does not exist there already
+                                          if (creatureInfo.agentState == GameStorageData.BlockPhotoRequirements[i].agentState
+                                              && !GameStorageData.BlockPhotosIsTaken[i])
+                                          {
+                                              //assign variables based on check and set boolean to allow coroutine
+                                              //textureCaptureCreatureType = creatureInfo.CreatureID; //you equal 0 as this check only happens if ID is 0
+                                              //textureLocationInArray = i;
+                                              //canCaptureAsTexture = true;
+                                          }
+                                      }*/
                                     break;
+                                }
+                            case (1): // the hit creature is a FISH
+                                {
+                                    for (int i = 0; i < GameStorageData.FishPhotoRequirements.Length; i++)
+                                    {
+                                        //check the state of the required photo vs state we found and that a photo does not exist there already
+                                        if (creatureInfo.agentState == GameStorageData.FishPhotoRequirements[i].agentState
+                                            && !GameStorageData.FishPhotosIsTaken[i])
+                                        {
+                                            //assign variables based on check and set boolean to allow coroutine
+                                            textureCaptureCreatureType = creatureInfo.CreatureID; //you equal 0 as this check only happens if ID is 0
+                                            textureLocationInArray = i;
+                                            canCaptureAsTexture = true;
+                                        }
                                     }
+                                    break;
+                                }
+                            case (2): //the hit creature is a Dog (copy above code below) EXTEND SECTION
+                                {
+                                    for (int i = 0; i < GameStorageData.DogPhotoRequirements.Length; i++)
+                                    {
+                                        //check the state of the required photo vs state we found and that a photo does not exist there already
+                                        if (creatureInfo.agentState == GameStorageData.DogPhotoRequirements[i].agentState
+                                            && !GameStorageData.DogPhotosIsTaken[i])
+                                        {
+                                            //assign variables based on check and set boolean to allow coroutine
+                                            textureCaptureCreatureType = creatureInfo.CreatureID; //you equal 0 as this check only happens if ID is 0
+                                            textureLocationInArray = i;
+                                            canCaptureAsTexture = true;
+                                        }
+                                    }
+                                    break;
+                                }
 
-                            }
-                        
+                        }
+
                     }
-                    
+                    //else // we didnt hit a creature
+                    //{
+                        //flash the camera anyways
+                        //readyFlash = true;
+                    //}
+
                 }
+                //else // we didnt hit anything
+                //{
+                    //flash the camera anyways
+                    //readyFlash = true;
+                //}
 
             }
         }
@@ -368,6 +383,7 @@ public class PlayableCamera : MonoBehaviour
             uiCameraOverlay.SetActive(false);
             firstPersonCamera.GetComponent<PostProcessLayer>().enabled = false;
             StartCoroutine(TakeAndGetTexturePhoto());
+            readyFlash = true;
             //canCaptureAsTexture = false;
         }
     }
@@ -422,6 +438,9 @@ public class PlayableCamera : MonoBehaviour
         PostProcessingObject.SetActive(true);
         ppVolume.enabled = true;
         firstPersonCamera.GetComponent<PostProcessLayer>().enabled = true;
+
+        //flash the camera anyways
+        
         //UnityEngine.Object.Destroy(texture); //really should call this...
     }
 
