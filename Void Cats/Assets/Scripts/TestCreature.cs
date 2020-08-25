@@ -79,7 +79,24 @@ public class TestCreature : MonoBehaviour
 
     private float losePlayerIterator = 0.0f;
 
+    public float speed = 3;
+
+    public float runSpeed = 10;
+
     public bool passiveCreatureType = false;
+
+    //drop in bush gameObjects, which this creature should go and eat at
+    public GameObject[] FoodLocations;
+
+    //drop in gameObjects (can be empty as long as it has transform), where creature should do unique actions
+    public GameObject[] UniqueLocations;
+
+    //the variable used to determine which foodLocation or UniqueLocation a creature can go to
+    private int randomLocation = 0;
+
+    //copy of the player -- used to get its transform
+    private GameObject PlayerObject;
+
 
     // Start is called before the first frame update
     void Start()
@@ -136,8 +153,18 @@ public class TestCreature : MonoBehaviour
                 }
             
         }
-        
+
+        //error checking incase food locations and unique locations are null
+        if(FoodLocations[0] == null || UniqueLocations[0] == null)
+        {
+            Debug.Log("Creature " + this.gameObject + " FoodLocations or UniqueLocations is null!");
+            FoodLocations[0] = this.gameObject;
+            UniqueLocations[0] = this.gameObject;
+        }
+        PlayerObject = GameObject.FindGameObjectWithTag("Player");
+
         navMeshAgent = this.GetComponent<NavMeshAgent>();
+        navMeshAgent.speed = speed;
     }
 
     // Update is called once per frame
@@ -176,6 +203,11 @@ public class TestCreature : MonoBehaviour
                     washFaceState();
                     break;
                 }
+            case (CreatureState)5:
+                {
+                    chaseTailState(); //5 = chase tail -- UNIQUE TO DOG, goto location, play tail chase animation
+                    break;
+                }
         }
 
     }
@@ -184,9 +216,8 @@ public class TestCreature : MonoBehaviour
     {
         var timeState = lightingManager.GetComponent<LightingManager>().currentQuater;
 
-        //check if the creature can see the player before checking what time it is
-        var tempPlayer = GameObject.FindGameObjectWithTag("Player");
-        float tempDistance = Vector3.Distance(this.transform.position, tempPlayer.transform.position);
+        
+        float tempDistance = Vector3.Distance(this.transform.position, PlayerObject.transform.position);
         
         //if the distance between the player and the creature is less than the eye strength
         if(tempDistance < eyeStrength)
@@ -212,7 +243,7 @@ public class TestCreature : MonoBehaviour
                 }
             }
             //if the player is not on the ground -- THIS WILL NEED TESTING on various terrain!
-            if(!tempPlayer.GetComponent<CharacterController>().isGrounded
+            if(PlayerObject.GetComponent<CharacterController>().isGrounded
                 && info.agentState != CreatureState.Sleep)
             {
                 Debug.Log("Player was Found in the air");
@@ -323,29 +354,35 @@ public class TestCreature : MonoBehaviour
                     }
                 case 1: //Fish
                     {
-                        //if it is LateNight
+                        //if it is LateNight - Fish should wash its face
                         if ((int)timeState == 0)
-                        {
-                            //if the AgentState is not in the desired state yet it becomes the desired state
-                            if (/*AgentState*/ info.agentState != (CreatureState)2) //it may lead to bugs down the line when agent state does not match the state the time gives -- (add other states to the check here) 
-                            {
-                                //PreviousState = info.agentState; //assign the previous state
-                                /*AgentState*/
-                                info.agentState = (CreatureState)2; //agent goes to sleep
-                                stateJustChanged = true;
-                                //return;
-                                break;
-                            }
-                            break;
-                        }
-
-                        //if it is Morning
-                        if ((int)timeState == 1)
                         {
                             if (info.agentState != (CreatureState)4)
                             {
                                 //PreviousState = info.agentState; //assign the previous state
-                                info.agentState = (CreatureState)4; //agent washes face
+                                info.agentState = (CreatureState)4; //agent washes face - UNIQUE
+                                if (UniqueLocations.Length <= 1)
+                                {
+                                    randomLocation = 0;
+                                }
+                                else
+                                {
+                                    randomLocation = Random.Range(0, UniqueLocations.Length);
+                                }
+
+                                stateJustChanged = true;
+                                break;
+                            }
+                            break;
+                        }
+
+                        //if it is Morning - Fish go to sleep
+                        if ((int)timeState == 1)
+                        {
+                            if (info.agentState != (CreatureState)2)
+                            {
+                                //PreviousState = info.agentState; //assign the previous state
+                                info.agentState = (CreatureState)2; //agent sleeps
                                 stateJustChanged = true;
                                 break;
                             }
@@ -353,20 +390,107 @@ public class TestCreature : MonoBehaviour
                             break;
                         }
 
-                        //if it is Afternoon
+                        //if it is Afternoon - Fish go to sleep
                         if ((int)timeState == 2)
+                        {
+                            if (info.agentState != (CreatureState)2)
+                            {
+                                //PreviousState = info.agentState; //assign the previous state
+                                info.agentState = (CreatureState)2; //agent sleeps
+                                stateJustChanged = true;
+                                break;
+                            }
+                            break;
+
+                        }
+                        //if it is Night - Fish go and eat
+                        if ((int)timeState == 3)
                         {
                             if (info.agentState != (CreatureState)3)
                             {
                                 //PreviousState = info.agentState; //assign the previous state
                                 info.agentState = (CreatureState)3; //agent "goes for food"
+
+                                //if the size of the foodlocations is less than 1
+                                if (FoodLocations.Length <= 1)
+                                {
+                                    randomLocation = 0;
+                                }
+                                else
+                                {
+                                    randomLocation = Random.Range(0, FoodLocations.Length);
+                                }
+
+                                stateJustChanged = true;
+                                break;
+                            }
+                            break;
+                        }
+                        break;
+                    }
+                case 2: //Dog
+                    {
+                        //if it is LateNight - Dog should be asleep
+                        if ((int)timeState == 0)
+                        {
+                            if (info.agentState != (CreatureState)2)
+                            {
+                                //PreviousState = info.agentState; //assign the previous state
+                                info.agentState = (CreatureState)2; //agent sleeps
+                                stateJustChanged = true;
+                                break;
+                            }
+                            break;
+                        }
+
+                        //if it is Morning - Dog should eat
+                        if ((int)timeState == 1)
+                        {
+                            if (info.agentState != (CreatureState)3)
+                            {
+                                //PreviousState = info.agentState; //assign the previous state
+                                info.agentState = (CreatureState)3; //agent "goes for food"
+
+                                //if the size of the foodlocations is less than 1
+                                if (FoodLocations.Length <= 1)
+                                {
+                                    randomLocation = 0;
+                                }
+                                else
+                                {
+                                    randomLocation = Random.Range(0, FoodLocations.Length);
+                                }
+
+                                stateJustChanged = true;
+                                break;
+                            }
+
+                            break;
+                        }
+
+                        //if it is Afternoon - Dog should chase its tail
+                        if ((int)timeState == 2)
+                        {
+                            if (info.agentState != (CreatureState)5)
+                            {
+                                //PreviousState = info.agentState; //assign the previous state
+                                info.agentState = (CreatureState)5; //agent chases tail - UNIQUE
+                                if (UniqueLocations.Length <= 1)
+                                {
+                                    randomLocation = 0;
+                                }
+                                else
+                                {
+                                    randomLocation = Random.Range(0, UniqueLocations.Length);
+                                }
+
                                 stateJustChanged = true;
                                 break;
                             }
                             break;
 
                         }
-                        //if it is Night
+                        //if it is Night - Dog should sleep
                         if ((int)timeState == 3)
                         {
                             if (info.agentState != (CreatureState)2)
@@ -389,27 +513,35 @@ public class TestCreature : MonoBehaviour
         
       
 
-    
+    //this happens if the creature sees the player and is a shy/scared type
     void fleeState()
     {
        if(stateJustChanged)
        {
-            //if(PreviousState == (CreatureState)2)
-            //{
-            //    transform.rotation *= Quaternion.Euler(-90.0f, 0, 0);
-            //}
-            //else
-            //{
-            //    transform.rotation *= Quaternion.Euler(0, 0, 0);
-            //}
-            
+            navMeshAgent.speed = runSpeed;
             stateJustChanged = false;
        }
 
+        //get the players location
+        Vector3 tempLocation = PlayerObject.transform.position;       
+        Vector3 tempForward = PlayerObject.GetComponent<PlayableCamera>().firstPersonCamera.transform.forward;
 
+        float distance = Vector3.Distance(tempLocation, transform.position);
 
-        Vector3 tempLocation = new Vector3(-5, 0, 0);
-        navMeshAgent.SetDestination(tempLocation);
+        //get the opposite direction      
+        tempForward *= (distance * 2);
+
+        tempForward += tempLocation;
+
+        //multiply by -1
+        //tempLocation *= -1;
+        //scale based on direction
+        //tempLocation *= distance;
+
+        //Debug.Log("Flee state, going to " + tempForward);
+
+        //goto a location in the opposite direction
+        navMeshAgent.SetDestination(tempForward);
 
     }
 
@@ -417,6 +549,7 @@ public class TestCreature : MonoBehaviour
     {
        if(stateJustChanged)
        {
+            navMeshAgent.speed = speed;
             transform.rotation *= Quaternion.Euler(0, 0, 0);
             stateJustChanged = false;
        }
@@ -436,6 +569,7 @@ public class TestCreature : MonoBehaviour
     {
         if(stateJustChanged)
         {
+            navMeshAgent.speed = speed;
             //need a way to apply this just once -- BINGO
             //transform.rotation *= Quaternion.Euler(90.0f, 0, 0);
             stateJustChanged = false;
@@ -452,24 +586,78 @@ public class TestCreature : MonoBehaviour
     {
         if (stateJustChanged)
         {
-            transform.rotation *= Quaternion.Euler(0, 0, 0);
+            navMeshAgent.speed = speed;
+            //transform.rotation *= Quaternion.Euler(0, 0, 0);
             stateJustChanged = false;
         }
 
-        Vector3 tempLocation = new Vector3(10,0,-10);
+
+        Vector3 tempLocation = FoodLocations[randomLocation].transform.position;
         navMeshAgent.SetDestination(tempLocation);
+        //Debug.Log("Eat state, going to " + tempLocation);
+
+        //if you get close enough to your destination
+        float distance = Vector3.Distance(tempLocation, transform.position);
+        if(distance <= 2)
+        {
+            //set the new position to go to be the spot you are standing
+            navMeshAgent.SetDestination(this.transform.position);
+            //Debug.Log("" + this.gameObject + " reached a bush");
+
+            //probably play eat animation here
+        }
     }
 
+    // a unique behaviour to the FISH, which has it go to an empty gameobject near a water source
     void washFaceState()
     {
         if (stateJustChanged)
         {
-            transform.rotation *= Quaternion.Euler(0, 0, 0);
+            navMeshAgent.speed = speed;
+            //transform.rotation *= Quaternion.Euler(0, 0, 0);
             stateJustChanged = false;
         }
 
-        Vector3 tempLocation = new Vector3(0, 0, 10);
+        Vector3 tempLocation = UniqueLocations[randomLocation].transform.position;
         navMeshAgent.SetDestination(tempLocation);
+
+        //Debug.Log("Wash state, going to " + tempLocation);
+        //if you get close enough to your destination
+        float distance = Vector3.Distance(tempLocation, transform.position);
+        if (distance <= 2)
+        {
+            //set the new position to go to be the spot you are standing
+            navMeshAgent.SetDestination(this.transform.position);
+            //Debug.Log("" + this.gameObject + " reached a bush");
+
+            //probably play wash face animation here
+        }
+    }
+
+    //a unique behaviour to the DOG, in which it goes to a set location and plays an animation
+    void chaseTailState()
+    {
+        if (stateJustChanged)
+        {
+            navMeshAgent.speed = speed;
+            //transform.rotation *= Quaternion.Euler(0, 0, 0);
+            stateJustChanged = false;
+        }
+
+        Vector3 tempLocation = UniqueLocations[randomLocation].transform.position;
+        navMeshAgent.SetDestination(tempLocation);
+
+        //Debug.Log("Wash state, going to " + tempLocation);
+        //if you get close enough to your destination
+        float distance = Vector3.Distance(tempLocation, transform.position);
+        if (distance <= 2)
+        {
+            //set the new position to go to be the spot you are standing
+            navMeshAgent.SetDestination(this.transform.position);
+            //Debug.Log("" + this.gameObject + " reached a bush");
+
+            //probably play chase tail animation here -- MAYBE apply rotations?
+        }
     }
 
     //allows the agent to rotate towards an object without affecting the Y axis

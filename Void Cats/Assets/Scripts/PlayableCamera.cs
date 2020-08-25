@@ -28,7 +28,7 @@ public class PlayableCamera : MonoBehaviour
     private float defaultFov;
 
     //boxcast variables   
-    public float CreatureCheckDistance = 10.0f;
+    public float CreatureCheckDistance = 100.0f;
     [HideInInspector]
     public RaycastHit hit; //only use this in creature boxcast and drawGizmos code!
     [HideInInspector]
@@ -229,6 +229,14 @@ public class PlayableCamera : MonoBehaviour
             {
                 Debug.Log("Left mouse clicked!");
 
+                //as we have tried to take a photo, a camera charge gets consumed
+                cameraChargesCurrent -= 1;
+                //if all charges get consumed
+                if (cameraChargesCurrent == 0)
+                {
+                    cameraChargeWaiting = true;
+                }
+
                 /*//hit detection based on layer
                 //(the problem is that it ignores ALL but creature so if there is a tree in front of the creature it stills works)
 
@@ -242,11 +250,14 @@ public class PlayableCamera : MonoBehaviour
                 //create a bitmask to ignore layer 9, should be used for forms of foilage, tall grass etc
                 int layerMask = 1 << 9;
                 layerMask = ~layerMask;
+                float tempDistance = CreatureCheckDistance - firstPersonCamera.fieldOfView;
 
                 //peform the boxcast
                 hitDetection = Physics.BoxCast(firstPersonCamera.transform.position, firstPersonCamera.transform.localScale * detectionSizeModifier,
                   firstPersonCamera.transform.forward, out hit, firstPersonCamera.transform.rotation,
-                CreatureCheckDistance, layerMask);
+                tempDistance, layerMask);
+
+                Debug.Log("camera distance = " + tempDistance);
 
                 //if there is a hit
                 if (hitDetection)
@@ -259,13 +270,7 @@ public class PlayableCamera : MonoBehaviour
                         Debug.Log("You hit creature type " + creatureInfo.CreatureID + " in the state: "
                             + creatureInfo.agentState);
 
-                        //as we have a photo, a camera charge gets consumed
-                        cameraChargesCurrent -= 1;
-                        //if all charges get consumed
-                        if(cameraChargesCurrent == 0)
-                        {
-                            cameraChargeWaiting = true;
-                        }
+                        
                         
                             //if saving photos is allowed
                             if (optionToSavePhoto)
@@ -322,8 +327,22 @@ public class PlayableCamera : MonoBehaviour
                                         }
                                         break;
                                     }
-                                //case (2): //the hit creature is a Dog (copy above code below) EXTEND SECTION
-
+                                case (2): //the hit creature is a Dog (copy above code below) EXTEND SECTION
+                                    {
+                                        for (int i = 0; i < GameStorageData.DogPhotoRequirements.Length; i++)
+                                        {
+                                            //check the state of the required photo vs state we found and that a photo does not exist there already
+                                            if (creatureInfo.agentState == GameStorageData.DogPhotoRequirements[i].agentState
+                                                && !GameStorageData.DogPhotosIsTaken[i])
+                                            {
+                                                //assign variables based on check and set boolean to allow coroutine
+                                                textureCaptureCreatureType = creatureInfo.CreatureID; //you equal 0 as this check only happens if ID is 0
+                                                textureLocationInArray = i;
+                                                canCaptureAsTexture = true;
+                                            }
+                                        }
+                                    break;
+                                    }
 
                             }
                         
@@ -377,14 +396,22 @@ public class PlayableCamera : MonoBehaviour
                 Debug.Log("Block pictures cannot be displayed in the journal! Set the Block to be a Fish for debug if needed!");
                 break;
             }
-            case (1): //FISH test creature
+            case (1): //FISH
             {   //assign bool stating texture has been asigned, and assign sprite                
                 GameStorageData.FishPhotosIsTaken[textureLocationInArray] = true;
                 GameStorageData.FishSprites[textureLocationInArray] = newSprite;
                 GameStorageData.UpdateInfo = true;
                     break;
             }
-
+            case (2): //DOG
+            {
+                //assign bool stating texture has been asigned, and assign sprite                
+                GameStorageData.DogPhotosIsTaken[textureLocationInArray] = true;
+                GameStorageData.DogSprites[textureLocationInArray] = newSprite;
+                GameStorageData.UpdateInfo = true;
+                break;
+            }
+    
                 //extend for other creatures!!! EXTEND SECTION
         }
         //turn UI back on

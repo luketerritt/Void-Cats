@@ -22,6 +22,8 @@ public class TimeOfDayUI : MonoBehaviour
     //is it the version that snaps by 90 degrees each time?
     public bool SnapVersion = false;
 
+    //true for 24 hours, false for 12 hours
+    public bool Smooth24HourVersion = false;
     void Start()
     {
         //previousTime = LightingObject.GetComponent<LightingManager>().currentTimeOfDay;
@@ -55,9 +57,20 @@ public class TimeOfDayUI : MonoBehaviour
         }
         else //you should smoothly rotate?
         {
-            float currentTime = LightingObject.GetComponent<LightingManager>().currentTimeOfDay;
-            currentTime /= 24;
-            temp.transform.localRotation = Quaternion.Euler(new Vector3(0f, 170f, (currentTime * 360f) - 90f));
+            //you are the version that is 24 hour based (LN, M, A, N)
+            if(Smooth24HourVersion)
+            {
+                float currentTime = LightingObject.GetComponent<LightingManager>().currentTimeOfDay;
+                currentTime /= 24; //24 //12
+                temp.transform.localRotation = Quaternion.Euler(new Vector3(0f, 170f, (currentTime * 360f) - 90f));
+            }
+            else //you are the version that is 12 hour based (like a real analogue clock)
+            {
+                float currentTime = LightingObject.GetComponent<LightingManager>().currentTimeOfDay;
+                currentTime /= 12; //24 //12
+                temp.transform.localRotation = Quaternion.Euler(new Vector3(0f, 170f, (currentTime * 360f)/* - 90f*/));
+            }
+            
         }
         
 

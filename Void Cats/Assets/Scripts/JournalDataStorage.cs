@@ -25,7 +25,7 @@ public class JournalDataStorage : MonoBehaviour
     //modify in editor - the spots where a tick or checkmark (etc) - checklist 
     public GameObject[] FishChecklistSpots = new GameObject[defaultArraySize];
 
-    /*
+    
     //Dog Containers
     [HideInInspector]
     public CreatureInfo[] DogPhotoRequirements = new CreatureInfo[defaultArraySize];
@@ -33,9 +33,12 @@ public class JournalDataStorage : MonoBehaviour
     public bool[] DogPhotosIsTaken = new bool[defaultArraySize] { false, false, false, false };
     //[HideInInspector]
     public Sprite[] DogSprites = new Sprite[defaultArraySize];
-    //modify in editor
+    //modify in editor - the spots where the new photo will exist - photo gallery
     public GameObject[] DogJournalSpots = new GameObject[defaultArraySize];
+    //modify in editor - the spots where a tick or checkmark (etc) - checklist 
+    public GameObject[] DogChecklistSpots = new GameObject[defaultArraySize];
 
+    /*
     //Tiger Containers
     [HideInInspector]
     public CreatureInfo[] TigerPhotoRequirements = new CreatureInfo[defaultArraySize];
@@ -119,16 +122,22 @@ public class JournalDataStorage : MonoBehaviour
 
             FishPhotoRequirements[i].CreatureID = 1;
             FishPhotoRequirements[i].CreatureName = "Fish"; //change this to whatever the final name is!
-
+            
+            DogPhotoRequirements[i].CreatureID = 2;
+            DogPhotoRequirements[i].CreatureName = "Dog";
             //EXTEND SECTION
-
-        }        
+        }
 
         //modify to relevant photos requirements
         FishPhotoRequirements[0].agentState = (CreatureState)3; //eat
         FishPhotoRequirements[1].agentState = (CreatureState)2; //sleep
-        FishPhotoRequirements[2].agentState = (CreatureState)1; //notice
+        FishPhotoRequirements[2].agentState = (CreatureState)0; //player interaction here - flee
         FishPhotoRequirements[3].agentState = (CreatureState)4; //unique one here! -- wash face
+
+        DogPhotoRequirements[0].agentState = (CreatureState)3; //eat
+        DogPhotoRequirements[1].agentState = (CreatureState)2; //sleep
+        DogPhotoRequirements[2].agentState = (CreatureState)1; //player interaction here - notice
+        DogPhotoRequirements[3].agentState = (CreatureState)5; //unique one here! -- chase tail
 
         //EXTEND SECTION
     }
@@ -140,7 +149,7 @@ public class JournalDataStorage : MonoBehaviour
         //if we need to update journal picture information
         if(temp.UpdateInfo)
         {
-            //update the textures for block materials
+            //update the textures
             for (int i = 0; i < defaultArraySize; i++)
             {
                 //BlockPhotos[i] = temp.BlockPhotos[i];
@@ -149,6 +158,8 @@ public class JournalDataStorage : MonoBehaviour
 
                 //Debug.Log("" + i);
                 //FishPhotos[i] = temp.FishPhotos[i];
+
+                //fish update
                 FishPhotosIsTaken[i] = temp.FishPhotosIsTaken[i];
                 FishSprites[i] = temp.FishSprites[i];
                 FishJournalSpots[i].gameObject.GetComponent<Image>().sprite = FishSprites[i];
@@ -158,6 +169,15 @@ public class JournalDataStorage : MonoBehaviour
                     FishChecklistSpots[i].gameObject.GetComponent<Image>().sprite = ChecklistTick;
                 }
 
+                //dog update
+                DogPhotosIsTaken[i] = temp.DogPhotosIsTaken[i];
+                DogSprites[i] = temp.DogSprites[i];
+                DogJournalSpots[i].gameObject.GetComponent<Image>().sprite = DogSprites[i];
+
+                if (DogPhotosIsTaken[i])
+                {
+                    DogChecklistSpots[i].gameObject.GetComponent<Image>().sprite = ChecklistTick;
+                }
                 //repeat EXTEND SECTION
             }
             temp.UpdateInfo = false;
