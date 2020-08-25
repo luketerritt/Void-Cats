@@ -5,7 +5,7 @@ using UnityEngine;
 using UnityEngine.UIElements;
 using CreatureContainers;
 
-//this namespace contains the containers for creature data
+//this namespace contains the containers for creature data :)
 namespace CreatureContainers
 {
     public enum CreatureState

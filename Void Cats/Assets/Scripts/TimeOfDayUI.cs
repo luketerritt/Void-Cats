@@ -5,7 +5,7 @@ using UnityEngine;
 
 public class TimeOfDayUI : MonoBehaviour
 {
-    //MODIFY THE ROTATION IN INSPECTOR TO GET CORRECT START ROTATION (rotation.z)
+    //MODIFY THE ROTATION IN INSPECTOR TO GET CORRECT START ROTATION (rotation.z) :)
     //snap version---------------------------------------------------------------------
     //late night - 90 or 135
     //morning - 180 or 225

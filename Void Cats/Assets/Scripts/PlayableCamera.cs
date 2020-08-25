@@ -6,7 +6,7 @@ using UnityEngine.Assertions.Must;
 using UnityEngine.Rendering.PostProcessing;
 
 
-//this is a prototype class which WILL need to be merged with a character controller
+//this is a prototype class which WILL need to be merged with a character controller :)
 //this script contains code related to the first person camera used in Clic
 public class PlayableCamera : MonoBehaviour
 {

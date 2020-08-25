@@ -4,7 +4,7 @@ using UnityEngine;
 using CreatureContainers;
 using UnityEngine.UI;
 
-//this script stores information taken from the camera to be displayed in the journal
+//this script stores information taken from the camera to be displayed in the journal :)
 public class JournalDataStorage : MonoBehaviour
 {
     //change to four when move behaviours are implemented!
