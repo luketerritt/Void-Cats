@@ -16,12 +16,12 @@ public class CameraFlash : MonoBehaviour
     void Update()
     {
         //check the player to see if the flash can be turned on
-        bool temp = PlayerObject.GetComponent<PlayableCamera>().readyFlash;
+        //bool temp = PlayerObject.GetComponent<PlayableCamera>().readyFlash;
 
-        if (temp)
-        {
-            canAnimate = true;
-        }
+        //if (temp)
+        //{
+        //    canAnimate = true;
+        //}
 
         if(canAnimate)
         {
@@ -34,6 +34,6 @@ public class CameraFlash : MonoBehaviour
         AnimPanel.SetBool("CameraFlash", false);
         canAnimate = false;
         //turn off the camera flash (incase its on from a previous frame)
-        PlayerObject.GetComponent<PlayableCamera>().readyFlash = false;
+        //PlayerObject.GetComponent<PlayableCamera>().readyFlash = false;
     }
 }

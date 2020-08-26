@@ -69,7 +69,9 @@ public class PlayableCamera : MonoBehaviour
     private DepthOfField blurryEffect;
 
     public float defaultBlur;
-    public bool readyFlash = false;
+    //public bool readyFlash = false;
+
+    private bool failedPhoto = false;
 
     // Start is called before the first frame update
     void Start()
@@ -172,7 +174,7 @@ public class PlayableCamera : MonoBehaviour
             blurryEffect.active = !blurryEffect.active;
             blurryEffect.focusDistance.value = defaultBlur;
             //firstPersonCamera.GetComponent<PostProcessLayer>().enabled = !firstPersonCamera.GetComponent<PostProcessLayer>().enabled;
-            readyFlash = false;
+            //readyFlash = false;
         }        
      
         //if we are in first person and the journal is NOT open
@@ -232,7 +234,8 @@ public class PlayableCamera : MonoBehaviour
             if (Input.GetKeyDown(KeyCode.Mouse0) && !cameraChargeWaiting)
             {
                 Debug.Log("Left mouse clicked!");
-                readyFlash = true;
+                //readyFlash = true;
+                failedPhoto = true;
 
                 //as we have tried to take a photo, a camera charge gets consumed
                 cameraChargesCurrent -= 1;
@@ -296,7 +299,11 @@ public class PlayableCamera : MonoBehaviour
                         {
                             Debug.Log("Photo Saving Disabled!");
                         }
-
+                        if(failedPhoto)
+                        {
+                            uiCameraOverlay.SetActive(false);
+                            uiStandardOverlay.SetActive(false);
+                        }
 
                         switch (creatureInfo.CreatureID)
                         {
@@ -328,6 +335,7 @@ public class PlayableCamera : MonoBehaviour
                                             textureCaptureCreatureType = creatureInfo.CreatureID; //you equal 0 as this check only happens if ID is 0
                                             textureLocationInArray = i;
                                             canCaptureAsTexture = true;
+                                            failedPhoto = false;
                                         }
                                     }
                                     break;
@@ -344,6 +352,7 @@ public class PlayableCamera : MonoBehaviour
                                             textureCaptureCreatureType = creatureInfo.CreatureID; //you equal 0 as this check only happens if ID is 0
                                             textureLocationInArray = i;
                                             canCaptureAsTexture = true;
+                                            failedPhoto = false;
                                         }
                                     }
                                     break;
@@ -383,8 +392,17 @@ public class PlayableCamera : MonoBehaviour
             uiCameraOverlay.SetActive(false);
             firstPersonCamera.GetComponent<PostProcessLayer>().enabled = false;
             StartCoroutine(TakeAndGetTexturePhoto());
-            readyFlash = true;
+            //readyFlash = true;
             //canCaptureAsTexture = false;
+        }
+
+        //if the photo failed, do UI close down stuff as if a photo was saved
+        if(failedPhoto)
+        {
+            uiCameraOverlay.SetActive(false);
+            firstPersonCamera.GetComponent<PostProcessLayer>().enabled = false;
+            StartCoroutine(TurnOffUIOnPhotoFail());
+            
         }
     }
 
@@ -442,6 +460,28 @@ public class PlayableCamera : MonoBehaviour
         //flash the camera anyways
         
         //UnityEngine.Object.Destroy(texture); //really should call this...
+    }
+
+    private IEnumerator TurnOffUIOnPhotoFail()
+    {
+        yield return new WaitForSeconds(0.1f);
+
+        //turn off UI
+        uiCameraOverlay.SetActive(false);
+        uiStandardOverlay.SetActive(false);
+        blurryEffect.active = false;
+        ppVolume.enabled = false;
+        PostProcessingObject.SetActive(false);
+
+        //turn UI back on
+        uiCameraOverlay.SetActive(true);
+        uiStandardOverlay.SetActive(true);
+        canCaptureAsTexture = false;
+        blurryEffect.active = true;
+        PostProcessingObject.SetActive(true);
+        ppVolume.enabled = true;
+        firstPersonCamera.GetComponent<PostProcessLayer>().enabled = true;
+        failedPhoto = false;
     }
 
     //code to display hit detection
