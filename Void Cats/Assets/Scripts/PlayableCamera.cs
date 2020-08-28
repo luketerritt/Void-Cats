@@ -69,6 +69,8 @@ public class PlayableCamera : MonoBehaviour
     private DepthOfField blurryEffect;
 
     public float defaultBlur;
+    public float depthChangeRate = 0.2f;
+    public float depthChangeRoughMax = 6;
     //public bool readyFlash = false;
 
     private bool failedPhoto = false;
@@ -223,9 +225,18 @@ public class PlayableCamera : MonoBehaviour
                     canModifyEffect = false;
                 }
 
+                //post processing blur code
                 if(canModifyEffect)
                 {
-                    blurryEffect.focusDistance.value -= zoomCurrent;
+                    float newChange = (zoomCurrent * depthChangeRate);
+                    if(newChange >= depthChangeRoughMax)
+                    {
+                        newChange = depthChangeRoughMax;
+                    }
+
+                    blurryEffect.focusDistance.value -= newChange;
+
+                    //Debug.Log("new focus distance is" + blurryEffect.focusDistance.value);
                 }
             }
 
