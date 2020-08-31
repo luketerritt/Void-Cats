@@ -401,7 +401,7 @@ public class PlayableCamera : MonoBehaviour
         {
             //blurryEffect.active = false;
             uiCameraOverlay.SetActive(false);
-            firstPersonCamera.GetComponent<PostProcessLayer>().enabled = false;
+            //firstPersonCamera.GetComponent<PostProcessLayer>().enabled = false;
             StartCoroutine(TakeAndGetTexturePhoto());
             //readyFlash = true;
             //canCaptureAsTexture = false;
@@ -411,7 +411,7 @@ public class PlayableCamera : MonoBehaviour
         if(failedPhoto)
         {
             uiCameraOverlay.SetActive(false);
-            firstPersonCamera.GetComponent<PostProcessLayer>().enabled = false;
+            //firstPersonCamera.GetComponent<PostProcessLayer>().enabled = false;
             StartCoroutine(TurnOffUIOnPhotoFail());
             
         }
@@ -424,14 +424,55 @@ public class PlayableCamera : MonoBehaviour
         //turn off UI
         uiCameraOverlay.SetActive(false);
         uiStandardOverlay.SetActive(false);
-        blurryEffect.active = false;
-        ppVolume.enabled = false;
-        PostProcessingObject.SetActive(false);
+        //blurryEffect.active = false;
+        //ppVolume.enabled = false;
+        //PostProcessingObject.SetActive(false);
 
-        //creation of texture and sprite
-        var texture = ScreenCapture.CaptureScreenshotAsTexture();
+        //creation of texture and sprite -- OLD V1 -- whiter image appears for some reason?
+        //var texture = ScreenCapture.CaptureScreenshotAsTexture();
+        //Sprite newSprite = Sprite.Create
+        //(texture, new Rect(0f, 0f, texture.width, texture.height), Vector2.zero);
+
+        //test -- OLD V2 - no washing, but post processing does not work
+        //Texture2D screenImage = new Texture2D(Screen.width, Screen.height);
+        //screenImage.ReadPixels(new Rect(0, 0, Screen.width, Screen.height), 0, 0);
+        //screenImage.Apply();
+        //Sprite newSprite = Sprite.Create
+        //(screenImage, new Rect(0f, 0f, screenImage.width, screenImage.height), Vector2.zero);
+
+        //create the texture2d, render texture and transformedRenderTexture
+        Texture2D screenImage = new Texture2D(Screen.width, Screen.height, TextureFormat.RGB24, false);
+        RenderTexture transformedRenderTexture = null;
+        RenderTexture renderTexture = RenderTexture.GetTemporary(Screen.width, Screen.height,
+                24, RenderTextureFormat.ARGB32, RenderTextureReadWrite.Default, 1);
+
+        //actually take the screenshot texture thingy
+        ScreenCapture.CaptureScreenshotIntoRenderTexture(renderTexture);
+
+        transformedRenderTexture = RenderTexture.GetTemporary(screenImage.width, screenImage.height,
+                    24, RenderTextureFormat.ARGB32, RenderTextureReadWrite.Default, 1);
+
+        //merge the textures somehow
+        Graphics.Blit(renderTexture, transformedRenderTexture, new Vector2(1.0f, -1.0f),
+            new Vector2(0.0f, 1.0f));
+
+        RenderTexture.active = transformedRenderTexture;
+        screenImage.ReadPixels(new Rect(0, 0, screenImage.width, screenImage.height), 0, 0);
+
+        RenderTexture.active = null;
+        RenderTexture.ReleaseTemporary(renderTexture);
+
+        if (transformedRenderTexture != null)
+        {
+            RenderTexture.ReleaseTemporary(transformedRenderTexture);
+        }
+
+        screenImage.Apply();
+
+        //create the sprite based on the new changes
         Sprite newSprite = Sprite.Create
-            (texture, new Rect(0f, 0f, texture.width, texture.height), Vector2.zero);
+        (screenImage, new Rect(0f, 0f, screenImage.width, screenImage.height), Vector2.zero);
+
 
         //assign texture to the spot in the array
         switch (textureCaptureCreatureType)
@@ -463,10 +504,10 @@ public class PlayableCamera : MonoBehaviour
         uiCameraOverlay.SetActive(true);
         uiStandardOverlay.SetActive(true);
         canCaptureAsTexture = false;
-        blurryEffect.active = true;
-        PostProcessingObject.SetActive(true);
-        ppVolume.enabled = true;
-        firstPersonCamera.GetComponent<PostProcessLayer>().enabled = true;
+        //blurryEffect.active = true;
+        //PostProcessingObject.SetActive(true);
+        //ppVolume.enabled = true;
+        //firstPersonCamera.GetComponent<PostProcessLayer>().enabled = true;
 
         //flash the camera anyways
         
@@ -480,18 +521,18 @@ public class PlayableCamera : MonoBehaviour
         //turn off UI
         uiCameraOverlay.SetActive(false);
         uiStandardOverlay.SetActive(false);
-        blurryEffect.active = false;
-        ppVolume.enabled = false;
-        PostProcessingObject.SetActive(false);
+        //blurryEffect.active = false;
+        //ppVolume.enabled = false;
+        //PostProcessingObject.SetActive(false);
 
         //turn UI back on
         uiCameraOverlay.SetActive(true);
         uiStandardOverlay.SetActive(true);
         canCaptureAsTexture = false;
-        blurryEffect.active = true;
-        PostProcessingObject.SetActive(true);
-        ppVolume.enabled = true;
-        firstPersonCamera.GetComponent<PostProcessLayer>().enabled = true;
+        //blurryEffect.active = true;
+        //PostProcessingObject.SetActive(true);
+        //ppVolume.enabled = true;
+        //firstPersonCamera.GetComponent<PostProcessLayer>().enabled = true;
         failedPhoto = false;
     }
 
