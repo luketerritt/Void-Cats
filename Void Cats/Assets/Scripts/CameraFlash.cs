@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UIElements;
 
 public class CameraFlash : MonoBehaviour
 {
@@ -26,6 +27,11 @@ public class CameraFlash : MonoBehaviour
         if(canAnimate)
         {
             AnimPanel.SetBool("CameraFlash", true);
+        }
+
+        if (Input.GetMouseButtonDown(0))
+        {
+            SoundManager.PlaySound(SoundManager.Sound.CameraSnap);
         }
     }
 

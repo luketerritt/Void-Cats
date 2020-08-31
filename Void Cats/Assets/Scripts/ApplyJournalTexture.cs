@@ -5,7 +5,7 @@ using UnityEngine;
 //this was made in an attempt to figure out why the material is not being applied to objects
 //from JournalDataStorage
 
-//this is NOT TO BE USED in the final project!!!
+//this is NOT TO BE USED in the final project!!!!
 //it however is a nice reference to use when needing to apply a texture change in
 //lightweight render pipeline unity!
 
