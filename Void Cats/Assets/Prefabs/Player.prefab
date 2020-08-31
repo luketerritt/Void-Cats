@@ -153,10 +153,10 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 5261534393256416126}
+  - component: {fileID: 5261534393256416122}
   - component: {fileID: 5261534393256416123}
   - component: {fileID: 5261534393256416120}
   - component: {fileID: 5261534393256416121}
-  - component: {fileID: 5261534393256416122}
   m_Layer: 0
   m_Name: Player
   m_TagString: Player
@@ -179,6 +179,24 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: -102.51601, z: 0}
+--- !u!143 &5261534393256416122
+CharacterController:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5261534393256416127}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Height: 1.37
+  m_Radius: 0.29
+  m_SlopeLimit: 45
+  m_StepOffset: 0.3
+  m_SkinWidth: 0.08
+  m_MinMoveDistance: 0.001
+  m_Center: {x: 0, y: -0.5, z: 0}
 --- !u!114 &5261534393256416123
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -199,6 +217,7 @@ MonoBehaviour:
   airControlPercent: 0
   turnSmoothTime: 0.2
   speedSmoothTime: 0.1
+  controller: {fileID: 0}
 --- !u!114 &5261534393256416120
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -232,6 +251,8 @@ MonoBehaviour:
   cameraChargeWaiting: 0
   PostProcessingObject: {fileID: 0}
   defaultBlur: 0.1
+  depthChangeRate: 0.2
+  depthChangeRoughMax: 6
 --- !u!95 &5261534393256416121
 Animator:
   serializedVersion: 3
@@ -251,21 +272,3 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
---- !u!143 &5261534393256416122
-CharacterController:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5261534393256416127}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Height: 1.37
-  m_Radius: 0.29
-  m_SlopeLimit: 45
-  m_StepOffset: 0.3
-  m_SkinWidth: 0.08
-  m_MinMoveDistance: 0.001
-  m_Center: {x: 0, y: -0.5, z: 0}

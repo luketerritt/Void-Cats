@@ -95,6 +95,7 @@ public class PlayableCamera : MonoBehaviour
         UpdateCamera();
 
         //cursor lock code (taken from the old ThirdPersonCamera Script)
+        
         if (isCursorLocked == true)
         {
             Cursor.lockState = CursorLockMode.Locked;

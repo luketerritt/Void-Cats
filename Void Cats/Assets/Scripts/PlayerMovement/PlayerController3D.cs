@@ -25,7 +25,7 @@ public class PlayerController3D : MonoBehaviour
 
     Animator animator;
     Transform cameraT;
-    CharacterController controller;
+    public CharacterController controller;
     void Start()
     {
         animator = GetComponent<Animator>();
