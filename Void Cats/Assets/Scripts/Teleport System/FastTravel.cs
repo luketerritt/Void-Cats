@@ -6,7 +6,7 @@ public class FastTravel : MonoBehaviour
 {
     public PlayerController3D playerController;
     public Transform[] travelPosition;
-    public GameObject buttonTele;
+    public GameObject teleportPadMapUi;
 
     /*
     public void OnTriggerEnter(Collider collider, int posIndex)
@@ -32,7 +32,7 @@ public class FastTravel : MonoBehaviour
         playerController.controller.enabled = false; // disables the character controller so the player can teleport
         playerController.controller.transform.position = travelPosition[posIndex].position; // changes the player's position 
         playerController.controller.enabled = true; // enables the character controller
-        buttonTele.SetActive(false);
+        teleportPadMapUi.SetActive(false);
         
     }
     

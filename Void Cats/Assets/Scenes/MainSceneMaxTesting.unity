@@ -1413,6 +1413,10 @@ MonoBehaviour:
   - {fileID: 2034576178}
   - {fileID: 1371094004}
   - {fileID: 1640809048}
+  - {fileID: 1027371083}
+  - {fileID: 103750222}
+  - {fileID: 0}
+  - {fileID: 0}
   buttonTele: {fileID: 603381280}
 --- !u!4 &85007933
 Transform:
@@ -1857,6 +1861,12 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 1e23ccb136e9cf041bebe2ebf04f741b, type: 3}
+--- !u!4 &103750222 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 178632068302711649, guid: f7ebe6dd21da560408e7af37ea12da33,
+    type: 3}
+  m_PrefabInstance: {fileID: 1361362791}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &104056616
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -15312,6 +15322,12 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1025748897}
   m_Mesh: {fileID: -1998262851877630478, guid: e1b8304aff3224748ba5a9ea50f80d7f, type: 3}
+--- !u!4 &1027371083 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 6039816734855022179, guid: f7ebe6dd21da560408e7af37ea12da33,
+    type: 3}
+  m_PrefabInstance: {fileID: 1361362791}
+  m_PrefabAsset: {fileID: 0}
 --- !u!4 &1028827255 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: -4216859302048453862, guid: 830882bd31dd25e4987414203cee992f,
@@ -20479,6 +20495,56 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 359829685678878950, guid: f7ebe6dd21da560408e7af37ea12da33,
+        type: 3}
+      propertyPath: m_RootOrder
+      value: 9
+      objectReference: {fileID: 0}
+    - target: {fileID: 1625807659041578488, guid: f7ebe6dd21da560408e7af37ea12da33,
+        type: 3}
+      propertyPath: m_Size.z
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1625807659041578488, guid: f7ebe6dd21da560408e7af37ea12da33,
+        type: 3}
+      propertyPath: m_Center.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1820471292967886473, guid: f7ebe6dd21da560408e7af37ea12da33,
+        type: 3}
+      propertyPath: speed
+      value: 50
+      objectReference: {fileID: 0}
+    - target: {fileID: 1820471292967886473, guid: f7ebe6dd21da560408e7af37ea12da33,
+        type: 3}
+      propertyPath: interactTextUi
+      value: 
+      objectReference: {fileID: 2134575055}
+    - target: {fileID: 1820471292967886473, guid: f7ebe6dd21da560408e7af37ea12da33,
+        type: 3}
+      propertyPath: playableCameraScript
+      value: 
+      objectReference: {fileID: 39183677}
+    - target: {fileID: 1820471292967886473, guid: f7ebe6dd21da560408e7af37ea12da33,
+        type: 3}
+      propertyPath: interactProgressImage
+      value: 
+      objectReference: {fileID: 1367410277}
+    - target: {fileID: 1820471292967886473, guid: f7ebe6dd21da560408e7af37ea12da33,
+        type: 3}
+      propertyPath: buttonTele
+      value: 
+      objectReference: {fileID: 603381280}
+    - target: {fileID: 2469419628081547155, guid: f7ebe6dd21da560408e7af37ea12da33,
+        type: 3}
+      propertyPath: m_RootOrder
+      value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: 3256644624343611092, guid: f7ebe6dd21da560408e7af37ea12da33,
+        type: 3}
+      propertyPath: m_RootOrder
+      value: 7
+      objectReference: {fileID: 0}
     - target: {fileID: 3446190486630164428, guid: f7ebe6dd21da560408e7af37ea12da33,
         type: 3}
       propertyPath: interactTextUi
@@ -20504,6 +20570,11 @@ PrefabInstance:
       propertyPath: playableCameraScript
       value: 
       objectReference: {fileID: 39183677}
+    - target: {fileID: 3592692466810653239, guid: f7ebe6dd21da560408e7af37ea12da33,
+        type: 3}
+      propertyPath: m_RootOrder
+      value: 6
+      objectReference: {fileID: 0}
     - target: {fileID: 3756720855475097001, guid: f7ebe6dd21da560408e7af37ea12da33,
         type: 3}
       propertyPath: interactTextUi
@@ -20529,6 +20600,31 @@ PrefabInstance:
       propertyPath: playableCameraScript
       value: 
       objectReference: {fileID: 39183677}
+    - target: {fileID: 4334553948505788472, guid: f7ebe6dd21da560408e7af37ea12da33,
+        type: 3}
+      propertyPath: speed
+      value: 50
+      objectReference: {fileID: 0}
+    - target: {fileID: 4334553948505788472, guid: f7ebe6dd21da560408e7af37ea12da33,
+        type: 3}
+      propertyPath: interactTextUi
+      value: 
+      objectReference: {fileID: 2134575055}
+    - target: {fileID: 4334553948505788472, guid: f7ebe6dd21da560408e7af37ea12da33,
+        type: 3}
+      propertyPath: playableCameraScript
+      value: 
+      objectReference: {fileID: 39183677}
+    - target: {fileID: 4334553948505788472, guid: f7ebe6dd21da560408e7af37ea12da33,
+        type: 3}
+      propertyPath: interactProgressImage
+      value: 
+      objectReference: {fileID: 1367410277}
+    - target: {fileID: 4334553948505788472, guid: f7ebe6dd21da560408e7af37ea12da33,
+        type: 3}
+      propertyPath: buttonTele
+      value: 
+      objectReference: {fileID: 603381280}
     - target: {fileID: 5680213360079062785, guid: f7ebe6dd21da560408e7af37ea12da33,
         type: 3}
       propertyPath: interactTextUi
@@ -20582,7 +20678,7 @@ PrefabInstance:
     - target: {fileID: 5680213360286444774, guid: f7ebe6dd21da560408e7af37ea12da33,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: 12.19
+      value: 13.34
       objectReference: {fileID: 0}
     - target: {fileID: 5680213360286444774, guid: f7ebe6dd21da560408e7af37ea12da33,
         type: 3}
@@ -20679,6 +20775,76 @@ PrefabInstance:
       propertyPath: m_LocalScale.y
       value: 1.6727341
       objectReference: {fileID: 0}
+    - target: {fileID: 6044700315439262222, guid: f7ebe6dd21da560408e7af37ea12da33,
+        type: 3}
+      propertyPath: m_RootOrder
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 6533946390349595861, guid: f7ebe6dd21da560408e7af37ea12da33,
+        type: 3}
+      propertyPath: m_RootOrder
+      value: 11
+      objectReference: {fileID: 0}
+    - target: {fileID: 7758335061707498744, guid: f7ebe6dd21da560408e7af37ea12da33,
+        type: 3}
+      propertyPath: m_RootOrder
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 8013595377001706449, guid: f7ebe6dd21da560408e7af37ea12da33,
+        type: 3}
+      propertyPath: m_RootOrder
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 8096469501053658747, guid: f7ebe6dd21da560408e7af37ea12da33,
+        type: 3}
+      propertyPath: speed
+      value: 50
+      objectReference: {fileID: 0}
+    - target: {fileID: 8096469501053658747, guid: f7ebe6dd21da560408e7af37ea12da33,
+        type: 3}
+      propertyPath: interactTextUi
+      value: 
+      objectReference: {fileID: 2134575055}
+    - target: {fileID: 8096469501053658747, guid: f7ebe6dd21da560408e7af37ea12da33,
+        type: 3}
+      propertyPath: playableCameraScript
+      value: 
+      objectReference: {fileID: 39183677}
+    - target: {fileID: 8096469501053658747, guid: f7ebe6dd21da560408e7af37ea12da33,
+        type: 3}
+      propertyPath: interactProgressImage
+      value: 
+      objectReference: {fileID: 1367410277}
+    - target: {fileID: 8096469501053658747, guid: f7ebe6dd21da560408e7af37ea12da33,
+        type: 3}
+      propertyPath: buttonTele
+      value: 
+      objectReference: {fileID: 603381280}
+    - target: {fileID: 8731914578877788216, guid: f7ebe6dd21da560408e7af37ea12da33,
+        type: 3}
+      propertyPath: playableCameraScript
+      value: 
+      objectReference: {fileID: 39183677}
+    - target: {fileID: 8731914578877788216, guid: f7ebe6dd21da560408e7af37ea12da33,
+        type: 3}
+      propertyPath: interactTextUi
+      value: 
+      objectReference: {fileID: 2134575055}
+    - target: {fileID: 8731914578877788216, guid: f7ebe6dd21da560408e7af37ea12da33,
+        type: 3}
+      propertyPath: speed
+      value: 50
+      objectReference: {fileID: 0}
+    - target: {fileID: 8731914578877788216, guid: f7ebe6dd21da560408e7af37ea12da33,
+        type: 3}
+      propertyPath: interactProgressImage
+      value: 
+      objectReference: {fileID: 1367410277}
+    - target: {fileID: 8731914578877788216, guid: f7ebe6dd21da560408e7af37ea12da33,
+        type: 3}
+      propertyPath: buttonTele
+      value: 
+      objectReference: {fileID: 603381280}
     - target: {fileID: 8871215174257851931, guid: f7ebe6dd21da560408e7af37ea12da33,
         type: 3}
       propertyPath: interactTextUi
@@ -35682,7 +35848,7 @@ PrefabInstance:
     - target: {fileID: 5261534393256416126, guid: 3a17e89bb54f3aa408ffea24b533339b,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: 10.82
+      value: 12.78
       objectReference: {fileID: 0}
     - target: {fileID: 5261534393256416126, guid: 3a17e89bb54f3aa408ffea24b533339b,
         type: 3}
@@ -36425,6 +36591,11 @@ PrefabInstance:
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_IntArgument
       value: 4
       objectReference: {fileID: 0}
+    - target: {fileID: 1991960217749983170, guid: 56c0bfc3039732c4f8a98656673271a0,
+        type: 3}
+      propertyPath: m_Interactable
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 2061351709778008155, guid: 56c0bfc3039732c4f8a98656673271a0,
         type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.size
@@ -36459,6 +36630,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_IntArgument
       value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 2061351709778008155, guid: 56c0bfc3039732c4f8a98656673271a0,
+        type: 3}
+      propertyPath: m_Interactable
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 2575758643593483134, guid: 56c0bfc3039732c4f8a98656673271a0,
         type: 3}
@@ -36680,6 +36856,11 @@ PrefabInstance:
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_IntArgument
       value: 7
       objectReference: {fileID: 0}
+    - target: {fileID: 8157449814708433049, guid: 56c0bfc3039732c4f8a98656673271a0,
+        type: 3}
+      propertyPath: m_Interactable
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 8231616111426642697, guid: 56c0bfc3039732c4f8a98656673271a0,
         type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.size
@@ -36714,6 +36895,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_IntArgument
       value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 8231616111426642697, guid: 56c0bfc3039732c4f8a98656673271a0,
+        type: 3}
+      propertyPath: m_Interactable
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 9049462625069494158, guid: 56c0bfc3039732c4f8a98656673271a0,
         type: 3}
