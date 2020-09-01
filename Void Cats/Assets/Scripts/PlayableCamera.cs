@@ -71,6 +71,7 @@ public class PlayableCamera : MonoBehaviour
     public float defaultBlur;
     public float depthChangeRate = 0.2f;
     public float depthChangeRoughMax = 6;
+    public float depthChangeRoughMin = -2;
     //public bool readyFlash = false;
 
     private bool failedPhoto = false;
@@ -178,6 +179,11 @@ public class PlayableCamera : MonoBehaviour
             blurryEffect.focusDistance.value = defaultBlur;
             //firstPersonCamera.GetComponent<PostProcessLayer>().enabled = !firstPersonCamera.GetComponent<PostProcessLayer>().enabled;
             //readyFlash = false;
+            //if(blurryEffect.active)
+            //{
+                //Debug.Log("opened camera - focus distance is" + blurryEffect.focusDistance.value);
+            //}
+            
         }        
      
         //if we are in first person and the journal is NOT open
@@ -210,35 +216,56 @@ public class PlayableCamera : MonoBehaviour
                 //};
 
                 //true if the zoomFOV was NOT above limit and can be modified
-                bool canModifyEffect = true;
+                //bool canModifyEffect = true;
 
                 
                 //checks to ensure the cameraFOV doesnt go over (or under) the bounds :/
-                if (firstPersonCamera.fieldOfView < zoomMinFov)
+                if (firstPersonCamera.fieldOfView <= zoomMinFov)
                 {
                     firstPersonCamera.fieldOfView = zoomMinFov;
-                    canModifyEffect = false;
+                    //canModifyEffect = false;
                 }
 
-                if (firstPersonCamera.fieldOfView > zoomMaxFov)
+                if (firstPersonCamera.fieldOfView >= zoomMaxFov)
                 {
                     firstPersonCamera.fieldOfView = zoomMaxFov;
-                    canModifyEffect = false;
+                    //canModifyEffect = false;
                 }
 
                 //post processing blur code
-                if(canModifyEffect)
-                {
-                    float newChange = (zoomCurrent * depthChangeRate);
-                    if(newChange >= depthChangeRoughMax)
-                    {
-                        newChange = depthChangeRoughMax;
-                    }
+                //if(canModifyEffect)
+                //{
+                    //float newChange = temp * depthChangeRate;
+                    float newChange = zoomCurrent * depthChangeRate;
 
                     blurryEffect.focusDistance.value -= newChange;
 
+                    //not updating?
+                    if (blurryEffect.focusDistance.value >= depthChangeRoughMax)
+                    {
+                        blurryEffect.focusDistance.value += newChange;
+                        newChange = depthChangeRoughMax;
+                        blurryEffect.focusDistance.value = newChange;
+                    }
+
+                    //not updating?
+                    if (blurryEffect.focusDistance.value <= depthChangeRoughMin)
+                    {
+                        blurryEffect.focusDistance.value += newChange;
+                        newChange = depthChangeRoughMin;
+                        blurryEffect.focusDistance.value = newChange;
+                    }
+
+                    //blurryEffect.focusDistance.value += newChange;
+
+                    //float oldRange = zoomMaxFov - zoomMinFov;
+                    //float NewRange = depthChangeRoughMax;
+                    //float newValue = (((firstPersonCamera.fieldOfView - zoomMinFov) * NewRange) / oldRange);
+
+                    //blurryEffect.focusDistance.value = NewRange - (newValue * depthChangeRate);
+
                     //Debug.Log("new focus distance is" + blurryEffect.focusDistance.value);
-                }
+                //}
             }
 
             //creature detection code
@@ -270,8 +297,15 @@ public class PlayableCamera : MonoBehaviour
                 //create a bitmask to ignore layer 9, should be used for forms of foilage, tall grass etc
                 int layerMask = 1 << 9;
                 layerMask = ~layerMask;
-                float tempDistance = CreatureCheckDistance - firstPersonCamera.fieldOfView;
 
+                //extra code to prevent the camera from trying to take a photo backwards if values are too low
+                if (CreatureCheckDistance < zoomMaxFov)
+                {
+                    CreatureCheckDistance = zoomMaxFov;
+                }
+
+                float tempDistance = CreatureCheckDistance - firstPersonCamera.fieldOfView;
+               
                 //peform the boxcast
                 hitDetection = Physics.BoxCast(firstPersonCamera.transform.position, firstPersonCamera.transform.localScale * detectionSizeModifier,
                   firstPersonCamera.transform.forward, out hit, firstPersonCamera.transform.rotation,
