@@ -8,8 +8,8 @@ public class TideMovement : MonoBehaviour
     public GameObject LightingManager;
 
     //values that limit the currentHeight -- NOTE, these are not the caps on the Y value height
-    public const float minHeight = 5;
-    public const float maxHeight = 8;
+    public const float minHeight = 2;    //5
+    public const float maxHeight = 5;       //8
 
     [Range(minHeight, maxHeight)]
     public float currentHeight;

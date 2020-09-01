@@ -31,7 +31,7 @@ public class CameraFlash : MonoBehaviour
 
         if (Input.GetMouseButtonDown(0))
         {
-            SoundManager.PlaySound(SoundManager.Sound.CameraSnap);
+            //SoundManager.PlaySound(SoundManager.Sound.CameraSnap);
         }
     }
 
