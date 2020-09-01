@@ -83,7 +83,7 @@ AudioListener:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5261534392817221934}
-  m_Enabled: 0
+  m_Enabled: 1
 --- !u!114 &5261534392817221930
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -157,6 +157,7 @@ GameObject:
   - component: {fileID: 5261534393256416123}
   - component: {fileID: 5261534393256416120}
   - component: {fileID: 5261534393256416121}
+  - component: {fileID: 39183680}
   m_Layer: 0
   m_Name: Player
   m_TagString: Player
@@ -171,9 +172,9 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5261534393256416127}
-  m_LocalRotation: {x: -0, y: -0.77997094, z: -0, w: 0.62581575}
+  m_LocalRotation: {x: 0, y: -0.7799719, z: 0, w: 0.6258145}
   m_LocalPosition: {x: 570.4, y: 18.764, z: 50.9}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 1.5, y: 1.5, z: 1.5}
   m_Children:
   - {fileID: 5261534392817221929}
   m_Father: {fileID: 0}
@@ -209,9 +210,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bdb3e22c32aad37459ef23f791d180a0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  cameraWalkSpeed: 1
-  walkSpeed: 4
-  runSpeed: 7
+  cameraWalkSpeed: 2
+  walkSpeed: 3
+  runSpeed: 6
   gravity: -12
   jumpHeight: 1
   airControlPercent: 0
@@ -237,9 +238,9 @@ MonoBehaviour:
   zoomSpeed: 5
   zoomMinFov: 30
   zoomMaxFov: 70
-  CreatureCheckDistance: 10
+  CreatureCheckDistance: 50
   hitDetection: 0
-  detectionSizeModifier: 2
+  detectionSizeModifier: 3
   optionToSavePhoto: 1
   GameStorageData: {fileID: 0}
   uiCameraOverlay: {fileID: 0}
@@ -247,12 +248,12 @@ MonoBehaviour:
   isCursorLocked: 0
   cameraChargesMaxLimit: 3
   cameraChargesCurrent: 3
-  cameraChargeCooldown: 5
+  cameraChargeCooldown: 3
   cameraChargeWaiting: 0
   PostProcessingObject: {fileID: 0}
-  defaultBlur: 0.1
-  depthChangeRate: 0.2
-  depthChangeRoughMax: 6
+  defaultBlur: 0.5
+  depthChangeRate: 0.15
+  depthChangeRoughMax: 4
 --- !u!95 &5261534393256416121
 Animator:
   serializedVersion: 3
@@ -272,3 +273,19 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
+--- !u!114 &39183680
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5261534393256416127}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 96971572d5484d547bbe21ff6163f634, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  range: 5
+  Teleport_Pad:
+    serializedVersion: 2
+    m_Bits: 0
