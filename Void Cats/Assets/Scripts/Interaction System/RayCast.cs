@@ -6,9 +6,6 @@ public class RayCast : MonoBehaviour
 {
     //how far the raycast goes
     [SerializeField] private float range;
-    // tag or layer for the pads - might not use - can be used for items
-    [SerializeField] private LayerMask Teleport_Pad;
-
     // what ever the player is looking at - item,door,enemy etc
     private IInteractable currentTarget;
     // refence to camera for the raycast
@@ -29,6 +26,7 @@ public class RayCast : MonoBehaviour
             {
                 currentTarget.OnInteract();
             }
+            
         }
     }
 

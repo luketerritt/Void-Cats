@@ -15,8 +15,16 @@ public class UiOnInteract : MonoBehaviour, IInteractable
     public bool isProgressImageOn = false; //
     public GameObject buttonTele;
 
-   
 
+    private void Update()
+    {
+       if(isProgressImageOn == true && Input.GetKeyUp(KeyCode.E)) // if the player lets go if e 
+        {
+            interactProgressImage.fillAmount = 0.0f; // resets circle to 0 
+            currentAmount = 0.0f;
+        }
+        
+    }
 
 
     public void OnStartHover()
@@ -29,6 +37,7 @@ public class UiOnInteract : MonoBehaviour, IInteractable
     public void OnInteract()
     {
         UpdateinteractProgressImage();
+       
     }
 
     private void UpdateinteractProgressImage()
@@ -50,8 +59,9 @@ public class UiOnInteract : MonoBehaviour, IInteractable
             playableCameraScript.isCursorLocked = false; // unlocks the cursor for the player to select the buttons 
             
         }
+       
 
-        
+
     }
     
 
