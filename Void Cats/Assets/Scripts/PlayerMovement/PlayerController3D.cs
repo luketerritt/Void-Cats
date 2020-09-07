@@ -34,7 +34,7 @@ public class PlayerController3D : MonoBehaviour
     public float trackedTimer = 5.0f; //how often can it update tracked positions (will fail if player is in air or is in water
     [HideInInspector]
     public float trackedIterator = 0;
-    [HideInInspector]
+    //[HideInInspector]
     public bool inWater = false; //is the player in water (or almost in it)
 
     void Start()
