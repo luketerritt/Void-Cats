@@ -10,7 +10,7 @@ public class PlayerController3D : MonoBehaviour
 
     public float gravity = -12;
     public float jumpHeight = 1;
-    [Range(0,1)]
+    [Range(0, 1)]
     public float airControlPercent;
 
 
@@ -37,6 +37,8 @@ public class PlayerController3D : MonoBehaviour
     //[HideInInspector]
     public bool inWater = false; //is the player in water (or almost in it)
 
+    public bool inBush = false;
+
     void Start()
     {
         animator = GetComponent<Animator>();
@@ -46,7 +48,7 @@ public class PlayerController3D : MonoBehaviour
         trackedPositionBackup = trackedPosition;
     }
 
-   
+
     void Update()
     {
 
@@ -55,26 +57,32 @@ public class PlayerController3D : MonoBehaviour
         //if(!temp)
         //{
         // Basic Input 
-            Vector2 input = new Vector2(Input.GetAxisRaw("Horizontal"), Input.GetAxisRaw("Vertical"));
-            // normalise input
-            Vector2 inputDir = input.normalized;
-            //shifting Running
-            bool running = Input.GetKey(KeyCode.LeftShift);
+        Vector2 input = new Vector2(Input.GetAxisRaw("Horizontal"), Input.GetAxisRaw("Vertical"));
+        // normalise input
+        Vector2 inputDir = input.normalized;
+        //shifting Running
+        bool running = Input.GetKey(KeyCode.LeftShift);
+
+        //if the player is not in a bush you can update movement code
+        if (!inBush)
+        {
             Move(inputDir, running, temp);
+        }
 
-            if (Input.GetKeyDown(KeyCode.Space) && !temp)
-            {
-                jump();
-            }
+        //if space is pressed and is not in the first person camera and not in a bush
+        if (Input.GetKeyDown(KeyCode.Space) && !temp && !inBush)
+        {
+            jump();
+        }
 
-            // controlling the speed percent in the animator - idle - walk - run
-            float animationSpeedPercent = ((running) ? currentSpeed / runSpeed : currentSpeed / walkSpeed * .5f);
-            // changing the float in the animator
-            animator.SetFloat("SpeedPercent", animationSpeedPercent, speedSmoothTime, Time.deltaTime);
+        // controlling the speed percent in the animator - idle - walk - run
+        float animationSpeedPercent = ((running) ? currentSpeed / runSpeed : currentSpeed / walkSpeed * .5f);
+        // changing the float in the animator
+        animator.SetFloat("SpeedPercent", animationSpeedPercent, speedSmoothTime, Time.deltaTime);
         //}
 
-        //update the tracked position after a few seconds and the player is not in water or the air
-        if(trackedIterator > trackedTimer && controller.isGrounded && !inWater)
+        //update the tracked position after a few seconds and the player is not in water or the air and not in a bush
+        if (trackedIterator > trackedTimer && controller.isGrounded && !inWater && !inBush)
         {
             UpdateTrackedPosition();
             trackedIterator = 0;
@@ -82,8 +90,8 @@ public class PlayerController3D : MonoBehaviour
         trackedIterator += Time.deltaTime;
         //inWater = false;
     }
-     void Move(Vector2 inputDir, bool running, bool cameraModeActive)
-     {
+    void Move(Vector2 inputDir, bool running, bool cameraModeActive)
+    {
         /* //old rotation code by Max - removed during the 3rd person to 1st person shift
         if (inputDir != Vector2.zero) // avoids character snapping back to 0 degrees
         {   
@@ -95,7 +103,7 @@ public class PlayerController3D : MonoBehaviour
         }*/
 
         float targetspeed = 0.0f;
-        if(!cameraModeActive)
+        if (!cameraModeActive)
         {
             targetspeed = ((running) ? runSpeed : walkSpeed) * inputDir.magnitude;
         }
@@ -103,17 +111,17 @@ public class PlayerController3D : MonoBehaviour
         {
             targetspeed = cameraWalkSpeed;
         }
-        
+
         // smoothing speed control
         currentSpeed = Mathf.SmoothDamp(currentSpeed, targetspeed, ref speedSmoothVelocity, GetModifiedSmoothTime(speedSmoothTime));
 
-        velocityY += Time.deltaTime * gravity;       
+        velocityY += Time.deltaTime * gravity;
 
         //normalise the x input * camera's right vector added to the y input * camera's forward vector
-        Vector3 direction = (inputDir.x * cameraT.transform.right + inputDir.y * cameraT.transform.forward).normalized;               
+        Vector3 direction = (inputDir.x * cameraT.transform.right + inputDir.y * cameraT.transform.forward).normalized;
 
         //Moves the character to face the right direction
-        Vector3 velocity = /*transform.forward*/direction  * currentSpeed + Vector3.up * velocityY;
+        Vector3 velocity = /*transform.forward*/direction * currentSpeed + Vector3.up * velocityY;
 
         controller.Move(velocity * Time.deltaTime);
         currentSpeed = new Vector2(controller.velocity.x, controller.velocity.z).magnitude;
@@ -123,11 +131,11 @@ public class PlayerController3D : MonoBehaviour
             velocityY = 0;
         }
 
-       
-     }
+
+    }
     void jump()
     {
-        if(controller.isGrounded)
+        if (controller.isGrounded)
         {
             float jumpVelocity = Mathf.Sqrt(-2 * gravity * jumpHeight);
             velocityY = jumpVelocity;
@@ -135,11 +143,11 @@ public class PlayerController3D : MonoBehaviour
     }
     float GetModifiedSmoothTime(float smoothTime)
     {
-        if(controller.isGrounded)
+        if (controller.isGrounded)
         {
             return smoothTime;
         }
-        if(airControlPercent == 0)
+        if (airControlPercent == 0)
         {
             return float.MaxValue;
         }
@@ -150,11 +158,11 @@ public class PlayerController3D : MonoBehaviour
     {
         //if the distance between the tracked position and the backup position is less than 5, dont update backup
         float distance = Vector3.Distance(trackedPosition, trackedPositionBackup);
-        if(distance >= 5)
+        if (distance >= 5)
         {
             trackedPositionBackup = trackedPosition;
         }
-        
+
         trackedPosition = this.gameObject.transform.position; //set the trackedPosition to be the currentPosition
         //Debug.Log("trackedPosition is " + trackedPosition);
     }
