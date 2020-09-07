@@ -26,11 +26,24 @@ public class PlayerController3D : MonoBehaviour
     Animator animator;
     Transform cameraT;
     public CharacterController controller;
+
+    [HideInInspector]
+    public Vector3 trackedPosition; //a previously stored posiiton which the player teleports to if they "die"
+    [HideInInspector]
+    public Vector3 trackedPositionBackup; //same as above but a backup incase the trackedPosition is on the coast
+    public float trackedTimer = 5.0f; //how often can it update tracked positions (will fail if player is in air or is in water
+    [HideInInspector]
+    public float trackedIterator = 0;
+    [HideInInspector]
+    public bool inWater = false; //is the player in water (or almost in it)
+
     void Start()
     {
         animator = GetComponent<Animator>();
         cameraT = Camera.main.transform; // make sure what ever camera u want to use is set to main camera in tags
         controller = GetComponent<CharacterController>();
+        trackedPosition = this.gameObject.transform.position; //set the trackedPosition to be the current position
+        trackedPositionBackup = trackedPosition;
     }
 
    
@@ -60,8 +73,14 @@ public class PlayerController3D : MonoBehaviour
             animator.SetFloat("SpeedPercent", animationSpeedPercent, speedSmoothTime, Time.deltaTime);
         //}
 
-        
-
+        //update the tracked position after a few seconds and the player is not in water or the air
+        if(trackedIterator > trackedTimer && controller.isGrounded && !inWater)
+        {
+            UpdateTrackedPosition();
+            trackedIterator = 0;
+        }
+        trackedIterator += Time.deltaTime;
+        //inWater = false;
     }
      void Move(Vector2 inputDir, bool running, bool cameraModeActive)
      {
@@ -126,4 +145,18 @@ public class PlayerController3D : MonoBehaviour
         }
         return smoothTime / airControlPercent;
     }
+
+    void UpdateTrackedPosition()
+    {
+        //if the distance between the tracked position and the backup position is less than 5, dont update backup
+        float distance = Vector3.Distance(trackedPosition, trackedPositionBackup);
+        if(distance >= 5)
+        {
+            trackedPositionBackup = trackedPosition;
+        }
+        
+        trackedPosition = this.gameObject.transform.position; //set the trackedPosition to be the currentPosition
+        //Debug.Log("trackedPosition is " + trackedPosition);
+    }
+
 }
