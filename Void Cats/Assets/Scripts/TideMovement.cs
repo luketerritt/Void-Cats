@@ -28,11 +28,16 @@ public class TideMovement : MonoBehaviour
 
     public float drownDetectionOffSet = 1;
 
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
+    public GameObject TeleportUI;
+
+    public float teleportTime = 2.0f;
+    private float teleportIterator = 0;
+    private bool teleportingPlayer = false;
+
+    private GameObject foundPlayer;
+
+    public float nearWaterEffectStrength = 0.3f;
+    public float nearWaterSubtractor = 1;
 
     // Update is called once per frame
     void Update()
@@ -134,6 +139,38 @@ public class TideMovement : MonoBehaviour
                 }
             }
         }
+        //if the player is being teleported out...
+        if(teleportingPlayer)
+        {
+            teleportIterator += Time.deltaTime;
+
+            //once the iterator is bigger than the limit
+            if(teleportIterator > teleportTime)
+            {
+                var playerController = foundPlayer.gameObject.GetComponent<PlayerController3D>();
+                //if the teleport failed, do the backup
+                float distance = Vector3.Distance(playerController.trackedPosition, playerController.trackedPositionBackup);
+                //if(playerObject.controller.transform.position == playerObject.trackedPosition)
+                //{
+                if (distance >= 2)
+                {
+                    RelocateToTrackedPosition(playerController.controller, playerController.trackedPositionBackup);
+                }
+                else
+                {
+                    RelocateToTrackedPosition(playerController.controller, playerController.trackedPosition);
+                }
+                //}
+
+                foundPlayer.gameObject.GetComponent<PlayableCamera>().nearWaterEffect.intensity.value = 0;
+                playerController.inBush = false;
+                playerController.inWater = false;
+                teleportIterator -= teleportTime;
+                teleportingPlayer = false;
+            }
+        }
+
+
     }
 
     //if something with a rigidbody enters the water (character controller counts)
@@ -146,26 +183,46 @@ public class TideMovement : MonoBehaviour
             //get the players first person camera
             var temp = other.gameObject.GetComponent<PlayableCamera>();
 
+            //the closer the camera's y is to the tides y
+            float tempdistance = temp.firstPersonCamera.transform.position.y - this.transform.position.y;
+            //float tempdistance = this.transform.position.y - temp.firstPersonCamera.transform.position.y;
+
+            //math to change the scale of the range
+            //float oldRange = 20 - 0; //20 -- magic number that the ocean wont reach
+            //float NewRange = 1;
+            //float temp2 = (((tempdistance) * NewRange) / 20);
+
+            temp.nearWaterEffect.intensity.value = nearWaterSubtractor - (tempdistance * nearWaterEffectStrength);
+            //Debug.Log("intensity =" + temp.nearWaterEffect.intensity.value);
+
             //if the camera's y is less than or equal to the tides y
-            if((temp.firstPersonCamera.transform.position.y - drownDetectionOffSet) <= this.transform.position.y)
+            if ((temp.firstPersonCamera.transform.position.y - drownDetectionOffSet) <= this.transform.position.y)
             {
-                var playerObject = other.gameObject.GetComponent<PlayerController3D>();
+                foundPlayer = other.gameObject;
+                //disable the char controller
+                other.gameObject.GetComponent<PlayerController3D>().controller.enabled = false;
+                
+
+                //StartCoroutine(RelocationCoroutine(playerObject));
+                teleportingPlayer = true;
+                other.gameObject.GetComponent<PlayerController3D>().inBush = true;
+                TeleportUI.SetActive(true);
 
                 //if the teleport failed, do the backup
-                float distance = Vector3.Distance(playerObject.trackedPosition, playerObject.trackedPositionBackup);
-                //if(playerObject.controller.transform.position == playerObject.trackedPosition)
+                //float distance = Vector3.Distance(playerObject.trackedPosition, playerObject.trackedPositionBackup);
+                ////if(playerObject.controller.transform.position == playerObject.trackedPosition)
+                ////{
+                //if(distance >= 2)
                 //{
-                if(distance >= 2)
-                {
-                    RelocateToTrackedPosition(playerObject.controller, playerObject.trackedPositionBackup);
-                }
-                else
-                {
-                    RelocateToTrackedPosition(playerObject.controller, playerObject.trackedPosition);
-                }
+                //    RelocateToTrackedPosition(playerObject.controller, playerObject.trackedPositionBackup);
                 //}
+                //else
+                //{
+                //    RelocateToTrackedPosition(playerObject.controller, playerObject.trackedPosition);
+                //}
+                ////}
                 
-                other.gameObject.GetComponent<PlayerController3D>().inWater = false;
+                //other.gameObject.GetComponent<PlayerController3D>().inWater = false;
                 //Debug.Log("Player should be teleported away");
             }
             
@@ -178,6 +235,7 @@ public class TideMovement : MonoBehaviour
         if (other.CompareTag("Player"))
         {
             other.gameObject.GetComponent<PlayerController3D>().inWater = false;
+            other.gameObject.GetComponent<PlayableCamera>().nearWaterEffect.intensity.value = 0;
         }
     }
 
@@ -188,4 +246,28 @@ public class TideMovement : MonoBehaviour
         controller.transform.position = newPosition; // changes the player's position 
         controller.enabled = true; // enables the character controller
     }
+
+    /*IEnumerator RelocationCoroutine(PlayerController3D playerController)
+    {
+        yield return new WaitForSecondsRealtime(1.4f);
+
+        
+        //if the teleport failed, do the backup
+        float distance = Vector3.Distance(playerController.trackedPosition, playerController.trackedPositionBackup);
+        //if(playerObject.controller.transform.position == playerObject.trackedPosition)
+        //{
+        if (distance >= 2)
+        {
+            RelocateToTrackedPosition(playerController.controller, playerController.trackedPositionBackup);
+        }
+        else
+        {
+            RelocateToTrackedPosition(playerController.controller, playerController.trackedPosition);
+        }
+        //}
+
+        playerController.inWater = false;
+
+        
+    }*/
 }

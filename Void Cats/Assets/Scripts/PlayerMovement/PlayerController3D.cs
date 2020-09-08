@@ -37,6 +37,7 @@ public class PlayerController3D : MonoBehaviour
     //[HideInInspector]
     public bool inWater = false; //is the player in water (or almost in it)
 
+    //if true, prevents the character controller from updating
     public bool inBush = false;
 
     void Start()

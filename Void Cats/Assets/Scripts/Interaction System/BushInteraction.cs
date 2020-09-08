@@ -83,8 +83,7 @@ public class BushInteraction : MonoBehaviour, IInteractable
 
                 player.GetComponent<PlayerController3D>().controller.enabled = false;
                 player.GetComponent<PlayerController3D>().controller.transform.position
-                    = Vector3.Lerp(player.GetComponent<PlayerController3D>().controller.transform.position
-                    , temp, t);
+                    = Vector3.Lerp(player.GetComponent<PlayerController3D>().controller.transform.position, temp, t);
 
                 float distance = Vector3.Distance(player.GetComponent<PlayerController3D>().controller.transform.position, temp);
 

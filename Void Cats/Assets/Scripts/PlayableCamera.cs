@@ -68,6 +68,10 @@ public class PlayableCamera : MonoBehaviour
     private PostProcessVolume ppVolume;    
     private DepthOfField blurryEffect;
 
+    //private PostProcessVolume ppVolume2;
+    [HideInInspector]
+    public Vignette nearWaterEffect;
+
     public float defaultBlur;
     public float depthChangeRate = 0.2f;
     public float depthChangeRoughMax = 6;
@@ -75,6 +79,8 @@ public class PlayableCamera : MonoBehaviour
     //public bool readyFlash = false;
 
     private bool failedPhoto = false;
+
+    public GameObject JournalUpdateUI;
 
     // Start is called before the first frame update
     void Start()
@@ -84,6 +90,11 @@ public class PlayableCamera : MonoBehaviour
         isCursorLocked = true;
         ppVolume = PostProcessingObject.GetComponent<PostProcessVolume>();
         ppVolume.sharedProfile.TryGetSettings<DepthOfField>(out blurryEffect);
+
+        //ppVolume2 = PostProcessingObject.GetComponent<PostProcessVolume>();
+        ppVolume.sharedProfile.TryGetSettings<Vignette>(out nearWaterEffect);
+        nearWaterEffect.intensity.value = 0;
+
         blurryEffect.focusDistance.value = defaultBlur;
         blurryEffect.active = false;
     }
@@ -539,13 +550,14 @@ public class PlayableCamera : MonoBehaviour
         uiCameraOverlay.SetActive(true);
         uiStandardOverlay.SetActive(true);
         canCaptureAsTexture = false;
+        JournalUpdateUI.SetActive(true);
         //blurryEffect.active = true;
         //PostProcessingObject.SetActive(true);
         //ppVolume.enabled = true;
         //firstPersonCamera.GetComponent<PostProcessLayer>().enabled = true;
 
         //flash the camera anyways
-        
+
         //UnityEngine.Object.Destroy(texture); //really should call this...
     }
 
