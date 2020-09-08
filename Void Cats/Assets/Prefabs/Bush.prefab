@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 2421095874825718110}
   - component: {fileID: 6684031661529215848}
   - component: {fileID: 1152633478599298961}
-  - component: {fileID: 2935049570724715051}
+  - component: {fileID: 1993063833435620283}
   m_Layer: 0
   m_Name: Bush
   m_TagString: Untagged
@@ -80,7 +80,7 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
---- !u!135 &2935049570724715051
+--- !u!135 &1993063833435620283
 SphereCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -91,8 +91,8 @@ SphereCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Radius: 0.7385516
-  m_Center: {x: 0, y: 0.65208346, z: 0}
+  m_Radius: 0.9429885
+  m_Center: {x: -0.021977305, y: 0.834543, z: 0}
 --- !u!1001 &3766369084519303133
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -160,6 +160,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Oak_Bush
       objectReference: {fileID: 0}
+    - target: {fileID: -207960122768483834, guid: ce2fc7afd50ecf64b82e2c5dd5650bce,
+        type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 2132fbb2f0f38b34799ab78824a5f71c, type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: ce2fc7afd50ecf64b82e2c5dd5650bce, type: 3}
 --- !u!4 &8160065629098929351 stripped
