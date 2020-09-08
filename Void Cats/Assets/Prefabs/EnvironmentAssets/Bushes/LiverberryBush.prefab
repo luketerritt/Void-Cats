@@ -11,8 +11,8 @@ GameObject:
   - component: {fileID: 3675977164469035031}
   - component: {fileID: 5645463886117263905}
   - component: {fileID: 2117885985099032280}
-  - component: {fileID: 4188805149437522786}
   - component: {fileID: 7336679357904166516}
+  - component: {fileID: 4804218123094767007}
   m_Layer: 0
   m_Name: LiverberryBush
   m_TagString: Untagged
@@ -43,7 +43,7 @@ MeshFilter:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 385312965115056644}
-  m_Mesh: {fileID: 5958362384829529401, guid: cac2da643c721cc44b80f12da77dbcde, type: 3}
+  m_Mesh: {fileID: 6987635179406124035, guid: ce2fc7afd50ecf64b82e2c5dd5650bce, type: 3}
 --- !u!23 &2117885985099032280
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -82,19 +82,6 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
---- !u!135 &4188805149437522786
-SphereCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 385312965115056644}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Radius: 0.7385516
-  m_Center: {x: 0, y: 0.65208346, z: 0}
 --- !u!114 &7336679357904166516
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -117,6 +104,19 @@ MonoBehaviour:
   LeavesUI: {fileID: 0}
   heightOffset: 0.8
   transitionTime: 2
+--- !u!135 &4804218123094767007
+SphereCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 385312965115056644}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Radius: 0.95041806
+  m_Center: {x: 0, y: 0.9045904, z: 0}
 --- !u!1001 &5079361705482944072
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -132,12 +132,12 @@ PrefabInstance:
     - target: {fileID: 3834048241315878126, guid: 529b4770a2ba88d458105d8f8a8291aa,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: 0.497
+      value: 0.733
       objectReference: {fileID: 0}
     - target: {fileID: 3834048241315878126, guid: 529b4770a2ba88d458105d8f8a8291aa,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0.161
+      value: 0.568
       objectReference: {fileID: 0}
     - target: {fileID: 3834048241315878126, guid: 529b4770a2ba88d458105d8f8a8291aa,
         type: 3}
@@ -207,12 +207,12 @@ PrefabInstance:
     - target: {fileID: 3834048241315878126, guid: 529b4770a2ba88d458105d8f8a8291aa,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: 0.56
+      value: 0.796
       objectReference: {fileID: 0}
     - target: {fileID: 3834048241315878126, guid: 529b4770a2ba88d458105d8f8a8291aa,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0.16100001
+      value: 0.56799996
       objectReference: {fileID: 0}
     - target: {fileID: 3834048241315878126, guid: 529b4770a2ba88d458105d8f8a8291aa,
         type: 3}

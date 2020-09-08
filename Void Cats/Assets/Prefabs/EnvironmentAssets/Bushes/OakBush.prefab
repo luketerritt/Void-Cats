@@ -11,8 +11,8 @@ GameObject:
   - component: {fileID: 2560294157075997050}
   - component: {fileID: 6835614619483691852}
   - component: {fileID: 999924654120445877}
-  - component: {fileID: 900617987}
   - component: {fileID: 1707782652968764611}
+  - component: {fileID: 2763290622540602967}
   m_Layer: 0
   m_Name: Bush1
   m_TagString: Untagged
@@ -29,7 +29,7 @@ Transform:
   m_GameObject: {fileID: 1575314428739654505}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 547.75555, y: 9.921761, z: 73.14586}
-  m_LocalScale: {x: 1.2665924, y: 1.266592, z: 1.2665926}
+  m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
@@ -41,7 +41,7 @@ MeshFilter:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1575314428739654505}
-  m_Mesh: {fileID: 6987635179406124035, guid: 5ed73d001f1ffde4fb16d38f48421c08, type: 3}
+  m_Mesh: {fileID: 6987635179406124035, guid: ce2fc7afd50ecf64b82e2c5dd5650bce, type: 3}
 --- !u!23 &999924654120445877
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -80,19 +80,6 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
---- !u!135 &900617987
-SphereCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1575314428739654505}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Radius: 0.7390984
-  m_Center: {x: 0.0011215169, y: 0.6520138, z: 0.022224141}
 --- !u!114 &1707782652968764611
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -115,3 +102,16 @@ MonoBehaviour:
   LeavesUI: {fileID: 0}
   heightOffset: 0.8
   transitionTime: 2
+--- !u!135 &2763290622540602967
+SphereCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1575314428739654505}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Radius: 0.95041806
+  m_Center: {x: 0, y: 0.9045904, z: 0}

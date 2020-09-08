@@ -11,8 +11,8 @@ GameObject:
   - component: {fileID: 6390294628536459137}
   - component: {fileID: 2735344843765032375}
   - component: {fileID: 8559492206766086478}
-  - component: {fileID: 5876338579702254836}
   - component: {fileID: 4811690858717075514}
+  - component: {fileID: 5047085693928075881}
   m_Layer: 0
   m_Name: PumpeachBush
   m_TagString: Untagged
@@ -29,7 +29,7 @@ Transform:
   m_GameObject: {fileID: 7995502062019702162}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: -8.4, y: 0.94, z: -2.31}
-  m_LocalScale: {x: 1.4974577, y: 1.4974574, z: 1.4974571}
+  m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 4345166648555723943}
   - {fileID: 4345166650331674909}
@@ -43,7 +43,7 @@ MeshFilter:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7995502062019702162}
-  m_Mesh: {fileID: 5958362384829529401, guid: cac2da643c721cc44b80f12da77dbcde, type: 3}
+  m_Mesh: {fileID: 6987635179406124035, guid: ce2fc7afd50ecf64b82e2c5dd5650bce, type: 3}
 --- !u!23 &8559492206766086478
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -82,19 +82,6 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
---- !u!135 &5876338579702254836
-SphereCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7995502062019702162}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Radius: 0.7385516
-  m_Center: {x: 0, y: 0.65208346, z: 0}
 --- !u!114 &4811690858717075514
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -117,6 +104,19 @@ MonoBehaviour:
   LeavesUI: {fileID: 0}
   heightOffset: 0.8
   transitionTime: 2
+--- !u!135 &5047085693928075881
+SphereCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7995502062019702162}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Radius: 0.95041806
+  m_Center: {x: 0, y: 0.9045904, z: 0}
 --- !u!1001 &8734615775438993341
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -127,17 +127,17 @@ PrefabInstance:
     - target: {fileID: -4216859302048453862, guid: 483e335cb7a6e60409fd9ecf5dae12b7,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: 0.69423676
+      value: 0.815
       objectReference: {fileID: 0}
     - target: {fileID: -4216859302048453862, guid: 483e335cb7a6e60409fd9ecf5dae12b7,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0.5099668
+      value: 0.75
       objectReference: {fileID: 0}
     - target: {fileID: -4216859302048453862, guid: 483e335cb7a6e60409fd9ecf5dae12b7,
         type: 3}
       propertyPath: m_LocalPosition.z
-      value: 0.30587292
+      value: 0.521
       objectReference: {fileID: 0}
     - target: {fileID: -4216859302048453862, guid: 483e335cb7a6e60409fd9ecf5dae12b7,
         type: 3}
@@ -207,17 +207,17 @@ PrefabInstance:
     - target: {fileID: -4216859302048453862, guid: 483e335cb7a6e60409fd9ecf5dae12b7,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: -0.10400009
+      value: 0.01676321
       objectReference: {fileID: 0}
     - target: {fileID: -4216859302048453862, guid: 483e335cb7a6e60409fd9ecf5dae12b7,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0.5104129
+      value: 0.75044614
       objectReference: {fileID: 0}
     - target: {fileID: -4216859302048453862, guid: 483e335cb7a6e60409fd9ecf5dae12b7,
         type: 3}
       propertyPath: m_LocalPosition.z
-      value: 0.8362349
+      value: 1.051362
       objectReference: {fileID: 0}
     - target: {fileID: -4216859302048453862, guid: 483e335cb7a6e60409fd9ecf5dae12b7,
         type: 3}
