@@ -30,16 +30,24 @@ public class BushInteraction : MonoBehaviour, IInteractable
     public float transitionTime = 2;
     private float t = 0;
     private float overallDistance = 0;
+
     
 
     void Start()
     {
+        //if(player = null)
+        //{            
+            //player = GameObject.FindWithTag("Player");
+        //}
         playableCameraScript = player.GetComponent<PlayableCamera>();
+        
+        
         thisCollider = this.gameObject.GetComponent<Collider>();
     }
 
     private void Update()
     {
+        
         if (isProgressImageOn == true && Input.GetKeyUp(KeyCode.E)) // if the player lets go if e 
         {
             interactProgressImage.fillAmount = 0.0f; // resets circle to 0 
