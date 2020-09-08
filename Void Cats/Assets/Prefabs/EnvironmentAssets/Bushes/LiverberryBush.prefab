@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 5645463886117263905}
   - component: {fileID: 2117885985099032280}
   - component: {fileID: 4188805149437522786}
+  - component: {fileID: 7336679357904166516}
   m_Layer: 0
   m_Name: LiverberryBush
   m_TagString: Untagged
@@ -28,7 +29,7 @@ Transform:
   m_GameObject: {fileID: 385312965115056644}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 6.79, y: 1.248, z: -2.76}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 0.8779946, y: 0.8779947, z: 0.8779947}
   m_Children:
   - {fileID: 8307102821938916006}
   - {fileID: 7933912171387315864}
@@ -94,6 +95,28 @@ SphereCollider:
   serializedVersion: 2
   m_Radius: 0.7385516
   m_Center: {x: 0, y: 0.65208346, z: 0}
+--- !u!114 &7336679357904166516
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 385312965115056644}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: effcad9de841568409a0162d551e3f08, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  player: {fileID: 0}
+  playableCameraScript: {fileID: 0}
+  interactTextUi: {fileID: 0}
+  speed: 100
+  currentAmount: 0
+  interactProgressImage: {fileID: 0}
+  isProgressImageOn: 0
+  LeavesUI: {fileID: 0}
+  heightOffset: 0.8
+  transitionTime: 2
 --- !u!1001 &5079361705482944072
 PrefabInstance:
   m_ObjectHideFlags: 0

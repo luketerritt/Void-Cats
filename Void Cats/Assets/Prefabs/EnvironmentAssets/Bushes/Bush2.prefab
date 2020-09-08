@@ -11,6 +11,8 @@ GameObject:
   - component: {fileID: 919352263380937222}
   - component: {fileID: 8185631780528361520}
   - component: {fileID: 2496610301177326793}
+  - component: {fileID: 1301457327}
+  - component: {fileID: 3196564720811343308}
   m_Layer: 0
   m_Name: Bush2
   m_TagString: Untagged
@@ -25,9 +27,9 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4222524717565958165}
-  m_LocalRotation: {x: 0, y: -0, z: -0, w: 1}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 547.3134, y: 9.805376, z: 71.36987}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 1.1807044, y: 1.1807044, z: 1.1807041}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
@@ -78,3 +80,38 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
+--- !u!135 &1301457327
+SphereCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4222524717565958165}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Radius: 0.74153805
+  m_Center: {x: 0.0011178553, y: 0.6638541, z: 0.000044855}
+--- !u!114 &3196564720811343308
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4222524717565958165}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: effcad9de841568409a0162d551e3f08, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  player: {fileID: 0}
+  playableCameraScript: {fileID: 0}
+  interactTextUi: {fileID: 0}
+  speed: 100
+  currentAmount: 0
+  interactProgressImage: {fileID: 0}
+  isProgressImageOn: 0
+  LeavesUI: {fileID: 0}
+  heightOffset: 0.8
+  transitionTime: 2
