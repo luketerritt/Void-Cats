@@ -139,6 +139,16 @@ public class JournalDataStorage : MonoBehaviour
         DogPhotoRequirements[2].agentState = (CreatureState)1; //player interaction here - notice
         DogPhotoRequirements[3].agentState = (CreatureState)5; //unique one here! -- chase tail
 
+        /*TigerPhotoRequirements[0].agentState = (CreatureState)3; //eat
+        TigerPhotoRequirements[1].agentState = (CreatureState)2; //sleep
+        TigerPhotoRequirements[2].agentState = (CreatureState)1; //player interaction here - notice
+        TigerPhotoRequirements[3].agentState = (CreatureState)6; //unique one here! -- ROAR*/
+
+        /*DragonPhotoRequirements[0].agentState = (CreatureState)3; //eat
+        DragonPhotoRequirements[1].agentState = (CreatureState)2; //sleep
+        DragonPhotoRequirements[2].agentState = (CreatureState)1; //player interaction here - notice
+        DragonPhotoRequirements[3].agentState = (CreatureState)7; //unique one here! -- ROAR*/
+
         //EXTEND SECTION
     }
 
@@ -178,6 +188,28 @@ public class JournalDataStorage : MonoBehaviour
                 {
                     DogChecklistSpots[i].gameObject.GetComponent<Image>().sprite = ChecklistTick;
                 }
+
+                //tiger update
+                /*TigerPhotosIsTaken[i] = temp.TigerPhotosIsTaken[i];
+                TigerSprites[i] = temp.TigerSprites[i];
+                TigerJournalSpots[i].gameObject.GetComponent<Image>().sprite = TigerSprites[i];
+
+                if (TigerPhotosIsTaken[i])
+                {
+                    TigerChecklistSpots[i].gameObject.GetComponent<Image>().sprite = ChecklistTick;
+                }*/
+
+                //dragon update
+                /*DragonPhotosIsTaken[i] = temp.DragonPhotosIsTaken[i];
+                DragonSprites[i] = temp.DragonSprites[i];
+                DragonJournalSpots[i].gameObject.GetComponent<Image>().sprite = DragonSprites[i];
+
+                if (DragonPhotosIsTaken[i])
+                {
+                    DragonChecklistSpots[i].gameObject.GetComponent<Image>().sprite = ChecklistTick;
+                }*/
+
+
                 //repeat EXTEND SECTION
             }
             temp.UpdateInfo = false;

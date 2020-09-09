@@ -31,7 +31,8 @@ public class BushInteraction : MonoBehaviour, IInteractable
     private float t = 0;
     private float overallDistance = 0;
 
-    
+    private MeshRenderer thisRenderer;
+    private MeshRenderer[] childRenderers;
 
     void Start()
     {
@@ -40,9 +41,11 @@ public class BushInteraction : MonoBehaviour, IInteractable
             //player = GameObject.FindWithTag("Player");
         //}
         playableCameraScript = player.GetComponent<PlayableCamera>();
-        
-        
+
+        thisRenderer = this.gameObject.GetComponent<MeshRenderer>();
         thisCollider = this.gameObject.GetComponent<Collider>();
+
+        childRenderers = GetComponentsInChildren<MeshRenderer>();
     }
 
     private void Update()
@@ -57,8 +60,13 @@ public class BushInteraction : MonoBehaviour, IInteractable
         //if the player is in this bush
         if(playerInThisBush)
         {
-            //if the player presses escape
-            if(Input.GetKeyDown(KeyCode.Escape))
+            //if the player presses escape or WASD or E
+            if(Input.GetKeyDown(KeyCode.Escape) ||
+               Input.GetKeyDown(KeyCode.W) ||
+               Input.GetKeyDown(KeyCode.A) ||
+               Input.GetKeyDown(KeyCode.S) ||
+               Input.GetKeyDown(KeyCode.D) ||
+               Input.GetKeyDown(KeyCode.E))
             {
                 //relocate the player back to where they were before they went into the bush
                 //RelocateToBush(player.GetComponent<PlayerController3D>().controller,
@@ -101,6 +109,11 @@ public class BushInteraction : MonoBehaviour, IInteractable
                 if ((overallDistance * 0.5f) > distance)
                 {
                     LeavesUI.SetActive(true);
+                    thisRenderer.enabled = false;
+                    foreach (MeshRenderer renderer in childRenderers)
+                    {
+                        renderer.enabled = false;
+                    }
                 }
 
                 //we are in the bush!
@@ -129,6 +142,11 @@ public class BushInteraction : MonoBehaviour, IInteractable
                 if((overallDistance * 0.5f) > (distance))
                 {
                     LeavesUI.SetActive(false);
+                    thisRenderer.enabled = true;
+                    foreach (MeshRenderer renderer in childRenderers)
+                    {
+                        renderer.enabled = true;
+                    }
                 }
 
                 //we are no longer in the bush
