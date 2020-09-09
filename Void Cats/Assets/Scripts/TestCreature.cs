@@ -59,7 +59,7 @@ public class TestCreature : MonoBehaviour
     //public CreatureState AgentState;
 
     //a way to store the previous state of the agent
-    [HideInInspector]
+    //[HideInInspector]
     //public CreatureState PreviousState;
 
     //an instance of the lighting manager (drag into via unity editor)
