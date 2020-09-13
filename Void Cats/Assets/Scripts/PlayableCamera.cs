@@ -82,6 +82,9 @@ public class PlayableCamera : MonoBehaviour
 
     public GameObject JournalUpdateUI;
 
+    //[HideInInspector]
+    public bool hasTeleporterUIOpen = false;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -157,8 +160,8 @@ public class PlayableCamera : MonoBehaviour
         //temp bool to see if the character controller is on the ground?
         bool tempGrounded = this.gameObject.GetComponent<CharacterController>().isGrounded;
 
-        //if the journal is not active
-        if(!tempJournal.activeSelf)
+        //if the journal is not active or if the teleporter UI is open
+        if(!tempJournal.activeSelf ^ hasTeleporterUIOpen)
         {
             //camera rotation code moved out from camera mode, as entire game is now first person
             //movement code (a lot simpler than openGL)
@@ -171,7 +174,11 @@ public class PlayableCamera : MonoBehaviour
             //yaw affects x --> rotation affects left and right (comes in through y input)
             //pitch affects y --> rotation affects up and down (comes in through x input)
 
-            firstPersonCamera.transform.eulerAngles = new Vector3(pitch, yaw, 0.0f);
+            //if (!hasTeleporterUIOpen)
+            //{
+                firstPersonCamera.transform.eulerAngles = new Vector3(pitch, yaw, 0.0f);
+            //}
+            
         }
         
 
