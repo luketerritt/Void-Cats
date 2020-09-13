@@ -8,9 +8,9 @@ public class UiOnInteract : MonoBehaviour, IInteractable
     public float MaxRange { get { return maxRange; } }
     private const float maxRange = 5f;
     public PlayableCamera playableCameraScript; // script from Matthrews Camera Script for the cursor
-    public GameObject interactTextUi;
+    public GameObject interactTextUi; // Hold E to intertect text
     public float speed; // how fast the progress circle goes
-    public float currentAmount; // The current amount the circle's fill amount is at
+    public float currentAmount; // what the curr circle's fill amount is at
     public Image interactProgressImage; // whatever the image or circle is
     public bool isProgressImageOn = false; //
     public GameObject buttonTele;
