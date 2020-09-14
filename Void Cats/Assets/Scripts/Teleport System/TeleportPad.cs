@@ -4,9 +4,7 @@ using UnityEngine;
 
 public class TeleportPad : MonoBehaviour
 {
-    public GameObject TeleportUi;
-    public int code;
-    public float coolDown = 0;
+ 
     // Start is called before the first frame update
     void Start()
     {
@@ -22,18 +20,11 @@ public class TeleportPad : MonoBehaviour
     {
         if (collider.tag == "Player") //&& teleportCoolDown <= 0)
         {
-            OpenPanel();
+           
             
         }
     }
 
 
-    public void OpenPanel()
-    {
-        if (TeleportUi != null)
-        {
-            bool isActive = TeleportUi.activeSelf;
-            TeleportUi.SetActive(!isActive);
-        }
-    }
+    
 }

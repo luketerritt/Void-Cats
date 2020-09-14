@@ -11,6 +11,10 @@ public class RayCast : MonoBehaviour
     // refence to camera for the raycast
     private Camera mainCamera;
 
+
+    bool BoxHit;
+    // what i hit
+    RaycastHit whatIHit;
     private void Awake()
     {
         // what ever object has the tag "Main Camera"
@@ -32,12 +36,20 @@ public class RayCast : MonoBehaviour
 
     private void RaycastForInteractable()
     {
-        // what i hit
-        RaycastHit whatIHit;
+        
         // Shoots out ray from camera
         Ray ray = mainCamera.ScreenPointToRay(Input.mousePosition);
+        float detectionSizeModifier = 1f;
+        
+        BoxHit = Physics.BoxCast(
+            mainCamera.transform.position,
+            mainCamera.transform.localScale * detectionSizeModifier,
+            mainCamera.transform.forward,
+            out whatIHit,
+            mainCamera.transform.rotation,
+            range);
 
-        if(Physics.Raycast(ray,out whatIHit, range))
+        if (BoxHit /*Physics.Raycast(ray,out whatIHit, range)*/)
         {
             IInteractable interactable = whatIHit.collider.GetComponent<IInteractable>();
             if (interactable != null) // only if not nothing eg floor but not interactable 
@@ -92,5 +104,18 @@ public class RayCast : MonoBehaviour
                 return;
             }
         }
+
+        
     }
+    private void OnDrawGizmos()
+    {
+        Gizmos.color = Color.blue;
+        if (BoxHit)
+        {
+            Gizmos.DrawRay(mainCamera.transform.position, mainCamera.transform.forward * whatIHit.distance);
+            Gizmos.DrawWireCube(mainCamera.transform.position + mainCamera.transform.forward * whatIHit.distance, mainCamera.transform.localScale);
+        }
+    }
+
+
 }

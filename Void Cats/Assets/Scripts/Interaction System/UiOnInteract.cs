@@ -10,10 +10,12 @@ public class UiOnInteract : MonoBehaviour, IInteractable
     public PlayableCamera playableCameraScript; // script from Matthrews Camera Script for the cursor
     public GameObject interactTextUi; // Hold E to intertect text
     public float speed; // how fast the progress circle goes
+    [HideInInspector]
     public float currentAmount; // what the curr circle's fill amount is at
     public Image interactProgressImage; // whatever the image or circle is
     public bool isProgressImageOn = false; //
-    public GameObject teleportPadMapUi;
+    public GameObject teleportPadMapUi; 
+   
 
 
     private void Update()
@@ -22,6 +24,10 @@ public class UiOnInteract : MonoBehaviour, IInteractable
         {
             interactProgressImage.fillAmount = 0.0f; // resets circle to 0 
             currentAmount = 0.0f;
+        }
+       if(playableCameraScript.hasTeleporterUIOpen == true && Input.GetKey(KeyCode.T))
+        {
+            OnEndHover();
         }
         
     }
@@ -57,6 +63,7 @@ public class UiOnInteract : MonoBehaviour, IInteractable
             isProgressImageOn = false;
             interactTextUi.SetActive(false); // turn off text
             playableCameraScript.isCursorLocked = false; // unlocks the cursor for the player to select the buttons 
+            playableCameraScript.hasTeleporterUIOpen = true; // Sets the Ui to true,then freezes the camera in Playable Camera Script
             
         }
        
@@ -67,13 +74,17 @@ public class UiOnInteract : MonoBehaviour, IInteractable
 
     public void OnEndHover()
     {
+        
+        
+            interactTextUi.SetActive(false);
+            isProgressImageOn = false;
+            interactProgressImage.fillAmount = 0.0f;
+            currentAmount = 0.0f;
+            teleportPadMapUi.SetActive(false);
+            playableCameraScript.isCursorLocked = true;
+           playableCameraScript.hasTeleporterUIOpen = false;
 
-        interactTextUi.SetActive(false);
-        isProgressImageOn = false;
-        interactProgressImage.fillAmount = 0.0f;
-        currentAmount = 0.0f;
-        teleportPadMapUi.SetActive(false);
-        playableCameraScript.isCursorLocked = true;
+
 
     }
 
