@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 8424211318393759919}
   - component: {fileID: 699123577842061977}
   - component: {fileID: 6525505148220583520}
-  - component: {fileID: 716937232}
+  - component: {fileID: 25449197023989974}
   m_Layer: 0
   m_Name: Pinelog
   m_TagString: Untagged
@@ -40,7 +40,7 @@ MeshFilter:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4806350529455823548}
-  m_Mesh: {fileID: 3057152946957485692, guid: 667db84a52e84804caab82cc57470f68, type: 3}
+  m_Mesh: {fileID: 2284314882910482782, guid: 667db84a52e84804caab82cc57470f68, type: 3}
 --- !u!23 &6525505148220583520
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -58,7 +58,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 5561349426305759274, guid: 667db84a52e84804caab82cc57470f68, type: 3}
+  - {fileID: 2100000, guid: 3ffc8283bdcafed41bf23523bf6c8456, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -79,7 +79,7 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
---- !u!64 &716937232
+--- !u!64 &25449197023989974
 MeshCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -92,4 +92,4 @@ MeshCollider:
   serializedVersion: 3
   m_Convex: 0
   m_CookingOptions: 14
-  m_Mesh: {fileID: 3057152946957485692, guid: 667db84a52e84804caab82cc57470f68, type: 3}
+  m_Mesh: {fileID: 2284314882910482782, guid: 667db84a52e84804caab82cc57470f68, type: 3}
