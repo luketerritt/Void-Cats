@@ -8,24 +8,7 @@ public class FastTravel : MonoBehaviour
     public Transform[] travelPosition;
     public GameObject teleportPadMapUi;
 
-    /*
-    public void OnTriggerEnter(Collider collider, int posIndex)
-    {
-        if (collider.tag == "Player") //&& teleportCoolDown <= 0)
-        {
-            foreach (TeleportPad tp in FindObjectsOfType<TeleportPad>())
-            {
-                if (tp.teleportGroup.teleportcode == teleportcode && tp != this)
-                {
-                   
-                    playerController.controller.enabled = false; // disables the character controller so the player can teleport
-                    playerController.controller.transform.position = travelPosition[posIndex].position; // changes the player's position 
-                    playerController.controller.enabled = true; // enables the character controller
-                }
-            }
-        }
-    }
-    */
+    
     public void TeleportTo(int posIndex)
     {
         

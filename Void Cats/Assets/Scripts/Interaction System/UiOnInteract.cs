@@ -13,7 +13,7 @@ public class UiOnInteract : MonoBehaviour, IInteractable
     public float currentAmount; // what the curr circle's fill amount is at
     public Image interactProgressImage; // whatever the image or circle is
     public bool isProgressImageOn = false; //
-    public GameObject buttonTele;
+    public GameObject teleportPadMapUi;
 
 
     private void Update()
@@ -51,7 +51,7 @@ public class UiOnInteract : MonoBehaviour, IInteractable
 
         if(currentAmount >= 100) // when reached 100
         {
-            buttonTele.SetActive(true); // turns on buttons for teleport
+            teleportPadMapUi.SetActive(true); // turns on buttons for teleport
             interactProgressImage.fillAmount = 0.0f; // turns off cirlce
             currentAmount = 0.0f; // resets the circle to 0
             isProgressImageOn = false;
@@ -72,7 +72,7 @@ public class UiOnInteract : MonoBehaviour, IInteractable
         isProgressImageOn = false;
         interactProgressImage.fillAmount = 0.0f;
         currentAmount = 0.0f;
-        buttonTele.SetActive(false);
+        teleportPadMapUi.SetActive(false);
         playableCameraScript.isCursorLocked = true;
 
     }
