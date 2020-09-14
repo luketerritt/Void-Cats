@@ -91,6 +91,8 @@ public class PlayableCamera : MonoBehaviour
         GameStorageData.UpdateInfo = false;
         defaultFov = firstPersonCamera.fieldOfView;
         isCursorLocked = true;
+        Cursor.lockState = CursorLockMode.Locked;
+        Cursor.visible = false;
         ppVolume = PostProcessingObject.GetComponent<PostProcessVolume>();
         ppVolume.sharedProfile.TryGetSettings<DepthOfField>(out blurryEffect);
 
@@ -110,7 +112,7 @@ public class PlayableCamera : MonoBehaviour
         UpdateCamera();
 
         //cursor lock code (taken from the old ThirdPersonCamera Script)
-        
+
         if (isCursorLocked == true)
         {
             Cursor.lockState = CursorLockMode.Locked;
@@ -122,7 +124,7 @@ public class PlayableCamera : MonoBehaviour
             Cursor.visible = true;
         }
 
-        
+        //Debug.Log("cursor status - isLocked = " + isCursorLocked + " - visible = " + Cursor.visible);
 
         //update camera charges
         //if the current number of charges is less than the max number of stored charges

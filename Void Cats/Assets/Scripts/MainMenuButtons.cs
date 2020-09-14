@@ -75,6 +75,7 @@ public class MainMenuButtons : MonoBehaviour, IPointerClickHandler
     void GoToMainMenu()
     {
         //go to the main menu (has to be added in the build settings)
+        Time.timeScale = 1f;
         SceneManager.LoadScene("Menu");
         Debug.Log("going to main menu");
     }

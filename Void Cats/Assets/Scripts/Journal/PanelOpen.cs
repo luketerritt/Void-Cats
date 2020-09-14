@@ -14,6 +14,7 @@ public class PanelOpen : MonoBehaviour
     private void Start()
     {
         PlayableCameraScript = PlayableCharacterObject.GetComponent<PlayableCamera>();
+        gameIsPaused = false;
     }
     public void OpenPanel()
     {
