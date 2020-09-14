@@ -27,7 +27,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5083401574415618042}
-  m_LocalRotation: {x: -0, y: -0.20834331, z: -0, w: 0.9780558}
+  m_LocalRotation: {x: 0, y: -0.20834702, z: 0, w: 0.978055}
   m_LocalPosition: {x: 136.74036, y: 238.78333, z: 176.99655}
   m_LocalScale: {x: 7.629711, y: 0.15999, z: 9.81777}
   m_Children: []
@@ -59,7 +59,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 6e7e5942e9792c742a42e74b54735db7, type: 2}
+  - {fileID: 2100000, guid: 7c784725bd913bb48a4c5b98e4e606e4, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -98,6 +98,10 @@ MonoBehaviour:
   stopAtPeak: 0
   frozen: 1
   drownDetectionOffSet: 1
+  TeleportUI: {fileID: 0}
+  teleportTime: 2
+  nearWaterEffectStrength: 0.3
+  nearWaterSubtractor: 1
 --- !u!65 &5083401574415618040
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -109,5 +113,5 @@ BoxCollider:
   m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 10, y: 2.2204459e-16, z: 10}
+  m_Size: {x: 10, y: 4, z: 10}
   m_Center: {x: -0.0000038146973, y: 0, z: 0}
