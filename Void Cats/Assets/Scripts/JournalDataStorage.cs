@@ -38,7 +38,7 @@ public class JournalDataStorage : MonoBehaviour
     //modify in editor - the spots where a tick or checkmark (etc) - checklist 
     public GameObject[] DogChecklistSpots = new GameObject[defaultArraySize];
 
-    /*
+    
     //Tiger Containers
     [HideInInspector]
     public CreatureInfo[] TigerPhotoRequirements = new CreatureInfo[defaultArraySize];
@@ -48,17 +48,22 @@ public class JournalDataStorage : MonoBehaviour
     public Sprite[] TigerSprites = new Sprite[defaultArraySize];
     //modify in editor
     public GameObject[] TigerJournalSpots = new GameObject[defaultArraySize];
+    //modify in editor - the spots where a tick or checkmark (etc) - checklist 
+    public GameObject[] TigerChecklistSpots = new GameObject[defaultArraySize];
 
     //Dragon Containers
     [HideInInspector]
     public CreatureInfo[] DragonPhotoRequirements = new CreatureInfo[defaultArraySize];
     [HideInInspector]
     public bool[] DragonPhotosIsTaken = new bool[defaultArraySize] { false, false, false, false };
-    [HideInInspector]
-    //public Sprite[] DragonSprites = new Sprite[defaultArraySize];
+    //[HideInInspector]
+    public Sprite[] DragonSprites = new Sprite[defaultArraySize];
     //modify in editor
     public GameObject[] DragonJournalSpots = new GameObject[defaultArraySize];
+    //modify in editor - the spots where a tick or checkmark (etc) - checklist 
+    public GameObject[] DragonChecklistSpots = new GameObject[defaultArraySize];
 
+    
     //Cow Containers
     [HideInInspector]
     public CreatureInfo[] CowPhotoRequirements = new CreatureInfo[defaultArraySize];
@@ -68,6 +73,8 @@ public class JournalDataStorage : MonoBehaviour
     public Sprite[] CowSprites = new Sprite[defaultArraySize];
     //modify in editor
     public GameObject[] CowJournalSpots = new GameObject[defaultArraySize];
+    //modify in editor - the spots where a tick or checkmark (etc) - checklist 
+    public GameObject[] CowChecklistSpots = new GameObject[defaultArraySize];
 
     //Duck Containers
     [HideInInspector]
@@ -78,6 +85,8 @@ public class JournalDataStorage : MonoBehaviour
     public Sprite[] DuckSprites = new Sprite[defaultArraySize];
     //modify in editor
     public GameObject[] DuckJournalSpots = new GameObject[defaultArraySize];
+    //modify in editor - the spots where a tick or checkmark (etc) - checklist 
+    public GameObject[] DuckChecklistSpots = new GameObject[defaultArraySize];
 
     //Cat Containers
     [HideInInspector]
@@ -88,6 +97,8 @@ public class JournalDataStorage : MonoBehaviour
     public Sprite[] CatSprites = new Sprite[defaultArraySize];
     //modify in editor
     public GameObject[] CatJournalSpots = new GameObject[defaultArraySize];
+    //modify in editor - the spots where a tick or checkmark (etc) - checklist 
+    public GameObject[] CatChecklistSpots = new GameObject[defaultArraySize];
 
     //Rabbit Containers
     [HideInInspector]
@@ -98,8 +109,10 @@ public class JournalDataStorage : MonoBehaviour
     public Sprite[] RabbitSprites = new Sprite[defaultArraySize];
     //modify in editor
     public GameObject[] RabbitJournalSpots = new GameObject[defaultArraySize];
+    //modify in editor - the spots where a tick or checkmark (etc) - checklist 
+    public GameObject[] RabbitChecklistSpots = new GameObject[defaultArraySize];
 
-    */
+    
 
     //a boolean used to determine if the photo info should be copied from the playerCameraInput
     [HideInInspector]
@@ -125,6 +138,24 @@ public class JournalDataStorage : MonoBehaviour
             
             DogPhotoRequirements[i].CreatureID = 2;
             DogPhotoRequirements[i].CreatureName = "Dog";
+
+            TigerPhotoRequirements[i].CreatureID = 3;
+            TigerPhotoRequirements[i].CreatureName = "Tiger";
+
+            DragonPhotoRequirements[i].CreatureID = 4;
+            DragonPhotoRequirements[i].CreatureName = "Dragon";
+
+            CowPhotoRequirements[i].CreatureID = 5;
+            CowPhotoRequirements[i].CreatureName = "Cow";
+
+            DuckPhotoRequirements[i].CreatureID = 6;
+            DuckPhotoRequirements[i].CreatureName = "Duck";
+
+            CatPhotoRequirements[i].CreatureID = 7;
+            CatPhotoRequirements[i].CreatureName = "Dragon";
+
+            RabbitPhotoRequirements[i].CreatureID = 4;
+            RabbitPhotoRequirements[i].CreatureName = "Dragon";
             //EXTEND SECTION
         }
 
@@ -139,15 +170,35 @@ public class JournalDataStorage : MonoBehaviour
         DogPhotoRequirements[2].agentState = (CreatureState)1; //player interaction here - notice
         DogPhotoRequirements[3].agentState = (CreatureState)5; //unique one here! -- chase tail
 
-        /*TigerPhotoRequirements[0].agentState = (CreatureState)3; //eat
+        TigerPhotoRequirements[0].agentState = (CreatureState)3; //eat
         TigerPhotoRequirements[1].agentState = (CreatureState)2; //sleep
         TigerPhotoRequirements[2].agentState = (CreatureState)1; //player interaction here - notice
-        TigerPhotoRequirements[3].agentState = (CreatureState)6; //unique one here! -- ROAR*/
+        TigerPhotoRequirements[3].agentState = (CreatureState)6; //unique one here! -- ROAR
 
-        /*DragonPhotoRequirements[0].agentState = (CreatureState)3; //eat
+        DragonPhotoRequirements[0].agentState = (CreatureState)3; //eat
         DragonPhotoRequirements[1].agentState = (CreatureState)2; //sleep
         DragonPhotoRequirements[2].agentState = (CreatureState)1; //player interaction here - notice
-        DragonPhotoRequirements[3].agentState = (CreatureState)7; //unique one here! -- ROAR*/
+        DragonPhotoRequirements[3].agentState = (CreatureState)7; //unique one here! -- FLOP
+
+        CowPhotoRequirements[0].agentState = (CreatureState)3; //eat
+        CowPhotoRequirements[1].agentState = (CreatureState)2; //sleep
+        CowPhotoRequirements[2].agentState = (CreatureState)1; //player interaction here - notice
+        CowPhotoRequirements[3].agentState = (CreatureState)8; //unique one here! -- ROLL
+
+        DuckPhotoRequirements[0].agentState = (CreatureState)3; //eat
+        DuckPhotoRequirements[1].agentState = (CreatureState)2; //sleep
+        DuckPhotoRequirements[2].agentState = (CreatureState)0; //player interaction here - scarred
+        DuckPhotoRequirements[3].agentState = (CreatureState)9; //unique one here! -- peck
+
+        CatPhotoRequirements[0].agentState = (CreatureState)3; //eat
+        CatPhotoRequirements[1].agentState = (CreatureState)2; //sleep
+        CatPhotoRequirements[2].agentState = (CreatureState)0; //player interaction here - scarred
+        CatPhotoRequirements[3].agentState = (CreatureState)10; //unique one here! -- levitate
+
+        RabbitPhotoRequirements[0].agentState = (CreatureState)3; //eat
+        RabbitPhotoRequirements[1].agentState = (CreatureState)2; //sleep
+        RabbitPhotoRequirements[2].agentState = (CreatureState)0; //player interaction here - scarred
+        RabbitPhotoRequirements[3].agentState = (CreatureState)11; //unique one here! -- ROAR
 
         //EXTEND SECTION
     }
@@ -190,25 +241,64 @@ public class JournalDataStorage : MonoBehaviour
                 }
 
                 //tiger update
-                /*TigerPhotosIsTaken[i] = temp.TigerPhotosIsTaken[i];
+                TigerPhotosIsTaken[i] = temp.TigerPhotosIsTaken[i];
                 TigerSprites[i] = temp.TigerSprites[i];
                 TigerJournalSpots[i].gameObject.GetComponent<Image>().sprite = TigerSprites[i];
 
                 if (TigerPhotosIsTaken[i])
                 {
                     TigerChecklistSpots[i].gameObject.GetComponent<Image>().sprite = ChecklistTick;
-                }*/
+                }
 
                 //dragon update
-                /*DragonPhotosIsTaken[i] = temp.DragonPhotosIsTaken[i];
+                DragonPhotosIsTaken[i] = temp.DragonPhotosIsTaken[i];
                 DragonSprites[i] = temp.DragonSprites[i];
                 DragonJournalSpots[i].gameObject.GetComponent<Image>().sprite = DragonSprites[i];
 
                 if (DragonPhotosIsTaken[i])
                 {
                     DragonChecklistSpots[i].gameObject.GetComponent<Image>().sprite = ChecklistTick;
-                }*/
+                }
 
+                //cow update
+                CowPhotosIsTaken[i] = temp.CowPhotosIsTaken[i];
+                CowSprites[i] = temp.CowSprites[i];
+                CowJournalSpots[i].gameObject.GetComponent<Image>().sprite = CowSprites[i];
+
+                if (CowPhotosIsTaken[i])
+                {
+                    CowChecklistSpots[i].gameObject.GetComponent<Image>().sprite = ChecklistTick;
+                }
+
+                //duck update
+                DuckPhotosIsTaken[i] = temp.DuckPhotosIsTaken[i];
+                DuckSprites[i] = temp.DuckSprites[i];
+                DuckJournalSpots[i].gameObject.GetComponent<Image>().sprite = DuckSprites[i];
+
+                if (DuckPhotosIsTaken[i])
+                {
+                    DuckChecklistSpots[i].gameObject.GetComponent<Image>().sprite = ChecklistTick;
+                }
+
+                //cat update
+                CatPhotosIsTaken[i] = temp.CatPhotosIsTaken[i];
+                CatSprites[i] = temp.CatSprites[i];
+                CatJournalSpots[i].gameObject.GetComponent<Image>().sprite = CatSprites[i];
+
+                if (CatPhotosIsTaken[i])
+                {
+                    CatChecklistSpots[i].gameObject.GetComponent<Image>().sprite = ChecklistTick;
+                }
+
+                //rabbit update
+                RabbitPhotosIsTaken[i] = temp.RabbitPhotosIsTaken[i];
+                RabbitSprites[i] = temp.RabbitSprites[i];
+                RabbitJournalSpots[i].gameObject.GetComponent<Image>().sprite = RabbitSprites[i];
+
+                if (RabbitPhotosIsTaken[i])
+                {
+                    RabbitChecklistSpots[i].gameObject.GetComponent<Image>().sprite = ChecklistTick;
+                }
 
                 //repeat EXTEND SECTION
             }

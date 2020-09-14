@@ -218,6 +218,26 @@ public class TestCreature : MonoBehaviour
                     bellyflopState(); //7 = flop -- UNIQUE* to the Dragon - find clear area, run forward, play flop animation as moving like a slide?
                     break;
                 }
+            case (CreatureState)8:
+                {
+                    rollState(); //8 = flop -- UNIQUE* to the Cow - find clear area, move similar to dog???
+                    break;
+                }
+            case (CreatureState)9:
+                {
+                    peckState(); //9 = peck -- UNIQUE* to the Duck - goto location, play animation?
+                    break;
+                }
+            case (CreatureState)10:
+                {
+                    bellyflopState(); //10 = levitate -- UNIQUE* to the Cat - goto place, play animation
+                    break;
+                }
+            case (CreatureState)11:
+                {
+                    angerState(); //7 = anger -- UNIQUE* to the Rabbit - find tree, punch it (via anitmaiton)
+                    break;
+                }
         }
 
     }
@@ -667,6 +687,302 @@ public class TestCreature : MonoBehaviour
                         }
                         break;
                     }
+                case 5: //Cow
+                    {
+                        //if it is LateNight - Cow should roll
+                        if ((int)timeState == 0)
+                        {
+                            if (info.agentState != (CreatureState)8)
+                            {
+                                //PreviousState = info.agentState; //assign the previous state
+                                info.agentState = (CreatureState)8; //agent goes rolls                                
+                                if (UniqueLocations.Length <= 1)
+                                {
+                                    randomLocation = 0;
+                                }
+                                else
+                                {
+                                    randomLocation = Random.Range(0, UniqueLocations.Length);
+                                }
+                                stateJustChanged = true;
+                                break;
+                            }
+                            break;
+                        }
+
+                        //if it is Morning - Cow should sleep
+                        if ((int)timeState == 1)
+                        {
+                            if (info.agentState != (CreatureState)2)
+                            {
+                                //PreviousState = info.agentState; //assign the previous state
+                                info.agentState = (CreatureState)2; //agent sleeps                               
+                                stateJustChanged = true;
+                                break;
+                            }
+
+                            break;
+                        }
+
+                        //if it is Afternoon - Cow should sleep
+                        if ((int)timeState == 2)
+                        {
+                            if (info.agentState != (CreatureState)2)
+                            {
+                                //PreviousState = info.agentState; //assign the previous state
+                                info.agentState = (CreatureState)2; //agent roars - UNIQUE                                
+                                stateJustChanged = true;
+                                break;
+                            }
+                            break;
+
+                        }
+                        //if it is Night - Dragon should go and eat
+                        if ((int)timeState == 3)
+                        {
+                            if (info.agentState != (CreatureState)3)
+                            {
+                                //PreviousState = info.agentState; //assign the previous state
+                                info.agentState = (CreatureState)3; //agent sleeps
+                                //if the size of the foodlocations is less than 1
+                                if (FoodLocations.Length <= 1)
+                                {
+                                    randomLocation = 0;
+                                }
+                                else
+                                {
+                                    randomLocation = Random.Range(0, FoodLocations.Length);
+                                }
+                                stateJustChanged = true;
+                                break;
+                            }
+                            break;
+                        }
+                        break;
+                    }
+                case 6: //Duck
+                    {
+                        //if it is LateNight - Duck should be asleep
+                        if ((int)timeState == 0)
+                        {
+                            if (info.agentState != (CreatureState)2)
+                            {
+                                //PreviousState = info.agentState; //assign the previous state
+                                info.agentState = (CreatureState)2; //agent sleeps
+                                stateJustChanged = true;
+                                break;
+                            }
+                            break;
+                        }
+
+                        //if it is Morning - Duck should eat
+                        if ((int)timeState == 1)
+                        {
+                            if (info.agentState != (CreatureState)3)
+                            {
+                                //PreviousState = info.agentState; //assign the previous state
+                                info.agentState = (CreatureState)3; //agent "goes for food"
+
+                                //if the size of the foodlocations is less than 1
+                                if (FoodLocations.Length <= 1)
+                                {
+                                    randomLocation = 0;
+                                }
+                                else
+                                {
+                                    randomLocation = Random.Range(0, FoodLocations.Length);
+                                }
+
+                                stateJustChanged = true;
+                                break;
+                            }
+
+                            break;
+                        }
+
+                        //if it is Afternoon - Duck should peck
+                        if ((int)timeState == 2)
+                        {
+                            if (info.agentState != (CreatureState)9)
+                            {
+                                //PreviousState = info.agentState; //assign the previous state
+                                info.agentState = (CreatureState)9; //agent pecks - UNIQUE
+                                if (UniqueLocations.Length <= 1)
+                                {
+                                    randomLocation = 0;
+                                }
+                                else
+                                {
+                                    randomLocation = Random.Range(0, UniqueLocations.Length);
+                                }
+
+                                stateJustChanged = true;
+                                break;
+                            }
+                            break;
+
+                        }
+                        //if it is Night - Duck should sleep
+                        if ((int)timeState == 3)
+                        {
+                            if (info.agentState != (CreatureState)2)
+                            {
+                                //PreviousState = info.agentState; //assign the previous state
+                                info.agentState = (CreatureState)2; //agent sleeps
+                                stateJustChanged = true;
+                                break;
+                            }
+                            break;
+                        }
+                        break;
+                    }
+                case 7: //Cat
+                    {
+                        //if it is LateNight - Cat should levitate
+                        if ((int)timeState == 0)
+                        {
+                            if (info.agentState != (CreatureState)10)
+                            {
+                                //PreviousState = info.agentState; //assign the previous state
+                                info.agentState = (CreatureState)10; //agent levitates                                
+                                if (UniqueLocations.Length <= 1)
+                                {
+                                    randomLocation = 0;
+                                }
+                                else
+                                {
+                                    randomLocation = Random.Range(0, UniqueLocations.Length);
+                                }
+                                stateJustChanged = true;
+                                break;
+                            }
+                            break;
+                        }
+
+                        //if it is Morning - Cat should sleep
+                        if ((int)timeState == 1)
+                        {
+                            if (info.agentState != (CreatureState)2)
+                            {
+                                //PreviousState = info.agentState; //assign the previous state
+                                info.agentState = (CreatureState)2; //agent sleeps                               
+                                stateJustChanged = true;
+                                break;
+                            }
+
+                            break;
+                        }
+
+                        //if it is Afternoon - Cat should sleep
+                        if ((int)timeState == 2)
+                        {
+                            if (info.agentState != (CreatureState)2)
+                            {
+                                //PreviousState = info.agentState; //assign the previous state
+                                info.agentState = (CreatureState)2; //agent roars - UNIQUE                                
+                                stateJustChanged = true;
+                                break;
+                            }
+                            break;
+
+                        }
+                        //if it is Night - cat should go and eat
+                        if ((int)timeState == 3)
+                        {
+                            if (info.agentState != (CreatureState)3)
+                            {
+                                //PreviousState = info.agentState; //assign the previous state
+                                info.agentState = (CreatureState)3; //agent sleeps
+                                //if the size of the foodlocations is less than 1
+                                if (FoodLocations.Length <= 1)
+                                {
+                                    randomLocation = 0;
+                                }
+                                else
+                                {
+                                    randomLocation = Random.Range(0, FoodLocations.Length);
+                                }
+                                stateJustChanged = true;
+                                break;
+                            }
+                            break;
+                        }
+                        break;
+                    }
+                case 8: //Rabbit
+                    {
+                        //if it is LateNight - Rabbit should eat
+                        if ((int)timeState == 0)
+                        {
+                            if (info.agentState != (CreatureState)3)
+                            {
+                                //PreviousState = info.agentState; //assign the previous state
+                                info.agentState = (CreatureState)3; //agent eats                               
+                                if (FoodLocations.Length <= 1)
+                                {
+                                    randomLocation = 0;
+                                }
+                                else
+                                {
+                                    randomLocation = Random.Range(0, FoodLocations.Length);
+                                }
+                                stateJustChanged = true;
+                                break;
+                            }
+                            break;
+                        }
+
+                        //if it is Morning - Rabbit should sleep
+                        if ((int)timeState == 1)
+                        {
+                            if (info.agentState != (CreatureState)2)
+                            {
+                                //PreviousState = info.agentState; //assign the previous state
+                                info.agentState = (CreatureState)2; //agent sleeps                               
+                                stateJustChanged = true;
+                                break;
+                            }
+
+                            break;
+                        }
+
+                        //if it is Afternoon - Rabbit should sleep
+                        if ((int)timeState == 2)
+                        {
+                            if (info.agentState != (CreatureState)2)
+                            {
+                                //PreviousState = info.agentState; //assign the previous state
+                                info.agentState = (CreatureState)2; //agent roars - UNIQUE                                
+                                stateJustChanged = true;
+                                break;
+                            }
+                            break;
+
+                        }
+                        //if it is Night - Rabbit should go and punch a tree
+                        if ((int)timeState == 3)
+                        {
+                            if (info.agentState != (CreatureState)11)
+                            {
+                                //PreviousState = info.agentState; //assign the previous state
+                                info.agentState = (CreatureState)11; //agent sleeps is ANGER
+                                //if the size of the foodlocations is less than 1
+                                if (UniqueLocations.Length <= 1)
+                                {
+                                    randomLocation = 0;
+                                }
+                                else
+                                {
+                                    randomLocation = Random.Range(0,  UniqueLocations.Length);
+                                }
+                                stateJustChanged = true;
+                                break;
+                            }
+                            break;
+                        }
+                        break;
+                    }
+
             }
         }
         
@@ -850,6 +1166,106 @@ public class TestCreature : MonoBehaviour
     }
 
     void bellyflopState()
+    {
+        if (stateJustChanged)
+        {
+            navMeshAgent.speed = speed;
+            //transform.rotation *= Quaternion.Euler(0, 0, 0);
+            stateJustChanged = false;
+        }
+
+        Vector3 tempLocation = UniqueLocations[randomLocation].transform.position;
+        navMeshAgent.SetDestination(tempLocation);
+
+        //Debug.Log("roar state, going to " + tempLocation);
+        //if you get close enough to your destination
+        float distance = Vector3.Distance(tempLocation, transform.position);
+        if (distance <= 2)
+        {
+            //set the new position to go to be the spot you are standing
+            navMeshAgent.SetDestination(this.transform.position);
+            //Debug.Log("" + this.gameObject + " reached a bush");
+
+            //probably play bellyflop animation/sound here - maybe a check to get here first to play sound?
+        }
+    }
+
+    void rollState()
+    {
+        if (stateJustChanged)
+        {
+            navMeshAgent.speed = speed;
+            //transform.rotation *= Quaternion.Euler(0, 0, 0);
+            stateJustChanged = false;
+        }
+
+        Vector3 tempLocation = UniqueLocations[randomLocation].transform.position;
+        navMeshAgent.SetDestination(tempLocation);
+
+        //Debug.Log("roar state, going to " + tempLocation);
+        //if you get close enough to your destination
+        float distance = Vector3.Distance(tempLocation, transform.position);
+        if (distance <= 2)
+        {
+            //set the new position to go to be the spot you are standing
+            navMeshAgent.SetDestination(this.transform.position);
+            //Debug.Log("" + this.gameObject + " reached a bush");
+
+            //probably play roll animation/sound here - maybe a check to get here first to play sound?
+        }
+    }
+
+    void peckState()
+    {
+        if (stateJustChanged)
+        {
+            navMeshAgent.speed = speed;
+            //transform.rotation *= Quaternion.Euler(0, 0, 0);
+            stateJustChanged = false;
+        }
+
+        Vector3 tempLocation = UniqueLocations[randomLocation].transform.position;
+        navMeshAgent.SetDestination(tempLocation);
+
+        //Debug.Log("roar state, going to " + tempLocation);
+        //if you get close enough to your destination
+        float distance = Vector3.Distance(tempLocation, transform.position);
+        if (distance <= 2)
+        {
+            //set the new position to go to be the spot you are standing
+            navMeshAgent.SetDestination(this.transform.position);
+            //Debug.Log("" + this.gameObject + " reached a bush");
+
+            //probably play bellyflop animation/sound here - maybe a check to get here first to play sound?
+        }
+    }
+
+    void levitateState()
+    {
+        if (stateJustChanged)
+        {
+            navMeshAgent.speed = speed;
+            //transform.rotation *= Quaternion.Euler(0, 0, 0);
+            stateJustChanged = false;
+        }
+
+        Vector3 tempLocation = UniqueLocations[randomLocation].transform.position;
+        navMeshAgent.SetDestination(tempLocation);
+
+        //Debug.Log("roar state, going to " + tempLocation);
+        //if you get close enough to your destination
+        float distance = Vector3.Distance(tempLocation, transform.position);
+        if (distance <= 2)
+        {
+            //set the new position to go to be the spot you are standing
+            navMeshAgent.SetDestination(this.transform.position);
+            //Debug.Log("" + this.gameObject + " reached a bush");
+
+            //probably play bellyflop animation/sound here - maybe a check to get here first to play sound?
+        }
+    }
+
+    void angerState()
     {
         if (stateJustChanged)
         {

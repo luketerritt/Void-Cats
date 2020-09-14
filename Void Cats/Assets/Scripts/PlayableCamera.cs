@@ -425,7 +425,7 @@ public class PlayableCamera : MonoBehaviour
                                 }
                             case (3): //the hit creature is a Tiger
                                 {
-                                    /*for (int i = 0; i < GameStorageData.TigerPhotoRequirements.Length; i++)
+                                    for (int i = 0; i < GameStorageData.TigerPhotoRequirements.Length; i++)
                                     {
                                         //check the state of the required photo vs state we found and that a photo does not exist there already
                                         if (creatureInfo.agentState == GameStorageData.TigerPhotoRequirements[i].agentState
@@ -437,17 +437,17 @@ public class PlayableCamera : MonoBehaviour
                                             canCaptureAsTexture = true;
                                             failedPhoto = false;
                                         }
-                                    }*/
-                                    Debug.Log("Tiger Photo Code still WIP");
+                                    }
+                                    //Debug.Log("Tiger Photo Code still WIP");
                                     break;
                                 }
                             case (4): //the hit creature is a Dragon
                                 {
-                                    /*for (int i = 0; i < GameStorageData.DragonPhotoRequirements.Length; i++)
+                                    for (int i = 0; i < GameStorageData.DragonPhotoRequirements.Length; i++)
                                    {
                                        //check the state of the required photo vs state we found and that a photo does not exist there already
                                        if (creatureInfo.agentState == GameStorageData.DragonPhotoRequirements[i].agentState
-                                           && !GameStorageData.TigerPhotosIsTaken[i])
+                                           && !GameStorageData.DragonPhotosIsTaken[i])
                                        {
                                            //assign variables based on check and set boolean to allow coroutine
                                            textureCaptureCreatureType = creatureInfo.CreatureID; //you equal 0 as this check only happens if ID is 0
@@ -455,8 +455,80 @@ public class PlayableCamera : MonoBehaviour
                                            canCaptureAsTexture = true;
                                            failedPhoto = false;
                                        }
-                                   }*/
-                                    Debug.Log("Dragon Photo Code still WIP");
+                                   }
+                                    //Debug.Log("Dragon Photo Code still WIP");
+                                    break;
+                                }
+                            case (5): //the hit creature is a Cow
+                                {
+                                    for (int i = 0; i < GameStorageData.CowPhotoRequirements.Length; i++)
+                                    {
+                                        //check the state of the required photo vs state we found and that a photo does not exist there already
+                                        if (creatureInfo.agentState == GameStorageData.CowPhotoRequirements[i].agentState
+                                            && !GameStorageData.CowPhotosIsTaken[i])
+                                        {
+                                            //assign variables based on check and set boolean to allow coroutine
+                                            textureCaptureCreatureType = creatureInfo.CreatureID; //you equal 0 as this check only happens if ID is 0
+                                            textureLocationInArray = i;
+                                            canCaptureAsTexture = true;
+                                            failedPhoto = false;
+                                        }
+                                    }
+                                    //Debug.Log("Dragon Photo Code still WIP");
+                                    break;
+                                }
+                            case (6): //the hit creature is a Duck
+                                {
+                                    for (int i = 0; i < GameStorageData.DuckPhotoRequirements.Length; i++)
+                                    {
+                                        //check the state of the required photo vs state we found and that a photo does not exist there already
+                                        if (creatureInfo.agentState == GameStorageData.DuckPhotoRequirements[i].agentState
+                                            && !GameStorageData.DuckPhotosIsTaken[i])
+                                        {
+                                            //assign variables based on check and set boolean to allow coroutine
+                                            textureCaptureCreatureType = creatureInfo.CreatureID; //you equal 0 as this check only happens if ID is 0
+                                            textureLocationInArray = i;
+                                            canCaptureAsTexture = true;
+                                            failedPhoto = false;
+                                        }
+                                    }
+                                    //Debug.Log("Dragon Photo Code still WIP");
+                                    break;
+                                }
+                            case (7): //the hit creature is a Cat
+                                {
+                                    for (int i = 0; i < GameStorageData.CatPhotoRequirements.Length; i++)
+                                    {
+                                        //check the state of the required photo vs state we found and that a photo does not exist there already
+                                        if (creatureInfo.agentState == GameStorageData.CatPhotoRequirements[i].agentState
+                                            && !GameStorageData.CatPhotosIsTaken[i])
+                                        {
+                                            //assign variables based on check and set boolean to allow coroutine
+                                            textureCaptureCreatureType = creatureInfo.CreatureID; //you equal 0 as this check only happens if ID is 0
+                                            textureLocationInArray = i;
+                                            canCaptureAsTexture = true;
+                                            failedPhoto = false;
+                                        }
+                                    }
+                                    //Debug.Log("Dragon Photo Code still WIP");
+                                    break;
+                                }
+                            case (8): //the hit creature is a Rabbit
+                                {
+                                    for (int i = 0; i < GameStorageData.RabbitPhotoRequirements.Length; i++)
+                                    {
+                                        //check the state of the required photo vs state we found and that a photo does not exist there already
+                                        if (creatureInfo.agentState == GameStorageData.RabbitPhotoRequirements[i].agentState
+                                            && !GameStorageData.RabbitPhotosIsTaken[i])
+                                        {
+                                            //assign variables based on check and set boolean to allow coroutine
+                                            textureCaptureCreatureType = creatureInfo.CreatureID; //you equal 0 as this check only happens if ID is 0
+                                            textureLocationInArray = i;
+                                            canCaptureAsTexture = true;
+                                            failedPhoto = false;
+                                        }
+                                    }
+                                    //Debug.Log("Dragon Photo Code still WIP");
                                     break;
                                 }
 
@@ -589,19 +661,51 @@ public class PlayableCamera : MonoBehaviour
                 break;
             }
             case (3): //Tiger
-            {/*
+            {
                 //assign bool stating texture has been asigned, and assign sprite                
                 GameStorageData.TigerPhotosIsTaken[textureLocationInArray] = true;
                 GameStorageData.TigerSprites[textureLocationInArray] = newSprite;
-                GameStorageData.UpdateInfo = true;*/
+                GameStorageData.UpdateInfo = true;
                 break;
             }
             case (4):
-            {/*
+            {
                 //assign bool stating texture has been asigned, and assign sprite                
                 GameStorageData.DragonPhotosIsTaken[textureLocationInArray] = true;
                 GameStorageData.DragonSprites[textureLocationInArray] = newSprite;
-                GameStorageData.UpdateInfo = true;*/
+                GameStorageData.UpdateInfo = true;
+                break;
+            }
+            case (5):
+            {
+                //assign bool stating texture has been asigned, and assign sprite                
+                GameStorageData.CowPhotosIsTaken[textureLocationInArray] = true;
+                GameStorageData.CowSprites[textureLocationInArray] = newSprite;
+                GameStorageData.UpdateInfo = true;
+                break;
+            }
+            case (6):
+            {
+                //assign bool stating texture has been asigned, and assign sprite                
+                GameStorageData.DuckPhotosIsTaken[textureLocationInArray] = true;
+                GameStorageData.DuckSprites[textureLocationInArray] = newSprite;
+                GameStorageData.UpdateInfo = true;
+                break;
+            }
+            case (7):
+            {
+                //assign bool stating texture has been asigned, and assign sprite                
+                GameStorageData.CatPhotosIsTaken[textureLocationInArray] = true;
+                GameStorageData.CatSprites[textureLocationInArray] = newSprite;
+                GameStorageData.UpdateInfo = true;
+                break;
+            }
+            case (8):
+            {
+                //assign bool stating texture has been asigned, and assign sprite                
+                GameStorageData.RabbitPhotosIsTaken[textureLocationInArray] = true;
+                GameStorageData.RabbitSprites[textureLocationInArray] = newSprite;
+                GameStorageData.UpdateInfo = true;
                 break;
             }
 
