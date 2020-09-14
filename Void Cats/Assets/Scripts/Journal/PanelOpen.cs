@@ -7,8 +7,8 @@ public class PanelOpen : MonoBehaviour
 {
     public GameObject PlayableCharacterObject;
     private PlayableCamera PlayableCameraScript;
-    public GameObject Panel;
-    public static bool gameIsPaused = false;
+    public GameObject Panel; // this is the Journal
+    public bool gameIsPaused = false;
     
 
     private void Start()
@@ -27,12 +27,10 @@ public class PanelOpen : MonoBehaviour
 
      void Update()
      {
-        
+         
         if (Input.GetKeyDown(KeyCode.Tab))
         {
-           
-
-            if (gameIsPaused)
+            if (gameIsPaused )
             {
                 Resume();
             }
@@ -42,9 +40,16 @@ public class PanelOpen : MonoBehaviour
                 bool temp = PlayableCharacterObject.GetComponent<CharacterController>().isGrounded;
                 if (temp)
                 {
-                    Pause();
+                    if(PlayableCameraScript.hasTeleporterUIOpen == true)
+                    {
+                        // do nothing
+                    }
+                    if(PlayableCameraScript.hasTeleporterUIOpen == false)
+                    {
+                        Pause();
+                    }
+                   
                 }
-               
             }
         }
     }

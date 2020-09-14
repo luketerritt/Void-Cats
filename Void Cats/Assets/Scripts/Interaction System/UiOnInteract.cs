@@ -7,6 +7,7 @@ public class UiOnInteract : MonoBehaviour, IInteractable
 {
     public float MaxRange { get { return maxRange; } }
     private const float maxRange = 5f;
+    
     public PlayableCamera playableCameraScript; // script from Matthrews Camera Script for the cursor
     public GameObject interactTextUi; // Hold E to intertect text
     public float speed; // how fast the progress circle goes
@@ -25,7 +26,7 @@ public class UiOnInteract : MonoBehaviour, IInteractable
             interactProgressImage.fillAmount = 0.0f; // resets circle to 0 
             currentAmount = 0.0f;
         }
-       if(playableCameraScript.hasTeleporterUIOpen == true && Input.GetKey(KeyCode.T))
+       if(playableCameraScript.hasTeleporterUIOpen == true && Input.GetKeyUp(KeyCode.Tab))
         {
             OnEndHover();
         }
@@ -82,7 +83,7 @@ public class UiOnInteract : MonoBehaviour, IInteractable
             currentAmount = 0.0f;
             teleportPadMapUi.SetActive(false);
             playableCameraScript.isCursorLocked = true;
-           playableCameraScript.hasTeleporterUIOpen = false;
+            playableCameraScript.hasTeleporterUIOpen = false;
 
 
 
