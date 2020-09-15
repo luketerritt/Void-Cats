@@ -9,6 +9,7 @@ public class TPPanel : MonoBehaviour
     private bool canAnimate = false;
     public GameObject TPpanel;
     public GameObject NewPhotoUI;
+    public GameObject CapturedImageUI;
 
     void Start()
     {
@@ -45,5 +46,10 @@ public class TPPanel : MonoBehaviour
         NewPhotoUI.SetActive(false);
         //turn off the camera flash (incase its on from a previous frame)
         //PlayerObject.GetComponent<PlayableCamera>().readyFlash = false;
+    }
+
+    public void StopCapturedImageAnim()
+    {
+        CapturedImageUI.SetActive(false);
     }
 }
