@@ -537,18 +537,53 @@ public class PlayableCamera : MonoBehaviour
                         }
 
                     }
-                    //else // we didnt hit a creature
-                    //{
-                        //flash the camera anyways
-                        //readyFlash = true;
-                    //}
+                    else // we didnt hit a creature
+                    {
+                        //still take photo and display to misc section (if it has space)
+                        if (optionToSavePhoto)
+                        {   //turn off the UI
+                            uiCameraOverlay.SetActive(false);
+                            uiStandardOverlay.SetActive(false);
+                            //create a string with time formatting so they dont overwrite if the same condtions are met
+                            //an example PNG name will end up like "Block-Sleep-31-Jan-11-59-59"
+                            string time = DateTime.Now.ToString("dd MMM HH:mm:ss"); //dd MMM HH:mm:ss HH:mm:ss.ffffzzz
+                            time = time.Replace(":", "-");//replace instances of : with -
+                            time = time.Replace(" ", "-");//replace instances of "space" with -
+                            time = time.Replace(".", "");//replace instances of . with nothing
+                            ScreenCapture.CaptureScreenshot("MiscPhoto-" + time + ".png");
+                            Debug.Log("Photo Should have saved!");
+
+                        }
+                        else
+                        {
+                            Debug.Log("Photo Saving Disabled!");
+                        }
+                    }
 
                 }
-                //else // we didnt hit anything
-                //{
-                    //flash the camera anyways
-                    //readyFlash = true;
-                //}
+                else // we didnt hit anything
+                {
+                    //still take photo and display to misc section (if it has space)
+                    //still take photo and display to misc section (if it has space)
+                    if (optionToSavePhoto)
+                    {   //turn off the UI
+                        uiCameraOverlay.SetActive(false);
+                        uiStandardOverlay.SetActive(false);
+                        //create a string with time formatting so they dont overwrite if the same condtions are met
+                        //an example PNG name will end up like "Block-Sleep-31-Jan-11-59-59"
+                        string time = DateTime.Now.ToString("dd MMM HH:mm:ss"); //dd MMM HH:mm:ss HH:mm:ss.ffffzzz
+                        time = time.Replace(":", "-");//replace instances of : with -
+                        time = time.Replace(" ", "-");//replace instances of "space" with -
+                        time = time.Replace(".", "");//replace instances of . with nothing
+                        ScreenCapture.CaptureScreenshot("MiscPhoto-" + time + ".png");
+                        Debug.Log("Photo Should have saved!");
+
+                    }
+                    else
+                    {
+                        Debug.Log("Photo Saving Disabled!");
+                    }
+                }
 
             }
         }
@@ -652,6 +687,7 @@ public class PlayableCamera : MonoBehaviour
                 GameStorageData.FishPhotosIsTaken[textureLocationInArray] = true;
                 GameStorageData.FishSprites[textureLocationInArray] = newSprite;
                 GameStorageData.UpdateInfo = true;
+                GameStorageData.CreatureToUpdate = 1;
                     break;
             }
             case (2): //DOG
@@ -660,7 +696,8 @@ public class PlayableCamera : MonoBehaviour
                 GameStorageData.DogPhotosIsTaken[textureLocationInArray] = true;
                 GameStorageData.DogSprites[textureLocationInArray] = newSprite;
                 GameStorageData.UpdateInfo = true;
-                break;
+                GameStorageData.CreatureToUpdate = 2;
+                    break;
             }
             case (3): //Tiger
             {
@@ -668,7 +705,8 @@ public class PlayableCamera : MonoBehaviour
                 GameStorageData.TigerPhotosIsTaken[textureLocationInArray] = true;
                 GameStorageData.TigerSprites[textureLocationInArray] = newSprite;
                 GameStorageData.UpdateInfo = true;
-                break;
+                GameStorageData.CreatureToUpdate = 3;
+                    break;
             }
             case (4):
             {
@@ -676,7 +714,8 @@ public class PlayableCamera : MonoBehaviour
                 GameStorageData.DragonPhotosIsTaken[textureLocationInArray] = true;
                 GameStorageData.DragonSprites[textureLocationInArray] = newSprite;
                 GameStorageData.UpdateInfo = true;
-                break;
+                GameStorageData.CreatureToUpdate = 4;
+                    break;
             }
             case (5):
             {
@@ -684,7 +723,8 @@ public class PlayableCamera : MonoBehaviour
                 GameStorageData.CowPhotosIsTaken[textureLocationInArray] = true;
                 GameStorageData.CowSprites[textureLocationInArray] = newSprite;
                 GameStorageData.UpdateInfo = true;
-                break;
+                GameStorageData.CreatureToUpdate = 5;
+                    break;
             }
             case (6):
             {
@@ -692,7 +732,8 @@ public class PlayableCamera : MonoBehaviour
                 GameStorageData.DuckPhotosIsTaken[textureLocationInArray] = true;
                 GameStorageData.DuckSprites[textureLocationInArray] = newSprite;
                 GameStorageData.UpdateInfo = true;
-                break;
+                GameStorageData.CreatureToUpdate = 6;
+                    break;
             }
             case (7):
             {
@@ -700,7 +741,8 @@ public class PlayableCamera : MonoBehaviour
                 GameStorageData.CatPhotosIsTaken[textureLocationInArray] = true;
                 GameStorageData.CatSprites[textureLocationInArray] = newSprite;
                 GameStorageData.UpdateInfo = true;
-                break;
+                GameStorageData.CreatureToUpdate = 7;
+                    break;
             }
             case (8):
             {
@@ -708,7 +750,8 @@ public class PlayableCamera : MonoBehaviour
                 GameStorageData.RabbitPhotosIsTaken[textureLocationInArray] = true;
                 GameStorageData.RabbitSprites[textureLocationInArray] = newSprite;
                 GameStorageData.UpdateInfo = true;
-                break;
+                GameStorageData.CreatureToUpdate = 8;
+                    break;
             }
 
                 //extend for other creatures!!! EXTEND SECTION
