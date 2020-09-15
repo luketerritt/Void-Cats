@@ -713,7 +713,7 @@ public class PlayableCamera : MonoBehaviour
                     GameStorageData.MiscPhotoIsTaken[textureLocationInArray] = true;
                     GameStorageData.MiscSprites[textureLocationInArray] = newSprite;
                     GameStorageData.updateMiscInfo = true;
-                    
+                    GameStorageData.textureLocation = textureLocationInArray;
                     break;
             }
             case (1): //FISH
@@ -722,6 +722,7 @@ public class PlayableCamera : MonoBehaviour
                 GameStorageData.FishSprites[textureLocationInArray] = newSprite;
                 GameStorageData.UpdateInfo = true;
                 GameStorageData.CreatureToUpdate = 1;
+                GameStorageData.textureLocation = textureLocationInArray;
                     break;
             }
             case (2): //DOG
@@ -731,6 +732,7 @@ public class PlayableCamera : MonoBehaviour
                 GameStorageData.DogSprites[textureLocationInArray] = newSprite;
                 GameStorageData.UpdateInfo = true;
                 GameStorageData.CreatureToUpdate = 2;
+                GameStorageData.textureLocation = textureLocationInArray;
                     break;
             }
             case (3): //Tiger
@@ -740,6 +742,7 @@ public class PlayableCamera : MonoBehaviour
                 GameStorageData.TigerSprites[textureLocationInArray] = newSprite;
                 GameStorageData.UpdateInfo = true;
                 GameStorageData.CreatureToUpdate = 3;
+                GameStorageData.textureLocation = textureLocationInArray;
                     break;
             }
             case (4):
@@ -749,6 +752,7 @@ public class PlayableCamera : MonoBehaviour
                 GameStorageData.DragonSprites[textureLocationInArray] = newSprite;
                 GameStorageData.UpdateInfo = true;
                 GameStorageData.CreatureToUpdate = 4;
+                GameStorageData.textureLocation = textureLocationInArray;
                     break;
             }
             case (5):
@@ -758,6 +762,7 @@ public class PlayableCamera : MonoBehaviour
                 GameStorageData.CowSprites[textureLocationInArray] = newSprite;
                 GameStorageData.UpdateInfo = true;
                 GameStorageData.CreatureToUpdate = 5;
+                GameStorageData.textureLocation = textureLocationInArray;
                     break;
             }
             case (6):
@@ -767,6 +772,7 @@ public class PlayableCamera : MonoBehaviour
                 GameStorageData.DuckSprites[textureLocationInArray] = newSprite;
                 GameStorageData.UpdateInfo = true;
                 GameStorageData.CreatureToUpdate = 6;
+                GameStorageData.textureLocation = textureLocationInArray;
                     break;
             }
             case (7):
@@ -776,6 +782,7 @@ public class PlayableCamera : MonoBehaviour
                 GameStorageData.CatSprites[textureLocationInArray] = newSprite;
                 GameStorageData.UpdateInfo = true;
                 GameStorageData.CreatureToUpdate = 7;
+                GameStorageData.textureLocation = textureLocationInArray;
                     break;
             }
             case (8):
@@ -785,6 +792,7 @@ public class PlayableCamera : MonoBehaviour
                 GameStorageData.RabbitSprites[textureLocationInArray] = newSprite;
                 GameStorageData.UpdateInfo = true;
                 GameStorageData.CreatureToUpdate = 8;
+                GameStorageData.textureLocation = textureLocationInArray;
                     break;
             }
 

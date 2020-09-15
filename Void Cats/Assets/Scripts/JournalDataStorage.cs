@@ -138,6 +138,13 @@ public class JournalDataStorage : MonoBehaviour
 
     public Sprite DefaultTexture;
 
+    //the location of the new texture, used to put on the animated image
+    [HideInInspector]
+    public int textureLocation;
+
+    //gameobject that plays an animation when picture is taken, showcasing photo
+    public GameObject ImagePopUp;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -222,9 +229,14 @@ public class JournalDataStorage : MonoBehaviour
     void Update()
     {
         var temp = playerCameraInput.gameObject.GetComponent<PlayableCamera>().GameStorageData;
+       
         //if we need to update journal picture information
         if(temp.UpdateInfo)
         {
+            //work around to fix bug...
+            //var spritePopUptemp = ImagePopUp.gameObject.GetComponent<PopUpCameraUI>()
+            //    .child.GetComponent<Image>().sprite;
+
             //update the textures
             for (int i = 0; i < defaultArraySize; i++)
             {
@@ -252,6 +264,9 @@ public class JournalDataStorage : MonoBehaviour
                             {
                                 FishChecklistSpots[i].gameObject.GetComponent<Image>().sprite = ChecklistTick;
                             }
+                            //assign pop up sprite
+                            ImagePopUp.gameObject.GetComponent<PopUpCameraUI>().child.GetComponent<Image>().sprite
+                                = FishSprites[temp.textureLocation];
                             break;
                         }
                     case 2:
@@ -265,6 +280,9 @@ public class JournalDataStorage : MonoBehaviour
                             {
                                 DogChecklistSpots[i].gameObject.GetComponent<Image>().sprite = ChecklistTick;
                             }
+                            //assign pop up sprite
+                            ImagePopUp.gameObject.GetComponent<PopUpCameraUI>().child.GetComponent<Image>().sprite
+                                = DogSprites[temp.textureLocation];
                             break;
                         }
                     case 3:
@@ -278,6 +296,9 @@ public class JournalDataStorage : MonoBehaviour
                             {
                                 TigerChecklistSpots[i].gameObject.GetComponent<Image>().sprite = ChecklistTick;
                             }
+                            //assign pop up sprite
+                            ImagePopUp.gameObject.GetComponent<PopUpCameraUI>().child.GetComponent<Image>().sprite
+                               = TigerSprites[temp.textureLocation];
                             break;
                         }
                     case 4:
@@ -291,6 +312,9 @@ public class JournalDataStorage : MonoBehaviour
                             {
                                 DragonChecklistSpots[i].gameObject.GetComponent<Image>().sprite = ChecklistTick;
                             }
+                            //assign pop up sprite
+                            ImagePopUp.gameObject.GetComponent<PopUpCameraUI>().child.GetComponent<Image>().sprite
+                                = DragonSprites[temp.textureLocation];
                             break;
                         }
                     case 5:
@@ -304,6 +328,9 @@ public class JournalDataStorage : MonoBehaviour
                             {
                                 CowChecklistSpots[i].gameObject.GetComponent<Image>().sprite = ChecklistTick;
                             }
+                            //assign pop up sprite
+                            ImagePopUp.gameObject.GetComponent<PopUpCameraUI>().child.GetComponent<Image>().sprite
+                                = CowSprites[temp.textureLocation];
                             break;
                         }
                     case 6:
@@ -317,6 +344,9 @@ public class JournalDataStorage : MonoBehaviour
                             {
                                 DuckChecklistSpots[i].gameObject.GetComponent<Image>().sprite = ChecklistTick;
                             }
+                            //assign pop up sprite
+                            ImagePopUp.gameObject.GetComponent<PopUpCameraUI>().child.GetComponent<Image>().sprite
+                                = DuckSprites[temp.textureLocation];
                             break;
                         }
                     case 7:
@@ -330,6 +360,9 @@ public class JournalDataStorage : MonoBehaviour
                             {
                                 CatChecklistSpots[i].gameObject.GetComponent<Image>().sprite = ChecklistTick;
                             }
+                            //assign pop up sprite
+                            ImagePopUp.gameObject.GetComponent<PopUpCameraUI>().child.GetComponent<Image>().sprite
+                                = CatSprites[temp.textureLocation];
                             break;
                         }
                     case 8:
@@ -343,21 +376,34 @@ public class JournalDataStorage : MonoBehaviour
                             {
                                 RabbitChecklistSpots[i].gameObject.GetComponent<Image>().sprite = ChecklistTick;
                             }
+                            //assign pop up sprite
+                            ImagePopUp.gameObject.GetComponent<PopUpCameraUI>().child.GetComponent<Image>().sprite
+                                = RabbitSprites[temp.textureLocation];
                             break;
                         }
                 }
             }
+            ImagePopUp.SetActive(true);
             temp.UpdateInfo = false;
         }
         //if we need to update the misc info
         if(temp.updateMiscInfo)
         {
+            //work around to fix bug...
+            //var spritePopUptemp = ImagePopUp.gameObject.GetComponent<PopUpCameraUI>()
+                //.child.GetComponent<Image>().sprite;
+
             for (int i = 0; i < MiscSprites.Length; i++)
             {
                 MiscPhotoIsTaken[i] = temp.MiscPhotoIsTaken[i];
                 MiscSprites[i] = temp.MiscSprites[i];
                 MiscPhotoSpots[i].gameObject.GetComponent<Image>().sprite = MiscSprites[i];
             }
+            //assign pop up sprite
+            ImagePopUp.gameObject.GetComponent<PopUpCameraUI>().child.GetComponent<Image>().sprite
+                = MiscSprites[temp.textureLocation];
+            //activate object
+            ImagePopUp.SetActive(true);
             temp.updateMiscInfo = false;
         }
     }

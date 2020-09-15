@@ -12,7 +12,8 @@ GameObject:
   - component: {fileID: 6074706816812793193}
   - component: {fileID: 6074706816812793190}
   - component: {fileID: 6074706816812793191}
-  - component: {fileID: 6074706816812793188}
+  - component: {fileID: 8679311707578573233}
+  - component: {fileID: 7014979645926760401}
   m_Layer: 0
   m_Name: CapturedImageBorder
   m_TagString: Untagged
@@ -95,7 +96,20 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
---- !u!114 &6074706816812793188
+--- !u!114 &8679311707578573233
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6074706816812793186}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2dc4aa330f14b734b86ca155c8683ce6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  child: {fileID: 6074706818117447613}
+--- !u!114 &7014979645926760401
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
