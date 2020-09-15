@@ -294,7 +294,7 @@ public class PlayableCamera : MonoBehaviour
             {
                 Debug.Log("Left mouse clicked!");
                 //readyFlash = true;
-                failedPhoto = true;
+                //failedPhoto = true;
 
                 //as we have tried to take a photo, a camera charge gets consumed
                 cameraChargesCurrent -= 1;
@@ -558,6 +558,21 @@ public class PlayableCamera : MonoBehaviour
                         {
                             Debug.Log("Photo Saving Disabled!");
                         }
+
+                        //if there is an available spot, save a misc photo
+                        for (int i = 0; i < GameStorageData.MiscPhotoIsTaken.Length; i++)
+                        {
+                            //check that a photo does not exist there already
+                            if (!GameStorageData.MiscPhotoIsTaken[i])
+                            {
+                                //assign variables based on check and set boolean to allow coroutine
+                                textureCaptureCreatureType = 0; //you equal 0 as there is no creature with ID 0
+                                textureLocationInArray = i;
+                                canCaptureAsTexture = true;
+                                failedPhoto = false;
+                                break;
+                            }
+                        }
                     }
 
                 }
@@ -582,6 +597,20 @@ public class PlayableCamera : MonoBehaviour
                     else
                     {
                         Debug.Log("Photo Saving Disabled!");
+                    }
+                    //if there is an available spot, save a misc photo
+                    for (int i = 0; i < GameStorageData.MiscPhotoIsTaken.Length; i++)
+                    {
+                        //check that a photo does not exist there already
+                        if (!GameStorageData.MiscPhotoIsTaken[i])
+                        {
+                            //assign variables based on check and set boolean to allow coroutine
+                            textureCaptureCreatureType = 0; //you equal 0 as there is no creature with ID 0
+                            textureLocationInArray = i;
+                            canCaptureAsTexture = true;
+                            failedPhoto = false;
+                            break;
+                        }
                     }
                 }
 
@@ -610,6 +639,7 @@ public class PlayableCamera : MonoBehaviour
         //if the photo failed, do UI close down stuff as if a photo was saved
         if(failedPhoto)
         {
+            Debug.Log("Photo failed");
             uiCameraOverlay.SetActive(false);
             //firstPersonCamera.GetComponent<PostProcessLayer>().enabled = false;
             StartCoroutine(TurnOffUIOnPhotoFail());
@@ -677,10 +707,14 @@ public class PlayableCamera : MonoBehaviour
         //assign texture to the spot in the array
         switch (textureCaptureCreatureType)
         {
-            case (0): //Block test creature
+            case (0): //Block test creature -- MiscPhoto
             {   //the block itself is not supposed to bein the journal (if this debug)
-                Debug.Log("Block pictures cannot be displayed in the journal! Set the Block to be a Fish for debug if needed!");
-                break;
+                //Debug.Log("Block pictures cannot be displayed in the journal! Set the Block to be a Fish for debug if needed!");
+                    GameStorageData.MiscPhotoIsTaken[textureLocationInArray] = true;
+                    GameStorageData.MiscSprites[textureLocationInArray] = newSprite;
+                    GameStorageData.updateMiscInfo = true;
+                    
+                    break;
             }
             case (1): //FISH
             {   //assign bool stating texture has been asigned, and assign sprite                

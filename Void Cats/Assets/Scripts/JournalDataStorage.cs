@@ -116,22 +116,27 @@ public class JournalDataStorage : MonoBehaviour
 
     //a boolean used to determine if the photo info should be copied from the playerCameraInput
     [HideInInspector]
-    public bool UpdateInfo = false;
+    public bool UpdateInfo = false; //creature
 
     [HideInInspector]
     public int CreatureToUpdate = 0;
 
     //set all to false
     public bool[] MiscPhotoIsTaken;
+
     public GameObject[] MiscPhotoSpots;
 
+    public Sprite[] MiscSprites;
+
     [HideInInspector]
-    public bool updateMiscInfo = false;
+    public bool updateMiscInfo = false; //misc photos
 
     //the gameobject which has the first person player camera attached
     public GameObject playerCameraInput;
 
     public Sprite ChecklistTick;
+
+    public Sprite DefaultTexture;
 
     // Start is called before the first frame update
     void Start()
@@ -343,9 +348,17 @@ public class JournalDataStorage : MonoBehaviour
                 }
             }
             temp.UpdateInfo = false;
-
-
         }
-        
+        //if we need to update the misc info
+        if(temp.updateMiscInfo)
+        {
+            for (int i = 0; i < MiscSprites.Length; i++)
+            {
+                MiscPhotoIsTaken[i] = temp.MiscPhotoIsTaken[i];
+                MiscSprites[i] = temp.MiscSprites[i];
+                MiscPhotoSpots[i].gameObject.GetComponent<Image>().sprite = MiscSprites[i];
+            }
+            temp.updateMiscInfo = false;
+        }
     }
 }
