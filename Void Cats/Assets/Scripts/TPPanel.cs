@@ -10,6 +10,7 @@ public class TPPanel : MonoBehaviour
     public GameObject TPpanel;
     public GameObject NewPhotoUI;
     public GameObject CapturedImageUI;
+    public GameObject GalleryfullPanel;
 
     void Start()
     {
@@ -26,16 +27,16 @@ public class TPPanel : MonoBehaviour
             canAnimate = true;
         }
 
-        if(canAnimate)
-        {
-            AnimPanel.SetBool("tp", true);
-        }
+        //if(canAnimate)
+        //{
+        //    AnimPanel.SetBool("tp", true);
+        //}
 
     }
 
     public void StopTPAnim()
     {
-        AnimPanel.SetBool("tp", false);
+        //AnimPanel.SetBool("tp", false);
         canAnimate = false;
         TPpanel.SetActive(false);
         //turn off the camera flash (incase its on from a previous frame)
@@ -51,5 +52,9 @@ public class TPPanel : MonoBehaviour
     public void StopCapturedImageAnim()
     {
         CapturedImageUI.SetActive(false);
+    }
+    public void StopGalleryFullAnim()
+    {
+        GalleryfullPanel.SetActive(false);
     }
 }
