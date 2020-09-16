@@ -91,12 +91,19 @@ public class TestCreature : MonoBehaviour
     //drop in gameObjects (can be empty as long as it has transform), where creature should do unique actions
     public GameObject[] UniqueLocations;
 
+    //specific points used for various behaviours, order DOES matter!
+    public GameObject[] UniqueSecondaryLocations;
+
+    private int secondaryLocationReached = 0;
+
     //the variable used to determine which foodLocation or UniqueLocation a creature can go to
     private int randomLocation = 0;
 
     //copy of the player -- used to get its transform
     private GameObject PlayerObject;
 
+    [HideInInspector]
+    public bool reachedDestination = false;
 
     // Start is called before the first frame update
     void Start()
@@ -230,7 +237,7 @@ public class TestCreature : MonoBehaviour
                 }
             case (CreatureState)10:
                 {
-                    bellyflopState(); //10 = levitate -- UNIQUE* to the Cat - goto place, play animation
+                    levitateState(); //10 = levitate -- UNIQUE* to the Cat - goto place, play animation
                     break;
                 }
             case (CreatureState)11:
@@ -999,6 +1006,7 @@ public class TestCreature : MonoBehaviour
        {
             navMeshAgent.speed = runSpeed;
             stateJustChanged = false;
+            reachedDestination = false;
        }
 
         //get the players location
@@ -1031,7 +1039,8 @@ public class TestCreature : MonoBehaviour
             navMeshAgent.speed = speed;
             transform.rotation *= Quaternion.Euler(0, 0, 0);
             stateJustChanged = false;
-       }
+            reachedDestination = false;
+        }
 
 
         //Vector3 tempLocation = new Vector3(0, 0, -2);
@@ -1052,6 +1061,7 @@ public class TestCreature : MonoBehaviour
             //need a way to apply this just once -- BINGO
             //transform.rotation *= Quaternion.Euler(90.0f, 0, 0);
             stateJustChanged = false;
+            reachedDestination = false;
         }
 
         //need a way to apply this just once -- BINGO
@@ -1068,6 +1078,7 @@ public class TestCreature : MonoBehaviour
             navMeshAgent.speed = speed;
             //transform.rotation *= Quaternion.Euler(0, 0, 0);
             stateJustChanged = false;
+            reachedDestination = false;
         }
 
 
@@ -1095,6 +1106,7 @@ public class TestCreature : MonoBehaviour
             navMeshAgent.speed = speed;
             //transform.rotation *= Quaternion.Euler(0, 0, 0);
             stateJustChanged = false;
+            reachedDestination = false;
         }
 
         Vector3 tempLocation = UniqueLocations[randomLocation].transform.position;
@@ -1121,21 +1133,64 @@ public class TestCreature : MonoBehaviour
             navMeshAgent.speed = speed;
             //transform.rotation *= Quaternion.Euler(0, 0, 0);
             stateJustChanged = false;
+            reachedDestination = false;
+            secondaryLocationReached = 0;
         }
 
         Vector3 tempLocation = UniqueLocations[randomLocation].transform.position;
-        navMeshAgent.SetDestination(tempLocation);
+        if (!reachedDestination)
+        {
+            navMeshAgent.SetDestination(tempLocation);
+        }
+       
 
-        //Debug.Log("Wash state, going to " + tempLocation);
+        
         //if you get close enough to your destination
         float distance = Vector3.Distance(tempLocation, transform.position);
         if (distance <= 2)
         {
             //set the new position to go to be the spot you are standing
-            navMeshAgent.SetDestination(this.transform.position);
-            //Debug.Log("" + this.gameObject + " reached a bush");
+            //navMeshAgent.SetDestination(this.transform.position);
+            reachedDestination = true;
 
             //probably play chase tail animation here -- MAYBE apply rotations?
+        }
+        //if the dog reached the starting point
+        if(reachedDestination)
+        {
+            //annoying vector math that failed
+            //Debug.Log("dog should be chasing tail!");
+            //calculate a new location for it to travel to
+            //Vector3 newlocation = Vector3.Cross(transform.up, transform.right).normalized;
+            //float angle = Vector3.Angle(transform.forward, UniqueLocations[randomLocation].transform.forward);
+            //Debug.Log("angle is =" + angle);
+            //Vector3 newlocation = new Vector3
+            //(transform.position.x + (angle * Time.deltaTime), transform.position.y, transform.position.z +(angle * Time.deltaTime));
+            //newlocation += transform.position;
+            //navMeshAgent.SetDestination(newlocation);
+            //Debug.Log("current position =" + transform.position + " newlocation = " + newlocation);
+
+            //get the next location
+            Vector3 nextLocation = UniqueSecondaryLocations[secondaryLocationReached].transform.position;
+            navMeshAgent.SetDestination(nextLocation);
+
+            //if the distance between the new position and the object is less than 2
+            float nextDistance = Vector3.Distance(nextLocation, transform.position);
+            if (nextDistance <= 2)
+            {
+                //if the length of secondary locations is bigger than the location we have reached
+                if(UniqueSecondaryLocations.Length - 1 > secondaryLocationReached)
+                {
+                    secondaryLocationReached++;
+                }
+                else
+                {
+                    secondaryLocationReached = 0;
+                }
+                
+
+                //probably play chase tail animation here -- MAYBE apply rotations?
+            }
         }
     }
 
@@ -1147,6 +1202,7 @@ public class TestCreature : MonoBehaviour
             navMeshAgent.speed = speed;
             //transform.rotation *= Quaternion.Euler(0, 0, 0);
             stateJustChanged = false;
+            reachedDestination = false;
         }
 
         Vector3 tempLocation = UniqueLocations[randomLocation].transform.position;
@@ -1172,6 +1228,7 @@ public class TestCreature : MonoBehaviour
             navMeshAgent.speed = speed;
             //transform.rotation *= Quaternion.Euler(0, 0, 0);
             stateJustChanged = false;
+            reachedDestination = false;
         }
 
         Vector3 tempLocation = UniqueLocations[randomLocation].transform.position;
@@ -1197,6 +1254,7 @@ public class TestCreature : MonoBehaviour
             navMeshAgent.speed = speed;
             //transform.rotation *= Quaternion.Euler(0, 0, 0);
             stateJustChanged = false;
+            reachedDestination = false;
         }
 
         Vector3 tempLocation = UniqueLocations[randomLocation].transform.position;
@@ -1222,6 +1280,7 @@ public class TestCreature : MonoBehaviour
             navMeshAgent.speed = speed;
             //transform.rotation *= Quaternion.Euler(0, 0, 0);
             stateJustChanged = false;
+            reachedDestination = false;
         }
 
         Vector3 tempLocation = UniqueLocations[randomLocation].transform.position;
@@ -1247,6 +1306,7 @@ public class TestCreature : MonoBehaviour
             navMeshAgent.speed = speed;
             //transform.rotation *= Quaternion.Euler(0, 0, 0);
             stateJustChanged = false;
+            reachedDestination = false;
         }
 
         Vector3 tempLocation = UniqueLocations[randomLocation].transform.position;
@@ -1272,6 +1332,7 @@ public class TestCreature : MonoBehaviour
             navMeshAgent.speed = speed;
             //transform.rotation *= Quaternion.Euler(0, 0, 0);
             stateJustChanged = false;
+            reachedDestination = false;
         }
 
         Vector3 tempLocation = UniqueLocations[randomLocation].transform.position;

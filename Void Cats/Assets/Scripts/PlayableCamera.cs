@@ -85,6 +85,10 @@ public class PlayableCamera : MonoBehaviour
     //[HideInInspector]
     public bool hasTeleporterUIOpen = false;
 
+    public GameObject PopUpUi;
+
+    public GameObject PopUpMiscFailUi;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -290,7 +294,7 @@ public class PlayableCamera : MonoBehaviour
 
             //creature detection code
            
-            if (Input.GetKeyDown(KeyCode.Mouse0) && !cameraChargeWaiting)
+            if (Input.GetKeyDown(KeyCode.Mouse0) && !cameraChargeWaiting && !PopUpUi.gameObject.activeSelf)
             {
                 Debug.Log("Left mouse clicked!");
                 //readyFlash = true;
@@ -572,7 +576,14 @@ public class PlayableCamera : MonoBehaviour
                                 failedPhoto = false;
                                 break;
                             }
+                            else if(i == GameStorageData.MiscPhotoIsTaken.Length - 1)
+                            {
+                                //Debug.Log("i = " + i + "length-1 = " + (GameStorageData.MiscPhotoIsTaken.Length - 1));
+                                //if we are on the final loop
+                                PopUpMiscFailUi.SetActive(true);
+                            }
                         }
+                        
                     }
 
                 }
@@ -610,6 +621,12 @@ public class PlayableCamera : MonoBehaviour
                             canCaptureAsTexture = true;
                             failedPhoto = false;
                             break;
+                        }
+                        else if (i == GameStorageData.MiscPhotoIsTaken.Length - 1)
+                        {
+                            //Debug.Log("i = " + i + "length-1 = " + (GameStorageData.MiscPhotoIsTaken.Length - 1));
+                            //if we are on the final loop
+                            PopUpMiscFailUi.SetActive(true);
                         }
                     }
                 }
