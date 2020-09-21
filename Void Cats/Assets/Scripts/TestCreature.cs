@@ -105,6 +105,10 @@ public class TestCreature : MonoBehaviour
     [HideInInspector]
     public bool reachedDestination = false;
 
+    public float roarDuration = 5.0f;
+    private float roarIterator = 0;
+
+    private bool startedUnInteruptable = false;
     // Start is called before the first frame update
     void Start()
     {
@@ -255,19 +259,22 @@ public class TestCreature : MonoBehaviour
 
         
         float tempDistance = Vector3.Distance(this.transform.position, PlayerObject.transform.position);
-        
+
+        //Debug.Log("grounded = " + PlayerObject.GetComponent<CharacterController>().isGrounded);
         //if the distance between the player and the creature is less than the eye strength
-        if(tempDistance < eyeStrength)
+        if (tempDistance < eyeStrength)
         {
             //peform a raycast from the creature to the player, if there is a hit, you can see
             //Vector3 direction = (tempPlayer.transform.position - transform.position).normalized;
             //Physics.Raycast(transform.position, direction, out hit)
 
+            
             //peform a raycast from the creature forwards, if the player is hit, it can see it
             RaycastHit hit;
-            //also dont do this check if the creature is sleeping
+            //also dont do this check if the creature is sleeping or is doing an uninteruptable action
             if(Physics.Raycast(transform.position, transform.forward, out hit) &&
-                info.agentState != CreatureState.Sleep)
+                info.agentState != CreatureState.Sleep
+                && !startedUnInteruptable)
             {
                 Debug.DrawRay(transform.position, transform.forward * hit.distance, Color.red);
                 //if we see the player
@@ -280,8 +287,9 @@ public class TestCreature : MonoBehaviour
                 }
             }
             //if the player is not on the ground or in a bush -- THIS WILL NEED TESTING on various terrain!
-            if(PlayerObject.GetComponent<CharacterController>().isGrounded
+            if(!PlayerObject.GetComponent<CharacterController>().isGrounded
                 && info.agentState != CreatureState.Sleep
+                && !startedUnInteruptable
                 && !PlayerObject.GetComponent<PlayerController3D>().inBush)
             {
                 Debug.Log("Player was Found in the air");
@@ -1006,7 +1014,9 @@ public class TestCreature : MonoBehaviour
        {
             navMeshAgent.speed = runSpeed;
             stateJustChanged = false;
-            reachedDestination = false;
+            reachedDestination = true;
+            startedUnInteruptable = false;
+            roarIterator = 0;
        }
 
         //get the players location
@@ -1039,7 +1049,9 @@ public class TestCreature : MonoBehaviour
             navMeshAgent.speed = speed;
             transform.rotation *= Quaternion.Euler(0, 0, 0);
             stateJustChanged = false;
-            reachedDestination = false;
+            reachedDestination = true;
+            startedUnInteruptable = false;
+            roarIterator = 0;
         }
 
 
@@ -1061,7 +1073,9 @@ public class TestCreature : MonoBehaviour
             //need a way to apply this just once -- BINGO
             //transform.rotation *= Quaternion.Euler(90.0f, 0, 0);
             stateJustChanged = false;
-            reachedDestination = false;
+            reachedDestination = true;
+            startedUnInteruptable = false;
+            roarIterator = 0;
         }
 
         //need a way to apply this just once -- BINGO
@@ -1079,6 +1093,8 @@ public class TestCreature : MonoBehaviour
             //transform.rotation *= Quaternion.Euler(0, 0, 0);
             stateJustChanged = false;
             reachedDestination = false;
+            startedUnInteruptable = false;
+            roarIterator = 0;
         }
 
 
@@ -1089,11 +1105,13 @@ public class TestCreature : MonoBehaviour
         //if you get close enough to your destination
         float distance = Vector3.Distance(tempLocation, transform.position);
         if(distance <= 2)
-        {
+        {            
+            reachedDestination = true;
+            RotateTowards(tempLocation);
             //set the new position to go to be the spot you are standing
             navMeshAgent.SetDestination(this.transform.position);
             //Debug.Log("" + this.gameObject + " reached a bush");
-
+            
             //probably play eat animation here
         }
     }
@@ -1117,15 +1135,18 @@ public class TestCreature : MonoBehaviour
         float distance = Vector3.Distance(tempLocation, transform.position);
         if (distance <= 2)
         {
+            if(!reachedDestination)
+            {
+                Debug.Log("" + this.gameObject + " now washing face!");
+            }
             //set the new position to go to be the spot you are standing
-            navMeshAgent.SetDestination(this.transform.position);
-            //Debug.Log("" + this.gameObject + " reached a bush");
-
+            navMeshAgent.SetDestination(this.transform.position);            
+            reachedDestination = true;
             //probably play wash face animation here
         }
     }
 
-    //a unique behaviour to the DOG, in which it goes to a set location and plays an animation
+    //a unique behaviour to the DOG, in which it goes to a set location and then other locations
     void chaseTailState()
     {
         if (stateJustChanged)
@@ -1135,44 +1156,39 @@ public class TestCreature : MonoBehaviour
             stateJustChanged = false;
             reachedDestination = false;
             secondaryLocationReached = 0;
+            startedUnInteruptable = false;
         }
 
         Vector3 tempLocation = UniqueLocations[randomLocation].transform.position;
         if (!reachedDestination)
         {
-            navMeshAgent.SetDestination(tempLocation);
+            navMeshAgent.SetDestination(tempLocation);            
         }
        
-
-        
         //if you get close enough to your destination
         float distance = Vector3.Distance(tempLocation, transform.position);
         if (distance <= 2)
         {
+            if(!reachedDestination)
+            {
+                Debug.Log("" + this.gameObject + "now chasing tail!");
+            }
+
             //set the new position to go to be the spot you are standing
             //navMeshAgent.SetDestination(this.transform.position);
             reachedDestination = true;
-
+            
             //probably play chase tail animation here -- MAYBE apply rotations?
         }
+
         //if the dog reached the starting point
         if(reachedDestination)
-        {
-            //annoying vector math that failed
-            //Debug.Log("dog should be chasing tail!");
-            //calculate a new location for it to travel to
-            //Vector3 newlocation = Vector3.Cross(transform.up, transform.right).normalized;
-            //float angle = Vector3.Angle(transform.forward, UniqueLocations[randomLocation].transform.forward);
-            //Debug.Log("angle is =" + angle);
-            //Vector3 newlocation = new Vector3
-            //(transform.position.x + (angle * Time.deltaTime), transform.position.y, transform.position.z +(angle * Time.deltaTime));
-            //newlocation += transform.position;
-            //navMeshAgent.SetDestination(newlocation);
-            //Debug.Log("current position =" + transform.position + " newlocation = " + newlocation);
-
+        {            
             //get the next location
             Vector3 nextLocation = UniqueSecondaryLocations[secondaryLocationReached].transform.position;
             navMeshAgent.SetDestination(nextLocation);
+
+            startedUnInteruptable = true;
 
             //if the distance between the new position and the object is less than 2
             float nextDistance = Vector3.Distance(nextLocation, transform.position);
@@ -1203,6 +1219,8 @@ public class TestCreature : MonoBehaviour
             //transform.rotation *= Quaternion.Euler(0, 0, 0);
             stateJustChanged = false;
             reachedDestination = false;
+            startedUnInteruptable = false;
+            roarIterator = 0;
         }
 
         Vector3 tempLocation = UniqueLocations[randomLocation].transform.position;
@@ -1211,16 +1229,47 @@ public class TestCreature : MonoBehaviour
         //Debug.Log("roar state, going to " + tempLocation);
         //if you get close enough to your destination
         float distance = Vector3.Distance(tempLocation, transform.position);
-        if (distance <= 2)
+        if (distance <= 1)
         {
+            if(!reachedDestination)
+            {
+                Debug.Log("" + this.gameObject + " arrived at position number " + UniqueLocations[randomLocation]);
+                //play roar sound here
+            }
             //set the new position to go to be the spot you are standing
             navMeshAgent.SetDestination(this.transform.position);
             //Debug.Log("" + this.gameObject + " reached a bush");
-
+            
+            reachedDestination = true;
+            startedUnInteruptable = true;
             //probably play roar animation/sound here - maybe a check to get here first to play sound?
+        }
+
+        //if you reached the destination, wait until the duration of the roar is over
+        if(reachedDestination)
+        {
+            roarIterator += Time.deltaTime;
+            //if the iterator is bigger than the timer
+            if(roarIterator > roarDuration)
+            {               
+                //set a new random location
+                if (UniqueLocations.Length <= 1)
+                {
+                    randomLocation = 0;
+                }
+                else
+                {
+                    randomLocation = Random.Range(0, UniqueLocations.Length);
+                }
+                reachedDestination = false;
+                startedUnInteruptable = false;
+                roarIterator -= roarDuration;
+                Debug.Log("" + this.gameObject + " roar finished, changing location to " + UniqueLocations[randomLocation]);
+            }
         }
     }
 
+    //a unique behaviour to the dragon, which it goes to start- speeds up, goes to locations in order (cannot be interupted by player)
     void bellyflopState()
     {
         if (stateJustChanged)
@@ -1229,6 +1278,8 @@ public class TestCreature : MonoBehaviour
             //transform.rotation *= Quaternion.Euler(0, 0, 0);
             stateJustChanged = false;
             reachedDestination = false;
+            secondaryLocationReached = 0;
+            startedUnInteruptable = false;
         }
 
         Vector3 tempLocation = UniqueLocations[randomLocation].transform.position;
@@ -1239,14 +1290,59 @@ public class TestCreature : MonoBehaviour
         float distance = Vector3.Distance(tempLocation, transform.position);
         if (distance <= 2)
         {
+            //modify speed
+            if(!reachedDestination)
+            {
+                startedUnInteruptable = true;
+                navMeshAgent.speed = runSpeed;
+                Debug.Log("start runing " + this.gameObject);
+            }
+
             //set the new position to go to be the spot you are standing
             navMeshAgent.SetDestination(this.transform.position);
             //Debug.Log("" + this.gameObject + " reached a bush");
-
+            reachedDestination = true;
             //probably play bellyflop animation/sound here - maybe a check to get here first to play sound?
+        }
+
+        //if the dragon reached the starting point
+        if (reachedDestination)
+        {
+            //get the next location
+            Vector3 nextLocation = UniqueSecondaryLocations[secondaryLocationReached].transform.position;
+            navMeshAgent.SetDestination(nextLocation);
+
+            //if the distance between the new position and the object is less than 2
+            float nextDistance = Vector3.Distance(nextLocation, transform.position);
+            if (nextDistance <= 2)
+            {
+                //if the secondary location is 0
+                if (secondaryLocationReached == 0)
+                {
+                    //reset speed and play flop animation
+                    navMeshAgent.speed = speed;
+                    Debug.Log("FLOP! " + this.gameObject);
+                }
+
+                //if the length of secondary locations is bigger than the location we have reached
+                if (UniqueSecondaryLocations.Length - 1 > secondaryLocationReached)
+                {
+                    secondaryLocationReached++;
+                }
+                else
+                {
+                    Debug.Log("Make secondary location path bigger for " + this.gameObject);
+                }
+                
+                
+                
+
+                //probably play slide animation here -- MAYBE apply rotations?
+            }
         }
     }
 
+    //a unique behaviour to the cow, which it moves similar to the dog
     void rollState()
     {
         if (stateJustChanged)
@@ -1265,14 +1361,47 @@ public class TestCreature : MonoBehaviour
         float distance = Vector3.Distance(tempLocation, transform.position);
         if (distance <= 2)
         {
+            if (!reachedDestination)
+            {
+                Debug.Log("" + this.gameObject + "now rolling around");
+            }
             //set the new position to go to be the spot you are standing
-            navMeshAgent.SetDestination(this.transform.position);
-            //Debug.Log("" + this.gameObject + " reached a bush");
+            //navMeshAgent.SetDestination(this.transform.position);
+            reachedDestination = true;
 
             //probably play roll animation/sound here - maybe a check to get here first to play sound?
         }
+
+        //if the cow reached the starting point
+        if (reachedDestination)
+        {
+            //get the next location
+            Vector3 nextLocation = UniqueSecondaryLocations[secondaryLocationReached].transform.position;
+            navMeshAgent.SetDestination(nextLocation);
+
+            startedUnInteruptable = true;
+
+            //if the distance between the new position and the object is less than 2
+            float nextDistance = Vector3.Distance(nextLocation, transform.position);
+            if (nextDistance <= 2)
+            {
+                //if the length of secondary locations is bigger than the location we have reached
+                if (UniqueSecondaryLocations.Length - 1 > secondaryLocationReached)
+                {
+                    secondaryLocationReached++;
+                }
+                else
+                {
+                    secondaryLocationReached = 0;
+                }
+
+
+                //probably play roll animation here -- MAYBE apply rotations?
+            }
+        }
     }
 
+    //a unique behaviour to the duck, which it moves like the fish
     void peckState()
     {
         if (stateJustChanged)
@@ -1291,6 +1420,12 @@ public class TestCreature : MonoBehaviour
         float distance = Vector3.Distance(tempLocation, transform.position);
         if (distance <= 2)
         {
+            if(!reachedDestination)
+            {
+                Debug.Log("" + this.gameObject + " starting pecking");
+            }
+
+            reachedDestination = true;
             //set the new position to go to be the spot you are standing
             navMeshAgent.SetDestination(this.transform.position);
             //Debug.Log("" + this.gameObject + " reached a bush");
@@ -1299,6 +1434,7 @@ public class TestCreature : MonoBehaviour
         }
     }
 
+    //a unique behaviour to the cat, which it moves like the fish/duck
     void levitateState()
     {
         if (stateJustChanged)
@@ -1317,6 +1453,11 @@ public class TestCreature : MonoBehaviour
         float distance = Vector3.Distance(tempLocation, transform.position);
         if (distance <= 2)
         {
+            if (!reachedDestination)
+            {
+                Debug.Log("" + this.gameObject + " starting levitating");
+            }
+            reachedDestination = true;
             //set the new position to go to be the spot you are standing
             navMeshAgent.SetDestination(this.transform.position);
             //Debug.Log("" + this.gameObject + " reached a bush");
@@ -1325,6 +1466,7 @@ public class TestCreature : MonoBehaviour
         }
     }
 
+    //a unique behaviour to the rabbit, which it moves like the tiger
     void angerState()
     {
         if (stateJustChanged)
@@ -1338,16 +1480,47 @@ public class TestCreature : MonoBehaviour
         Vector3 tempLocation = UniqueLocations[randomLocation].transform.position;
         navMeshAgent.SetDestination(tempLocation);
 
-        //Debug.Log("roar state, going to " + tempLocation);
+        
         //if you get close enough to your destination
         float distance = Vector3.Distance(tempLocation, transform.position);
         if (distance <= 2)
         {
+            if(!reachedDestination)
+            {
+                Debug.Log("" + this.gameObject + " reached tree");
+            }
+
+            reachedDestination = true;
+            startedUnInteruptable = true;
             //set the new position to go to be the spot you are standing
             navMeshAgent.SetDestination(this.transform.position);
             //Debug.Log("" + this.gameObject + " reached a bush");
 
-            //probably play bellyflop animation/sound here - maybe a check to get here first to play sound?
+            //probably play punch animation/sound here - maybe a check to get here first to play sound?
+        }
+
+        //if you reached the destination, wait until the duration of the punch is over
+        if (reachedDestination)
+        {
+            RotateTowards(tempLocation);
+            roarIterator += Time.deltaTime;
+            //if the iterator is bigger than the timer
+            if (roarIterator > roarDuration)
+            {
+                //set a new random location
+                if (UniqueLocations.Length <= 1)
+                {
+                    randomLocation = 0;
+                }
+                else
+                {
+                    randomLocation = Random.Range(0, UniqueLocations.Length);
+                }
+                reachedDestination = false;
+                startedUnInteruptable = false;
+                roarIterator -= roarDuration;
+                Debug.Log("" + this.gameObject + " punch finished, changing location to " + UniqueLocations[randomLocation]);
+            }
         }
     }
 
