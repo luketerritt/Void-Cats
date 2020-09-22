@@ -350,8 +350,6 @@ public class PlayableCamera : MonoBehaviour
                         Debug.Log("You hit creature type " + creatureInfo.CreatureID + " in the state: "
                             + creatureInfo.agentState);
 
-
-
                         //if saving photos is allowed
                         if (optionToSavePhoto)
                         {   //turn off the UI
@@ -537,7 +535,114 @@ public class PlayableCamera : MonoBehaviour
                                     //Debug.Log("Dragon Photo Code still WIP");
                                     break;
                                 }
-
+                            case (9): //the hit critter is a Beetle
+                                {
+                                    for (int i = 0; i < GameStorageData.BeetlePhotoRequirements.Length; i++)
+                                    {
+                                        //check the state of the required photo vs state we found and that a photo does not exist there already
+                                        if (creatureInfo.agentState == GameStorageData.BeetlePhotoRequirements[i].agentState
+                                            && !GameStorageData.BeetlePhotosIsTaken[i])
+                                        {
+                                            //assign variables based on check and set boolean to allow coroutine
+                                            textureCaptureCreatureType = creatureInfo.CreatureID; //you equal 0 as this check only happens if ID is 0
+                                            textureLocationInArray = i;
+                                            canCaptureAsTexture = true;
+                                            failedPhoto = false;
+                                        }
+                                    }
+                                    //Debug.Log("Dragon Photo Code still WIP");
+                                    break;
+                                }
+                            case (10): //the hit critter is a Snail
+                                {
+                                    for (int i = 0; i < GameStorageData.SnailPhotoRequirements.Length; i++)
+                                    {
+                                        //check the state of the required photo vs state we found and that a photo does not exist there already
+                                        if (creatureInfo.agentState == GameStorageData.SnailPhotoRequirements[i].agentState
+                                            && !GameStorageData.RabbitPhotosIsTaken[i])
+                                        {
+                                            //assign variables based on check and set boolean to allow coroutine
+                                            textureCaptureCreatureType = creatureInfo.CreatureID; //you equal 0 as this check only happens if ID is 0
+                                            textureLocationInArray = i;
+                                            canCaptureAsTexture = true;
+                                            failedPhoto = false;
+                                        }
+                                    }
+                                    //Debug.Log("Dragon Photo Code still WIP");
+                                    break;
+                                }
+                            case (11): //the hit critter is a Worm
+                                {
+                                    for (int i = 0; i < GameStorageData.WormPhotoRequirements.Length; i++)
+                                    {
+                                        //check the state of the required photo vs state we found and that a photo does not exist there already
+                                        if (creatureInfo.agentState == GameStorageData.WormPhotoRequirements[i].agentState
+                                            && !GameStorageData.RabbitPhotosIsTaken[i])
+                                        {
+                                            //assign variables based on check and set boolean to allow coroutine
+                                            textureCaptureCreatureType = creatureInfo.CreatureID; //you equal 0 as this check only happens if ID is 0
+                                            textureLocationInArray = i;
+                                            canCaptureAsTexture = true;
+                                            failedPhoto = false;
+                                        }
+                                    }
+                                    //Debug.Log("Dragon Photo Code still WIP");
+                                    break;
+                                }
+                            case (12): //the hit critter is a Slug
+                                {
+                                    for (int i = 0; i < GameStorageData.SlugPhotoRequirements.Length; i++)
+                                    {
+                                        //check the state of the required photo vs state we found and that a photo does not exist there already
+                                        if (creatureInfo.agentState == GameStorageData.SlugPhotoRequirements[i].agentState
+                                            && !GameStorageData.RabbitPhotosIsTaken[i])
+                                        {
+                                            //assign variables based on check and set boolean to allow coroutine
+                                            textureCaptureCreatureType = creatureInfo.CreatureID; //you equal 0 as this check only happens if ID is 0
+                                            textureLocationInArray = i;
+                                            canCaptureAsTexture = true;
+                                            failedPhoto = false;
+                                        }
+                                    }
+                                    //Debug.Log("Dragon Photo Code still WIP");
+                                    break;
+                                }
+                            case (13): //the hit critter is a Butterfly
+                                {
+                                    for (int i = 0; i < GameStorageData.ButterflyPhotoRequirements.Length; i++)
+                                    {
+                                        //check the state of the required photo vs state we found and that a photo does not exist there already
+                                        if (creatureInfo.agentState == GameStorageData.ButterflyPhotoRequirements[i].agentState
+                                            && !GameStorageData.RabbitPhotosIsTaken[i])
+                                        {
+                                            //assign variables based on check and set boolean to allow coroutine
+                                            textureCaptureCreatureType = creatureInfo.CreatureID; //you equal 0 as this check only happens if ID is 0
+                                            textureLocationInArray = i;
+                                            canCaptureAsTexture = true;
+                                            failedPhoto = false;
+                                        }
+                                    }
+                                    //Debug.Log("Dragon Photo Code still WIP");
+                                    break;
+                                }
+                            case (14): //the hit critter is an Ant
+                                {
+                                    for (int i = 0; i < GameStorageData.AntPhotoRequirements.Length; i++)
+                                    {
+                                        //check the state of the required photo vs state we found and that a photo does not exist there already
+                                        if (creatureInfo.agentState == GameStorageData.AntPhotoRequirements[i].agentState
+                                            && !GameStorageData.RabbitPhotosIsTaken[i])
+                                        {
+                                            //assign variables based on check and set boolean to allow coroutine
+                                            textureCaptureCreatureType = creatureInfo.CreatureID; //you equal 0 as this check only happens if ID is 0
+                                            textureLocationInArray = i;
+                                            canCaptureAsTexture = true;
+                                            failedPhoto = false;
+                                        }
+                                    }
+                                    //Debug.Log("Dragon Photo Code still WIP");
+                                    break;
+                                }
                         }
 
                     }
@@ -809,6 +914,66 @@ public class PlayableCamera : MonoBehaviour
                 GameStorageData.RabbitSprites[textureLocationInArray] = newSprite;
                 GameStorageData.UpdateInfo = true;
                 GameStorageData.CreatureToUpdate = 8;
+                GameStorageData.textureLocation = textureLocationInArray;
+                    break;
+            }
+            case (9):
+            {
+                //assign bool stating texture has been asigned, and assign sprite                
+                GameStorageData.BeetlePhotosIsTaken[textureLocationInArray] = true;
+                GameStorageData.BeetleSprites[textureLocationInArray] = newSprite;
+                GameStorageData.UpdateInfo = true;
+                GameStorageData.CreatureToUpdate = 9;
+                GameStorageData.textureLocation = textureLocationInArray;
+                    break;
+            }
+            case (10):
+            {
+                //assign bool stating texture has been asigned, and assign sprite                
+                GameStorageData.SnailPhotosIsTaken[textureLocationInArray] = true;
+                GameStorageData.SnailSprites[textureLocationInArray] = newSprite;
+                GameStorageData.UpdateInfo = true;
+                GameStorageData.CreatureToUpdate = 10;
+                GameStorageData.textureLocation = textureLocationInArray;
+                    break;
+            }
+            case (11):
+            {
+                //assign bool stating texture has been asigned, and assign sprite                
+                GameStorageData.WormPhotosIsTaken[textureLocationInArray] = true;
+                GameStorageData.WormSprites[textureLocationInArray] = newSprite;
+                GameStorageData.UpdateInfo = true;
+                GameStorageData.CreatureToUpdate = 11;
+                GameStorageData.textureLocation = textureLocationInArray;
+                    break;
+            }
+            case (12):
+            {
+                //assign bool stating texture has been asigned, and assign sprite                
+                GameStorageData.SlugPhotosIsTaken[textureLocationInArray] = true;
+                GameStorageData.SlugSprites[textureLocationInArray] = newSprite;
+                GameStorageData.UpdateInfo = true;
+                GameStorageData.CreatureToUpdate = 12;
+                GameStorageData.textureLocation = textureLocationInArray;
+                    break;
+            }
+            case (13):
+            {
+                //assign bool stating texture has been asigned, and assign sprite                
+                GameStorageData.ButterflyPhotosIsTaken[textureLocationInArray] = true;
+                GameStorageData.ButterflySprites[textureLocationInArray] = newSprite;
+                GameStorageData.UpdateInfo = true;
+                GameStorageData.CreatureToUpdate = 13;
+                GameStorageData.textureLocation = textureLocationInArray;
+                    break;
+            }
+            case (14):
+            {
+                //assign bool stating texture has been asigned, and assign sprite                
+                GameStorageData.AntPhotosIsTaken[textureLocationInArray] = true;
+                GameStorageData.AntSprites[textureLocationInArray] = newSprite;
+                GameStorageData.UpdateInfo = true;
+                GameStorageData.CreatureToUpdate = 14;
                 GameStorageData.textureLocation = textureLocationInArray;
                     break;
             }

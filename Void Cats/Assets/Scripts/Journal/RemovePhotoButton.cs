@@ -94,7 +94,7 @@ public class RemovePhotoButton : MonoBehaviour, IPointerClickHandler
                     }
                 case 6: //Duck
                     {
-                        Debug.Log("Removing Fish Photo No. " + buttonNumber);
+                        Debug.Log("Removing Duck Photo No. " + buttonNumber);
                         temp.DuckPhotosIsTaken[buttonNumber] = false;
                         temp.DuckJournalSpots[buttonNumber].gameObject.GetComponent<Image>().sprite
                             = temp.DefaultTexture;
@@ -104,7 +104,7 @@ public class RemovePhotoButton : MonoBehaviour, IPointerClickHandler
                     }
                 case 7: //Cat
                     {
-                        Debug.Log("Removing Fish Photo No. " + buttonNumber);
+                        Debug.Log("Removing Cat Photo No. " + buttonNumber);
                         temp.CatPhotosIsTaken[buttonNumber] = false;
                         temp.CatJournalSpots[buttonNumber].gameObject.GetComponent<Image>().sprite
                             = temp.DefaultTexture;
@@ -114,11 +114,71 @@ public class RemovePhotoButton : MonoBehaviour, IPointerClickHandler
                     }
                 case 8: //Rabbit
                     {
-                        Debug.Log("Removing Fish Photo No. " + buttonNumber);
+                        Debug.Log("Removing Rabbit Photo No. " + buttonNumber);
                         temp.RabbitPhotosIsTaken[buttonNumber] = false;
                         temp.RabbitJournalSpots[buttonNumber].gameObject.GetComponent<Image>().sprite
                             = temp.DefaultTexture;
                         temp.RabbitChecklistSpots[buttonNumber].gameObject.GetComponent<Image>().sprite
+                            = temp.DefaultTexture;
+                        break;
+                    }
+                case 9: //Beetle
+                    {
+                        Debug.Log("Removing Beetle Photo No. " + buttonNumber);
+                        temp.BeetlePhotosIsTaken[buttonNumber] = false;
+                        temp.BeetleJournalSpots[buttonNumber].gameObject.GetComponent<Image>().sprite
+                            = temp.DefaultTexture;
+                        temp.BeetleChecklistSpots[buttonNumber].gameObject.GetComponent<Image>().sprite
+                            = temp.DefaultTexture;
+                        break;
+                    }
+                case 10: //Snail
+                    {
+                        Debug.Log("Removing Snail Photo No. " + buttonNumber);
+                        temp.SnailPhotosIsTaken[buttonNumber] = false;
+                        temp.SnailJournalSpots[buttonNumber].gameObject.GetComponent<Image>().sprite
+                            = temp.DefaultTexture;
+                        temp.SnailChecklistSpots[buttonNumber].gameObject.GetComponent<Image>().sprite
+                            = temp.DefaultTexture;
+                        break;
+                    }
+                case 11: //Worm
+                    {
+                        Debug.Log("Removing Worm Photo No. " + buttonNumber);
+                        temp.WormPhotosIsTaken[buttonNumber] = false;
+                        temp.WormJournalSpots[buttonNumber].gameObject.GetComponent<Image>().sprite
+                            = temp.DefaultTexture;
+                        temp.WormChecklistSpots[buttonNumber].gameObject.GetComponent<Image>().sprite
+                            = temp.DefaultTexture;
+                        break;
+                    }
+                case 12: //Slug
+                    {
+                        Debug.Log("Removing Slug Photo No. " + buttonNumber);
+                        temp.SlugPhotosIsTaken[buttonNumber] = false;
+                        temp.SlugJournalSpots[buttonNumber].gameObject.GetComponent<Image>().sprite
+                            = temp.DefaultTexture;
+                        temp.SlugChecklistSpots[buttonNumber].gameObject.GetComponent<Image>().sprite
+                            = temp.DefaultTexture;
+                        break;
+                    }
+                case 13: //Butterfly
+                    {
+                        Debug.Log("Removing Butterfly Photo No. " + buttonNumber);
+                        temp.ButterflyPhotosIsTaken[buttonNumber] = false;
+                        temp.ButterflyJournalSpots[buttonNumber].gameObject.GetComponent<Image>().sprite
+                            = temp.DefaultTexture;
+                        temp.ButterflyChecklistSpots[buttonNumber].gameObject.GetComponent<Image>().sprite
+                            = temp.DefaultTexture;
+                        break;
+                    }
+                case 14: //Ant
+                    {
+                        Debug.Log("Removing Ant Photo No. " + buttonNumber);
+                        temp.AntPhotosIsTaken[buttonNumber] = false;
+                        temp.AntJournalSpots[buttonNumber].gameObject.GetComponent<Image>().sprite
+                            = temp.DefaultTexture;
+                        temp.AntChecklistSpots[buttonNumber].gameObject.GetComponent<Image>().sprite
                             = temp.DefaultTexture;
                         break;
                     }

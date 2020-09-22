@@ -21,7 +21,11 @@ namespace CreatureContainers
         Roll, //8 = roll -- UNIQUE* to the Cow - find clear area, move while playing animation? (similar to flop?)
         Peck, //9 = peck -- UNIQUE to the Duck - goto location, play peck animation
         Levitate, //10 = levitate -- UNIQUE to the Cat - goto location, play levitate animation
-        Anger //11 = anger -- UNIQUE* to the rabbit - goto location, play punch animation and audio cue
+        Anger, //11 = anger -- UNIQUE* to the rabbit - goto location, play punch animation and audio cue
+        Common, //12 = Common -- first critter colour
+        Exotic, //13 = Exotic -- second critter colour
+        Rare, //14 = Rare -- third critter colour
+        Legendary //15 = Legendary -- fourth critter colour
     }
 
     public struct CreatureInfo
@@ -44,16 +48,26 @@ namespace CreatureContainers
     //CreatureID 6 = Duck -- Day/Scared - Peck Ground
     //CreatureID 7 = Cat -- Nocturnal/Scared - Levitate
     //CreatureID 8 = Rabbit -- Nocturnal/Scared - Tree Punch  
+
+    //critter IDs
+    //CreatureID 9 - Beetle
+    //CreatureID 10 - Snail
+    //CreatureID 11 - Worm
+    //CreatureID 12 - Slug
+    //CreatureID 13 - Butterfly
+    //CreatureID 14 - Ant
 }
 
 //this class contains creature behaviours
 
-[RequireComponent(typeof(NavMeshAgent))]
+//[RequireComponent(typeof(NavMeshAgent))]
 public class TestCreature : MonoBehaviour
 {
     public CreatureInfo info;
 
     public int ID;
+
+    public int CritterRarity; // 1 = common, 2 = exotic, 3 = rare, 4 = legendary
 
     //the main state of the agent
     //public CreatureState AgentState;
@@ -162,7 +176,37 @@ public class TestCreature : MonoBehaviour
                     info.CreatureName = "Rabbit";
                     break;
                 }
-            
+            case (9): //critter teritory now
+                {
+                    info.CreatureName = "Beetle";
+                    break;
+                }
+            case (10):
+                {
+                    info.CreatureName = "Snail";
+                    break;
+                }
+            case (11):
+                {
+                    info.CreatureName = "Worm";
+                    break;
+                }
+            case (12):
+                {
+                    info.CreatureName = "Slug";
+                    break;
+                }
+            case (13):
+                {
+                    info.CreatureName = "Butterfly";
+                    break;
+                }
+            case (14):
+                {
+                    info.CreatureName = "Ant";
+                    break;
+                }
+
         }
 
         //error checking incase food locations and unique locations are null
@@ -173,83 +217,102 @@ public class TestCreature : MonoBehaviour
             UniqueLocations[0] = this.gameObject;
         }
         PlayerObject = GameObject.FindGameObjectWithTag("Player");
+       
 
-        navMeshAgent = this.GetComponent<NavMeshAgent>();
-        navMeshAgent.speed = speed;
+        //if this is a critter - ID is bigger than or equal to 9
+        if (ID >= 9)
+        {
+            //assign agent state based on assigned rarity
+            info.agentState = (CreatureState)(CritterRarity + 11);
+
+            //disable navmesh agent
+            //navMeshAgent.enabled = false;
+        }
+        else //set up the navmesh agent
+        {
+            navMeshAgent = this.GetComponent<NavMeshAgent>();
+            navMeshAgent.speed = speed;
+        }
+        
     }
 
     // Update is called once per frame
     void Update()
     {
-        //update the action you should peform
-        UpdateTimeState();
-
-        //Debug.Log("agentState" + info.agentState);
-
-        //peform behaviour
-        switch(info.agentState)
+        //if this not a critter
+        if(ID < 9)
         {
-            case (CreatureState)0: //0 = Flee -- a walk/run away from player
-                {
-                    fleeState();
-                    break;
-                }
-            case (CreatureState)1: //1 = notice -- a turn around towards player
-                {
-                    noticeState();
-                    break;
-                }
-            case (CreatureState)2: //2 = sleep -- goto set location, play sleep animation
-                {
-                    sleepState();
-                    break;
-                }
-            case (CreatureState)3: //3 = eat -- goto set location, play sleep animation
-                {
-                    eatState();
-                    break;
-                }
-            case (CreatureState)4: //4 = wash face -- UNIQUE TO FISH, goto location, play wash animation
-                {
-                    washFaceState();
-                    break;
-                }
-            case (CreatureState)5:
-                {
-                    chaseTailState(); //5 = chase tail -- UNIQUE TO DOG, goto location, play tail chase animation
-                    break;
-                }
-            case (CreatureState)6:
-                {
-                    roarState(); //6 = roar -- UNIQUE TO TIGER, goto location, play roar animation/sound
-                    break;
-                }
-            case (CreatureState)7:
-                {
-                    bellyflopState(); //7 = flop -- UNIQUE* to the Dragon - find clear area, run forward, play flop animation as moving like a slide?
-                    break;
-                }
-            case (CreatureState)8:
-                {
-                    rollState(); //8 = flop -- UNIQUE* to the Cow - find clear area, move similar to dog???
-                    break;
-                }
-            case (CreatureState)9:
-                {
-                    peckState(); //9 = peck -- UNIQUE* to the Duck - goto location, play animation?
-                    break;
-                }
-            case (CreatureState)10:
-                {
-                    levitateState(); //10 = levitate -- UNIQUE* to the Cat - goto place, play animation
-                    break;
-                }
-            case (CreatureState)11:
-                {
-                    angerState(); //7 = anger -- UNIQUE* to the Rabbit - find tree, punch it (via anitmaiton)
-                    break;
-                }
+            //update the action you should peform
+            UpdateTimeState();
+
+            //Debug.Log("agentState" + info.agentState);
+
+            //peform behaviour
+            switch (info.agentState)
+            {
+                case (CreatureState)0: //0 = Flee -- a walk/run away from player
+                    {
+                        fleeState();
+                        break;
+                    }
+                case (CreatureState)1: //1 = notice -- a turn around towards player
+                    {
+                        noticeState();
+                        break;
+                    }
+                case (CreatureState)2: //2 = sleep -- goto set location, play sleep animation
+                    {
+                        sleepState();
+                        break;
+                    }
+                case (CreatureState)3: //3 = eat -- goto set location, play sleep animation
+                    {
+                        eatState();
+                        break;
+                    }
+                case (CreatureState)4: //4 = wash face -- UNIQUE TO FISH, goto location, play wash animation
+                    {
+                        washFaceState();
+                        break;
+                    }
+                case (CreatureState)5:
+                    {
+                        chaseTailState(); //5 = chase tail -- UNIQUE TO DOG, goto location, play tail chase animation
+                        break;
+                    }
+                case (CreatureState)6:
+                    {
+                        roarState(); //6 = roar -- UNIQUE TO TIGER, goto location, play roar animation/sound
+                        break;
+                    }
+                case (CreatureState)7:
+                    {
+                        bellyflopState(); //7 = flop -- UNIQUE* to the Dragon - find clear area, run forward, play flop animation as moving like a slide?
+                        break;
+                    }
+                case (CreatureState)8:
+                    {
+                        rollState(); //8 = flop -- UNIQUE* to the Cow - find clear area, move similar to dog???
+                        break;
+                    }
+                case (CreatureState)9:
+                    {
+                        peckState(); //9 = peck -- UNIQUE* to the Duck - goto location, play animation?
+                        break;
+                    }
+                case (CreatureState)10:
+                    {
+                        levitateState(); //10 = levitate -- UNIQUE* to the Cat - goto place, play animation
+                        break;
+                    }
+                case (CreatureState)11:
+                    {
+                        angerState(); //7 = anger -- UNIQUE* to the Rabbit - find tree, punch it (via anitmaiton)
+                        break;
+                    }
+            }
         }
+        
 
     }
 

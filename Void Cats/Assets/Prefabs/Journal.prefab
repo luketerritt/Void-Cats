@@ -6595,7 +6595,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: creature in pose ...
+  m_text: Duck eatting a berry
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 420e6062b621c884d96e3ed2cd1498b2, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 2e498d1c8094910479dc3e1b768306a4, type: 2}
@@ -6928,6 +6928,7 @@ GameObject:
   - component: {fileID: 7926653350314931589}
   - component: {fileID: 6262783214949867363}
   - component: {fileID: 7472174060631276950}
+  - component: {fileID: 632692026666798284}
   m_Layer: 0
   m_Name: TrashCan
   m_TagString: Untagged
@@ -6990,6 +6991,22 @@ MonoBehaviour:
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
   m_PixelsPerUnitMultiplier: 1
+--- !u!114 &632692026666798284
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 119509503004305166}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4eb501c629944d643ace0eab9ee0e253, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  journaldata: {fileID: 0}
+  isMiscButton: 0
+  buttonNumber: 0
+  creatureID: 10
 --- !u!1 &139815501784553153
 GameObject:
   m_ObjectHideFlags: 0
@@ -8487,7 +8504,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: creature in pose ...
+  m_text: Dragon sleeping
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 420e6062b621c884d96e3ed2cd1498b2, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 2e498d1c8094910479dc3e1b768306a4, type: 2}
@@ -9166,7 +9183,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: creature in pose ...
+  m_text: Duck sleeping
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 420e6062b621c884d96e3ed2cd1498b2, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 2e498d1c8094910479dc3e1b768306a4, type: 2}
@@ -10748,7 +10765,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: creature in pose ...
+  m_text: Cow sleeping
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 420e6062b621c884d96e3ed2cd1498b2, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 2e498d1c8094910479dc3e1b768306a4, type: 2}
@@ -10851,6 +10868,7 @@ GameObject:
   - component: {fileID: 5724298373089591600}
   - component: {fileID: 8444058507235339572}
   - component: {fileID: 216480548719084856}
+  - component: {fileID: 8567956077497415143}
   m_Layer: 0
   m_Name: TrashCan (2)
   m_TagString: Untagged
@@ -10913,6 +10931,22 @@ MonoBehaviour:
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
   m_PixelsPerUnitMultiplier: 1
+--- !u!114 &8567956077497415143
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1187026878926412281}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4eb501c629944d643ace0eab9ee0e253, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  journaldata: {fileID: 0}
+  isMiscButton: 0
+  buttonNumber: 2
+  creatureID: 11
 --- !u!1 &1217181554380084548
 GameObject:
   m_ObjectHideFlags: 0
@@ -11100,6 +11134,7 @@ GameObject:
   - component: {fileID: 2949946137064589374}
   - component: {fileID: 7878254739299709407}
   - component: {fileID: 8873781050067563323}
+  - component: {fileID: 1540279541403745372}
   m_Layer: 0
   m_Name: TrashCan (3)
   m_TagString: Untagged
@@ -11162,6 +11197,22 @@ MonoBehaviour:
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
   m_PixelsPerUnitMultiplier: 1
+--- !u!114 &1540279541403745372
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1230986624761988224}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4eb501c629944d643ace0eab9ee0e253, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  journaldata: {fileID: 0}
+  isMiscButton: 0
+  buttonNumber: 3
+  creatureID: 12
 --- !u!1 &1251003416068485110
 GameObject:
   m_ObjectHideFlags: 0
@@ -12111,6 +12162,7 @@ GameObject:
   - component: {fileID: 7320903516443254939}
   - component: {fileID: 3931074516501559108}
   - component: {fileID: 4614464203212892380}
+  - component: {fileID: 6331480584343010234}
   m_Layer: 0
   m_Name: TrashCan (1)
   m_TagString: Untagged
@@ -12173,6 +12225,22 @@ MonoBehaviour:
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
   m_PixelsPerUnitMultiplier: 1
+--- !u!114 &6331480584343010234
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1445617408131262098}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4eb501c629944d643ace0eab9ee0e253, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  journaldata: {fileID: 0}
+  isMiscButton: 0
+  buttonNumber: 1
+  creatureID: 9
 --- !u!1 &1454841402990893569
 GameObject:
   m_ObjectHideFlags: 0
@@ -12563,6 +12631,7 @@ GameObject:
   - component: {fileID: 1003684402668286036}
   - component: {fileID: 1073983663713916253}
   - component: {fileID: 5863377039291243061}
+  - component: {fileID: 7796179790052390789}
   m_Layer: 0
   m_Name: TrashCan (2)
   m_TagString: Untagged
@@ -12625,6 +12694,22 @@ MonoBehaviour:
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
   m_PixelsPerUnitMultiplier: 1
+--- !u!114 &7796179790052390789
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1525739306034007182}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4eb501c629944d643ace0eab9ee0e253, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  journaldata: {fileID: 0}
+  isMiscButton: 0
+  buttonNumber: 2
+  creatureID: 10
 --- !u!1 &1581748118551986092
 GameObject:
   m_ObjectHideFlags: 0
@@ -13490,7 +13575,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: creature in pose ...
+  m_text: Tiger sleeping
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 420e6062b621c884d96e3ed2cd1498b2, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 2e498d1c8094910479dc3e1b768306a4, type: 2}
@@ -13988,6 +14073,7 @@ GameObject:
   - component: {fileID: 6115524995453358545}
   - component: {fileID: 3336415253546534033}
   - component: {fileID: 6558785091925927266}
+  - component: {fileID: 2762239509156716034}
   m_Layer: 0
   m_Name: TrashCan
   m_TagString: Untagged
@@ -14050,6 +14136,22 @@ MonoBehaviour:
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
   m_PixelsPerUnitMultiplier: 1
+--- !u!114 &2762239509156716034
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1930261716011238843}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4eb501c629944d643ace0eab9ee0e253, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  journaldata: {fileID: 0}
+  isMiscButton: 0
+  buttonNumber: 0
+  creatureID: 14
 --- !u!1 &1931095621133283652
 GameObject:
   m_ObjectHideFlags: 0
@@ -14266,7 +14368,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: creature in pose ...
+  m_text: Duck shyly reacting to you
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 420e6062b621c884d96e3ed2cd1498b2, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 2e498d1c8094910479dc3e1b768306a4, type: 2}
@@ -14927,6 +15029,7 @@ GameObject:
   - component: {fileID: 4401897829254530362}
   - component: {fileID: 6168907709753064618}
   - component: {fileID: 4257912362132510902}
+  - component: {fileID: 5680909366754397135}
   m_Layer: 0
   m_Name: TrashCan
   m_TagString: Untagged
@@ -14989,6 +15092,22 @@ MonoBehaviour:
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
   m_PixelsPerUnitMultiplier: 1
+--- !u!114 &5680909366754397135
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2082194901926911958}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4eb501c629944d643ace0eab9ee0e253, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  journaldata: {fileID: 0}
+  isMiscButton: 0
+  buttonNumber: 0
+  creatureID: 13
 --- !u!1 &2083732324976334890
 GameObject:
   m_ObjectHideFlags: 0
@@ -15318,6 +15437,7 @@ GameObject:
   - component: {fileID: 457195592249403816}
   - component: {fileID: 1637394583203615457}
   - component: {fileID: 9032974769930571675}
+  - component: {fileID: 3646591935338434779}
   m_Layer: 0
   m_Name: TrashCan (1)
   m_TagString: Untagged
@@ -15380,6 +15500,22 @@ MonoBehaviour:
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
   m_PixelsPerUnitMultiplier: 1
+--- !u!114 &3646591935338434779
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2171172161936142259}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4eb501c629944d643ace0eab9ee0e253, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  journaldata: {fileID: 0}
+  isMiscButton: 0
+  buttonNumber: 1
+  creatureID: 10
 --- !u!1 &2175447446935233021
 GameObject:
   m_ObjectHideFlags: 0
@@ -16137,7 +16273,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: creature in pose ...
+  m_text: Cat eatting a berry
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 420e6062b621c884d96e3ed2cd1498b2, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 2e498d1c8094910479dc3e1b768306a4, type: 2}
@@ -18339,6 +18475,7 @@ GameObject:
   - component: {fileID: 1847423755007662782}
   - component: {fileID: 7254216118074325277}
   - component: {fileID: 8857247316920318472}
+  - component: {fileID: 4922476911597324959}
   m_Layer: 0
   m_Name: TrashCan (2)
   m_TagString: Untagged
@@ -18401,6 +18538,22 @@ MonoBehaviour:
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
   m_PixelsPerUnitMultiplier: 1
+--- !u!114 &4922476911597324959
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2911244779873263759}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4eb501c629944d643ace0eab9ee0e253, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  journaldata: {fileID: 0}
+  isMiscButton: 0
+  buttonNumber: 2
+  creatureID: 13
 --- !u!1 &2925268052658949406
 GameObject:
   m_ObjectHideFlags: 0
@@ -18935,7 +19088,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: creature in pose ...
+  m_text: Cat sleeping
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 420e6062b621c884d96e3ed2cd1498b2, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 2e498d1c8094910479dc3e1b768306a4, type: 2}
@@ -20103,7 +20256,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: creature in pose ...
+  m_text: Rabbit shyly reacting to you
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 420e6062b621c884d96e3ed2cd1498b2, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 2e498d1c8094910479dc3e1b768306a4, type: 2}
@@ -20772,6 +20925,7 @@ GameObject:
   - component: {fileID: 4067706995772181574}
   - component: {fileID: 2846690566474184232}
   - component: {fileID: 4889118158463167054}
+  - component: {fileID: 4027168458572345280}
   m_Layer: 0
   m_Name: TrashCan (1)
   m_TagString: Untagged
@@ -20834,6 +20988,22 @@ MonoBehaviour:
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
   m_PixelsPerUnitMultiplier: 1
+--- !u!114 &4027168458572345280
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3652993071168639759}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4eb501c629944d643ace0eab9ee0e253, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  journaldata: {fileID: 0}
+  isMiscButton: 0
+  buttonNumber: 1
+  creatureID: 11
 --- !u!1 &3701048326501699320
 GameObject:
   m_ObjectHideFlags: 0
@@ -22395,6 +22565,7 @@ GameObject:
   - component: {fileID: 4721991919136766934}
   - component: {fileID: 5134055844389434561}
   - component: {fileID: 3726118675910340442}
+  - component: {fileID: 3986355711183235454}
   m_Layer: 0
   m_Name: TrashCan (3)
   m_TagString: Untagged
@@ -22457,6 +22628,22 @@ MonoBehaviour:
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
   m_PixelsPerUnitMultiplier: 1
+--- !u!114 &3986355711183235454
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4144535638694016036}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4eb501c629944d643ace0eab9ee0e253, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  journaldata: {fileID: 0}
+  isMiscButton: 0
+  buttonNumber: 3
+  creatureID: 10
 --- !u!1 &4206860629311775036
 GameObject:
   m_ObjectHideFlags: 0
@@ -24136,6 +24323,7 @@ GameObject:
   - component: {fileID: 3326040190477563687}
   - component: {fileID: 1568584467222856505}
   - component: {fileID: 5510461939181678103}
+  - component: {fileID: 2279136250440475736}
   m_Layer: 0
   m_Name: TrashCan (2)
   m_TagString: Untagged
@@ -24198,6 +24386,22 @@ MonoBehaviour:
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
   m_PixelsPerUnitMultiplier: 1
+--- !u!114 &2279136250440475736
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4570765463717122315}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4eb501c629944d643ace0eab9ee0e253, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  journaldata: {fileID: 0}
+  isMiscButton: 0
+  buttonNumber: 2
+  creatureID: 12
 --- !u!1 &4618419939611450540
 GameObject:
   m_ObjectHideFlags: 0
@@ -24891,7 +25095,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: creature in pose ...
+  m_text: Tiger eatting a berry
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 420e6062b621c884d96e3ed2cd1498b2, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 2e498d1c8094910479dc3e1b768306a4, type: 2}
@@ -25349,7 +25553,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: creature in pose ...
+  m_text: Dragon sliding around
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 420e6062b621c884d96e3ed2cd1498b2, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 2e498d1c8094910479dc3e1b768306a4, type: 2}
@@ -26443,7 +26647,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: creature in pose ...
+  m_text: Dragon eatting a berry
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 420e6062b621c884d96e3ed2cd1498b2, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 2e498d1c8094910479dc3e1b768306a4, type: 2}
@@ -27651,6 +27855,7 @@ GameObject:
   - component: {fileID: 5566715625105293444}
   - component: {fileID: 4813357541752114850}
   - component: {fileID: 6885384104915859337}
+  - component: {fileID: 8356093062233202788}
   m_Layer: 0
   m_Name: TrashCan (3)
   m_TagString: Untagged
@@ -27713,6 +27918,22 @@ MonoBehaviour:
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
   m_PixelsPerUnitMultiplier: 1
+--- !u!114 &8356093062233202788
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5278333468652557110}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4eb501c629944d643ace0eab9ee0e253, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  journaldata: {fileID: 0}
+  isMiscButton: 0
+  buttonNumber: 3
+  creatureID: 13
 --- !u!1 &5305662671627343535
 GameObject:
   m_ObjectHideFlags: 0
@@ -27820,7 +28041,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: creature in pose ...
+  m_text: Tiger passively reacting to you
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 420e6062b621c884d96e3ed2cd1498b2, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 2e498d1c8094910479dc3e1b768306a4, type: 2}
@@ -28250,7 +28471,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: creature in pose ...
+  m_text: Cow rolling around
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 420e6062b621c884d96e3ed2cd1498b2, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 2e498d1c8094910479dc3e1b768306a4, type: 2}
@@ -28533,6 +28754,7 @@ GameObject:
   - component: {fileID: 8423623942897641171}
   - component: {fileID: 254437702532626332}
   - component: {fileID: 5548754837674185069}
+  - component: {fileID: 3216321524959781002}
   m_Layer: 0
   m_Name: TrashCan (1)
   m_TagString: Untagged
@@ -28595,6 +28817,22 @@ MonoBehaviour:
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
   m_PixelsPerUnitMultiplier: 1
+--- !u!114 &3216321524959781002
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5677074803273589424}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4eb501c629944d643ace0eab9ee0e253, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  journaldata: {fileID: 0}
+  isMiscButton: 0
+  buttonNumber: 1
+  creatureID: 14
 --- !u!1 &5683129191072120702
 GameObject:
   m_ObjectHideFlags: 0
@@ -29122,6 +29360,7 @@ GameObject:
   - component: {fileID: 6610599786565800607}
   - component: {fileID: 3816872843538669268}
   - component: {fileID: 5797396163814592099}
+  - component: {fileID: 4422317187644606274}
   m_Layer: 0
   m_Name: TrashCan (3)
   m_TagString: Untagged
@@ -29184,6 +29423,22 @@ MonoBehaviour:
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
   m_PixelsPerUnitMultiplier: 1
+--- !u!114 &4422317187644606274
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5835347691636647788}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4eb501c629944d643ace0eab9ee0e253, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  journaldata: {fileID: 0}
+  isMiscButton: 0
+  buttonNumber: 3
+  creatureID: 9
 --- !u!1 &5837601941746940047
 GameObject:
   m_ObjectHideFlags: 0
@@ -29320,7 +29575,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: creature in pose ...
+  m_text: Tiger roaring
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 420e6062b621c884d96e3ed2cd1498b2, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 2e498d1c8094910479dc3e1b768306a4, type: 2}
@@ -30033,6 +30288,7 @@ GameObject:
   - component: {fileID: 2057391268336667642}
   - component: {fileID: 5354541026713262650}
   - component: {fileID: 5663040937885898441}
+  - component: {fileID: 8820571256965596629}
   m_Layer: 0
   m_Name: TrashCan (1)
   m_TagString: Untagged
@@ -30095,6 +30351,22 @@ MonoBehaviour:
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
   m_PixelsPerUnitMultiplier: 1
+--- !u!114 &8820571256965596629
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5938879833076244469}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4eb501c629944d643ace0eab9ee0e253, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  journaldata: {fileID: 0}
+  isMiscButton: 0
+  buttonNumber: 1
+  creatureID: 13
 --- !u!1 &6032561850363799844
 GameObject:
   m_ObjectHideFlags: 0
@@ -30592,6 +30864,7 @@ GameObject:
   - component: {fileID: 7210577605421784630}
   - component: {fileID: 4943760508168930851}
   - component: {fileID: 6633659440415766340}
+  - component: {fileID: 8415829436840612083}
   m_Layer: 0
   m_Name: TrashCan (2)
   m_TagString: Untagged
@@ -30654,6 +30927,22 @@ MonoBehaviour:
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
   m_PixelsPerUnitMultiplier: 1
+--- !u!114 &8415829436840612083
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6074683504806052332}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4eb501c629944d643ace0eab9ee0e253, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  journaldata: {fileID: 0}
+  isMiscButton: 0
+  buttonNumber: 2
+  creatureID: 9
 --- !u!1 &6116463826677089583
 GameObject:
   m_ObjectHideFlags: 0
@@ -30956,6 +31245,7 @@ GameObject:
   - component: {fileID: 5537412942599685668}
   - component: {fileID: 3125578160351655594}
   - component: {fileID: 6311170019023688769}
+  - component: {fileID: 6092969189375388996}
   m_Layer: 0
   m_Name: TrashCan
   m_TagString: Untagged
@@ -31018,6 +31308,22 @@ MonoBehaviour:
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
   m_PixelsPerUnitMultiplier: 1
+--- !u!114 &6092969189375388996
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6182468573451300631}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4eb501c629944d643ace0eab9ee0e253, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  journaldata: {fileID: 0}
+  isMiscButton: 0
+  buttonNumber: 0
+  creatureID: 9
 --- !u!1 &6197433626837130483
 GameObject:
   m_ObjectHideFlags: 0
@@ -32832,7 +33138,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: creature in pose ...
+  m_text: Dragon passively reacting to you
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 420e6062b621c884d96e3ed2cd1498b2, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 2e498d1c8094910479dc3e1b768306a4, type: 2}
@@ -33470,6 +33776,7 @@ GameObject:
   - component: {fileID: 3017659488539566496}
   - component: {fileID: 7553034658539385136}
   - component: {fileID: 4048930430876727169}
+  - component: {fileID: 2508495848060990165}
   m_Layer: 0
   m_Name: TrashCan
   m_TagString: Untagged
@@ -33532,6 +33839,22 @@ MonoBehaviour:
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
   m_PixelsPerUnitMultiplier: 1
+--- !u!114 &2508495848060990165
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6762087929831189001}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4eb501c629944d643ace0eab9ee0e253, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  journaldata: {fileID: 0}
+  isMiscButton: 0
+  buttonNumber: 0
+  creatureID: 11
 --- !u!1 &6773672025818013242
 GameObject:
   m_ObjectHideFlags: 0
@@ -34456,7 +34779,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: creature in pose ...
+  m_text: Rabbit eatting a berry
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 420e6062b621c884d96e3ed2cd1498b2, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 2e498d1c8094910479dc3e1b768306a4, type: 2}
@@ -34701,7 +35024,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: creature in pose ...
+  m_text: Rabbit releasing steam
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 420e6062b621c884d96e3ed2cd1498b2, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 2e498d1c8094910479dc3e1b768306a4, type: 2}
@@ -34856,7 +35179,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: creature in pose ...
+  m_text: Cat shyly reacting to you
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 420e6062b621c884d96e3ed2cd1498b2, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 2e498d1c8094910479dc3e1b768306a4, type: 2}
@@ -35143,7 +35466,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: creature in pose ...
+  m_text: Cow passively reacting to you
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 420e6062b621c884d96e3ed2cd1498b2, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 2e498d1c8094910479dc3e1b768306a4, type: 2}
@@ -35490,6 +35813,7 @@ GameObject:
   - component: {fileID: 1737717611516506842}
   - component: {fileID: 6781674677235435976}
   - component: {fileID: 5976140182031633456}
+  - component: {fileID: 140654804167041478}
   m_Layer: 0
   m_Name: TrashCan (3)
   m_TagString: Untagged
@@ -35552,6 +35876,22 @@ MonoBehaviour:
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
   m_PixelsPerUnitMultiplier: 1
+--- !u!114 &140654804167041478
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7185770325710057268}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4eb501c629944d643ace0eab9ee0e253, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  journaldata: {fileID: 0}
+  isMiscButton: 0
+  buttonNumber: 3
+  creatureID: 14
 --- !u!1 &7236008057035765699
 GameObject:
   m_ObjectHideFlags: 0
@@ -35563,6 +35903,7 @@ GameObject:
   - component: {fileID: 8679895510459840913}
   - component: {fileID: 3680613509905762034}
   - component: {fileID: 6646234823888239292}
+  - component: {fileID: 7320982912656559325}
   m_Layer: 0
   m_Name: TrashCan
   m_TagString: Untagged
@@ -35625,6 +35966,22 @@ MonoBehaviour:
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
   m_PixelsPerUnitMultiplier: 1
+--- !u!114 &7320982912656559325
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7236008057035765699}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4eb501c629944d643ace0eab9ee0e253, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  journaldata: {fileID: 0}
+  isMiscButton: 0
+  buttonNumber: 0
+  creatureID: 12
 --- !u!1 &7236380528730073339
 GameObject:
   m_ObjectHideFlags: 0
@@ -37244,7 +37601,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: creature in pose ...
+  m_text: Rabbit sleeping
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 420e6062b621c884d96e3ed2cd1498b2, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 2e498d1c8094910479dc3e1b768306a4, type: 2}
@@ -37581,6 +37938,7 @@ GameObject:
   - component: {fileID: 4798903801529321235}
   - component: {fileID: 5632780809243120693}
   - component: {fileID: 7713764780938513311}
+  - component: {fileID: 4038571171331903335}
   m_Layer: 0
   m_Name: TrashCan (2)
   m_TagString: Untagged
@@ -37643,6 +38001,22 @@ MonoBehaviour:
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
   m_PixelsPerUnitMultiplier: 1
+--- !u!114 &4038571171331903335
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7600616547945880159}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4eb501c629944d643ace0eab9ee0e253, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  journaldata: {fileID: 0}
+  isMiscButton: 0
+  buttonNumber: 2
+  creatureID: 14
 --- !u!1 &7623885934093191562
 GameObject:
   m_ObjectHideFlags: 0
@@ -39224,7 +39598,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: creature in pose ...
+  m_text: Duck pecking the ground
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 420e6062b621c884d96e3ed2cd1498b2, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 2e498d1c8094910479dc3e1b768306a4, type: 2}
@@ -39703,6 +40077,7 @@ GameObject:
   - component: {fileID: 3813986319867057401}
   - component: {fileID: 2486940716526750437}
   - component: {fileID: 441482736639339988}
+  - component: {fileID: 1087322260523780905}
   m_Layer: 0
   m_Name: TrashCan (3)
   m_TagString: Untagged
@@ -39765,6 +40140,22 @@ MonoBehaviour:
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
   m_PixelsPerUnitMultiplier: 1
+--- !u!114 &1087322260523780905
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8078873060815140356}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4eb501c629944d643ace0eab9ee0e253, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  journaldata: {fileID: 0}
+  isMiscButton: 0
+  buttonNumber: 3
+  creatureID: 11
 --- !u!1 &8088267259764002180
 GameObject:
   m_ObjectHideFlags: 0
@@ -40632,7 +41023,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: creature in pose ...
+  m_text: Cat levitating
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 420e6062b621c884d96e3ed2cd1498b2, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 2e498d1c8094910479dc3e1b768306a4, type: 2}
@@ -41821,7 +42212,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: creature in pose ...
+  m_text: Cow eatting a berry
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 420e6062b621c884d96e3ed2cd1498b2, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 2e498d1c8094910479dc3e1b768306a4, type: 2}
@@ -42656,6 +43047,7 @@ GameObject:
   - component: {fileID: 4005229514632758993}
   - component: {fileID: 718501524670802644}
   - component: {fileID: 7522645271110509527}
+  - component: {fileID: 966774059590022660}
   m_Layer: 0
   m_Name: TrashCan (1)
   m_TagString: Untagged
@@ -42718,6 +43110,22 @@ MonoBehaviour:
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
   m_PixelsPerUnitMultiplier: 1
+--- !u!114 &966774059590022660
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8747655671862717428}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4eb501c629944d643ace0eab9ee0e253, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  journaldata: {fileID: 0}
+  isMiscButton: 0
+  buttonNumber: 1
+  creatureID: 12
 --- !u!1 &8765287809034793979
 GameObject:
   m_ObjectHideFlags: 0

@@ -206,6 +206,7 @@ public class TideMovement : MonoBehaviour
                 //StartCoroutine(RelocationCoroutine(playerObject));
                 teleportingPlayer = true;
                 other.gameObject.GetComponent<PlayerController3D>().inBush = true;
+                Debug.Log("Teleport player out of water and turn on UI");
                 TeleportUI.SetActive(true);
 
                 //if the teleport failed, do the backup

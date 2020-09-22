@@ -112,7 +112,78 @@ public class JournalDataStorage : MonoBehaviour
     //modify in editor - the spots where a tick or checkmark (etc) - checklist 
     public GameObject[] RabbitChecklistSpots = new GameObject[defaultArraySize];
 
-    
+
+    //Beetle Containers
+    [HideInInspector]
+    public CreatureInfo[] BeetlePhotoRequirements = new CreatureInfo[defaultArraySize];
+    [HideInInspector]
+    public bool[] BeetlePhotosIsTaken = new bool[defaultArraySize] { false, false, false, false };
+    //[HideInInspector]
+    public Sprite[] BeetleSprites = new Sprite[defaultArraySize];
+    //modify in editor
+    public GameObject[] BeetleJournalSpots = new GameObject[defaultArraySize];
+    //modify in editor - the spots where a tick or checkmark (etc) - checklist 
+    public GameObject[] BeetleChecklistSpots = new GameObject[defaultArraySize];
+
+    //Snail Containers
+    [HideInInspector]
+    public CreatureInfo[] SnailPhotoRequirements = new CreatureInfo[defaultArraySize];
+    [HideInInspector]
+    public bool[] SnailPhotosIsTaken = new bool[defaultArraySize] { false, false, false, false };
+    //[HideInInspector]
+    public Sprite[] SnailSprites = new Sprite[defaultArraySize];
+    //modify in editor
+    public GameObject[] SnailJournalSpots = new GameObject[defaultArraySize];
+    //modify in editor - the spots where a tick or checkmark (etc) - checklist 
+    public GameObject[] SnailChecklistSpots = new GameObject[defaultArraySize];
+
+    //Worm Containers
+    [HideInInspector]
+    public CreatureInfo[] WormPhotoRequirements = new CreatureInfo[defaultArraySize];
+    [HideInInspector]
+    public bool[] WormPhotosIsTaken = new bool[defaultArraySize] { false, false, false, false };
+    //[HideInInspector]
+    public Sprite[] WormSprites = new Sprite[defaultArraySize];
+    //modify in editor
+    public GameObject[] WormJournalSpots = new GameObject[defaultArraySize];
+    //modify in editor - the spots where a tick or checkmark (etc) - checklist 
+    public GameObject[] WormChecklistSpots = new GameObject[defaultArraySize];
+
+    //Slug Containers
+    [HideInInspector]
+    public CreatureInfo[] SlugPhotoRequirements = new CreatureInfo[defaultArraySize];
+    [HideInInspector]
+    public bool[] SlugPhotosIsTaken = new bool[defaultArraySize] { false, false, false, false };
+    //[HideInInspector]
+    public Sprite[] SlugSprites = new Sprite[defaultArraySize];
+    //modify in editor
+    public GameObject[] SlugJournalSpots = new GameObject[defaultArraySize];
+    //modify in editor - the spots where a tick or checkmark (etc) - checklist 
+    public GameObject[] SlugChecklistSpots = new GameObject[defaultArraySize];
+
+    //Butterfly Containers
+    [HideInInspector]
+    public CreatureInfo[] ButterflyPhotoRequirements = new CreatureInfo[defaultArraySize];
+    [HideInInspector]
+    public bool[] ButterflyPhotosIsTaken = new bool[defaultArraySize] { false, false, false, false };
+    //[HideInInspector]
+    public Sprite[] ButterflySprites = new Sprite[defaultArraySize];
+    //modify in editor
+    public GameObject[] ButterflyJournalSpots = new GameObject[defaultArraySize];
+    //modify in editor - the spots where a tick or checkmark (etc) - checklist 
+    public GameObject[] ButterflyChecklistSpots = new GameObject[defaultArraySize];
+
+    //Ant Containers
+    [HideInInspector]
+    public CreatureInfo[] AntPhotoRequirements = new CreatureInfo[defaultArraySize];
+    [HideInInspector]
+    public bool[] AntPhotosIsTaken = new bool[defaultArraySize] { false, false, false, false };
+    //[HideInInspector]
+    public Sprite[] AntSprites = new Sprite[defaultArraySize];
+    //modify in editor
+    public GameObject[] AntJournalSpots = new GameObject[defaultArraySize];
+    //modify in editor - the spots where a tick or checkmark (etc) - checklist 
+    public GameObject[] AntChecklistSpots = new GameObject[defaultArraySize];
 
     //a boolean used to determine if the photo info should be copied from the playerCameraInput
     [HideInInspector]
@@ -174,10 +245,28 @@ public class JournalDataStorage : MonoBehaviour
             DuckPhotoRequirements[i].CreatureName = "Duck";
 
             CatPhotoRequirements[i].CreatureID = 7;
-            CatPhotoRequirements[i].CreatureName = "Dragon";
+            CatPhotoRequirements[i].CreatureName = "Cat";
 
-            RabbitPhotoRequirements[i].CreatureID = 4;
-            RabbitPhotoRequirements[i].CreatureName = "Dragon";
+            RabbitPhotoRequirements[i].CreatureID = 8;
+            RabbitPhotoRequirements[i].CreatureName = "Rabbit";
+
+            BeetlePhotoRequirements[i].CreatureID = 9;
+            BeetlePhotoRequirements[i].CreatureName = "Beetle";
+
+            SnailPhotoRequirements[i].CreatureID = 10;
+            SnailPhotoRequirements[i].CreatureName = "Snail";
+
+            WormPhotoRequirements[i].CreatureID = 11;
+            WormPhotoRequirements[i].CreatureName = "Worm";
+
+            SlugPhotoRequirements[i].CreatureID = 12;
+            SlugPhotoRequirements[i].CreatureName = "Slug";
+
+            ButterflyPhotoRequirements[i].CreatureID = 13;
+            ButterflyPhotoRequirements[i].CreatureName = "Butterfly";
+
+            AntPhotoRequirements[i].CreatureID = 14;
+            AntPhotoRequirements[i].CreatureName = "Ant";
             //EXTEND SECTION
         }
 
@@ -222,6 +311,36 @@ public class JournalDataStorage : MonoBehaviour
         RabbitPhotoRequirements[2].agentState = (CreatureState)0; //player interaction here - scarred
         RabbitPhotoRequirements[3].agentState = (CreatureState)11; //unique one here! -- ROAR
 
+        //critter photos
+        BeetlePhotoRequirements[0].agentState = (CreatureState)12; //Common critter
+        BeetlePhotoRequirements[1].agentState = (CreatureState)13; //Exotic critter
+        BeetlePhotoRequirements[2].agentState = (CreatureState)14; //Rare critter
+        BeetlePhotoRequirements[3].agentState = (CreatureState)15; //Legendary critter
+
+        SnailPhotoRequirements[0].agentState = (CreatureState)12; //Common critter
+        SnailPhotoRequirements[1].agentState = (CreatureState)13; //Exotic critter
+        SnailPhotoRequirements[2].agentState = (CreatureState)14; //Rare critter
+        SnailPhotoRequirements[3].agentState = (CreatureState)15; //Legendary critter
+
+        WormPhotoRequirements[0].agentState = (CreatureState)12; //Common critter
+        WormPhotoRequirements[1].agentState = (CreatureState)13; //Exotic critter
+        WormPhotoRequirements[2].agentState = (CreatureState)14; //Rare critter
+        WormPhotoRequirements[3].agentState = (CreatureState)15; //Legendary critter
+
+        SlugPhotoRequirements[0].agentState = (CreatureState)12; //Common critter
+        SlugPhotoRequirements[1].agentState = (CreatureState)13; //Exotic critter
+        SlugPhotoRequirements[2].agentState = (CreatureState)14; //Rare critter
+        SlugPhotoRequirements[3].agentState = (CreatureState)15; //Legendary critter
+
+        ButterflyPhotoRequirements[0].agentState = (CreatureState)12; //Common critter
+        ButterflyPhotoRequirements[1].agentState = (CreatureState)13; //Exotic critter
+        ButterflyPhotoRequirements[2].agentState = (CreatureState)14; //Rare critter
+        ButterflyPhotoRequirements[3].agentState = (CreatureState)15; //Legendary critter
+
+        AntPhotoRequirements[0].agentState = (CreatureState)12; //Common critter
+        AntPhotoRequirements[1].agentState = (CreatureState)13; //Exotic critter
+        AntPhotoRequirements[2].agentState = (CreatureState)14; //Rare critter
+        AntPhotoRequirements[3].agentState = (CreatureState)15; //Legendary critter
         //EXTEND SECTION
     }
 
@@ -379,6 +498,102 @@ public class JournalDataStorage : MonoBehaviour
                             //assign pop up sprite
                             ImagePopUp.gameObject.GetComponent<PopUpCameraUI>().child.GetComponent<Image>().sprite
                                 = RabbitSprites[temp.textureLocation];
+                            break;
+                        }
+                    case 9:
+                        {
+                            //beetle update
+                            BeetlePhotosIsTaken[i] = temp.BeetlePhotosIsTaken[i];
+                            BeetleSprites[i] = temp.BeetleSprites[i];
+                            BeetleJournalSpots[i].gameObject.GetComponent<Image>().sprite = BeetleSprites[i];
+
+                            if (BeetlePhotosIsTaken[i])
+                            {
+                                BeetleChecklistSpots[i].gameObject.GetComponent<Image>().sprite = ChecklistTick;
+                            }
+                            //assign pop up sprite
+                            ImagePopUp.gameObject.GetComponent<PopUpCameraUI>().child.GetComponent<Image>().sprite
+                                = BeetleSprites[temp.textureLocation];
+                            break;
+                        }
+                    case 10:
+                        {
+                            //snail update
+                            SnailPhotosIsTaken[i] = temp.SnailPhotosIsTaken[i];
+                            SnailSprites[i] = temp.SnailSprites[i];
+                            SnailJournalSpots[i].gameObject.GetComponent<Image>().sprite = SnailSprites[i];
+
+                            if (SnailPhotosIsTaken[i])
+                            {
+                                SnailChecklistSpots[i].gameObject.GetComponent<Image>().sprite = ChecklistTick;
+                            }
+                            //assign pop up sprite
+                            ImagePopUp.gameObject.GetComponent<PopUpCameraUI>().child.GetComponent<Image>().sprite
+                                = SnailSprites[temp.textureLocation];
+                            break;
+                        }
+                    case 11:
+                        {
+                            //worm update
+                            WormPhotosIsTaken[i] = temp.WormPhotosIsTaken[i];
+                            WormSprites[i] = temp.WormSprites[i];
+                            WormJournalSpots[i].gameObject.GetComponent<Image>().sprite = WormSprites[i];
+
+                            if (WormPhotosIsTaken[i])
+                            {
+                                WormChecklistSpots[i].gameObject.GetComponent<Image>().sprite = ChecklistTick;
+                            }
+                            //assign pop up sprite
+                            ImagePopUp.gameObject.GetComponent<PopUpCameraUI>().child.GetComponent<Image>().sprite
+                                = WormSprites[temp.textureLocation];
+                            break;
+                        }
+                    case 12:
+                        {
+                            //slug update
+                            SlugPhotosIsTaken[i] = temp.SlugPhotosIsTaken[i];
+                            SlugSprites[i] = temp.SlugSprites[i];
+                            SlugJournalSpots[i].gameObject.GetComponent<Image>().sprite = SlugSprites[i];
+
+                            if (SlugPhotosIsTaken[i])
+                            {
+                                SlugChecklistSpots[i].gameObject.GetComponent<Image>().sprite = ChecklistTick;
+                            }
+                            //assign pop up sprite
+                            ImagePopUp.gameObject.GetComponent<PopUpCameraUI>().child.GetComponent<Image>().sprite
+                                = SlugSprites[temp.textureLocation];
+                            break;
+                        }
+                    case 13:
+                        {
+                            //Butterfly update
+                            ButterflyPhotosIsTaken[i] = temp.ButterflyPhotosIsTaken[i];
+                            ButterflySprites[i] = temp.ButterflySprites[i];
+                            ButterflyJournalSpots[i].gameObject.GetComponent<Image>().sprite = ButterflySprites[i];
+
+                            if (ButterflyPhotosIsTaken[i])
+                            {
+                                ButterflyChecklistSpots[i].gameObject.GetComponent<Image>().sprite = ChecklistTick;
+                            }
+                            //assign pop up sprite
+                            ImagePopUp.gameObject.GetComponent<PopUpCameraUI>().child.GetComponent<Image>().sprite
+                                = ButterflySprites[temp.textureLocation];
+                            break;
+                        }
+                    case 14:
+                        {
+                            //Ant update
+                            AntPhotosIsTaken[i] = temp.AntPhotosIsTaken[i];
+                            AntSprites[i] = temp.AntSprites[i];
+                            AntJournalSpots[i].gameObject.GetComponent<Image>().sprite = AntSprites[i];
+
+                            if (AntPhotosIsTaken[i])
+                            {
+                                AntChecklistSpots[i].gameObject.GetComponent<Image>().sprite = ChecklistTick;
+                            }
+                            //assign pop up sprite
+                            ImagePopUp.gameObject.GetComponent<PopUpCameraUI>().child.GetComponent<Image>().sprite
+                                = AntSprites[temp.textureLocation];
                             break;
                         }
                 }
