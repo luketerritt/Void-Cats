@@ -5,7 +5,6 @@ using UnityEngine.UIElements;
 
 public class TPPanel : MonoBehaviour
 {
-    public Animator AnimPanel;
     private bool canAnimate = false;
     public GameObject TPpanel;
     public GameObject NewPhotoUI;
@@ -21,16 +20,6 @@ public class TPPanel : MonoBehaviour
     {
         //check the player to see if the flash can be turned on
         //bool temp = PlayerObject.GetComponent<PlayableCamera>().readyFlash;
-
-        if (TPpanel == enabled)
-        {
-            canAnimate = true;
-        }
-
-        //if(canAnimate)
-        //{
-        //    AnimPanel.SetBool("tp", true);
-        //}
 
     }
 
