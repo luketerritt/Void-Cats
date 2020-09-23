@@ -945,9 +945,12 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4743737360209610130}
+  - component: {fileID: 69290316}
+  - component: {fileID: 69290317}
+  - component: {fileID: 69290318}
   m_Layer: 0
   m_Name: Cow_Creature
-  m_TagString: Untagged
+  m_TagString: Creature
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -959,7 +962,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8614957440978253697}
-  m_LocalRotation: {x: -0, y: 0.28896233, z: -0, w: 0.9573405}
+  m_LocalRotation: {x: 0, y: 0.28896502, z: 0, w: 0.9573397}
   m_LocalPosition: {x: 555.44763, y: 12.555841, z: 51.8}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
@@ -978,3 +981,70 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 33.592003, z: 0}
+--- !u!136 &69290316
+CapsuleCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8614957440978253697}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  m_Radius: 0.3276062
+  m_Height: 1.5575342
+  m_Direction: 1
+  m_Center: {x: -0.012969971, y: 0.76207685, z: 0}
+--- !u!195 &69290317
+NavMeshAgent:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8614957440978253697}
+  m_Enabled: 1
+  m_AgentTypeID: 0
+  m_Radius: 0.5
+  m_Speed: 3.5
+  m_Acceleration: 8
+  avoidancePriority: 50
+  m_AngularSpeed: 120
+  m_StoppingDistance: 0
+  m_AutoTraverseOffMeshLink: 1
+  m_AutoBraking: 1
+  m_AutoRepath: 1
+  m_Height: 1
+  m_BaseOffset: 0
+  m_WalkableMask: 4294967295
+  m_ObstacleAvoidanceType: 4
+--- !u!114 &69290318
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8614957440978253697}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5236d6877b1c5ec4cb851bdb07f50cc8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  ID: 5
+  CritterRarity: 0
+  lightingManager: {fileID: 0}
+  navMeshAgent: {fileID: 0}
+  eyeStrength: 4
+  canSeePlayer: 0
+  losePlayerTimer: 3
+  speed: 3
+  runSpeed: 10
+  passiveCreatureType: 1
+  FoodLocations:
+  - {fileID: 0}
+  UniqueLocations:
+  - {fileID: 0}
+  UniqueSecondaryLocations:
+  - {fileID: 0}
+  - {fileID: 0}
+  reachedDestination: 0
+  roarDuration: 5
