@@ -89,6 +89,12 @@ public class PlayableCamera : MonoBehaviour
 
     public GameObject PopUpMiscFailUi;
 
+
+    //test ui to display creature head if the camera detects a creature before photo
+    public bool creatureDetectUiActive = false;
+
+    public GameObject[] detectedCreatureUI;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -293,7 +299,69 @@ public class PlayableCamera : MonoBehaviour
             }
 
             //creature detection code
-           
+
+            //create a bitmask to ignore layer 9, should be used for forms of foilage, tall grass etc
+            int layerMask = 1 << 9;
+            layerMask = ~layerMask;
+
+            //extra code to prevent the camera from trying to take a photo backwards if values are too low
+            if (CreatureCheckDistance < zoomMaxFov)
+            {
+                CreatureCheckDistance = zoomMaxFov;
+            }
+
+            float tempDistance = CreatureCheckDistance - firstPersonCamera.fieldOfView;
+
+            //peform the boxcast
+            hitDetection = Physics.BoxCast(firstPersonCamera.transform.position, firstPersonCamera.transform.localScale * detectionSizeModifier,
+              firstPersonCamera.transform.forward, out hit, firstPersonCamera.transform.rotation,
+            tempDistance, layerMask);
+
+            //if we are using this
+            if (creatureDetectUiActive)
+            {
+                //if we hit something
+                if (hitDetection)
+                {
+                    //if it was a creature
+                    if (hit.collider.gameObject.CompareTag("Creature"))
+                    {
+                        var creatureInfo = hit.collider.gameObject.GetComponent<TestCreature>().info;
+
+                        //turn off all others
+                        for (int i = 0; i < detectedCreatureUI.Length; i++)
+                        {
+                            //Debug.Log("hit nothing, removing UI " + i);
+                            detectedCreatureUI[i].SetActive(false);
+                        }
+                        //turn this one on
+                        detectedCreatureUI[creatureInfo.CreatureID].SetActive(true);
+
+                    }
+                    else
+                    {
+                        //turn all off
+                        for (int i = 0; i < detectedCreatureUI.Length; i++)
+                        {
+                            //Debug.Log("hit nothing, removing UI " + i);
+                            detectedCreatureUI[i].SetActive(false);
+                        }
+                    }
+
+                }
+                else
+                {
+                    //turn all off
+                    for (int i = 0; i < detectedCreatureUI.Length; i++)
+                    {
+                        //Debug.Log("hit nothing, removing UI " + i);
+                        detectedCreatureUI[i].SetActive(false);
+                    }
+                }
+
+            }
+
+            //if a photo can be taken
             if (Input.GetKeyDown(KeyCode.Mouse0) && !cameraChargeWaiting && !PopUpUi.gameObject.activeSelf)
             {
                 Debug.Log("Left mouse clicked!");
@@ -318,22 +386,7 @@ public class PlayableCamera : MonoBehaviour
                 //hitDetection = Physics.Raycast(firstPersonCamera.transform.position, firstPersonCamera.transform.forward,
                 //  out hit, CreatureCheckDistance, layerMask);*/
 
-                //create a bitmask to ignore layer 9, should be used for forms of foilage, tall grass etc
-                int layerMask = 1 << 9;
-                layerMask = ~layerMask;
-
-                //extra code to prevent the camera from trying to take a photo backwards if values are too low
-                if (CreatureCheckDistance < zoomMaxFov)
-                {
-                    CreatureCheckDistance = zoomMaxFov;
-                }
-
-                float tempDistance = CreatureCheckDistance - firstPersonCamera.fieldOfView;
-               
-                //peform the boxcast
-                hitDetection = Physics.BoxCast(firstPersonCamera.transform.position, firstPersonCamera.transform.localScale * detectionSizeModifier,
-                  firstPersonCamera.transform.forward, out hit, firstPersonCamera.transform.rotation,
-                tempDistance, layerMask);
+                
 
                 Debug.Log("camera distance = " + tempDistance);
 
