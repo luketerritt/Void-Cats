@@ -232,40 +232,29 @@ public class PlayableCamera : MonoBehaviour
                 float zoomCurrent = 0;
                 zoomCurrent -= temp * zoomSpeed;
                 
-                firstPersonCamera.fieldOfView += zoomCurrent;
-
-                //raycast to modify focus distance (a headache)
-                //RaycastHit hitFocusDistance;
-                //Ray FocusRay = new Ray(firstPersonCamera.transform.position, firstPersonCamera.transform.forward);
-                //Vector3 justAhead = firstPersonCamera.transform.forward + firstPersonCamera.transform.position;
-                //justAhead *= zoomCurrent;
-                //FloatParameter newDistance = new FloatParameter
-                //{
-                //value =
-                //Vector3.Distance(firstPersonCamera.transform.position, justAhead)
-                //};
-
-                //true if the zoomFOV was NOT above limit and can be modified
-                //bool canModifyEffect = true;
-
-                
-                //checks to ensure the cameraFOV doesnt go over (or under) the bounds :/
-                if (firstPersonCamera.fieldOfView <= zoomMinFov)
+                //if the right mouse button is not held down modify zoom
+                if(!Input.GetMouseButton(1))
                 {
-                    firstPersonCamera.fieldOfView = zoomMinFov;
-                    //canModifyEffect = false;
-                }
+                    firstPersonCamera.fieldOfView += zoomCurrent;
 
-                if (firstPersonCamera.fieldOfView >= zoomMaxFov)
+                    //true if the zoomFOV was NOT above limit and can be modified
+                    //bool canModifyEffect = true;
+
+                    //checks to ensure the cameraFOV doesnt go over (or under) the bounds :/
+                    if (firstPersonCamera.fieldOfView <= zoomMinFov)
+                    {
+                        firstPersonCamera.fieldOfView = zoomMinFov;
+                        //canModifyEffect = false;
+                    }
+
+                    if (firstPersonCamera.fieldOfView >= zoomMaxFov)
+                    {
+                        firstPersonCamera.fieldOfView = zoomMaxFov;
+                        //canModifyEffect = false;
+                    }
+                }
+                else //modify the blurry
                 {
-                    firstPersonCamera.fieldOfView = zoomMaxFov;
-                    //canModifyEffect = false;
-                }
-
-                //post processing blur code
-                //if(canModifyEffect)
-                //{
-                    //float newChange = temp * depthChangeRate;
                     float newChange = zoomCurrent * depthChangeRate;
 
                     blurryEffect.focusDistance.value -= newChange;
@@ -275,6 +264,7 @@ public class PlayableCamera : MonoBehaviour
                     {
                         blurryEffect.focusDistance.value += newChange;
                         newChange = depthChangeRoughMax;
+                        Debug.Log("Blurry at max: " + depthChangeRoughMax);
                         blurryEffect.focusDistance.value = newChange;
                     }
 
@@ -283,19 +273,10 @@ public class PlayableCamera : MonoBehaviour
                     {
                         blurryEffect.focusDistance.value += newChange;
                         newChange = depthChangeRoughMin;
+                        Debug.Log("Blurry at min: " + depthChangeRoughMin);
                         blurryEffect.focusDistance.value = newChange;
                     }
-
-                    //blurryEffect.focusDistance.value += newChange;
-
-                    //float oldRange = zoomMaxFov - zoomMinFov;
-                    //float NewRange = depthChangeRoughMax;
-                    //float newValue = (((firstPersonCamera.fieldOfView - zoomMinFov) * NewRange) / oldRange);
-
-                    //blurryEffect.focusDistance.value = NewRange - (newValue * depthChangeRate);
-
-                    //Debug.Log("new focus distance is" + blurryEffect.focusDistance.value);
-                //}
+                }               
             }
 
             //creature detection code
@@ -366,7 +347,7 @@ public class PlayableCamera : MonoBehaviour
             {
                 Debug.Log("Left mouse clicked!");
                 //readyFlash = true;
-                //failedPhoto = true;
+                failedPhoto = true;
 
                 //as we have tried to take a photo, a camera charge gets consumed
                 cameraChargesCurrent -= 1;
@@ -461,6 +442,28 @@ public class PlayableCamera : MonoBehaviour
                                             failedPhoto = false;
                                         }
                                     }
+                                    if (failedPhoto)
+                                    {
+                                        for (int i = 0; i < GameStorageData.MiscPhotoIsTaken.Length; i++)
+                                        {
+                                            //check that a photo does not exist there already
+                                            if (!GameStorageData.MiscPhotoIsTaken[i])
+                                            {
+                                                //assign variables based on check and set boolean to allow coroutine
+                                                textureCaptureCreatureType = 0; //you equal 0 as there is no creature with ID 0
+                                                textureLocationInArray = i;
+                                                canCaptureAsTexture = true;
+                                                failedPhoto = false;
+                                                break;
+                                            }
+                                            else if (i == GameStorageData.MiscPhotoIsTaken.Length - 1)
+                                            {
+                                                //Debug.Log("i = " + i + "length-1 = " + (GameStorageData.MiscPhotoIsTaken.Length - 1));
+                                                //if we are on the final loop
+                                                PopUpMiscFailUi.SetActive(true);
+                                            }
+                                        }
+                                    }
                                     break;
                                 }
                             case (2): //the hit creature is a Dog (copy above code below) EXTEND SECTION
@@ -476,6 +479,28 @@ public class PlayableCamera : MonoBehaviour
                                             textureLocationInArray = i;
                                             canCaptureAsTexture = true;
                                             failedPhoto = false;
+                                        }
+                                    }
+                                    if (failedPhoto)
+                                    {
+                                        for (int i = 0; i < GameStorageData.MiscPhotoIsTaken.Length; i++)
+                                        {
+                                            //check that a photo does not exist there already
+                                            if (!GameStorageData.MiscPhotoIsTaken[i])
+                                            {
+                                                //assign variables based on check and set boolean to allow coroutine
+                                                textureCaptureCreatureType = 0; //you equal 0 as there is no creature with ID 0
+                                                textureLocationInArray = i;
+                                                canCaptureAsTexture = true;
+                                                failedPhoto = false;
+                                                break;
+                                            }
+                                            else if (i == GameStorageData.MiscPhotoIsTaken.Length - 1)
+                                            {
+                                                //Debug.Log("i = " + i + "length-1 = " + (GameStorageData.MiscPhotoIsTaken.Length - 1));
+                                                //if we are on the final loop
+                                                PopUpMiscFailUi.SetActive(true);
+                                            }
                                         }
                                     }
                                     break;
@@ -495,7 +520,28 @@ public class PlayableCamera : MonoBehaviour
                                             failedPhoto = false;
                                         }
                                     }
-                                    //Debug.Log("Tiger Photo Code still WIP");
+                                    if (failedPhoto)
+                                    {
+                                        for (int i = 0; i < GameStorageData.MiscPhotoIsTaken.Length; i++)
+                                        {
+                                            //check that a photo does not exist there already
+                                            if (!GameStorageData.MiscPhotoIsTaken[i])
+                                            {
+                                                //assign variables based on check and set boolean to allow coroutine
+                                                textureCaptureCreatureType = 0; //you equal 0 as there is no creature with ID 0
+                                                textureLocationInArray = i;
+                                                canCaptureAsTexture = true;
+                                                failedPhoto = false;
+                                                break;
+                                            }
+                                            else if (i == GameStorageData.MiscPhotoIsTaken.Length - 1)
+                                            {
+                                                //Debug.Log("i = " + i + "length-1 = " + (GameStorageData.MiscPhotoIsTaken.Length - 1));
+                                                //if we are on the final loop
+                                                PopUpMiscFailUi.SetActive(true);
+                                            }
+                                        }
+                                    }                                   
                                     break;
                                 }
                             case (4): //the hit creature is a Dragon
@@ -512,8 +558,29 @@ public class PlayableCamera : MonoBehaviour
                                            canCaptureAsTexture = true;
                                            failedPhoto = false;
                                        }
-                                   }
-                                    //Debug.Log("Dragon Photo Code still WIP");
+                                    }
+                                    if (failedPhoto)
+                                    {
+                                        for (int i = 0; i < GameStorageData.MiscPhotoIsTaken.Length; i++)
+                                        {
+                                            //check that a photo does not exist there already
+                                            if (!GameStorageData.MiscPhotoIsTaken[i])
+                                            {
+                                                //assign variables based on check and set boolean to allow coroutine
+                                                textureCaptureCreatureType = 0; //you equal 0 as there is no creature with ID 0
+                                                textureLocationInArray = i;
+                                                canCaptureAsTexture = true;
+                                                failedPhoto = false;
+                                                break;
+                                            }
+                                            else if (i == GameStorageData.MiscPhotoIsTaken.Length - 1)
+                                            {
+                                                //Debug.Log("i = " + i + "length-1 = " + (GameStorageData.MiscPhotoIsTaken.Length - 1));
+                                                //if we are on the final loop
+                                                PopUpMiscFailUi.SetActive(true);
+                                            }
+                                        }
+                                    }
                                     break;
                                 }
                             case (5): //the hit creature is a Cow
@@ -531,7 +598,10 @@ public class PlayableCamera : MonoBehaviour
                                             failedPhoto = false;
                                         }
                                     }
-                                    //Debug.Log("Dragon Photo Code still WIP");
+                                    if (failedPhoto)
+                                    {
+                                        Debug.Log("duplicate photo");
+                                    }
                                     break;
                                 }
                             case (6): //the hit creature is a Duck
@@ -549,7 +619,28 @@ public class PlayableCamera : MonoBehaviour
                                             failedPhoto = false;
                                         }
                                     }
-                                    //Debug.Log("Dragon Photo Code still WIP");
+                                    if (failedPhoto)
+                                    {
+                                        for (int i = 0; i < GameStorageData.MiscPhotoIsTaken.Length; i++)
+                                        {
+                                            //check that a photo does not exist there already
+                                            if (!GameStorageData.MiscPhotoIsTaken[i])
+                                            {
+                                                //assign variables based on check and set boolean to allow coroutine
+                                                textureCaptureCreatureType = 0; //you equal 0 as there is no creature with ID 0
+                                                textureLocationInArray = i;
+                                                canCaptureAsTexture = true;
+                                                failedPhoto = false;
+                                                break;
+                                            }
+                                            else if (i == GameStorageData.MiscPhotoIsTaken.Length - 1)
+                                            {
+                                                //Debug.Log("i = " + i + "length-1 = " + (GameStorageData.MiscPhotoIsTaken.Length - 1));
+                                                //if we are on the final loop
+                                                PopUpMiscFailUi.SetActive(true);
+                                            }
+                                        }
+                                    }
                                     break;
                                 }
                             case (7): //the hit creature is a Cat
@@ -567,7 +658,28 @@ public class PlayableCamera : MonoBehaviour
                                             failedPhoto = false;
                                         }
                                     }
-                                    //Debug.Log("Dragon Photo Code still WIP");
+                                    if (failedPhoto)
+                                    {
+                                        for (int i = 0; i < GameStorageData.MiscPhotoIsTaken.Length; i++)
+                                        {
+                                            //check that a photo does not exist there already
+                                            if (!GameStorageData.MiscPhotoIsTaken[i])
+                                            {
+                                                //assign variables based on check and set boolean to allow coroutine
+                                                textureCaptureCreatureType = 0; //you equal 0 as there is no creature with ID 0
+                                                textureLocationInArray = i;
+                                                canCaptureAsTexture = true;
+                                                failedPhoto = false;
+                                                break;
+                                            }
+                                            else if (i == GameStorageData.MiscPhotoIsTaken.Length - 1)
+                                            {
+                                                //Debug.Log("i = " + i + "length-1 = " + (GameStorageData.MiscPhotoIsTaken.Length - 1));
+                                                //if we are on the final loop
+                                                PopUpMiscFailUi.SetActive(true);
+                                            }
+                                        }
+                                    }
                                     break;
                                 }
                             case (8): //the hit creature is a Rabbit
@@ -585,7 +697,28 @@ public class PlayableCamera : MonoBehaviour
                                             failedPhoto = false;
                                         }
                                     }
-                                    //Debug.Log("Dragon Photo Code still WIP");
+                                    if (failedPhoto)
+                                    {
+                                        for (int i = 0; i < GameStorageData.MiscPhotoIsTaken.Length; i++)
+                                        {
+                                            //check that a photo does not exist there already
+                                            if (!GameStorageData.MiscPhotoIsTaken[i])
+                                            {
+                                                //assign variables based on check and set boolean to allow coroutine
+                                                textureCaptureCreatureType = 0; //you equal 0 as there is no creature with ID 0
+                                                textureLocationInArray = i;
+                                                canCaptureAsTexture = true;
+                                                failedPhoto = false;
+                                                break;
+                                            }
+                                            else if (i == GameStorageData.MiscPhotoIsTaken.Length - 1)
+                                            {
+                                                //Debug.Log("i = " + i + "length-1 = " + (GameStorageData.MiscPhotoIsTaken.Length - 1));
+                                                //if we are on the final loop
+                                                PopUpMiscFailUi.SetActive(true);
+                                            }
+                                        }
+                                    }
                                     break;
                                 }
                             case (9): //the hit critter is a Beetle
@@ -812,14 +945,14 @@ public class PlayableCamera : MonoBehaviour
         }
 
         //if the photo failed, do UI close down stuff as if a photo was saved
-        if(failedPhoto)
-        {
-            Debug.Log("Photo failed");
-            uiCameraOverlay.SetActive(false);
-            //firstPersonCamera.GetComponent<PostProcessLayer>().enabled = false;
-            StartCoroutine(TurnOffUIOnPhotoFail());
+        //if(failedPhoto)
+        //{
+        //    Debug.Log("Photo failed");
+        //    uiCameraOverlay.SetActive(false);
+        //    //firstPersonCamera.GetComponent<PostProcessLayer>().enabled = false;
+        //    StartCoroutine(TurnOffUIOnPhotoFail());
             
-        }
+        //}
     }
 
    private IEnumerator TakeAndGetTexturePhoto()
@@ -1048,27 +1181,27 @@ public class PlayableCamera : MonoBehaviour
         //UnityEngine.Object.Destroy(texture); //really should call this...
     }
 
-    private IEnumerator TurnOffUIOnPhotoFail()
-    {
-        yield return new WaitForSeconds(0.1f);
+    //private IEnumerator TurnOffUIOnPhotoFail()
+    //{
+    //    yield return new WaitForSeconds(0.1f);
 
-        //turn off UI
-        uiCameraOverlay.SetActive(false);
-        uiStandardOverlay.SetActive(false);
-        //blurryEffect.active = false;
-        //ppVolume.enabled = false;
-        //PostProcessingObject.SetActive(false);
+    //    //turn off UI
+    //    uiCameraOverlay.SetActive(false);
+    //    uiStandardOverlay.SetActive(false);
+    //    //blurryEffect.active = false;
+    //    //ppVolume.enabled = false;
+    //    //PostProcessingObject.SetActive(false);
 
-        //turn UI back on
-        uiCameraOverlay.SetActive(true);
-        uiStandardOverlay.SetActive(true);
-        canCaptureAsTexture = false;
-        //blurryEffect.active = true;
-        //PostProcessingObject.SetActive(true);
-        //ppVolume.enabled = true;
-        //firstPersonCamera.GetComponent<PostProcessLayer>().enabled = true;
-        failedPhoto = false;
-    }
+    //    //turn UI back on
+    //    uiCameraOverlay.SetActive(true);
+    //    uiStandardOverlay.SetActive(true);
+    //    canCaptureAsTexture = false;
+    //    //blurryEffect.active = true;
+    //    //PostProcessingObject.SetActive(true);
+    //    //ppVolume.enabled = true;
+    //    //firstPersonCamera.GetComponent<PostProcessLayer>().enabled = true;
+    //    failedPhoto = false;
+    //}
 
     //code to display hit detection
     void OnDrawGizmos()
