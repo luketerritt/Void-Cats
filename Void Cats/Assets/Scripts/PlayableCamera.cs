@@ -736,6 +736,28 @@ public class PlayableCamera : MonoBehaviour
                                             failedPhoto = false;
                                         }
                                     }
+                                    if (failedPhoto)
+                                    {
+                                        for (int i = 0; i < GameStorageData.MiscPhotoIsTaken.Length; i++)
+                                        {
+                                            //check that a photo does not exist there already
+                                            if (!GameStorageData.MiscPhotoIsTaken[i])
+                                            {
+                                                //assign variables based on check and set boolean to allow coroutine
+                                                textureCaptureCreatureType = 0; //you equal 0 as there is no creature with ID 0
+                                                textureLocationInArray = i;
+                                                canCaptureAsTexture = true;
+                                                failedPhoto = false;
+                                                break;
+                                            }
+                                            else if (i == GameStorageData.MiscPhotoIsTaken.Length - 1)
+                                            {
+                                                //Debug.Log("i = " + i + "length-1 = " + (GameStorageData.MiscPhotoIsTaken.Length - 1));
+                                                //if we are on the final loop
+                                                PopUpMiscFailUi.SetActive(true);
+                                            }
+                                        }
+                                    }
                                     //Debug.Log("Dragon Photo Code still WIP");
                                     break;
                                 }
@@ -745,13 +767,35 @@ public class PlayableCamera : MonoBehaviour
                                     {
                                         //check the state of the required photo vs state we found and that a photo does not exist there already
                                         if (creatureInfo.agentState == GameStorageData.SnailPhotoRequirements[i].agentState
-                                            && !GameStorageData.RabbitPhotosIsTaken[i])
+                                            && !GameStorageData.SnailPhotosIsTaken[i])
                                         {
                                             //assign variables based on check and set boolean to allow coroutine
                                             textureCaptureCreatureType = creatureInfo.CreatureID; //you equal 0 as this check only happens if ID is 0
                                             textureLocationInArray = i;
                                             canCaptureAsTexture = true;
                                             failedPhoto = false;
+                                        }
+                                    }
+                                    if (failedPhoto)
+                                    {
+                                        for (int i = 0; i < GameStorageData.MiscPhotoIsTaken.Length; i++)
+                                        {
+                                            //check that a photo does not exist there already
+                                            if (!GameStorageData.MiscPhotoIsTaken[i])
+                                            {
+                                                //assign variables based on check and set boolean to allow coroutine
+                                                textureCaptureCreatureType = 0; //you equal 0 as there is no creature with ID 0
+                                                textureLocationInArray = i;
+                                                canCaptureAsTexture = true;
+                                                failedPhoto = false;
+                                                break;
+                                            }
+                                            else if (i == GameStorageData.MiscPhotoIsTaken.Length - 1)
+                                            {
+                                                //Debug.Log("i = " + i + "length-1 = " + (GameStorageData.MiscPhotoIsTaken.Length - 1));
+                                                //if we are on the final loop
+                                                PopUpMiscFailUi.SetActive(true);
+                                            }
                                         }
                                     }
                                     //Debug.Log("Dragon Photo Code still WIP");
@@ -763,13 +807,35 @@ public class PlayableCamera : MonoBehaviour
                                     {
                                         //check the state of the required photo vs state we found and that a photo does not exist there already
                                         if (creatureInfo.agentState == GameStorageData.WormPhotoRequirements[i].agentState
-                                            && !GameStorageData.RabbitPhotosIsTaken[i])
+                                            && !GameStorageData.WormPhotosIsTaken[i])
                                         {
                                             //assign variables based on check and set boolean to allow coroutine
                                             textureCaptureCreatureType = creatureInfo.CreatureID; //you equal 0 as this check only happens if ID is 0
                                             textureLocationInArray = i;
                                             canCaptureAsTexture = true;
                                             failedPhoto = false;
+                                        }
+                                    }
+                                    if (failedPhoto)
+                                    {
+                                        for (int i = 0; i < GameStorageData.MiscPhotoIsTaken.Length; i++)
+                                        {
+                                            //check that a photo does not exist there already
+                                            if (!GameStorageData.MiscPhotoIsTaken[i])
+                                            {
+                                                //assign variables based on check and set boolean to allow coroutine
+                                                textureCaptureCreatureType = 0; //you equal 0 as there is no creature with ID 0
+                                                textureLocationInArray = i;
+                                                canCaptureAsTexture = true;
+                                                failedPhoto = false;
+                                                break;
+                                            }
+                                            else if (i == GameStorageData.MiscPhotoIsTaken.Length - 1)
+                                            {
+                                                //Debug.Log("i = " + i + "length-1 = " + (GameStorageData.MiscPhotoIsTaken.Length - 1));
+                                                //if we are on the final loop
+                                                PopUpMiscFailUi.SetActive(true);
+                                            }
                                         }
                                     }
                                     //Debug.Log("Dragon Photo Code still WIP");
@@ -781,13 +847,35 @@ public class PlayableCamera : MonoBehaviour
                                     {
                                         //check the state of the required photo vs state we found and that a photo does not exist there already
                                         if (creatureInfo.agentState == GameStorageData.SlugPhotoRequirements[i].agentState
-                                            && !GameStorageData.RabbitPhotosIsTaken[i])
+                                            && !GameStorageData.SlugPhotosIsTaken[i])
                                         {
                                             //assign variables based on check and set boolean to allow coroutine
                                             textureCaptureCreatureType = creatureInfo.CreatureID; //you equal 0 as this check only happens if ID is 0
                                             textureLocationInArray = i;
                                             canCaptureAsTexture = true;
                                             failedPhoto = false;
+                                        }
+                                    }
+                                    if (failedPhoto)
+                                    {
+                                        for (int i = 0; i < GameStorageData.MiscPhotoIsTaken.Length; i++)
+                                        {
+                                            //check that a photo does not exist there already
+                                            if (!GameStorageData.MiscPhotoIsTaken[i])
+                                            {
+                                                //assign variables based on check and set boolean to allow coroutine
+                                                textureCaptureCreatureType = 0; //you equal 0 as there is no creature with ID 0
+                                                textureLocationInArray = i;
+                                                canCaptureAsTexture = true;
+                                                failedPhoto = false;
+                                                break;
+                                            }
+                                            else if (i == GameStorageData.MiscPhotoIsTaken.Length - 1)
+                                            {
+                                                //Debug.Log("i = " + i + "length-1 = " + (GameStorageData.MiscPhotoIsTaken.Length - 1));
+                                                //if we are on the final loop
+                                                PopUpMiscFailUi.SetActive(true);
+                                            }
                                         }
                                     }
                                     //Debug.Log("Dragon Photo Code still WIP");
@@ -799,13 +887,35 @@ public class PlayableCamera : MonoBehaviour
                                     {
                                         //check the state of the required photo vs state we found and that a photo does not exist there already
                                         if (creatureInfo.agentState == GameStorageData.ButterflyPhotoRequirements[i].agentState
-                                            && !GameStorageData.RabbitPhotosIsTaken[i])
+                                            && !GameStorageData.ButterflyPhotosIsTaken[i])
                                         {
                                             //assign variables based on check and set boolean to allow coroutine
                                             textureCaptureCreatureType = creatureInfo.CreatureID; //you equal 0 as this check only happens if ID is 0
                                             textureLocationInArray = i;
                                             canCaptureAsTexture = true;
                                             failedPhoto = false;
+                                        }
+                                    }
+                                    if (failedPhoto)
+                                    {
+                                        for (int i = 0; i < GameStorageData.MiscPhotoIsTaken.Length; i++)
+                                        {
+                                            //check that a photo does not exist there already
+                                            if (!GameStorageData.MiscPhotoIsTaken[i])
+                                            {
+                                                //assign variables based on check and set boolean to allow coroutine
+                                                textureCaptureCreatureType = 0; //you equal 0 as there is no creature with ID 0
+                                                textureLocationInArray = i;
+                                                canCaptureAsTexture = true;
+                                                failedPhoto = false;
+                                                break;
+                                            }
+                                            else if (i == GameStorageData.MiscPhotoIsTaken.Length - 1)
+                                            {
+                                                //Debug.Log("i = " + i + "length-1 = " + (GameStorageData.MiscPhotoIsTaken.Length - 1));
+                                                //if we are on the final loop
+                                                PopUpMiscFailUi.SetActive(true);
+                                            }
                                         }
                                     }
                                     //Debug.Log("Dragon Photo Code still WIP");
@@ -817,13 +927,35 @@ public class PlayableCamera : MonoBehaviour
                                     {
                                         //check the state of the required photo vs state we found and that a photo does not exist there already
                                         if (creatureInfo.agentState == GameStorageData.AntPhotoRequirements[i].agentState
-                                            && !GameStorageData.RabbitPhotosIsTaken[i])
+                                            && !GameStorageData.AntPhotosIsTaken[i])
                                         {
                                             //assign variables based on check and set boolean to allow coroutine
                                             textureCaptureCreatureType = creatureInfo.CreatureID; //you equal 0 as this check only happens if ID is 0
                                             textureLocationInArray = i;
                                             canCaptureAsTexture = true;
                                             failedPhoto = false;
+                                        }
+                                    }
+                                    if (failedPhoto)
+                                    {
+                                        for (int i = 0; i < GameStorageData.MiscPhotoIsTaken.Length; i++)
+                                        {
+                                            //check that a photo does not exist there already
+                                            if (!GameStorageData.MiscPhotoIsTaken[i])
+                                            {
+                                                //assign variables based on check and set boolean to allow coroutine
+                                                textureCaptureCreatureType = 0; //you equal 0 as there is no creature with ID 0
+                                                textureLocationInArray = i;
+                                                canCaptureAsTexture = true;
+                                                failedPhoto = false;
+                                                break;
+                                            }
+                                            else if (i == GameStorageData.MiscPhotoIsTaken.Length - 1)
+                                            {
+                                                //Debug.Log("i = " + i + "length-1 = " + (GameStorageData.MiscPhotoIsTaken.Length - 1));
+                                                //if we are on the final loop
+                                                PopUpMiscFailUi.SetActive(true);
+                                            }
                                         }
                                     }
                                     //Debug.Log("Dragon Photo Code still WIP");
