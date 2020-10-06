@@ -29591,7 +29591,7 @@ GameObject:
   - component: {fileID: 4075907990141598531}
   - component: {fileID: 5956641969579525}
   - component: {fileID: 8416984578926020056}
-  - component: {fileID: 4018525950615295002}
+  - component: {fileID: 2028020560135970299}
   m_Layer: 5
   m_Name: ExitToTitleScreen
   m_TagString: Untagged
@@ -29698,7 +29698,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls: []
---- !u!114 &4018525950615295002
+--- !u!114 &2028020560135970299
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -29707,10 +29707,12 @@ MonoBehaviour:
   m_GameObject: {fileID: 5763442921043017076}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 97d472055b77d6b498cc124da901b060, type: 3}
+  m_Script: {fileID: 11500000, guid: 6e6f68aa48f345a44a64443cc8338755, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  buttonType: 1
+  newGameButton: 1
+  thisButton: {fileID: 0}
+  dummyJournal: {fileID: 0}
 --- !u!1 &5803721488079514036
 GameObject:
   m_ObjectHideFlags: 0

@@ -43,6 +43,8 @@ public class SaveJournalData
 
     public bool[] misc = new bool[16];
 
+    public bool[] tp = new bool[6];
+
     public SaveJournalData(JournalDataStorage storage)
     {
         //set up all photos (except the misc ones as they have bigger size)
@@ -88,7 +90,11 @@ public class SaveJournalData
             miscSprites[i] = SerialiseTexture.Serialise(storage.MiscSprites[i]);
         }
 
-
+        //setup tp found seperately as it also has a different size
+        for (int i = 0; i < storage.TeleportersFound.Length; i++)
+        {
+            tp[i] = storage.TeleportersFound[i];            
+        }
     }
 
 }

@@ -202,6 +202,8 @@ public class JournalDataStorage : MonoBehaviour
     [HideInInspector]
     public bool updateMiscInfo = false; //misc photos
 
+    public bool[] TeleportersFound = new bool[6] { false, false, false, false, false, false };
+
     //the gameobject which has the first person player camera attached
     public GameObject playerCameraInput;
 
@@ -223,11 +225,12 @@ public class JournalDataStorage : MonoBehaviour
     [HideInInspector]
     public bool midSaveOrLoad = false;
 
+    //bool to prevent things from happening in the "fake" verison in the main scene
+    public bool dummy = false;
+
     // Start is called before the first frame update
     void Start()
     {
-        CompletedSaveText.SetActive(false);
-        CompletedLoadText.SetActive(false);
         //assign the requirements of each creature type in startup!
         for (int i = 0; i > defaultArraySize; i++)
         {
@@ -351,311 +354,336 @@ public class JournalDataStorage : MonoBehaviour
         AntPhotoRequirements[2].agentState = (CreatureState)14; //Rare critter
         AntPhotoRequirements[3].agentState = (CreatureState)15; //Legendary critter
         //EXTEND SECTION
+
+        //if this is not the dummy
+        if (!dummy)
+        {
+            CompletedSaveText.SetActive(false);
+            CompletedLoadText.SetActive(false);
+            //load the file
+            this.LoadJournal();
+        }
     }
 
     // Update is called once per frame
     void Update()
     {
-        var temp = playerCameraInput.gameObject.GetComponent<PlayableCamera>().GameStorageData;
-
-        ////if tab or left click is pressed remove the text
-        if (Input.GetKeyDown(KeyCode.Tab) || Input.GetMouseButtonDown(0))
+        if (!dummy)
         {
-            CompletedSaveText.SetActive(false);
-            CompletedLoadText.SetActive(false);
-        }
+            var temp = playerCameraInput.gameObject.GetComponent<PlayableCamera>().GameStorageData;
 
-        //if we need to update journal picture information
-        if (temp.UpdateInfo)
-        {
-            //work around to fix bug...
-            //var spritePopUptemp = ImagePopUp.gameObject.GetComponent<PopUpCameraUI>()
-            //    .child.GetComponent<Image>().sprite;
-
-            //update the textures
-            for (int i = 0; i < defaultArraySize; i++)
+            ////if tab or left click is pressed remove the text
+            if (Input.GetKeyDown(KeyCode.Tab) || Input.GetMouseButtonDown(0))
             {
-                //BlockPhotos[i] = temp.BlockPhotos[i];
-                //BlockPhotosIsTaken[i] = temp.BlockPhotosIsTaken[i];          
-                //BlockJournalSpots[i].gameObject.GetComponent<MeshRenderer>().material.SetTexture("_BaseMap", BlockPhotos[i]);
-
-                //Debug.Log("" + i);
-                //FishPhotos[i] = temp.FishPhotos[i];
-                switch(temp.CreatureToUpdate)
-                {
-                    case 0:
-                         {
-                            Debug.Log("Block not supported!");
-                            break;
-                         }
-                    case 1:
-                        {
-                            //fish update
-                            FishPhotosIsTaken[i] = temp.FishPhotosIsTaken[i];
-                            FishSprites[i] = temp.FishSprites[i];
-                            FishJournalSpots[i].gameObject.GetComponent<Image>().sprite = FishSprites[i];
-
-                            if (FishPhotosIsTaken[i])
-                            {
-                                FishChecklistSpots[i].gameObject.GetComponent<Image>().sprite = ChecklistTick;
-                            }
-                            //assign pop up sprite
-                            ImagePopUp.gameObject.GetComponent<PopUpCameraUI>().child.GetComponent<Image>().sprite
-                                = FishSprites[temp.textureLocation];
-                            break;
-                        }
-                    case 2:
-                        {
-                            //dog update
-                            DogPhotosIsTaken[i] = temp.DogPhotosIsTaken[i];
-                            DogSprites[i] = temp.DogSprites[i];
-                            DogJournalSpots[i].gameObject.GetComponent<Image>().sprite = DogSprites[i];
-
-                            if (DogPhotosIsTaken[i])
-                            {
-                                DogChecklistSpots[i].gameObject.GetComponent<Image>().sprite = ChecklistTick;
-                            }
-                            //assign pop up sprite
-                            ImagePopUp.gameObject.GetComponent<PopUpCameraUI>().child.GetComponent<Image>().sprite
-                                = DogSprites[temp.textureLocation];
-                            break;
-                        }
-                    case 3:
-                        {
-                            //tiger update
-                            TigerPhotosIsTaken[i] = temp.TigerPhotosIsTaken[i];
-                            TigerSprites[i] = temp.TigerSprites[i];
-                            TigerJournalSpots[i].gameObject.GetComponent<Image>().sprite = TigerSprites[i];
-
-                            if (TigerPhotosIsTaken[i])
-                            {
-                                TigerChecklistSpots[i].gameObject.GetComponent<Image>().sprite = ChecklistTick;
-                            }
-                            //assign pop up sprite
-                            ImagePopUp.gameObject.GetComponent<PopUpCameraUI>().child.GetComponent<Image>().sprite
-                               = TigerSprites[temp.textureLocation];
-                            break;
-                        }
-                    case 4:
-                        {
-                            //dragon update
-                            DragonPhotosIsTaken[i] = temp.DragonPhotosIsTaken[i];
-                            DragonSprites[i] = temp.DragonSprites[i];
-                            DragonJournalSpots[i].gameObject.GetComponent<Image>().sprite = DragonSprites[i];
-
-                            if (DragonPhotosIsTaken[i])
-                            {
-                                DragonChecklistSpots[i].gameObject.GetComponent<Image>().sprite = ChecklistTick;
-                            }
-                            //assign pop up sprite
-                            ImagePopUp.gameObject.GetComponent<PopUpCameraUI>().child.GetComponent<Image>().sprite
-                                = DragonSprites[temp.textureLocation];
-                            break;
-                        }
-                    case 5:
-                        {
-                            //cow update
-                            CowPhotosIsTaken[i] = temp.CowPhotosIsTaken[i];
-                            CowSprites[i] = temp.CowSprites[i];
-                            CowJournalSpots[i].gameObject.GetComponent<Image>().sprite = CowSprites[i];
-
-                            if (CowPhotosIsTaken[i])
-                            {
-                                CowChecklistSpots[i].gameObject.GetComponent<Image>().sprite = ChecklistTick;
-                            }
-                            //assign pop up sprite
-                            ImagePopUp.gameObject.GetComponent<PopUpCameraUI>().child.GetComponent<Image>().sprite
-                                = CowSprites[temp.textureLocation];
-                            break;
-                        }
-                    case 6:
-                        {
-                            //duck update
-                            DuckPhotosIsTaken[i] = temp.DuckPhotosIsTaken[i];
-                            DuckSprites[i] = temp.DuckSprites[i];
-                            DuckJournalSpots[i].gameObject.GetComponent<Image>().sprite = DuckSprites[i];
-
-                            if (DuckPhotosIsTaken[i])
-                            {
-                                DuckChecklistSpots[i].gameObject.GetComponent<Image>().sprite = ChecklistTick;
-                            }
-                            //assign pop up sprite
-                            ImagePopUp.gameObject.GetComponent<PopUpCameraUI>().child.GetComponent<Image>().sprite
-                                = DuckSprites[temp.textureLocation];
-                            break;
-                        }
-                    case 7:
-                        {
-                            //cat update
-                            CatPhotosIsTaken[i] = temp.CatPhotosIsTaken[i];
-                            CatSprites[i] = temp.CatSprites[i];
-                            CatJournalSpots[i].gameObject.GetComponent<Image>().sprite = CatSprites[i];
-
-                            if (CatPhotosIsTaken[i])
-                            {
-                                CatChecklistSpots[i].gameObject.GetComponent<Image>().sprite = ChecklistTick;
-                            }
-                            //assign pop up sprite
-                            ImagePopUp.gameObject.GetComponent<PopUpCameraUI>().child.GetComponent<Image>().sprite
-                                = CatSprites[temp.textureLocation];
-                            break;
-                        }
-                    case 8:
-                        {
-                            //rabbit update
-                            RabbitPhotosIsTaken[i] = temp.RabbitPhotosIsTaken[i];
-                            RabbitSprites[i] = temp.RabbitSprites[i];
-                            RabbitJournalSpots[i].gameObject.GetComponent<Image>().sprite = RabbitSprites[i];
-
-                            if (RabbitPhotosIsTaken[i])
-                            {
-                                RabbitChecklistSpots[i].gameObject.GetComponent<Image>().sprite = ChecklistTick;
-                            }
-                            //assign pop up sprite
-                            ImagePopUp.gameObject.GetComponent<PopUpCameraUI>().child.GetComponent<Image>().sprite
-                                = RabbitSprites[temp.textureLocation];
-                            break;
-                        }
-                    case 9:
-                        {
-                            //beetle update
-                            BeetlePhotosIsTaken[i] = temp.BeetlePhotosIsTaken[i];
-                            BeetleSprites[i] = temp.BeetleSprites[i];
-                            BeetleJournalSpots[i].gameObject.GetComponent<Image>().sprite = BeetleSprites[i];
-
-                            if (BeetlePhotosIsTaken[i])
-                            {
-                                BeetleChecklistSpots[i].gameObject.GetComponent<Image>().sprite = ChecklistTick;
-                            }
-                            //assign pop up sprite
-                            ImagePopUp.gameObject.GetComponent<PopUpCameraUI>().child.GetComponent<Image>().sprite
-                                = BeetleSprites[temp.textureLocation];
-                            break;
-                        }
-                    case 10:
-                        {
-                            //snail update
-                            SnailPhotosIsTaken[i] = temp.SnailPhotosIsTaken[i];
-                            SnailSprites[i] = temp.SnailSprites[i];
-                            SnailJournalSpots[i].gameObject.GetComponent<Image>().sprite = SnailSprites[i];
-
-                            if (SnailPhotosIsTaken[i])
-                            {
-                                SnailChecklistSpots[i].gameObject.GetComponent<Image>().sprite = ChecklistTick;
-                            }
-                            //assign pop up sprite
-                            ImagePopUp.gameObject.GetComponent<PopUpCameraUI>().child.GetComponent<Image>().sprite
-                                = SnailSprites[temp.textureLocation];
-                            break;
-                        }
-                    case 11:
-                        {
-                            //worm update
-                            WormPhotosIsTaken[i] = temp.WormPhotosIsTaken[i];
-                            WormSprites[i] = temp.WormSprites[i];
-                            WormJournalSpots[i].gameObject.GetComponent<Image>().sprite = WormSprites[i];
-
-                            if (WormPhotosIsTaken[i])
-                            {
-                                WormChecklistSpots[i].gameObject.GetComponent<Image>().sprite = ChecklistTick;
-                            }
-                            //assign pop up sprite
-                            ImagePopUp.gameObject.GetComponent<PopUpCameraUI>().child.GetComponent<Image>().sprite
-                                = WormSprites[temp.textureLocation];
-                            break;
-                        }
-                    case 12:
-                        {
-                            //slug update
-                            SlugPhotosIsTaken[i] = temp.SlugPhotosIsTaken[i];
-                            SlugSprites[i] = temp.SlugSprites[i];
-                            SlugJournalSpots[i].gameObject.GetComponent<Image>().sprite = SlugSprites[i];
-
-                            if (SlugPhotosIsTaken[i])
-                            {
-                                SlugChecklistSpots[i].gameObject.GetComponent<Image>().sprite = ChecklistTick;
-                            }
-                            //assign pop up sprite
-                            ImagePopUp.gameObject.GetComponent<PopUpCameraUI>().child.GetComponent<Image>().sprite
-                                = SlugSprites[temp.textureLocation];
-                            break;
-                        }
-                    case 13:
-                        {
-                            //Butterfly update
-                            ButterflyPhotosIsTaken[i] = temp.ButterflyPhotosIsTaken[i];
-                            ButterflySprites[i] = temp.ButterflySprites[i];
-                            ButterflyJournalSpots[i].gameObject.GetComponent<Image>().sprite = ButterflySprites[i];
-
-                            if (ButterflyPhotosIsTaken[i])
-                            {
-                                ButterflyChecklistSpots[i].gameObject.GetComponent<Image>().sprite = ChecklistTick;
-                            }
-                            //assign pop up sprite
-                            ImagePopUp.gameObject.GetComponent<PopUpCameraUI>().child.GetComponent<Image>().sprite
-                                = ButterflySprites[temp.textureLocation];
-                            break;
-                        }
-                    case 14:
-                        {
-                            //Ant update
-                            AntPhotosIsTaken[i] = temp.AntPhotosIsTaken[i];
-                            AntSprites[i] = temp.AntSprites[i];
-                            AntJournalSpots[i].gameObject.GetComponent<Image>().sprite = AntSprites[i];
-
-                            if (AntPhotosIsTaken[i])
-                            {
-                                AntChecklistSpots[i].gameObject.GetComponent<Image>().sprite = ChecklistTick;
-                            }
-                            //assign pop up sprite
-                            ImagePopUp.gameObject.GetComponent<PopUpCameraUI>().child.GetComponent<Image>().sprite
-                                = AntSprites[temp.textureLocation];
-                            break;
-                        }
-                }
+                CompletedSaveText.SetActive(false);
+                CompletedLoadText.SetActive(false);
             }
-            ImagePopUp.SetActive(true);
-            temp.UpdateInfo = false;
-        }
-        //if we need to update the misc info
-        if(temp.updateMiscInfo)
-        {
-            //work around to fix bug...
-            //var spritePopUptemp = ImagePopUp.gameObject.GetComponent<PopUpCameraUI>()
+
+            //if we need to update journal picture information
+            if (temp.UpdateInfo)
+            {
+                //work around to fix bug...
+                //var spritePopUptemp = ImagePopUp.gameObject.GetComponent<PopUpCameraUI>()
+                //    .child.GetComponent<Image>().sprite;
+
+                //update the textures
+                for (int i = 0; i < defaultArraySize; i++)
+                {
+                    //BlockPhotos[i] = temp.BlockPhotos[i];
+                    //BlockPhotosIsTaken[i] = temp.BlockPhotosIsTaken[i];          
+                    //BlockJournalSpots[i].gameObject.GetComponent<MeshRenderer>().material.SetTexture("_BaseMap", BlockPhotos[i]);
+
+                    //Debug.Log("" + i);
+                    //FishPhotos[i] = temp.FishPhotos[i];
+                    switch (temp.CreatureToUpdate)
+                    {
+                        case 0:
+                            {
+                                Debug.Log("Block not supported!");
+                                break;
+                            }
+                        case 1:
+                            {
+                                //fish update
+                                FishPhotosIsTaken[i] = temp.FishPhotosIsTaken[i];
+                                FishSprites[i] = temp.FishSprites[i];
+                                FishJournalSpots[i].gameObject.GetComponent<Image>().sprite = FishSprites[i];
+
+                                if (FishPhotosIsTaken[i])
+                                {
+                                    FishChecklistSpots[i].gameObject.GetComponent<Image>().sprite = ChecklistTick;
+                                }
+                                //assign pop up sprite
+                                ImagePopUp.gameObject.GetComponent<PopUpCameraUI>().child.GetComponent<Image>().sprite
+                                    = FishSprites[temp.textureLocation];
+                                break;
+                            }
+                        case 2:
+                            {
+                                //dog update
+                                DogPhotosIsTaken[i] = temp.DogPhotosIsTaken[i];
+                                DogSprites[i] = temp.DogSprites[i];
+                                DogJournalSpots[i].gameObject.GetComponent<Image>().sprite = DogSprites[i];
+
+                                if (DogPhotosIsTaken[i])
+                                {
+                                    DogChecklistSpots[i].gameObject.GetComponent<Image>().sprite = ChecklistTick;
+                                }
+                                //assign pop up sprite
+                                ImagePopUp.gameObject.GetComponent<PopUpCameraUI>().child.GetComponent<Image>().sprite
+                                    = DogSprites[temp.textureLocation];
+                                break;
+                            }
+                        case 3:
+                            {
+                                //tiger update
+                                TigerPhotosIsTaken[i] = temp.TigerPhotosIsTaken[i];
+                                TigerSprites[i] = temp.TigerSprites[i];
+                                TigerJournalSpots[i].gameObject.GetComponent<Image>().sprite = TigerSprites[i];
+
+                                if (TigerPhotosIsTaken[i])
+                                {
+                                    TigerChecklistSpots[i].gameObject.GetComponent<Image>().sprite = ChecklistTick;
+                                }
+                                //assign pop up sprite
+                                ImagePopUp.gameObject.GetComponent<PopUpCameraUI>().child.GetComponent<Image>().sprite
+                                   = TigerSprites[temp.textureLocation];
+                                break;
+                            }
+                        case 4:
+                            {
+                                //dragon update
+                                DragonPhotosIsTaken[i] = temp.DragonPhotosIsTaken[i];
+                                DragonSprites[i] = temp.DragonSprites[i];
+                                DragonJournalSpots[i].gameObject.GetComponent<Image>().sprite = DragonSprites[i];
+
+                                if (DragonPhotosIsTaken[i])
+                                {
+                                    DragonChecklistSpots[i].gameObject.GetComponent<Image>().sprite = ChecklistTick;
+                                }
+                                //assign pop up sprite
+                                ImagePopUp.gameObject.GetComponent<PopUpCameraUI>().child.GetComponent<Image>().sprite
+                                    = DragonSprites[temp.textureLocation];
+                                break;
+                            }
+                        case 5:
+                            {
+                                //cow update
+                                CowPhotosIsTaken[i] = temp.CowPhotosIsTaken[i];
+                                CowSprites[i] = temp.CowSprites[i];
+                                CowJournalSpots[i].gameObject.GetComponent<Image>().sprite = CowSprites[i];
+
+                                if (CowPhotosIsTaken[i])
+                                {
+                                    CowChecklistSpots[i].gameObject.GetComponent<Image>().sprite = ChecklistTick;
+                                }
+                                //assign pop up sprite
+                                ImagePopUp.gameObject.GetComponent<PopUpCameraUI>().child.GetComponent<Image>().sprite
+                                    = CowSprites[temp.textureLocation];
+                                break;
+                            }
+                        case 6:
+                            {
+                                //duck update
+                                DuckPhotosIsTaken[i] = temp.DuckPhotosIsTaken[i];
+                                DuckSprites[i] = temp.DuckSprites[i];
+                                DuckJournalSpots[i].gameObject.GetComponent<Image>().sprite = DuckSprites[i];
+
+                                if (DuckPhotosIsTaken[i])
+                                {
+                                    DuckChecklistSpots[i].gameObject.GetComponent<Image>().sprite = ChecklistTick;
+                                }
+                                //assign pop up sprite
+                                ImagePopUp.gameObject.GetComponent<PopUpCameraUI>().child.GetComponent<Image>().sprite
+                                    = DuckSprites[temp.textureLocation];
+                                break;
+                            }
+                        case 7:
+                            {
+                                //cat update
+                                CatPhotosIsTaken[i] = temp.CatPhotosIsTaken[i];
+                                CatSprites[i] = temp.CatSprites[i];
+                                CatJournalSpots[i].gameObject.GetComponent<Image>().sprite = CatSprites[i];
+
+                                if (CatPhotosIsTaken[i])
+                                {
+                                    CatChecklistSpots[i].gameObject.GetComponent<Image>().sprite = ChecklistTick;
+                                }
+                                //assign pop up sprite
+                                ImagePopUp.gameObject.GetComponent<PopUpCameraUI>().child.GetComponent<Image>().sprite
+                                    = CatSprites[temp.textureLocation];
+                                break;
+                            }
+                        case 8:
+                            {
+                                //rabbit update
+                                RabbitPhotosIsTaken[i] = temp.RabbitPhotosIsTaken[i];
+                                RabbitSprites[i] = temp.RabbitSprites[i];
+                                RabbitJournalSpots[i].gameObject.GetComponent<Image>().sprite = RabbitSprites[i];
+
+                                if (RabbitPhotosIsTaken[i])
+                                {
+                                    RabbitChecklistSpots[i].gameObject.GetComponent<Image>().sprite = ChecklistTick;
+                                }
+                                //assign pop up sprite
+                                ImagePopUp.gameObject.GetComponent<PopUpCameraUI>().child.GetComponent<Image>().sprite
+                                    = RabbitSprites[temp.textureLocation];
+                                break;
+                            }
+                        case 9:
+                            {
+                                //beetle update
+                                BeetlePhotosIsTaken[i] = temp.BeetlePhotosIsTaken[i];
+                                BeetleSprites[i] = temp.BeetleSprites[i];
+                                BeetleJournalSpots[i].gameObject.GetComponent<Image>().sprite = BeetleSprites[i];
+
+                                if (BeetlePhotosIsTaken[i])
+                                {
+                                    BeetleChecklistSpots[i].gameObject.GetComponent<Image>().sprite = ChecklistTick;
+                                }
+                                //assign pop up sprite
+                                ImagePopUp.gameObject.GetComponent<PopUpCameraUI>().child.GetComponent<Image>().sprite
+                                    = BeetleSprites[temp.textureLocation];
+                                break;
+                            }
+                        case 10:
+                            {
+                                //snail update
+                                SnailPhotosIsTaken[i] = temp.SnailPhotosIsTaken[i];
+                                SnailSprites[i] = temp.SnailSprites[i];
+                                SnailJournalSpots[i].gameObject.GetComponent<Image>().sprite = SnailSprites[i];
+
+                                if (SnailPhotosIsTaken[i])
+                                {
+                                    SnailChecklistSpots[i].gameObject.GetComponent<Image>().sprite = ChecklistTick;
+                                }
+                                //assign pop up sprite
+                                ImagePopUp.gameObject.GetComponent<PopUpCameraUI>().child.GetComponent<Image>().sprite
+                                    = SnailSprites[temp.textureLocation];
+                                break;
+                            }
+                        case 11:
+                            {
+                                //worm update
+                                WormPhotosIsTaken[i] = temp.WormPhotosIsTaken[i];
+                                WormSprites[i] = temp.WormSprites[i];
+                                WormJournalSpots[i].gameObject.GetComponent<Image>().sprite = WormSprites[i];
+
+                                if (WormPhotosIsTaken[i])
+                                {
+                                    WormChecklistSpots[i].gameObject.GetComponent<Image>().sprite = ChecklistTick;
+                                }
+                                //assign pop up sprite
+                                ImagePopUp.gameObject.GetComponent<PopUpCameraUI>().child.GetComponent<Image>().sprite
+                                    = WormSprites[temp.textureLocation];
+                                break;
+                            }
+                        case 12:
+                            {
+                                //slug update
+                                SlugPhotosIsTaken[i] = temp.SlugPhotosIsTaken[i];
+                                SlugSprites[i] = temp.SlugSprites[i];
+                                SlugJournalSpots[i].gameObject.GetComponent<Image>().sprite = SlugSprites[i];
+
+                                if (SlugPhotosIsTaken[i])
+                                {
+                                    SlugChecklistSpots[i].gameObject.GetComponent<Image>().sprite = ChecklistTick;
+                                }
+                                //assign pop up sprite
+                                ImagePopUp.gameObject.GetComponent<PopUpCameraUI>().child.GetComponent<Image>().sprite
+                                    = SlugSprites[temp.textureLocation];
+                                break;
+                            }
+                        case 13:
+                            {
+                                //Butterfly update
+                                ButterflyPhotosIsTaken[i] = temp.ButterflyPhotosIsTaken[i];
+                                ButterflySprites[i] = temp.ButterflySprites[i];
+                                ButterflyJournalSpots[i].gameObject.GetComponent<Image>().sprite = ButterflySprites[i];
+
+                                if (ButterflyPhotosIsTaken[i])
+                                {
+                                    ButterflyChecklistSpots[i].gameObject.GetComponent<Image>().sprite = ChecklistTick;
+                                }
+                                //assign pop up sprite
+                                ImagePopUp.gameObject.GetComponent<PopUpCameraUI>().child.GetComponent<Image>().sprite
+                                    = ButterflySprites[temp.textureLocation];
+                                break;
+                            }
+                        case 14:
+                            {
+                                //Ant update
+                                AntPhotosIsTaken[i] = temp.AntPhotosIsTaken[i];
+                                AntSprites[i] = temp.AntSprites[i];
+                                AntJournalSpots[i].gameObject.GetComponent<Image>().sprite = AntSprites[i];
+
+                                if (AntPhotosIsTaken[i])
+                                {
+                                    AntChecklistSpots[i].gameObject.GetComponent<Image>().sprite = ChecklistTick;
+                                }
+                                //assign pop up sprite
+                                ImagePopUp.gameObject.GetComponent<PopUpCameraUI>().child.GetComponent<Image>().sprite
+                                    = AntSprites[temp.textureLocation];
+                                break;
+                            }
+                    }
+                }
+                ImagePopUp.SetActive(true);
+                temp.UpdateInfo = false;
+            }
+            //if we need to update the misc info
+            if (temp.updateMiscInfo)
+            {
+                //work around to fix bug...
+                //var spritePopUptemp = ImagePopUp.gameObject.GetComponent<PopUpCameraUI>()
                 //.child.GetComponent<Image>().sprite;
 
-            for (int i = 0; i < MiscSprites.Length; i++)
-            {
-                MiscPhotoIsTaken[i] = temp.MiscPhotoIsTaken[i];
-                MiscSprites[i] = temp.MiscSprites[i];
-                MiscPhotoSpots[i].gameObject.GetComponent<Image>().sprite = MiscSprites[i];
+                for (int i = 0; i < MiscSprites.Length; i++)
+                {
+                    MiscPhotoIsTaken[i] = temp.MiscPhotoIsTaken[i];
+                    MiscSprites[i] = temp.MiscSprites[i];
+                    MiscPhotoSpots[i].gameObject.GetComponent<Image>().sprite = MiscSprites[i];
+                }
+                //assign pop up sprite
+                ImagePopUp.gameObject.GetComponent<PopUpCameraUI>().child.GetComponent<Image>().sprite
+                    = MiscSprites[temp.textureLocation];
+                //activate object
+                ImagePopUp.SetActive(true);
+                temp.updateMiscInfo = false;
             }
-            //assign pop up sprite
-            ImagePopUp.gameObject.GetComponent<PopUpCameraUI>().child.GetComponent<Image>().sprite
-                = MiscSprites[temp.textureLocation];
-            //activate object
-            ImagePopUp.SetActive(true);
-            temp.updateMiscInfo = false;
         }
     }
 
     public void SaveJournal()
     {
         midSaveOrLoad = true;
-        CompletedSaveText.SetActive(false);
-        CompletedLoadText.SetActive(false);
+        if(!dummy)
+        {
+            CompletedSaveText.SetActive(false);
+            CompletedLoadText.SetActive(false);
+        }
+        
 
         SaveSystem.saveJournal(this);
         Debug.Log("Game saved");
-        CompletedSaveText.SetActive(true);
+
+        if(!dummy)
+        {
+            CompletedSaveText.SetActive(true);
+        }
+        
         midSaveOrLoad = false;
     }
 
     public void LoadJournal()
     {
         midSaveOrLoad = true;
-        CompletedSaveText.SetActive(false);
-        CompletedLoadText.SetActive(false);
+        if(!dummy)
+        {
+            CompletedSaveText.SetActive(false);
+            CompletedLoadText.SetActive(false);
+        }
+        
 
         SaveJournalData data = SaveSystem.loadJournal();
 
@@ -703,7 +731,13 @@ public class JournalDataStorage : MonoBehaviour
             MiscSprites[i] = SerialiseTexture.DeSerialise(data.miscSprites[i]) as Sprite;
         }
 
-            var temp = playerCameraInput.gameObject.GetComponent<PlayableCamera>().GameStorageData;
+        //also assign the tp found
+        for (int i = 0; i < TeleportersFound.Length; i++)
+        {
+           TeleportersFound[i] = data.tp[i];
+        }
+
+        var temp = playerCameraInput.gameObject.GetComponent<PlayableCamera>().GameStorageData;
 
         //update all of the journal (except the misc photos)
         for (int i = 0; i < defaultArraySize; i++)

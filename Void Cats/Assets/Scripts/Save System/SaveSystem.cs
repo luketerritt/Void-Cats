@@ -10,7 +10,7 @@ public static class SaveSystem
         Debug.Log("Starting to save journal"); 
         BinaryFormatter formatter = new BinaryFormatter();
         string path = Application.persistentDataPath + "/GAMESAVE.txt";
-        Debug.Log("Created file at " + path);
+        Debug.Log("Creating file at " + path);
 
         FileStream stream = new FileStream(path, FileMode.Create);
 
