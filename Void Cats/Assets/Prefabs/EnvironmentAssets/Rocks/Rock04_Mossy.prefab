@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 1541323324549329851}
   - component: {fileID: 7510007305032059277}
   - component: {fileID: 4252645658421212532}
+  - component: {fileID: -867316347589173531}
   m_Layer: 0
   m_Name: Rock04_Mossy
   m_TagString: Untagged
@@ -78,3 +79,17 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
+--- !u!64 &-867316347589173531
+MeshCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2537981513327149480}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Convex: 0
+  m_CookingOptions: 14
+  m_Mesh: {fileID: 2297425034801156755, guid: da7cce0f162bf2a4592427f4bd0b0a6d, type: 3}
