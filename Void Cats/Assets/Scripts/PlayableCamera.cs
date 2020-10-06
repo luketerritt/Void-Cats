@@ -181,7 +181,7 @@ public class PlayableCamera : MonoBehaviour
             pitch -= verticalSpeed * Input.GetAxis("Mouse Y");
 
             //yaw = Mathf.Clamp(yaw, -90f, 90f); //ensures we dont do a 360 spin (subject to change)          
-            pitch = Mathf.Clamp(pitch, -60f, 90f); //ensures we dont break our neck looking up/down         
+            pitch = Mathf.Clamp(pitch, -60f, 60f); //ensures we dont break our neck looking up/down         
 
             //yaw affects x --> rotation affects left and right (comes in through y input)
             //pitch affects y --> rotation affects up and down (comes in through x input)

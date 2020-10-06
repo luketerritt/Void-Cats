@@ -118,11 +118,20 @@ public class PlayerController3D : MonoBehaviour
 
         velocityY += Time.deltaTime * gravity;
 
+
+        //ignore the y value of the forward vector to prevent speed being dependent on looking direction
+        Vector3 tempForwardVector = new Vector3(cameraT.transform.forward.x, 0, cameraT.transform.forward.z);
+
+        //Debug.Log("right vector = " + cameraT.transform.right);
+        //Debug.Log("forwaard vector = " + tempForwardVector);
+
         //normalise the x input * camera's right vector added to the y input * camera's forward vector
-        Vector3 direction = (inputDir.x * cameraT.transform.right + inputDir.y * cameraT.transform.forward).normalized;
+        Vector3 direction = (inputDir.x * cameraT.transform.right + inputDir.y * tempForwardVector).normalized;
 
         //Moves the character to face the right direction
         Vector3 velocity = /*transform.forward*/direction * currentSpeed + Vector3.up * velocityY;
+
+        //Debug.Log("player velocity = " + velocity);
 
         controller.Move(velocity * Time.deltaTime);
         currentSpeed = new Vector2(controller.velocity.x, controller.velocity.z).magnitude;
