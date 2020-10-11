@@ -222,6 +222,12 @@ public class JournalDataStorage : MonoBehaviour
 
     public GameObject CompletedLoadText;
 
+    //public GameObject SavingText; //text that appears when loading to tell player
+
+    //public GameObject LoadingText; //text that appears when loading to tell player
+
+    public GameObject[] SaveQuitButtons;
+
     [HideInInspector]
     public bool midSaveOrLoad = false;
 
@@ -360,6 +366,8 @@ public class JournalDataStorage : MonoBehaviour
         {
             CompletedSaveText.SetActive(false);
             CompletedLoadText.SetActive(false);
+            //LoadingText.SetActive(false);
+            //SavingText.SetActive(false);
             //load the file
             this.LoadJournal();
         }
@@ -371,12 +379,14 @@ public class JournalDataStorage : MonoBehaviour
         if (!dummy)
         {
             var temp = playerCameraInput.gameObject.GetComponent<PlayableCamera>().GameStorageData;
+            //SaveLoadTextIterator *= Time.deltaTime;
 
             ////if tab or left click is pressed remove the text
             if (Input.GetKeyDown(KeyCode.Tab) || Input.GetMouseButtonDown(0))
             {
                 CompletedSaveText.SetActive(false);
                 CompletedLoadText.SetActive(false);
+                //SaveLoadTextIterator = 0;
             }
 
             //if we need to update journal picture information
@@ -661,15 +671,29 @@ public class JournalDataStorage : MonoBehaviour
         {
             CompletedSaveText.SetActive(false);
             CompletedLoadText.SetActive(false);
+            //SavingText.SetActive(true);
+            //disable interactability for the buttons
+            for (int i = 0; i > SaveQuitButtons.Length; i++)
+            {
+                SaveQuitButtons[i].GetComponent<Button>().interactable = false;
+            }
         }
-        
+        //SavingText.SetActive(true);
 
         SaveSystem.saveJournal(this);
         Debug.Log("Game saved");
 
-        if(!dummy)
+        //SavingText.SetActive(false);
+        if (!dummy)
         {
+            //SavingText.SetActive(false);
             CompletedSaveText.SetActive(true);
+
+            //disable interactability for the buttons
+            for (int i = 0; i > SaveQuitButtons.Length; i++)
+            {
+                SaveQuitButtons[i].GetComponent<Button>().interactable = true;
+            }
         }
         
         midSaveOrLoad = false;
@@ -682,220 +706,240 @@ public class JournalDataStorage : MonoBehaviour
         {
             CompletedSaveText.SetActive(false);
             CompletedLoadText.SetActive(false);
+
+            //disable interactability for the buttons
+            for (int i = 0; i > SaveQuitButtons.Length; i++)
+            {
+                SaveQuitButtons[i].GetComponent<Button>().interactable = false;
+            }
         }
-        
+        //LoadingText.SetActive(true);
 
         SaveJournalData data = SaveSystem.loadJournal();
 
-        //assign the data that was just read
-        for (int i = 0; i < FishPhotosIsTaken.Length; i++)
+        //if data is not null
+        if(data != null)
         {
-            FishPhotosIsTaken[i] = data.fish[i];
-            DogPhotosIsTaken[i] = data.dog[i];
-            TigerPhotosIsTaken[i] = data.tiger[i];
-            DragonPhotosIsTaken[i] = data.dragon[i];
-            CowPhotosIsTaken[i] = data.cow[i];
-            DuckPhotosIsTaken[i] = data.duck[i];
-            CatPhotosIsTaken[i] = data.cat[i];
-            RabbitPhotosIsTaken[i] = data.rabbit[i];
+            //assign the data that was just read
+            for (int i = 0; i < FishPhotosIsTaken.Length; i++)
+            {
+                FishPhotosIsTaken[i] = data.fish[i];
+                DogPhotosIsTaken[i] = data.dog[i];
+                TigerPhotosIsTaken[i] = data.tiger[i];
+                DragonPhotosIsTaken[i] = data.dragon[i];
+                CowPhotosIsTaken[i] = data.cow[i];
+                DuckPhotosIsTaken[i] = data.duck[i];
+                CatPhotosIsTaken[i] = data.cat[i];
+                RabbitPhotosIsTaken[i] = data.rabbit[i];
 
-            BeetlePhotosIsTaken[i] = data.beetle[i];
-            SnailPhotosIsTaken[i] = data.snail[i];
-            WormPhotosIsTaken[i] = data.worm[i];
-            SlugPhotosIsTaken[i] = data.slug[i];
-            ButterflyPhotosIsTaken[i] = data.butterfly[i];
-            AntPhotosIsTaken[i] = data.ant[i];
+                BeetlePhotosIsTaken[i] = data.beetle[i];
+                SnailPhotosIsTaken[i] = data.snail[i];
+                WormPhotosIsTaken[i] = data.worm[i];
+                SlugPhotosIsTaken[i] = data.slug[i];
+                ButterflyPhotosIsTaken[i] = data.butterfly[i];
+                AntPhotosIsTaken[i] = data.ant[i];
 
-            FishSprites[i] = SerialiseTexture.DeSerialise(data.fishSprites[i]) as Sprite;
-            DogSprites[i] = SerialiseTexture.DeSerialise(data.dogSprites[i]) as Sprite;
-            TigerSprites[i] = SerialiseTexture.DeSerialise(data.tigerSprites[i]) as Sprite;
-            DragonSprites[i] = SerialiseTexture.DeSerialise(data.dragonSprites[i]) as Sprite;
-            CowSprites[i] = SerialiseTexture.DeSerialise(data.cowSprites[i]) as Sprite;
-            DuckSprites[i] = SerialiseTexture.DeSerialise(data.duckSprites[i]) as Sprite;
-            CatSprites[i] = SerialiseTexture.DeSerialise(data.catSprites[i]) as Sprite;
-            RabbitSprites[i] = SerialiseTexture.DeSerialise(data.rabbitSprites[i]) as Sprite;
+                FishSprites[i] = SerialiseTexture.DeSerialise(data.fishSprites[i]) as Sprite;
+                DogSprites[i] = SerialiseTexture.DeSerialise(data.dogSprites[i]) as Sprite;
+                TigerSprites[i] = SerialiseTexture.DeSerialise(data.tigerSprites[i]) as Sprite;
+                DragonSprites[i] = SerialiseTexture.DeSerialise(data.dragonSprites[i]) as Sprite;
+                CowSprites[i] = SerialiseTexture.DeSerialise(data.cowSprites[i]) as Sprite;
+                DuckSprites[i] = SerialiseTexture.DeSerialise(data.duckSprites[i]) as Sprite;
+                CatSprites[i] = SerialiseTexture.DeSerialise(data.catSprites[i]) as Sprite;
+                RabbitSprites[i] = SerialiseTexture.DeSerialise(data.rabbitSprites[i]) as Sprite;
 
-            BeetleSprites[i] = SerialiseTexture.DeSerialise(data.beetleSprites[i]) as Sprite;
-            SnailSprites[i] = SerialiseTexture.DeSerialise(data.snailSprites[i]) as Sprite;
-            WormSprites[i] = SerialiseTexture.DeSerialise(data.wormSprites[i]) as Sprite;
-            SlugSprites[i] = SerialiseTexture.DeSerialise(data.slugSprites[i]) as Sprite;
-            ButterflySprites[i] = SerialiseTexture.DeSerialise(data.butterflySprites[i]) as Sprite;
-            AntSprites[i] = SerialiseTexture.DeSerialise(data.antSprites[i]) as Sprite;
+                BeetleSprites[i] = SerialiseTexture.DeSerialise(data.beetleSprites[i]) as Sprite;
+                SnailSprites[i] = SerialiseTexture.DeSerialise(data.snailSprites[i]) as Sprite;
+                WormSprites[i] = SerialiseTexture.DeSerialise(data.wormSprites[i]) as Sprite;
+                SlugSprites[i] = SerialiseTexture.DeSerialise(data.slugSprites[i]) as Sprite;
+                ButterflySprites[i] = SerialiseTexture.DeSerialise(data.butterflySprites[i]) as Sprite;
+                AntSprites[i] = SerialiseTexture.DeSerialise(data.antSprites[i]) as Sprite;
 
+            }
+
+            //also assign the misc photo
+            for (int i = 0; i < MiscPhotoIsTaken.Length; i++)
+            {
+                MiscPhotoIsTaken[i] = data.misc[i];
+                MiscSprites[i] = SerialiseTexture.DeSerialise(data.miscSprites[i]) as Sprite;
+            }
+
+            //also assign the tp found
+            for (int i = 0; i < TeleportersFound.Length; i++)
+            {
+                TeleportersFound[i] = data.tp[i];
+            }
+
+            var temp = playerCameraInput.gameObject.GetComponent<PlayableCamera>().GameStorageData;
+
+            //update all of the journal (except the misc photos)
+            for (int i = 0; i < defaultArraySize; i++)
+            {
+                //fish update
+                FishPhotosIsTaken[i] = temp.FishPhotosIsTaken[i];
+                FishSprites[i] = temp.FishSprites[i];
+                FishJournalSpots[i].gameObject.GetComponent<Image>().sprite = FishSprites[i];
+
+                if (FishPhotosIsTaken[i])
+                {
+                    FishChecklistSpots[i].gameObject.GetComponent<Image>().sprite = ChecklistTick;
+                }
+
+                //dog update
+                DogPhotosIsTaken[i] = temp.DogPhotosIsTaken[i];
+                DogSprites[i] = temp.DogSprites[i];
+                DogJournalSpots[i].gameObject.GetComponent<Image>().sprite = DogSprites[i];
+
+                if (DogPhotosIsTaken[i])
+                {
+                    DogChecklistSpots[i].gameObject.GetComponent<Image>().sprite = ChecklistTick;
+                }
+
+                //tiger update
+                TigerPhotosIsTaken[i] = temp.TigerPhotosIsTaken[i];
+                TigerSprites[i] = temp.TigerSprites[i];
+                TigerJournalSpots[i].gameObject.GetComponent<Image>().sprite = TigerSprites[i];
+
+                if (TigerPhotosIsTaken[i])
+                {
+                    TigerChecklistSpots[i].gameObject.GetComponent<Image>().sprite = ChecklistTick;
+                }
+
+                //dragon update
+                DragonPhotosIsTaken[i] = temp.DragonPhotosIsTaken[i];
+                DragonSprites[i] = temp.DragonSprites[i];
+                DragonJournalSpots[i].gameObject.GetComponent<Image>().sprite = DragonSprites[i];
+
+                if (DragonPhotosIsTaken[i])
+                {
+                    DragonChecklistSpots[i].gameObject.GetComponent<Image>().sprite = ChecklistTick;
+                }
+
+                //cow update
+                CowPhotosIsTaken[i] = temp.CowPhotosIsTaken[i];
+                CowSprites[i] = temp.CowSprites[i];
+                CowJournalSpots[i].gameObject.GetComponent<Image>().sprite = CowSprites[i];
+
+                if (CowPhotosIsTaken[i])
+                {
+                    CowChecklistSpots[i].gameObject.GetComponent<Image>().sprite = ChecklistTick;
+                }
+
+                //duck update
+                DuckPhotosIsTaken[i] = temp.DuckPhotosIsTaken[i];
+                DuckSprites[i] = temp.DuckSprites[i];
+                DuckJournalSpots[i].gameObject.GetComponent<Image>().sprite = DuckSprites[i];
+
+                if (DuckPhotosIsTaken[i])
+                {
+                    DuckChecklistSpots[i].gameObject.GetComponent<Image>().sprite = ChecklistTick;
+                }
+
+                //cat update
+                CatPhotosIsTaken[i] = temp.CatPhotosIsTaken[i];
+                CatSprites[i] = temp.CatSprites[i];
+                CatJournalSpots[i].gameObject.GetComponent<Image>().sprite = CatSprites[i];
+
+                if (CatPhotosIsTaken[i])
+                {
+                    CatChecklistSpots[i].gameObject.GetComponent<Image>().sprite = ChecklistTick;
+                }
+
+                //rabbit update
+                RabbitPhotosIsTaken[i] = temp.RabbitPhotosIsTaken[i];
+                RabbitSprites[i] = temp.RabbitSprites[i];
+                RabbitJournalSpots[i].gameObject.GetComponent<Image>().sprite = RabbitSprites[i];
+
+                if (RabbitPhotosIsTaken[i])
+                {
+                    RabbitChecklistSpots[i].gameObject.GetComponent<Image>().sprite = ChecklistTick;
+                }
+
+
+                //beetle update
+                BeetlePhotosIsTaken[i] = temp.BeetlePhotosIsTaken[i];
+                BeetleSprites[i] = temp.BeetleSprites[i];
+                BeetleJournalSpots[i].gameObject.GetComponent<Image>().sprite = BeetleSprites[i];
+
+                if (BeetlePhotosIsTaken[i])
+                {
+                    BeetleChecklistSpots[i].gameObject.GetComponent<Image>().sprite = ChecklistTick;
+                }
+
+
+                //snail update
+                SnailPhotosIsTaken[i] = temp.SnailPhotosIsTaken[i];
+                SnailSprites[i] = temp.SnailSprites[i];
+                SnailJournalSpots[i].gameObject.GetComponent<Image>().sprite = SnailSprites[i];
+
+                if (SnailPhotosIsTaken[i])
+                {
+                    SnailChecklistSpots[i].gameObject.GetComponent<Image>().sprite = ChecklistTick;
+                }
+
+
+                //worm update
+                WormPhotosIsTaken[i] = temp.WormPhotosIsTaken[i];
+                WormSprites[i] = temp.WormSprites[i];
+                WormJournalSpots[i].gameObject.GetComponent<Image>().sprite = WormSprites[i];
+
+                if (WormPhotosIsTaken[i])
+                {
+                    WormChecklistSpots[i].gameObject.GetComponent<Image>().sprite = ChecklistTick;
+                }
+
+
+                //slug update
+                SlugPhotosIsTaken[i] = temp.SlugPhotosIsTaken[i];
+                SlugSprites[i] = temp.SlugSprites[i];
+                SlugJournalSpots[i].gameObject.GetComponent<Image>().sprite = SlugSprites[i];
+
+                if (SlugPhotosIsTaken[i])
+                {
+                    SlugChecklistSpots[i].gameObject.GetComponent<Image>().sprite = ChecklistTick;
+                }
+
+                //Butterfly update
+                ButterflyPhotosIsTaken[i] = temp.ButterflyPhotosIsTaken[i];
+                ButterflySprites[i] = temp.ButterflySprites[i];
+                ButterflyJournalSpots[i].gameObject.GetComponent<Image>().sprite = ButterflySprites[i];
+
+                if (ButterflyPhotosIsTaken[i])
+                {
+                    ButterflyChecklistSpots[i].gameObject.GetComponent<Image>().sprite = ChecklistTick;
+                }
+
+                //Ant update
+                AntPhotosIsTaken[i] = temp.AntPhotosIsTaken[i];
+                AntSprites[i] = temp.AntSprites[i];
+                AntJournalSpots[i].gameObject.GetComponent<Image>().sprite = AntSprites[i];
+
+                if (AntPhotosIsTaken[i])
+                {
+                    AntChecklistSpots[i].gameObject.GetComponent<Image>().sprite = ChecklistTick;
+                }
+
+            }
+
+            //and update the misc photos
+            for (int i = 0; i < MiscSprites.Length; i++)
+            {
+                MiscPhotoIsTaken[i] = temp.MiscPhotoIsTaken[i];
+                MiscSprites[i] = temp.MiscSprites[i];
+                MiscPhotoSpots[i].gameObject.GetComponent<Image>().sprite = MiscSprites[i];
+            }
+        }
+        else
+        {
+            Debug.Log("no save file found, data = null");
         }
 
-        //also assign the misc photo
-        for (int i = 0; i < MiscPhotoIsTaken.Length; i++)
+        //LoadingText.SetActive(false);
+        //disable interactability for the buttons
+        for (int i = 0; i > SaveQuitButtons.Length; i++)
         {
-            MiscPhotoIsTaken[i] = data.misc[i];
-            MiscSprites[i] = SerialiseTexture.DeSerialise(data.miscSprites[i]) as Sprite;
+            SaveQuitButtons[i].GetComponent<Button>().interactable = true;
         }
-
-        //also assign the tp found
-        for (int i = 0; i < TeleportersFound.Length; i++)
-        {
-           TeleportersFound[i] = data.tp[i];
-        }
-
-        var temp = playerCameraInput.gameObject.GetComponent<PlayableCamera>().GameStorageData;
-
-        //update all of the journal (except the misc photos)
-        for (int i = 0; i < defaultArraySize; i++)
-        {
-            //fish update
-            FishPhotosIsTaken[i] = temp.FishPhotosIsTaken[i];
-            FishSprites[i] = temp.FishSprites[i];
-            FishJournalSpots[i].gameObject.GetComponent<Image>().sprite = FishSprites[i];
-
-            if (FishPhotosIsTaken[i])
-            {
-                FishChecklistSpots[i].gameObject.GetComponent<Image>().sprite = ChecklistTick;
-            }
-
-            //dog update
-            DogPhotosIsTaken[i] = temp.DogPhotosIsTaken[i];
-            DogSprites[i] = temp.DogSprites[i];
-            DogJournalSpots[i].gameObject.GetComponent<Image>().sprite = DogSprites[i];
-
-            if (DogPhotosIsTaken[i])
-            {
-                DogChecklistSpots[i].gameObject.GetComponent<Image>().sprite = ChecklistTick;
-            }
-
-            //tiger update
-            TigerPhotosIsTaken[i] = temp.TigerPhotosIsTaken[i];
-            TigerSprites[i] = temp.TigerSprites[i];
-            TigerJournalSpots[i].gameObject.GetComponent<Image>().sprite = TigerSprites[i];
-
-            if (TigerPhotosIsTaken[i])
-            {
-                TigerChecklistSpots[i].gameObject.GetComponent<Image>().sprite = ChecklistTick;
-            }
-
-            //dragon update
-            DragonPhotosIsTaken[i] = temp.DragonPhotosIsTaken[i];
-            DragonSprites[i] = temp.DragonSprites[i];
-            DragonJournalSpots[i].gameObject.GetComponent<Image>().sprite = DragonSprites[i];
-
-            if (DragonPhotosIsTaken[i])
-            {
-                DragonChecklistSpots[i].gameObject.GetComponent<Image>().sprite = ChecklistTick;
-            }
-
-            //cow update
-            CowPhotosIsTaken[i] = temp.CowPhotosIsTaken[i];
-            CowSprites[i] = temp.CowSprites[i];
-            CowJournalSpots[i].gameObject.GetComponent<Image>().sprite = CowSprites[i];
-
-            if (CowPhotosIsTaken[i])
-            {
-                CowChecklistSpots[i].gameObject.GetComponent<Image>().sprite = ChecklistTick;
-            }
-
-            //duck update
-            DuckPhotosIsTaken[i] = temp.DuckPhotosIsTaken[i];
-            DuckSprites[i] = temp.DuckSprites[i];
-            DuckJournalSpots[i].gameObject.GetComponent<Image>().sprite = DuckSprites[i];
-
-            if (DuckPhotosIsTaken[i])
-            {
-                DuckChecklistSpots[i].gameObject.GetComponent<Image>().sprite = ChecklistTick;
-            }            
-
-            //cat update
-            CatPhotosIsTaken[i] = temp.CatPhotosIsTaken[i];
-            CatSprites[i] = temp.CatSprites[i];
-            CatJournalSpots[i].gameObject.GetComponent<Image>().sprite = CatSprites[i];
-
-            if (CatPhotosIsTaken[i])
-            {
-                CatChecklistSpots[i].gameObject.GetComponent<Image>().sprite = ChecklistTick;
-            }            
-
-            //rabbit update
-            RabbitPhotosIsTaken[i] = temp.RabbitPhotosIsTaken[i];
-            RabbitSprites[i] = temp.RabbitSprites[i];
-            RabbitJournalSpots[i].gameObject.GetComponent<Image>().sprite = RabbitSprites[i];
-
-            if (RabbitPhotosIsTaken[i])
-            {
-                RabbitChecklistSpots[i].gameObject.GetComponent<Image>().sprite = ChecklistTick;
-            }
-           
-
-            //beetle update
-            BeetlePhotosIsTaken[i] = temp.BeetlePhotosIsTaken[i];
-            BeetleSprites[i] = temp.BeetleSprites[i];
-            BeetleJournalSpots[i].gameObject.GetComponent<Image>().sprite = BeetleSprites[i];
-
-            if (BeetlePhotosIsTaken[i])
-            {
-                BeetleChecklistSpots[i].gameObject.GetComponent<Image>().sprite = ChecklistTick;
-            }
-            
-
-            //snail update
-            SnailPhotosIsTaken[i] = temp.SnailPhotosIsTaken[i];
-            SnailSprites[i] = temp.SnailSprites[i];
-            SnailJournalSpots[i].gameObject.GetComponent<Image>().sprite = SnailSprites[i];
-
-            if (SnailPhotosIsTaken[i])
-            {
-                SnailChecklistSpots[i].gameObject.GetComponent<Image>().sprite = ChecklistTick;
-            }
-            
-
-            //worm update
-            WormPhotosIsTaken[i] = temp.WormPhotosIsTaken[i];
-            WormSprites[i] = temp.WormSprites[i];
-            WormJournalSpots[i].gameObject.GetComponent<Image>().sprite = WormSprites[i];
-
-            if (WormPhotosIsTaken[i])
-            {
-                WormChecklistSpots[i].gameObject.GetComponent<Image>().sprite = ChecklistTick;
-            }
-            
-
-            //slug update
-            SlugPhotosIsTaken[i] = temp.SlugPhotosIsTaken[i];
-            SlugSprites[i] = temp.SlugSprites[i];
-            SlugJournalSpots[i].gameObject.GetComponent<Image>().sprite = SlugSprites[i];
-
-            if (SlugPhotosIsTaken[i])
-            {
-                SlugChecklistSpots[i].gameObject.GetComponent<Image>().sprite = ChecklistTick;
-            }           
-
-            //Butterfly update
-            ButterflyPhotosIsTaken[i] = temp.ButterflyPhotosIsTaken[i];
-            ButterflySprites[i] = temp.ButterflySprites[i];
-            ButterflyJournalSpots[i].gameObject.GetComponent<Image>().sprite = ButterflySprites[i];
-
-            if (ButterflyPhotosIsTaken[i])
-            {
-                ButterflyChecklistSpots[i].gameObject.GetComponent<Image>().sprite = ChecklistTick;
-            }            
-
-            //Ant update
-            AntPhotosIsTaken[i] = temp.AntPhotosIsTaken[i];
-            AntSprites[i] = temp.AntSprites[i];
-            AntJournalSpots[i].gameObject.GetComponent<Image>().sprite = AntSprites[i];
-
-            if (AntPhotosIsTaken[i])
-            {
-                AntChecklistSpots[i].gameObject.GetComponent<Image>().sprite = ChecklistTick;
-            }
-            
-        }
-
-        //and update the misc photos
-        for (int i = 0; i < MiscSprites.Length; i++)
-        {
-            MiscPhotoIsTaken[i] = temp.MiscPhotoIsTaken[i];
-            MiscSprites[i] = temp.MiscSprites[i];
-            MiscPhotoSpots[i].gameObject.GetComponent<Image>().sprite = MiscSprites[i];
-        }
-        
         CompletedLoadText.SetActive(true);
         midSaveOrLoad = false;
         Debug.Log("Game loaded");
