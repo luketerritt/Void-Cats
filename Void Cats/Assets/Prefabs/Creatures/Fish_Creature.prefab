@@ -40,7 +40,6 @@ GameObject:
   - component: {fileID: 4211300396289758306}
   - component: {fileID: 4211300396289758307}
   - component: {fileID: 4211300396289758308}
-  - component: {fileID: 2137010520692836176}
   m_Layer: 0
   m_Name: Fish_Creature
   m_TagString: Creature
@@ -55,7 +54,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5282835011151932692}
-  m_LocalRotation: {x: 0, y: -0, z: -0, w: 1}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 558.725, y: 16.393711, z: 52.567535}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
@@ -130,25 +129,6 @@ NavMeshAgent:
   m_BaseOffset: 0
   m_WalkableMask: 4294967295
   m_ObstacleAvoidanceType: 4
---- !u!95 &2137010520692836176
-Animator:
-  serializedVersion: 3
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5282835011151932692}
-  m_Enabled: 1
-  m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: 9d062d4e1a0aa2b4191ede23a8613912, type: 2}
-  m_CullingMode: 0
-  m_UpdateMode: 0
-  m_ApplyRootMotion: 0
-  m_LinearVelocityBlending: 0
-  m_WarningMessage: 
-  m_HasTransformHierarchy: 1
-  m_AllowConstantClipSamplingOptimization: 1
-  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!1001 &1178164343710548024
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -161,6 +141,11 @@ PrefabInstance:
       propertyPath: m_Materials.Array.data[0]
       value: 
       objectReference: {fileID: 2100000, guid: c74730ae21448b04eb2a05ebdbaf28bd, type: 2}
+    - target: {fileID: -6057140222963153312, guid: a2bc50cc37465ec4f820182733545699,
+        type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: -6057140222963153312, guid: a2bc50cc37465ec4f820182733545699,
         type: 3}
       propertyPath: m_Controller
