@@ -19,10 +19,10 @@ public class SoundStorage : MonoBehaviour
     public AudioSource cameraZoomSound;
 
     //Player Sounds
-    public AudioSource grassStepSound;
-    public AudioSource rockStepSound;
-    public AudioSource sandStepSound;
-    public AudioSource waterStepSound;
+    public AudioSource[] grassStepSounds;
+    //public AudioSource rockStepSound;
+    //public AudioSource sandStepSound;
+    //public AudioSource waterStepSound;
 
     //Journal (and UI) sounds
     public AudioSource journalTABSound;

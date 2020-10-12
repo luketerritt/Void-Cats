@@ -1604,8 +1604,8 @@ AudioSource:
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 8300000, guid: 2d0de3c8e82a031409efb40af85ab149, type: 3}
   m_PlayOnAwake: 0
-  m_Volume: 1
-  m_Pitch: 1
+  m_Volume: 0.1
+  m_Pitch: 2
   Loop: 0
   Mute: 0
   Spatialize: 0
@@ -2112,8 +2112,8 @@ AudioSource:
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 8300000, guid: 2d0de3c8e82a031409efb40af85ab149, type: 3}
   m_PlayOnAwake: 0
-  m_Volume: 1
-  m_Pitch: 1
+  m_Volume: 0.1
+  m_Pitch: 1.5
   Loop: 0
   Mute: 0
   Spatialize: 0
@@ -3526,7 +3526,7 @@ AudioSource:
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 8300000, guid: 2d0de3c8e82a031409efb40af85ab149, type: 3}
   m_PlayOnAwake: 0
-  m_Volume: 1
+  m_Volume: 0.1
   m_Pitch: 1
   Loop: 0
   Mute: 0
@@ -4833,8 +4833,8 @@ AudioSource:
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 8300000, guid: 2d0de3c8e82a031409efb40af85ab149, type: 3}
   m_PlayOnAwake: 0
-  m_Volume: 1
-  m_Pitch: 1
+  m_Volume: 0.1
+  m_Pitch: 2.5
   Loop: 0
   Mute: 0
   Spatialize: 0
@@ -9512,10 +9512,11 @@ MonoBehaviour:
   cameraClickRechargeSound: {fileID: 8450614099578961017}
   cameraCorrectPhotoSound: {fileID: 6690334392139072608}
   cameraZoomSound: {fileID: 2551049455283397318}
-  grassStepSound: {fileID: 9185849545396951220}
-  rockStepSound: {fileID: 4068785668424319839}
-  sandStepSound: {fileID: 3461104878452711503}
-  waterStepSound: {fileID: 6155069413581405475}
+  grassStepSounds:
+  - {fileID: 9185849545396951220}
+  - {fileID: 4068785668424319839}
+  - {fileID: 3461104878452711503}
+  - {fileID: 6155069413581405475}
   journalTABSound: {fileID: 1774015584778561206}
   hoverButtonUISound: {fileID: 2588324765553142460}
   clickButtonUISound: {fileID: 7906721740536432793}

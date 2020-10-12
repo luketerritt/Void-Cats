@@ -40,6 +40,12 @@ public class PlayerController3D : MonoBehaviour
     //if true, prevents the character controller from updating
     public bool inBush = false;
 
+    //demo footstep code
+    public GameObject soundStorage;
+
+    public float footstepTimer = 5;
+    public float footstepIterator = 0;
+
     void Start()
     {
         animator = GetComponent<Animator>();
@@ -79,7 +85,7 @@ public class PlayerController3D : MonoBehaviour
         // controlling the speed percent in the animator - idle - walk - run
         float animationSpeedPercent = ((running) ? currentSpeed / runSpeed : currentSpeed / walkSpeed * .5f);
         // changing the float in the animator
-        animator.SetFloat("SpeedPercent", animationSpeedPercent, speedSmoothTime, Time.deltaTime);
+        //animator.SetFloat("SpeedPercent", animationSpeedPercent, speedSmoothTime, Time.deltaTime);
         //}
 
         //update the tracked position after a few seconds and the player is not in water or the air and not in a bush
@@ -139,8 +145,26 @@ public class PlayerController3D : MonoBehaviour
         if (controller.isGrounded)
         {
             velocityY = 0;
+            //Debug.Log("controller isGrounded" + controller.isGrounded);
+            //test footstep code
+            //if x velocity and z velocity is not 0
+            if (currentSpeed != 0)
+            {
+                //Debug.Log("speed should be iterating");
+                footstepIterator += currentSpeed * Time.deltaTime;
+
+                if(footstepIterator > footstepTimer)
+                {
+                    int i = Random.Range(0, 4);
+                    //Debug.Log("play footstep sound");
+                    var tempSound = soundStorage.GetComponent<SoundStorage>();
+                    tempSound.playSound(soundStorage.GetComponent<SoundStorage>().grassStepSounds[i]);
+                    footstepIterator -= footstepTimer;
+                }
+            }
         }
 
+        
 
     }
     void jump()
