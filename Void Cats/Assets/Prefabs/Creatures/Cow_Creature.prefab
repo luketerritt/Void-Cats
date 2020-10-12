@@ -948,6 +948,7 @@ GameObject:
   - component: {fileID: 69290316}
   - component: {fileID: 69290317}
   - component: {fileID: 69290318}
+  - component: {fileID: 7005234306526601614}
   m_Layer: 0
   m_Name: Cow_Creature
   m_TagString: Creature
@@ -1048,3 +1049,22 @@ MonoBehaviour:
   - {fileID: 0}
   reachedDestination: 0
   roarDuration: 5
+--- !u!95 &7005234306526601614
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8614957440978253697}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 9d062d4e1a0aa2b4191ede23a8613912, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0

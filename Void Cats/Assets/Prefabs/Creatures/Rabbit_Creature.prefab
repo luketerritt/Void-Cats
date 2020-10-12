@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 3553677689615493613}
   - component: {fileID: 2982610874521858813}
   - component: {fileID: 1686146246017591891}
+  - component: {fileID: 5646457790377216740}
   m_Layer: 0
   m_Name: Rabbit_Creature
   m_TagString: Creature
@@ -109,6 +110,25 @@ CapsuleCollider:
   m_Height: 1.5116138
   m_Direction: 1
   m_Center: {x: -0.0032348633, y: 0.7387562, z: 0}
+--- !u!95 &5646457790377216740
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 375149110774660222}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 9d062d4e1a0aa2b4191ede23a8613912, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!1 &696720314931667783
 GameObject:
   m_ObjectHideFlags: 0

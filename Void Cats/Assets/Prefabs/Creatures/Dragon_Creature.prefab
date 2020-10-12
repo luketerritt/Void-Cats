@@ -246,6 +246,7 @@ GameObject:
   - component: {fileID: 2216826512590768267}
   - component: {fileID: 692296156022518639}
   - component: {fileID: 1776700830525925427}
+  - component: {fileID: 3692577474693347106}
   m_Layer: 0
   m_Name: Dragon_Creature
   m_TagString: Creature
@@ -314,6 +315,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ID: 4
+  CritterRarity: 0
   lightingManager: {fileID: 0}
   navMeshAgent: {fileID: 0}
   eyeStrength: 4
@@ -328,6 +330,9 @@ MonoBehaviour:
   - {fileID: 0}
   UniqueLocations:
   - {fileID: 0}
+  UniqueSecondaryLocations: []
+  reachedDestination: 0
+  roarDuration: 5
 --- !u!136 &1776700830525925427
 CapsuleCollider:
   m_ObjectHideFlags: 0
@@ -342,6 +347,25 @@ CapsuleCollider:
   m_Height: 1.5575342
   m_Direction: 1
   m_Center: {x: -0.012969971, y: 0.76207685, z: 0}
+--- !u!95 &3692577474693347106
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1584400836592704181}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 9d062d4e1a0aa2b4191ede23a8613912, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!1 &1842236152823261513
 GameObject:
   m_ObjectHideFlags: 0

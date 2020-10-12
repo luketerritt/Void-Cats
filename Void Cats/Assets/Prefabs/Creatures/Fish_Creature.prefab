@@ -40,6 +40,7 @@ GameObject:
   - component: {fileID: 4211300396289758306}
   - component: {fileID: 4211300396289758307}
   - component: {fileID: 4211300396289758308}
+  - component: {fileID: 2137010520692836176}
   m_Layer: 0
   m_Name: Fish_Creature
   m_TagString: Creature
@@ -89,6 +90,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ID: 1
+  CritterRarity: 0
   lightingManager: {fileID: 0}
   navMeshAgent: {fileID: 0}
   eyeStrength: 4
@@ -103,6 +105,9 @@ MonoBehaviour:
   - {fileID: 0}
   UniqueLocations:
   - {fileID: 0}
+  UniqueSecondaryLocations: []
+  reachedDestination: 0
+  roarDuration: 5
 --- !u!195 &4211300396289758308
 NavMeshAgent:
   m_ObjectHideFlags: 0
@@ -125,6 +130,25 @@ NavMeshAgent:
   m_BaseOffset: 0
   m_WalkableMask: 4294967295
   m_ObstacleAvoidanceType: 4
+--- !u!95 &2137010520692836176
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5282835011151932692}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 9d062d4e1a0aa2b4191ede23a8613912, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!1001 &1178164343710548024
 PrefabInstance:
   m_ObjectHideFlags: 0
