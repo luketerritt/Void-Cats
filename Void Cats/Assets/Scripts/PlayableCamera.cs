@@ -95,6 +95,8 @@ public class PlayableCamera : MonoBehaviour
 
     public GameObject[] detectedCreatureUI;
 
+    public GameObject SoundContainer;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -346,6 +348,13 @@ public class PlayableCamera : MonoBehaviour
             if (Input.GetKeyDown(KeyCode.Mouse0) && !cameraChargeWaiting && !PopUpUi.gameObject.activeSelf)
             {
                 Debug.Log("Left mouse clicked!");
+
+                //sound manager thing test
+                //SoundManager.PlaySound();
+                var tempSound = SoundContainer.GetComponent<SoundStorage>();
+
+                tempSound.playSound(SoundContainer.GetComponent<SoundStorage>().cameraClickSound);
+
                 //readyFlash = true;
                 failedPhoto = true;
 
@@ -440,6 +449,8 @@ public class PlayableCamera : MonoBehaviour
                                             textureLocationInArray = i;
                                             canCaptureAsTexture = true;
                                             failedPhoto = false;
+                                            //var tempSound = SoundContainer.GetComponent<SoundStorage>();
+                                            tempSound.playSound(SoundContainer.GetComponent<SoundStorage>().cameraCorrectPhotoSound);
                                         }
                                     }
                                     if (failedPhoto)
@@ -479,6 +490,7 @@ public class PlayableCamera : MonoBehaviour
                                             textureLocationInArray = i;
                                             canCaptureAsTexture = true;
                                             failedPhoto = false;
+                                            tempSound.playSound(SoundContainer.GetComponent<SoundStorage>().cameraCorrectPhotoSound);
                                         }
                                     }
                                     if (failedPhoto)
@@ -518,6 +530,7 @@ public class PlayableCamera : MonoBehaviour
                                             textureLocationInArray = i;
                                             canCaptureAsTexture = true;
                                             failedPhoto = false;
+                                            tempSound.playSound(SoundContainer.GetComponent<SoundStorage>().cameraCorrectPhotoSound);
                                         }
                                     }
                                     if (failedPhoto)
@@ -557,7 +570,8 @@ public class PlayableCamera : MonoBehaviour
                                            textureLocationInArray = i;
                                            canCaptureAsTexture = true;
                                            failedPhoto = false;
-                                       }
+                                            tempSound.playSound(SoundContainer.GetComponent<SoundStorage>().cameraCorrectPhotoSound);
+                                        }
                                     }
                                     if (failedPhoto)
                                     {
@@ -596,6 +610,7 @@ public class PlayableCamera : MonoBehaviour
                                             textureLocationInArray = i;
                                             canCaptureAsTexture = true;
                                             failedPhoto = false;
+                                            tempSound.playSound(SoundContainer.GetComponent<SoundStorage>().cameraCorrectPhotoSound);
                                         }
                                     }
                                     if (failedPhoto)
@@ -617,6 +632,7 @@ public class PlayableCamera : MonoBehaviour
                                             textureLocationInArray = i;
                                             canCaptureAsTexture = true;
                                             failedPhoto = false;
+                                            tempSound.playSound(SoundContainer.GetComponent<SoundStorage>().cameraCorrectPhotoSound);
                                         }
                                     }
                                     if (failedPhoto)
@@ -656,6 +672,7 @@ public class PlayableCamera : MonoBehaviour
                                             textureLocationInArray = i;
                                             canCaptureAsTexture = true;
                                             failedPhoto = false;
+                                            tempSound.playSound(SoundContainer.GetComponent<SoundStorage>().cameraCorrectPhotoSound);
                                         }
                                     }
                                     if (failedPhoto)
@@ -695,6 +712,7 @@ public class PlayableCamera : MonoBehaviour
                                             textureLocationInArray = i;
                                             canCaptureAsTexture = true;
                                             failedPhoto = false;
+                                            tempSound.playSound(SoundContainer.GetComponent<SoundStorage>().cameraCorrectPhotoSound);
                                         }
                                     }
                                     if (failedPhoto)
@@ -734,6 +752,7 @@ public class PlayableCamera : MonoBehaviour
                                             textureLocationInArray = i;
                                             canCaptureAsTexture = true;
                                             failedPhoto = false;
+                                            tempSound.playSound(SoundContainer.GetComponent<SoundStorage>().cameraCorrectPhotoSound);
                                         }
                                     }
                                     if (failedPhoto)
@@ -774,6 +793,7 @@ public class PlayableCamera : MonoBehaviour
                                             textureLocationInArray = i;
                                             canCaptureAsTexture = true;
                                             failedPhoto = false;
+                                            tempSound.playSound(SoundContainer.GetComponent<SoundStorage>().cameraCorrectPhotoSound);
                                         }
                                     }
                                     if (failedPhoto)
@@ -814,6 +834,7 @@ public class PlayableCamera : MonoBehaviour
                                             textureLocationInArray = i;
                                             canCaptureAsTexture = true;
                                             failedPhoto = false;
+                                            tempSound.playSound(SoundContainer.GetComponent<SoundStorage>().cameraCorrectPhotoSound);
                                         }
                                     }
                                     if (failedPhoto)
@@ -854,6 +875,7 @@ public class PlayableCamera : MonoBehaviour
                                             textureLocationInArray = i;
                                             canCaptureAsTexture = true;
                                             failedPhoto = false;
+                                            tempSound.playSound(SoundContainer.GetComponent<SoundStorage>().cameraCorrectPhotoSound);
                                         }
                                     }
                                     if (failedPhoto)
@@ -894,6 +916,7 @@ public class PlayableCamera : MonoBehaviour
                                             textureLocationInArray = i;
                                             canCaptureAsTexture = true;
                                             failedPhoto = false;
+                                            tempSound.playSound(SoundContainer.GetComponent<SoundStorage>().cameraCorrectPhotoSound);
                                         }
                                     }
                                     if (failedPhoto)
@@ -934,6 +957,7 @@ public class PlayableCamera : MonoBehaviour
                                             textureLocationInArray = i;
                                             canCaptureAsTexture = true;
                                             failedPhoto = false;
+                                            tempSound.playSound(SoundContainer.GetComponent<SoundStorage>().cameraCorrectPhotoSound);
                                         }
                                     }
                                     if (failedPhoto)
