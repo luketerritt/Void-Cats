@@ -15,7 +15,8 @@ public class UiOnInteract : MonoBehaviour, IInteractable
     public float currentAmount; // what the curr circle's fill amount is at
     public Image interactProgressImage; // whatever the image or circle is
     public bool isProgressImageOn = false; //
-    public GameObject teleportPadMapUi; 
+    public GameObject teleportPadMapUi;
+    public bool HasBeenInteractedWith = false;
    
 
 
@@ -43,6 +44,7 @@ public class UiOnInteract : MonoBehaviour, IInteractable
 
     public void OnInteract()
     {
+        
         UpdateinteractProgressImage();
        
     }
@@ -65,7 +67,8 @@ public class UiOnInteract : MonoBehaviour, IInteractable
             interactTextUi.SetActive(false); // turn off text
             playableCameraScript.isCursorLocked = false; // unlocks the cursor for the player to select the buttons 
             playableCameraScript.hasTeleporterUIOpen = true; // Sets the Ui to true,then freezes the camera in Playable Camera Script
-            
+            HasBeenInteractedWith = true;
+
         }
        
 
