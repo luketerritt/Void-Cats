@@ -27,7 +27,7 @@ public class UiOnInteract : MonoBehaviour, IInteractable
             interactProgressImage.fillAmount = 0.0f; // resets circle to 0 
             currentAmount = 0.0f;
         }
-       if(playableCameraScript.hasTeleporterUIOpen == true && Input.GetKeyUp(KeyCode.Tab))
+       if(playableCameraScript.hasTeleporterUIOpen == true && Input.GetKeyUp(KeyCode.Tab) || Input.GetKeyUp(KeyCode.Escape))
         {
             OnEndHover();
         }
@@ -67,7 +67,7 @@ public class UiOnInteract : MonoBehaviour, IInteractable
             interactTextUi.SetActive(false); // turn off text
             playableCameraScript.isCursorLocked = false; // unlocks the cursor for the player to select the buttons 
             playableCameraScript.hasTeleporterUIOpen = true; // Sets the Ui to true,then freezes the camera in Playable Camera Script
-            HasBeenInteractedWith = true;
+            //HasBeenInteractedWith = true;
 
         }
        
