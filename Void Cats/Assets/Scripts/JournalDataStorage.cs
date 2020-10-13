@@ -722,6 +722,8 @@ public class JournalDataStorage : MonoBehaviour
         //if data is not null
         if(data != null)
         {
+            Debug.Log("Data is not null");
+
             //assign the data that was just read
             for (int i = 0; i < FishPhotosIsTaken.Length; i++)
             {
