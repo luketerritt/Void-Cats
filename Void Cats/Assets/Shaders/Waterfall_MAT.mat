@@ -1,0 +1,39 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!21 &2100000
+Material:
+  serializedVersion: 6
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: Waterfall_MAT
+  m_Shader: {fileID: -6465566751694194690, guid: 5dd2a0edfd3c4854daa69bc72ed62d8b,
+    type: 3}
+  m_ShaderKeywords: 
+  m_LightmapFlags: 4
+  m_EnableInstancingVariants: 0
+  m_DoubleSidedGI: 0
+  m_CustomRenderQueue: 3001
+  stringTagMap: {}
+  disabledShaderPasses: []
+  m_SavedProperties:
+    serializedVersion: 3
+    m_TexEnvs:
+    - _Texture2DAsset_6146016F_Out_0:
+        m_Texture: {fileID: 2800000, guid: 6256caa17b233274a891fdf89607f334, type: 3}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    m_Floats:
+    - Vector1_1EE8428C: 0.3
+    - Vector1_275FD1BC: 0.58
+    - Vector1_5298F91C: 0
+    - Vector1_542C29BE: 17.5
+    - Vector1_644D6B48: 0.587
+    - Vector1_6960AC10: 0
+    - Vector1_6E9414D3: 0
+    - Vector1_A0F71166: 0.2
+    - Vector1_A78438: 3
+    - Vector1_C19C172D: 0.668
+    m_Colors:
+    - Color_17E7F02F: {r: 4.5947943, g: 4.5947943, b: 4.5947943, a: 0}
