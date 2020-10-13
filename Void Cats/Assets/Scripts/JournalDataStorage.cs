@@ -204,6 +204,8 @@ public class JournalDataStorage : MonoBehaviour
 
     public bool[] TeleportersFound = new bool[6] { false, false, false, false, false, false };
 
+    public GameObject[] TeleporterPads;
+
     //the gameobject which has the first person player camera attached
     public GameObject playerCameraInput;
 
@@ -768,7 +770,10 @@ public class JournalDataStorage : MonoBehaviour
             for (int i = 0; i < TeleportersFound.Length; i++)
             {
                 TeleportersFound[i] = data.tp[i];
-            }
+
+                TeleporterPads[i].gameObject.GetComponent<TeleportPad>().TeleButton.interactable = TeleportersFound[i];
+                TeleporterPads[i].gameObject.GetComponent<TeleportPad>().IsDiscovered = TeleportersFound[i];
+            }            
 
             var temp = playerCameraInput.gameObject.GetComponent<PlayableCamera>().GameStorageData;
 

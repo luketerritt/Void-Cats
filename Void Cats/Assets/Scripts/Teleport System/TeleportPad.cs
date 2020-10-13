@@ -13,7 +13,7 @@ public class TeleportPad : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        TeleButton.interactable = false;
+        //TeleButton.interactable = false;
         
     }
 
