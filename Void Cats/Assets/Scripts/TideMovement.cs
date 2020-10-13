@@ -46,7 +46,7 @@ public class TideMovement : MonoBehaviour
         if (!frozen)
         {
             float time = LightingManager.GetComponent<LightingManager>().currentTimeOfDay;
-            float timeScale = LightingManager.GetComponent<LightingManager>().timeScaleMultiplier;
+            float timeScale = LightingManager.GetComponent<LightingManager>().timeScaleMultiplier;            
 
             //numbers to try to help understand logic of going down - thinking via typing...
             //13,14,15,16,17,18,19,20,21,22,23,24 - time
@@ -66,24 +66,26 @@ public class TideMovement : MonoBehaviour
             {
                 downIterator = 0;
             }
-            //}
-            /*else
-            {
-                //if it is in the morning, reverse a temp time, so the tide can go out
-                if (time <= 12)
-                {
-                    downIterator += Time.deltaTime * 2 * timeScale;
-                    time -= downIterator;
-                }
-                else //revert the iterator back to 0
-                {
-                    downIterator = 0;
-                }
-            }*/
 
-            //if this is the original version that linearly moves
-            if (stopAtPeak)
-            {
+            
+                //}
+                /*else
+                {
+                    //if it is in the morning, reverse a temp time, so the tide can go out
+                    if (time <= 12)
+                    {
+                        downIterator += Time.deltaTime * 2 * timeScale;
+                        time -= downIterator;
+                    }
+                    else //revert the iterator back to 0
+                    {
+                        downIterator = 0;
+                    }
+                }*/
+
+                //if this is the original version that linearly moves
+             if (stopAtPeak)
+             {
                 //math to change the scale of the range and update what the currentheight should be
                 float oldRange = 24;
                 float NewRange = maxHeight - minHeight;
@@ -93,6 +95,7 @@ public class TideMovement : MonoBehaviour
                 this.gameObject.transform.position =
                     new Vector3(this.gameObject.transform.position.x, (currentHeight * 2), this.gameObject.transform.position.z);
 
+                //Debug.Log("height = " + (currentHeight * 2) + " time = " + time);
             }
             else //if this is the experimental version that "smoothly" stops
             {

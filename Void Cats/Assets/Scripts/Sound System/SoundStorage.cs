@@ -116,7 +116,7 @@ public class SoundStorage : MonoBehaviour
 
     public void playSound(AudioSource audio)
     {
-        Debug.Log("playing sound " + audio);
+        //Debug.Log("playing sound " + audio);
         audio.PlayOneShot(audio.clip);
     }
 }

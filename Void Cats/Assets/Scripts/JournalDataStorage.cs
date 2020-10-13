@@ -771,6 +771,7 @@ public class JournalDataStorage : MonoBehaviour
             //also assign the tp found
             for (int i = 0; i < TeleportersFound.Length; i++)
             {
+                //Debug.Log("Assigning teleporter " + i + " to " + data.tp[i]);
                 TeleportersFound[i] = data.tp[i];
 
                 TeleporterPads[i].gameObject.GetComponent<TeleportPad>().TeleButton.interactable = TeleportersFound[i];
@@ -938,7 +939,16 @@ public class JournalDataStorage : MonoBehaviour
         }
         else
         {
-            Debug.Log("no save file found, data = null");
+            //Debug.Log("no save file found, data = null");
+            //if there is no save file, make sure the teleporters are setup
+            //also assign the tp found
+            for (int i = 0; i < TeleportersFound.Length; i++)
+            {
+                //TeleportersFound[i] = data.tp[i];
+                //Debug.Log("Assigning teleporter " + i + " to false as data is null");
+                TeleporterPads[i].gameObject.GetComponent<TeleportPad>().TeleButton.interactable = TeleportersFound[i];
+                TeleporterPads[i].gameObject.GetComponent<TeleportPad>().IsDiscovered = TeleportersFound[i];
+            }
         }
 
         //LoadingText.SetActive(false);
