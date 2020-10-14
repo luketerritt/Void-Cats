@@ -27,6 +27,8 @@ public class PlayableCamera : MonoBehaviour
     public float zoomMaxFov = 100;
     private float defaultFov;
 
+    private bool zoomToggle = false;
+    
     //boxcast variables   
     public float CreatureCheckDistance = 100.0f;
     [HideInInspector]
@@ -34,7 +36,7 @@ public class PlayableCamera : MonoBehaviour
     [HideInInspector]
     public bool hitDetection;
     //scales the detection, would not recommend going over 2
-    public float detectionSizeModifier = 1.5f;
+    //public float detectionSizeModifier = 1.5f; //0.9
 
     //set this to on if you want photos to be saved to computer (does not tamper with journal)
     public bool optionToSavePhoto = false;
@@ -72,7 +74,8 @@ public class PlayableCamera : MonoBehaviour
     [HideInInspector]
     public Vignette nearWaterEffect;
 
-    public float defaultBlur;
+    public float walkCamBlur; //blur for when camera is not open
+    public float defaultBlur; //default blur for when camera is open
     public float depthChangeRate = 0.2f;
     public float depthChangeRoughMax = 6;
     public float depthChangeRoughMin = -2;
@@ -97,6 +100,10 @@ public class PlayableCamera : MonoBehaviour
 
     public GameObject SoundContainer;
 
+    //false for original hold, true for toggle
+    public bool zoomToggleModeOn;
+    
+
     // Start is called before the first frame update
     void Start()
     {
@@ -112,8 +119,9 @@ public class PlayableCamera : MonoBehaviour
         ppVolume.sharedProfile.TryGetSettings<Vignette>(out nearWaterEffect);
         nearWaterEffect.intensity.value = 0;
 
-        blurryEffect.focusDistance.value = defaultBlur;
-        blurryEffect.active = false;
+        
+        blurryEffect.active = true;
+        blurryEffect.focusDistance.value = walkCamBlur; //defaultBlur;
     }
 
     // Update is called once per frame
@@ -194,8 +202,8 @@ public class PlayableCamera : MonoBehaviour
             //}
             
         }
-        
 
+        //Debug.Log("blur = " + blurryEffect.focusDistance.value);
 
         //if the C key is pressed, the journal is not active and the player character controller is on the ground
         if (Input.GetKeyDown(KeyCode.C) && !tempJournal.activeSelf && tempGrounded)
@@ -207,8 +215,18 @@ public class PlayableCamera : MonoBehaviour
             //thirdPersonCamera.gameObject.SetActive(!inFirstPerson);
             //var test = true;
             
-            blurryEffect.active = !blurryEffect.active;
-            blurryEffect.focusDistance.value = defaultBlur;
+            //blurryEffect.active = !blurryEffect.active;
+            //modify the blur based on if we are in the walk cam or the game mechanic cam
+            if(!inFirstPerson)
+            {
+                blurryEffect.focusDistance.value = walkCamBlur;
+            }
+            else
+            {
+                blurryEffect.focusDistance.value = defaultBlur;
+                zoomToggle = false;
+            }
+            
             //firstPersonCamera.GetComponent<PostProcessLayer>().enabled = !firstPersonCamera.GetComponent<PostProcessLayer>().enabled;
             //readyFlash = false;
             //if(blurryEffect.active)
@@ -226,59 +244,118 @@ public class PlayableCamera : MonoBehaviour
             //if we are in first person, the camera overlay should be turned on
             uiCameraOverlay.SetActive(true);
             uiStandardOverlay.SetActive(true);
-                    
+
+            if (Input.GetMouseButton(1) && zoomToggleModeOn)
+            {
+                Debug.Log("swapping wheel control");
+                zoomToggle = !zoomToggle;
+            }
+
             //zoom code            
             float temp = Input.mouseScrollDelta.y;
             if(temp != 0)
             {
                 float zoomCurrent = 0;
                 zoomCurrent -= temp * zoomSpeed;
-                
-                //if the right mouse button is not held down modify zoom
-                if(!Input.GetMouseButton(1))
+
+                if(zoomToggleModeOn)
                 {
-                    firstPersonCamera.fieldOfView += zoomCurrent;
-
-                    //true if the zoomFOV was NOT above limit and can be modified
-                    //bool canModifyEffect = true;
-
-                    //checks to ensure the cameraFOV doesnt go over (or under) the bounds :/
-                    if (firstPersonCamera.fieldOfView <= zoomMinFov)
+                    //if the right mouse button is not held down modify zoom Input.GetMouseButton(1)
+                    if (!zoomToggle)
                     {
-                        firstPersonCamera.fieldOfView = zoomMinFov;
-                        //canModifyEffect = false;
+                        firstPersonCamera.fieldOfView += zoomCurrent;
+
+                        //true if the zoomFOV was NOT above limit and can be modified
+                        //bool canModifyEffect = true;
+
+                        //checks to ensure the cameraFOV doesnt go over (or under) the bounds :/
+                        if (firstPersonCamera.fieldOfView <= zoomMinFov)
+                        {
+                            firstPersonCamera.fieldOfView = zoomMinFov;
+                            //canModifyEffect = false;
+                        }
+
+                        if (firstPersonCamera.fieldOfView >= zoomMaxFov)
+                        {
+                            firstPersonCamera.fieldOfView = zoomMaxFov;
+                            //canModifyEffect = false;
+                        }
                     }
-
-                    if (firstPersonCamera.fieldOfView >= zoomMaxFov)
+                    else //modify the blurry
                     {
-                        firstPersonCamera.fieldOfView = zoomMaxFov;
-                        //canModifyEffect = false;
+                        float newChange = zoomCurrent * depthChangeRate;
+
+                        blurryEffect.focusDistance.value -= newChange;
+
+                        //not updating?
+                        if (blurryEffect.focusDistance.value >= depthChangeRoughMax)
+                        {
+                            blurryEffect.focusDistance.value += newChange;
+                            newChange = depthChangeRoughMax;
+                            Debug.Log("Blurry at max: " + depthChangeRoughMax);
+                            blurryEffect.focusDistance.value = newChange;
+                        }
+
+                        //not updating?
+                        if (blurryEffect.focusDistance.value <= depthChangeRoughMin)
+                        {
+                            blurryEffect.focusDistance.value += newChange;
+                            newChange = depthChangeRoughMin;
+                            Debug.Log("Blurry at min: " + depthChangeRoughMin);
+                            blurryEffect.focusDistance.value = newChange;
+                        }
                     }
                 }
-                else //modify the blurry
+                else
                 {
-                    float newChange = zoomCurrent * depthChangeRate;
-
-                    blurryEffect.focusDistance.value -= newChange;
-
-                    //not updating?
-                    if (blurryEffect.focusDistance.value >= depthChangeRoughMax)
+                    //if the right mouse button is not held down modify zoom
+                    if (!Input.GetMouseButton(1))
                     {
-                        blurryEffect.focusDistance.value += newChange;
-                        newChange = depthChangeRoughMax;
-                        Debug.Log("Blurry at max: " + depthChangeRoughMax);
-                        blurryEffect.focusDistance.value = newChange;
-                    }
+                        firstPersonCamera.fieldOfView += zoomCurrent;
 
-                    //not updating?
-                    if (blurryEffect.focusDistance.value <= depthChangeRoughMin)
-                    {
-                        blurryEffect.focusDistance.value += newChange;
-                        newChange = depthChangeRoughMin;
-                        Debug.Log("Blurry at min: " + depthChangeRoughMin);
-                        blurryEffect.focusDistance.value = newChange;
+                        //true if the zoomFOV was NOT above limit and can be modified
+                        //bool canModifyEffect = true;
+
+                        //checks to ensure the cameraFOV doesnt go over (or under) the bounds :/
+                        if (firstPersonCamera.fieldOfView <= zoomMinFov)
+                        {
+                            firstPersonCamera.fieldOfView = zoomMinFov;
+                            //canModifyEffect = false;
+                        }
+
+                        if (firstPersonCamera.fieldOfView >= zoomMaxFov)
+                        {
+                            firstPersonCamera.fieldOfView = zoomMaxFov;
+                            //canModifyEffect = false;
+                        }
                     }
-                }               
+                    else //modify the blurry
+                    {
+                        float newChange = zoomCurrent * depthChangeRate;
+
+                        blurryEffect.focusDistance.value -= newChange;
+
+                        //not updating?
+                        if (blurryEffect.focusDistance.value >= depthChangeRoughMax)
+                        {
+                            blurryEffect.focusDistance.value += newChange;
+                            newChange = depthChangeRoughMax;
+                            Debug.Log("Blurry at max: " + depthChangeRoughMax);
+                            blurryEffect.focusDistance.value = newChange;
+                        }
+
+                        //not updating?
+                        if (blurryEffect.focusDistance.value <= depthChangeRoughMin)
+                        {
+                            blurryEffect.focusDistance.value += newChange;
+                            newChange = depthChangeRoughMin;
+                            Debug.Log("Blurry at min: " + depthChangeRoughMin);
+                            blurryEffect.focusDistance.value = newChange;
+                        }
+                    }
+                }
+
+                           
             }
 
             //creature detection code
@@ -296,9 +373,12 @@ public class PlayableCamera : MonoBehaviour
             float tempDistance = CreatureCheckDistance - firstPersonCamera.fieldOfView;
 
             //peform the boxcast
-            hitDetection = Physics.BoxCast(firstPersonCamera.transform.position, firstPersonCamera.transform.localScale * detectionSizeModifier,
+            /*hitDetection = Physics.BoxCast(firstPersonCamera.transform.position, firstPersonCamera.transform.localScale * detectionSizeModifier,
               firstPersonCamera.transform.forward, out hit, firstPersonCamera.transform.rotation,
-            tempDistance, layerMask);
+            tempDistance, layerMask);*/
+
+            hitDetection = Physics.Raycast(firstPersonCamera.transform.position,
+                firstPersonCamera.transform.forward, out hit, tempDistance, layerMask);
 
             //if we are using this
             if (creatureDetectUiActive)
@@ -1372,13 +1452,13 @@ public class PlayableCamera : MonoBehaviour
         {
             Gizmos.DrawRay(firstPersonCamera.transform.position, firstPersonCamera.transform.forward * hit.distance);
 
-            Gizmos.DrawWireCube(firstPersonCamera.transform.position + firstPersonCamera.transform.forward * hit.distance, firstPersonCamera.transform.localScale * detectionSizeModifier);
+            //Gizmos.DrawWireCube(firstPersonCamera.transform.position + firstPersonCamera.transform.forward * hit.distance, firstPersonCamera.transform.localScale * detectionSizeModifier);
         }
         else
         {
             Gizmos.DrawRay(firstPersonCamera.transform.position, firstPersonCamera.transform.forward * CreatureCheckDistance);
 
-            Gizmos.DrawWireCube(firstPersonCamera.transform.position + firstPersonCamera.transform.forward * CreatureCheckDistance, firstPersonCamera.transform.localScale * detectionSizeModifier);
+            //Gizmos.DrawWireCube(firstPersonCamera.transform.position + firstPersonCamera.transform.forward * CreatureCheckDistance, firstPersonCamera.transform.localScale * detectionSizeModifier);
         }
     }
 }
