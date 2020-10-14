@@ -128,6 +128,49 @@ public class PlayableCamera : MonoBehaviour
     void Update()
     {
         //other player related code here
+        //if the C key is pressed
+        if (Input.GetKeyDown(KeyCode.C))
+        {
+            Debug.Log("C pressed");
+            //temp var to see if the game is in the journal?
+            var tempJournal = uiStandardOverlay.GetComponentInChildren<PanelOpen>().Panel;
+
+            //temp bool to see if the character controller is on the ground?
+            //bool tempGrounded = this.gameObject.GetComponent<CharacterController>().isGrounded;
+
+            //if the journal is not active and the player character controller is on the ground
+            if (!tempJournal.activeSelf/* && tempGrounded*/)
+            {
+                //swap cameras
+                inFirstPerson = !inFirstPerson;
+                firstPersonCamera.fieldOfView = defaultFov;
+                //firstPersonCamera.gameObject.SetActive(inFirstPerson);
+                //thirdPersonCamera.gameObject.SetActive(!inFirstPerson);
+                //var test = true;
+
+                //blurryEffect.active = !blurryEffect.active;
+                //modify the blur based on if we are in the walk cam or the game mechanic cam
+                if (!inFirstPerson)
+                {
+                    blurryEffect.focusDistance.value = walkCamBlur;
+                }
+                else
+                {
+                    blurryEffect.focusDistance.value = defaultBlur;
+                    zoomToggle = false;
+                }
+
+                //firstPersonCamera.GetComponent<PostProcessLayer>().enabled = !firstPersonCamera.GetComponent<PostProcessLayer>().enabled;
+                //readyFlash = false;
+                //if(blurryEffect.active)
+                //{
+                //Debug.Log("opened camera - focus distance is" + blurryEffect.focusDistance.value);
+                //}
+            }
+
+
+        }
+
 
         UpdateCamera();
 
@@ -205,41 +248,7 @@ public class PlayableCamera : MonoBehaviour
 
         //Debug.Log("blur = " + blurryEffect.focusDistance.value);
 
-        //if the C key is pressed
-        if (Input.GetKeyDown(KeyCode.C))
-        {
-            //if the journal is not active and the player character controller is on the ground
-            if (!tempJournal.activeSelf && tempGrounded)
-            {
-                //swap cameras
-                inFirstPerson = !inFirstPerson;
-                firstPersonCamera.fieldOfView = defaultFov;
-                //firstPersonCamera.gameObject.SetActive(inFirstPerson);
-                //thirdPersonCamera.gameObject.SetActive(!inFirstPerson);
-                //var test = true;
-
-                //blurryEffect.active = !blurryEffect.active;
-                //modify the blur based on if we are in the walk cam or the game mechanic cam
-                if (!inFirstPerson)
-                {
-                    blurryEffect.focusDistance.value = walkCamBlur;
-                }
-                else
-                {
-                    blurryEffect.focusDistance.value = defaultBlur;
-                    zoomToggle = false;
-                }
-
-                //firstPersonCamera.GetComponent<PostProcessLayer>().enabled = !firstPersonCamera.GetComponent<PostProcessLayer>().enabled;
-                //readyFlash = false;
-                //if(blurryEffect.active)
-                //{
-                //Debug.Log("opened camera - focus distance is" + blurryEffect.focusDistance.value);
-                //}
-            }
-
-
-        }        
+                
      
         //if we are in first person and the journal is NOT open
         if(inFirstPerson && !tempJournal.activeSelf)
