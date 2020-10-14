@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 4899326008297066002}
   - component: {fileID: 2030980482721489455}
   - component: {fileID: 7068332183814436191}
-  - component: {fileID: 8568460658582276334}
+  - component: {fileID: 4002560238578640246}
   m_Layer: 0
   m_Name: BeachBush
   m_TagString: Untagged
@@ -40,7 +40,7 @@ MeshFilter:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2739180627571313894}
-  m_Mesh: {fileID: -9144742729285707691, guid: 63c6a26e271df314e94d1f6f8c2d9c7a, type: 3}
+  m_Mesh: {fileID: -9144742729285707691, guid: c4e686b3990096248a0896247c4255a1, type: 3}
 --- !u!23 &7068332183814436191
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -58,7 +58,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 5561349426305759274, guid: 63c6a26e271df314e94d1f6f8c2d9c7a, type: 3}
+  - {fileID: 2100000, guid: 3e059f2337dc88947839a86ed030d6fa, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -79,7 +79,7 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
---- !u!64 &8568460658582276334
+--- !u!64 &4002560238578640246
 MeshCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -92,4 +92,4 @@ MeshCollider:
   serializedVersion: 3
   m_Convex: 0
   m_CookingOptions: 14
-  m_Mesh: {fileID: -9144742729285707691, guid: 63c6a26e271df314e94d1f6f8c2d9c7a, type: 3}
+  m_Mesh: {fileID: -9144742729285707691, guid: c4e686b3990096248a0896247c4255a1, type: 3}
