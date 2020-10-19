@@ -1204,6 +1204,10 @@ public class TestCreature : MonoBehaviour
             PlaySleepAnimation();
             //StopFinishedAnimation();
         }
+        else
+        {
+            StopFinishedAnimation();
+        }
 
         
 
@@ -1377,7 +1381,7 @@ public class TestCreature : MonoBehaviour
             if(!reachedDestination)
             {
                 PlayRoarAnimation();
-                StopFinishedAnimation();
+                //StopFinishedAnimation();
                 Debug.Log("" + this.gameObject + " arrived at position number " + UniqueLocations[randomLocation]);
                 //play roar sound here
             }
