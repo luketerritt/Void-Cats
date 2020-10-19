@@ -16,7 +16,7 @@ public class UiOnInteract : MonoBehaviour, IInteractable
     public Image interactProgressImage; // whatever the image or circle is
     public bool isProgressImageOn = false; //
     public GameObject teleportPadMapUi;
-    public bool HasBeenInteractedWith = false;
+    
    
 
 
@@ -27,6 +27,7 @@ public class UiOnInteract : MonoBehaviour, IInteractable
             interactProgressImage.fillAmount = 0.0f; // resets circle to 0 
             currentAmount = 0.0f;
         }
+       // if the player press Tab or Escape and the map is open - close map 
        if(playableCameraScript.hasTeleporterUIOpen == true && Input.GetKeyUp(KeyCode.Tab) || Input.GetKeyUp(KeyCode.Escape))
         {
             OnEndHover();
@@ -37,8 +38,8 @@ public class UiOnInteract : MonoBehaviour, IInteractable
 
     public void OnStartHover()
     {
-        interactTextUi.SetActive(true);
-        isProgressImageOn = true;
+        interactTextUi.SetActive(true); // makes the Hold E text to appear 
+        isProgressImageOn = true; // turns on the Progress Image 
         
     }
 
@@ -67,7 +68,7 @@ public class UiOnInteract : MonoBehaviour, IInteractable
             interactTextUi.SetActive(false); // turn off text
             playableCameraScript.isCursorLocked = false; // unlocks the cursor for the player to select the buttons 
             playableCameraScript.hasTeleporterUIOpen = true; // Sets the Ui to true,then freezes the camera in Playable Camera Script
-            //HasBeenInteractedWith = true;
+            
 
         }
        
