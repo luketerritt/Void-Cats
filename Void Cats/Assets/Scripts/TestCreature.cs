@@ -123,6 +123,8 @@ public class TestCreature : MonoBehaviour
     private float roarIterator = 0;
 
     private bool startedUnInteruptable = false;
+    
+    public Animator creatureAnimator;
     // Start is called before the first frame update
     void Start()
     {
@@ -231,7 +233,9 @@ public class TestCreature : MonoBehaviour
         else //set up the navmesh agent
         {
             navMeshAgent = this.GetComponent<NavMeshAgent>();
+            creatureAnimator = this.GetComponent<Animator>();
             navMeshAgent.speed = speed;
+
         }
         
     }
@@ -374,6 +378,8 @@ public class TestCreature : MonoBehaviour
                 {
                     info.agentState = (CreatureState)1; //agent notices
                     stateJustChanged = true;
+                    //revert animation back to default
+                    //PlayFinishedAnimation();
                 }
                     
             }
@@ -383,6 +389,8 @@ public class TestCreature : MonoBehaviour
                 {
                     info.agentState = (CreatureState)0; //agent flees
                     stateJustChanged = true;
+                    //revert animation back to default
+                    //PlayFinishedAnimation();
                 }
             }
 
@@ -480,6 +488,8 @@ public class TestCreature : MonoBehaviour
                                 }
 
                                 stateJustChanged = true;
+                                //revert animation back to default
+                                //PlayFinishedAnimation();
                                 break;
                             }
                             break;
@@ -493,13 +503,15 @@ public class TestCreature : MonoBehaviour
                                 //PreviousState = info.agentState; //assign the previous state
                                 info.agentState = (CreatureState)2; //agent sleeps
                                 stateJustChanged = true;
+                                //revert animation back to default
+                                //PlayFinishedAnimation();
                                 break;
                             }
 
                             break;
                         }
 
-                        //if it is Afternoon - Fish go to sleep
+                        //if it is Afternoon - Fish continue to sleep
                         if ((int)timeState == 2)
                         {
                             if (info.agentState != (CreatureState)2)
@@ -531,6 +543,8 @@ public class TestCreature : MonoBehaviour
                                 }
 
                                 stateJustChanged = true;
+                                //revert animation back to default
+                                //PlayFinishedAnimation();
                                 break;
                             }
                             break;
@@ -539,7 +553,7 @@ public class TestCreature : MonoBehaviour
                     }
                 case 2: //Dog
                     {
-                        //if it is LateNight - Dog should be asleep
+                        //if it is LateNight - Dog should continue to sleep
                         if ((int)timeState == 0)
                         {
                             if (info.agentState != (CreatureState)2)
@@ -571,6 +585,8 @@ public class TestCreature : MonoBehaviour
                                 }
 
                                 stateJustChanged = true;
+                                //revert animation back to default
+                                //PlayFinishedAnimation();
                                 break;
                             }
 
@@ -594,6 +610,8 @@ public class TestCreature : MonoBehaviour
                                 }
 
                                 stateJustChanged = true;
+                                //revert animation back to default
+                                //PlayFinishedAnimation();
                                 break;
                             }
                             break;
@@ -607,6 +625,8 @@ public class TestCreature : MonoBehaviour
                                 //PreviousState = info.agentState; //assign the previous state
                                 info.agentState = (CreatureState)2; //agent sleeps
                                 stateJustChanged = true;
+                                //revert animation back to default
+                                //PlayFinishedAnimation();
                                 break;
                             }
                             break;
@@ -615,7 +635,7 @@ public class TestCreature : MonoBehaviour
                     }
                 case 3: //Tiger
                     {
-                        //if it is LateNight - Tiger should be asleep
+                        //if it is LateNight - Tiger continue to be asleep
                         if ((int)timeState == 0)
                         {
                             if (info.agentState != (CreatureState)2)
@@ -647,6 +667,8 @@ public class TestCreature : MonoBehaviour
                                 }
 
                                 stateJustChanged = true;
+                                //revert animation back to default
+                                //PlayFinishedAnimation();
                                 break;
                             }
 
@@ -670,6 +692,8 @@ public class TestCreature : MonoBehaviour
                                 }
 
                                 stateJustChanged = true;
+                                //revert animation back to default
+                                //PlayFinishedAnimation();
                                 break;
                             }
                             break;
@@ -683,6 +707,8 @@ public class TestCreature : MonoBehaviour
                                 //PreviousState = info.agentState; //assign the previous state
                                 info.agentState = (CreatureState)2; //agent sleeps
                                 stateJustChanged = true;
+                                //revert animation back to default
+                                //PlayFinishedAnimation();
                                 break;
                             }
                             break;
@@ -723,6 +749,8 @@ public class TestCreature : MonoBehaviour
                                 }
 
                                 stateJustChanged = true;
+                                //revert animation back to default
+                                //PlayFinishedAnimation();
                                 break;
                             }
 
@@ -746,6 +774,8 @@ public class TestCreature : MonoBehaviour
                                 }
 
                                 stateJustChanged = true;
+                                //revert animation back to default
+                                //PlayFinishedAnimation();
                                 break;
                             }
                             break;
@@ -759,6 +789,8 @@ public class TestCreature : MonoBehaviour
                                 //PreviousState = info.agentState; //assign the previous state
                                 info.agentState = (CreatureState)2; //agent sleeps
                                 stateJustChanged = true;
+                                //revert animation back to default
+                                //PlayFinishedAnimation();
                                 break;
                             }
                             break;
@@ -783,6 +815,8 @@ public class TestCreature : MonoBehaviour
                                     randomLocation = Random.Range(0, UniqueLocations.Length);
                                 }
                                 stateJustChanged = true;
+                                //revert animation back to default
+                                //PlayFinishedAnimation();
                                 break;
                             }
                             break;
@@ -796,19 +830,21 @@ public class TestCreature : MonoBehaviour
                                 //PreviousState = info.agentState; //assign the previous state
                                 info.agentState = (CreatureState)2; //agent sleeps                               
                                 stateJustChanged = true;
+                                //revert animation back to default
+                                //PlayFinishedAnimation();
                                 break;
                             }
 
                             break;
                         }
 
-                        //if it is Afternoon - Cow should sleep
+                        //if it is Afternoon - Cow should continue to sleep
                         if ((int)timeState == 2)
                         {
                             if (info.agentState != (CreatureState)2)
                             {
                                 //PreviousState = info.agentState; //assign the previous state
-                                info.agentState = (CreatureState)2; //agent roars - UNIQUE                                
+                                info.agentState = (CreatureState)2; //agent sleeps                               
                                 stateJustChanged = true;
                                 break;
                             }
@@ -832,6 +868,8 @@ public class TestCreature : MonoBehaviour
                                     randomLocation = Random.Range(0, FoodLocations.Length);
                                 }
                                 stateJustChanged = true;
+                                //revert animation back to default
+                                //PlayFinishedAnimation();
                                 break;
                             }
                             break;
@@ -840,7 +878,7 @@ public class TestCreature : MonoBehaviour
                     }
                 case 6: //Duck
                     {
-                        //if it is LateNight - Duck should be asleep
+                        //if it is LateNight - Duck should continue to be asleep
                         if ((int)timeState == 0)
                         {
                             if (info.agentState != (CreatureState)2)
@@ -872,6 +910,8 @@ public class TestCreature : MonoBehaviour
                                 }
 
                                 stateJustChanged = true;
+                                //revert animation back to default
+                                //PlayFinishedAnimation();
                                 break;
                             }
 
@@ -895,6 +935,8 @@ public class TestCreature : MonoBehaviour
                                 }
 
                                 stateJustChanged = true;
+                                //revert animation back to default
+                                //PlayFinishedAnimation();
                                 break;
                             }
                             break;
@@ -908,6 +950,8 @@ public class TestCreature : MonoBehaviour
                                 //PreviousState = info.agentState; //assign the previous state
                                 info.agentState = (CreatureState)2; //agent sleeps
                                 stateJustChanged = true;
+                                //revert animation back to default
+                                //PlayFinishedAnimation();
                                 break;
                             }
                             break;
@@ -932,6 +976,8 @@ public class TestCreature : MonoBehaviour
                                     randomLocation = Random.Range(0, UniqueLocations.Length);
                                 }
                                 stateJustChanged = true;
+                                //revert animation back to default
+                                //PlayFinishedAnimation();
                                 break;
                             }
                             break;
@@ -945,13 +991,15 @@ public class TestCreature : MonoBehaviour
                                 //PreviousState = info.agentState; //assign the previous state
                                 info.agentState = (CreatureState)2; //agent sleeps                               
                                 stateJustChanged = true;
+                                //revert animation back to default
+                                //PlayFinishedAnimation();
                                 break;
                             }
 
                             break;
                         }
 
-                        //if it is Afternoon - Cat should sleep
+                        //if it is Afternoon - Cat should continue to sleep
                         if ((int)timeState == 2)
                         {
                             if (info.agentState != (CreatureState)2)
@@ -981,6 +1029,8 @@ public class TestCreature : MonoBehaviour
                                     randomLocation = Random.Range(0, FoodLocations.Length);
                                 }
                                 stateJustChanged = true;
+                                //revert animation back to default
+                                //PlayFinishedAnimation();
                                 break;
                             }
                             break;
@@ -1005,6 +1055,8 @@ public class TestCreature : MonoBehaviour
                                     randomLocation = Random.Range(0, FoodLocations.Length);
                                 }
                                 stateJustChanged = true;
+                                //revert animation back to default
+                                //PlayFinishedAnimation();
                                 break;
                             }
                             break;
@@ -1018,13 +1070,15 @@ public class TestCreature : MonoBehaviour
                                 //PreviousState = info.agentState; //assign the previous state
                                 info.agentState = (CreatureState)2; //agent sleeps                               
                                 stateJustChanged = true;
+                                //revert animation back to default
+                                //PlayFinishedAnimation();
                                 break;
                             }
 
                             break;
                         }
 
-                        //if it is Afternoon - Rabbit should sleep
+                        //if it is Afternoon - Rabbit should continue to sleep
                         if ((int)timeState == 2)
                         {
                             if (info.agentState != (CreatureState)2)
@@ -1054,6 +1108,8 @@ public class TestCreature : MonoBehaviour
                                     randomLocation = Random.Range(0,  UniqueLocations.Length);
                                 }
                                 stateJustChanged = true;
+                                //revert animation back to default
+                                //PlayFinishedAnimation();
                                 break;
                             }
                             break;
@@ -1075,13 +1131,17 @@ public class TestCreature : MonoBehaviour
     {
        if(stateJustChanged)
        {
+            PlayFinishedAnimation();
             navMeshAgent.speed = runSpeed;
             stateJustChanged = false;
             reachedDestination = true;
             startedUnInteruptable = false;
             roarIterator = 0;
-       }
-
+            PlayAlertScaredAnimation();
+            StopFinishedAnimation();
+        }
+        //play the scared animation
+       
         //get the players location
         Vector3 tempLocation = PlayerObject.transform.position;       
         Vector3 tempForward = PlayerObject.GetComponent<PlayableCamera>().firstPersonCamera.transform.forward;
@@ -1109,15 +1169,18 @@ public class TestCreature : MonoBehaviour
     {
        if(stateJustChanged)
        {
+            PlayFinishedAnimation();
             navMeshAgent.speed = speed;
             transform.rotation *= Quaternion.Euler(0, 0, 0);
             stateJustChanged = false;
             reachedDestination = true;
             startedUnInteruptable = false;
             roarIterator = 0;
+            PlayAlertPassiveAnimation();
+            StopFinishedAnimation();
         }
 
-
+        
         //Vector3 tempLocation = new Vector3(0, 0, -2);
         navMeshAgent.SetDestination(transform.position);
 
@@ -1132,14 +1195,17 @@ public class TestCreature : MonoBehaviour
     {
         if(stateJustChanged)
         {
+            PlayFinishedAnimation();
             navMeshAgent.speed = speed;
-            //need a way to apply this just once -- BINGO
-            //transform.rotation *= Quaternion.Euler(90.0f, 0, 0);
             stateJustChanged = false;
             reachedDestination = true;
             startedUnInteruptable = false;
             roarIterator = 0;
+            PlaySleepAnimation();
+            //StopFinishedAnimation();
         }
+
+        
 
         //need a way to apply this just once -- BINGO
         transform.rotation *= Quaternion.Euler(0, 0, 90.0f);
@@ -1152,6 +1218,7 @@ public class TestCreature : MonoBehaviour
     {
         if (stateJustChanged)
         {
+            PlayFinishedAnimation();
             navMeshAgent.speed = speed;
             //transform.rotation *= Quaternion.Euler(0, 0, 0);
             stateJustChanged = false;
@@ -1159,7 +1226,7 @@ public class TestCreature : MonoBehaviour
             startedUnInteruptable = false;
             roarIterator = 0;
         }
-
+        
 
         Vector3 tempLocation = FoodLocations[randomLocation].transform.position;
         navMeshAgent.SetDestination(tempLocation);
@@ -1169,7 +1236,14 @@ public class TestCreature : MonoBehaviour
         float distance = Vector3.Distance(tempLocation, transform.position);
         if(distance <= 2)
         {            
+            
+            if(!reachedDestination)
+            {
+                PlayEatAnimation();
+                StopFinishedAnimation();
+            }
             reachedDestination = true;
+
             RotateTowards(tempLocation);
             //set the new position to go to be the spot you are standing
             navMeshAgent.SetDestination(this.transform.position);
@@ -1184,6 +1258,7 @@ public class TestCreature : MonoBehaviour
     {
         if (stateJustChanged)
         {
+            PlayFinishedAnimation();
             navMeshAgent.speed = speed;
             //transform.rotation *= Quaternion.Euler(0, 0, 0);
             stateJustChanged = false;
@@ -1200,12 +1275,15 @@ public class TestCreature : MonoBehaviour
         {
             if(!reachedDestination)
             {
-                Debug.Log("" + this.gameObject + " now washing face!");
+                PlaySplashAnimation();
+                StopFinishedAnimation();
+                //Debug.Log("" + this.gameObject + " now washing face!");
             }
             //set the new position to go to be the spot you are standing
             navMeshAgent.SetDestination(this.transform.position);            
             reachedDestination = true;
             //probably play wash face animation here
+            
         }
     }
 
@@ -1214,6 +1292,7 @@ public class TestCreature : MonoBehaviour
     {
         if (stateJustChanged)
         {
+            PlayFinishedAnimation();
             navMeshAgent.speed = speed;
             //transform.rotation *= Quaternion.Euler(0, 0, 0);
             stateJustChanged = false;
@@ -1235,13 +1314,16 @@ public class TestCreature : MonoBehaviour
             if(!reachedDestination)
             {
                 Debug.Log("" + this.gameObject + "now chasing tail!");
+                PlayTailChaseAnimation();
+                StopFinishedAnimation();
             }
 
             //set the new position to go to be the spot you are standing
             //navMeshAgent.SetDestination(this.transform.position);
             reachedDestination = true;
-            
+
             //probably play chase tail animation here -- MAYBE apply rotations?
+            
         }
 
         //if the dog reached the starting point
@@ -1266,9 +1348,6 @@ public class TestCreature : MonoBehaviour
                 {
                     secondaryLocationReached = 0;
                 }
-                
-
-                //probably play chase tail animation here -- MAYBE apply rotations?
             }
         }
     }
@@ -1278,6 +1357,7 @@ public class TestCreature : MonoBehaviour
     {
         if (stateJustChanged)
         {
+            PlayFinishedAnimation();
             navMeshAgent.speed = speed;
             //transform.rotation *= Quaternion.Euler(0, 0, 0);
             stateJustChanged = false;
@@ -1296,6 +1376,8 @@ public class TestCreature : MonoBehaviour
         {
             if(!reachedDestination)
             {
+                PlayRoarAnimation();
+                StopFinishedAnimation();
                 Debug.Log("" + this.gameObject + " arrived at position number " + UniqueLocations[randomLocation]);
                 //play roar sound here
             }
@@ -1306,6 +1388,7 @@ public class TestCreature : MonoBehaviour
             reachedDestination = true;
             startedUnInteruptable = true;
             //probably play roar animation/sound here - maybe a check to get here first to play sound?
+            
         }
 
         //if you reached the destination, wait until the duration of the roar is over
@@ -1337,6 +1420,7 @@ public class TestCreature : MonoBehaviour
     {
         if (stateJustChanged)
         {
+            PlayFinishedAnimation();
             navMeshAgent.speed = speed;
             //transform.rotation *= Quaternion.Euler(0, 0, 0);
             stateJustChanged = false;
@@ -1358,7 +1442,10 @@ public class TestCreature : MonoBehaviour
             {
                 startedUnInteruptable = true;
                 navMeshAgent.speed = runSpeed;
+                PlaySlideStartAnimation();
+                StopFinishedAnimation();
                 Debug.Log("start runing " + this.gameObject);
+
             }
 
             //set the new position to go to be the spot you are standing
@@ -1384,6 +1471,8 @@ public class TestCreature : MonoBehaviour
                 {
                     //reset speed and play flop animation
                     navMeshAgent.speed = speed;
+                    PlaySlideContinueAnimation();
+                    //StopFinishedAnimation();
                     Debug.Log("FLOP! " + this.gameObject);
                 }
 
@@ -1410,6 +1499,7 @@ public class TestCreature : MonoBehaviour
     {
         if (stateJustChanged)
         {
+            PlayFinishedAnimation();
             navMeshAgent.speed = speed;
             //transform.rotation *= Quaternion.Euler(0, 0, 0);
             stateJustChanged = false;
@@ -1426,12 +1516,14 @@ public class TestCreature : MonoBehaviour
         {
             if (!reachedDestination)
             {
+                PlayRollAnimation();
+                StopFinishedAnimation();
                 Debug.Log("" + this.gameObject + "now rolling around");
             }
             //set the new position to go to be the spot you are standing
             //navMeshAgent.SetDestination(this.transform.position);
             reachedDestination = true;
-
+            
             //probably play roll animation/sound here - maybe a check to get here first to play sound?
         }
 
@@ -1469,6 +1561,7 @@ public class TestCreature : MonoBehaviour
     {
         if (stateJustChanged)
         {
+            PlayFinishedAnimation();
             navMeshAgent.speed = speed;
             //transform.rotation *= Quaternion.Euler(0, 0, 0);
             stateJustChanged = false;
@@ -1485,6 +1578,8 @@ public class TestCreature : MonoBehaviour
         {
             if(!reachedDestination)
             {
+                PlayPeckAnimation();
+                StopFinishedAnimation();
                 Debug.Log("" + this.gameObject + " starting pecking");
             }
 
@@ -1493,7 +1588,7 @@ public class TestCreature : MonoBehaviour
             navMeshAgent.SetDestination(this.transform.position);
             //Debug.Log("" + this.gameObject + " reached a bush");
 
-            //probably play bellyflop animation/sound here - maybe a check to get here first to play sound?
+            
         }
     }
 
@@ -1502,6 +1597,7 @@ public class TestCreature : MonoBehaviour
     {
         if (stateJustChanged)
         {
+            PlayFinishedAnimation();
             navMeshAgent.speed = speed;
             //transform.rotation *= Quaternion.Euler(0, 0, 0);
             stateJustChanged = false;
@@ -1518,6 +1614,8 @@ public class TestCreature : MonoBehaviour
         {
             if (!reachedDestination)
             {
+                PlayLevitateAnimation();
+                StopFinishedAnimation();
                 Debug.Log("" + this.gameObject + " starting levitating");
             }
             reachedDestination = true;
@@ -1525,7 +1623,7 @@ public class TestCreature : MonoBehaviour
             navMeshAgent.SetDestination(this.transform.position);
             //Debug.Log("" + this.gameObject + " reached a bush");
 
-            //probably play bellyflop animation/sound here - maybe a check to get here first to play sound?
+            
         }
     }
 
@@ -1534,6 +1632,7 @@ public class TestCreature : MonoBehaviour
     {
         if (stateJustChanged)
         {
+            PlayFinishedAnimation();
             navMeshAgent.speed = speed;
             //transform.rotation *= Quaternion.Euler(0, 0, 0);
             stateJustChanged = false;
@@ -1550,6 +1649,8 @@ public class TestCreature : MonoBehaviour
         {
             if(!reachedDestination)
             {
+                PlayPunchAnimation();
+                StopFinishedAnimation();
                 Debug.Log("" + this.gameObject + " reached tree");
             }
 
@@ -1560,6 +1661,7 @@ public class TestCreature : MonoBehaviour
             //Debug.Log("" + this.gameObject + " reached a bush");
 
             //probably play punch animation/sound here - maybe a check to get here first to play sound?
+           
         }
 
         //if you reached the destination, wait until the duration of the punch is over
@@ -1599,5 +1701,115 @@ public class TestCreature : MonoBehaviour
         Vector3 direction = (targetOnlyY - positionOnlyY).normalized;
         Quaternion lookRotation = Quaternion.LookRotation(direction);
         transform.rotation = Quaternion.Slerp(transform.rotation, lookRotation, Time.deltaTime * rotationSpeed);
+    }
+
+
+
+    //Animation functions below!!! ----------------------------------------------------------------------
+
+
+    //finish whatever you are doing (transition back to walking after time changes)
+    public void PlayFinishedAnimation()
+    {
+        Debug.Log("" + this.gameObject + " finished an Animation");
+        creatureAnimator.SetTrigger("FinishedTrigger");
+    }
+
+    //call this after play finished animation to prevent bugs?
+    public void StopFinishedAnimation()
+    {
+        Debug.Log("" + this.gameObject + " clearing FinishedTrigger");
+        creatureAnimator.ResetTrigger("FinishedTrigger");
+    }
+
+    //eat animation (shared by all creatures) - needs to be turned off
+    public void PlayEatAnimation()
+    {
+        Debug.Log("" + this.gameObject + " started Eat Animation");
+        creatureAnimator.SetTrigger("EatTrigger");
+    }    
+
+    //sleep animation (shared by all creatures) - needs to be turned off
+    public void PlaySleepAnimation()
+    {
+        Debug.Log("" + this.gameObject + " started sleep Animation");
+        creatureAnimator.SetTrigger("SleepTrigger");
+    }
+
+    //passive (shared by half creatures) - needs to be turned off
+    public void PlayAlertPassiveAnimation()
+    {
+        Debug.Log("" + this.gameObject + " started passive Animation");
+        creatureAnimator.SetTrigger("PassiveTrigger");
+    }
+
+    //scared (shared by half creatures, handles transition to run) - needs to be turned off
+    public void PlayAlertScaredAnimation()
+    {
+        Debug.Log("" + this.gameObject + " started scared Animation");
+        creatureAnimator.SetTrigger("ScaredTrigger");
+    }
+
+    //fish splash animation - needs to be turned off
+    public void PlaySplashAnimation()
+    {
+        Debug.Log("" + this.gameObject + " started splash Animation");
+        creatureAnimator.SetTrigger("SplashTrigger");
+    }
+
+    //dog notice tail animation (just the start, animator handles transition to run, - needs to be turned off)
+    public void PlayTailChaseAnimation()
+    {
+        Debug.Log("" + this.gameObject + " started tail chase Animation");
+        creatureAnimator.SetTrigger("ChaseTrigger");
+    }
+
+    //tiger roar animation - (animator handles end transition)
+    public void PlayRoarAnimation()
+    {
+        Debug.Log("" + this.gameObject + " started roar Animation");
+        creatureAnimator.SetTrigger("RoarTrigger");
+    }
+
+    //dragon slide - just the start (run)
+    public void PlaySlideStartAnimation()
+    {
+        Debug.Log("" + this.gameObject + " started slide Animation");
+        creatureAnimator.SetTrigger("SlideTrigger");
+    }
+
+    //dragon slide (run to slide - needs to be turned off)
+    public void PlaySlideContinueAnimation()
+    {
+        Debug.Log("" + this.gameObject + " started slide Animation");
+        creatureAnimator.SetTrigger("Slide2Trigger");
+    }
+
+    //cow roll - needs to be turned off
+    public void PlayRollAnimation()
+    {
+        Debug.Log("" + this.gameObject + " started roll Animation");
+        creatureAnimator.SetTrigger("RollTrigger");
+    }
+
+    //duck peck - needs to be turned off
+    public void PlayPeckAnimation()
+    {
+        Debug.Log("" + this.gameObject + " started peck Animation");
+        creatureAnimator.SetTrigger("PeckTrigger");
+    }
+
+    //cat levitate - needs to be turned off
+    public void PlayLevitateAnimation()
+    {
+        Debug.Log("" + this.gameObject + " started levitate Animation");
+        creatureAnimator.SetTrigger("LevitateTrigger");
+    }
+
+    //rabbit punch - (animator handles end transition)
+    public void PlayPunchAnimation()
+    {
+        Debug.Log("" + this.gameObject + " started punch Animation");
+        creatureAnimator.SetTrigger("PunchTrigger");
     }
 }
