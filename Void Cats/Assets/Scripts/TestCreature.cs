@@ -1722,7 +1722,7 @@ public class TestCreature : MonoBehaviour
     //call this after play finished animation to prevent bugs?
     public void StopFinishedAnimation()
     {
-        Debug.Log("" + this.gameObject + " clearing FinishedTrigger");
+        //Debug.Log("" + this.gameObject + " clearing FinishedTrigger");
         creatureAnimator.ResetTrigger("FinishedTrigger");
     }
 
