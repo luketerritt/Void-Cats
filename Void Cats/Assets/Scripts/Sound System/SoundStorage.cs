@@ -30,76 +30,82 @@ public class SoundStorage : MonoBehaviour
     public AudioSource clickButtonUISound;
     public AudioSource clickJournalTabsUISound;
 
+    //general creature sounds
+    public AudioSource EatSound;
+    public AudioSource SleepSound;
+    public AudioSource StartledSound;
+    public AudioSource CuriousSound;
+
     //Fish sounds
-    public AudioSource FishEatSound;
-    public AudioSource FishSleepSound;
-    public AudioSource FishScaredSound;
-    public AudioSource FishStartledSound;
+    //public AudioSource FishEatSound;
+    //public AudioSource FishSleepSound;
+    //public AudioSource FishScaredSound;
+    //public AudioSource FishStartledSound;
     //public AudioSource FishCuriousSound;
-    public AudioSource FishIdleSound;
+    //public AudioSource FishIdleSound;
     public AudioSource FishUniqueSound;
 
     //Dog sounds
-    public AudioSource DogEatSound;
-    public AudioSource DogSleepSound;
+    //public AudioSource DogEatSound;
+    //public AudioSource DogSleepSound;
     //public AudioSource DogScaredSound;
-    public AudioSource DogStartledSound;
-    public AudioSource DogCuriousSound;
-    public AudioSource DogIdleSound;
+    //public AudioSource DogStartledSound;
+    //public AudioSource DogCuriousSound;
+    //public AudioSource DogIdleSound;
     public AudioSource DogUniqueSound;
 
     //Tiger sounds
-    public AudioSource TigerEatSound;
-    public AudioSource TigerSleepSound;
+    //public AudioSource TigerEatSound;
+    //public AudioSource TigerSleepSound;
     //public AudioSource TigerScaredSound;
-    public AudioSource TigerStartledSound;
-    public AudioSource TigerCuriousSound;
-    public AudioSource TigerIdleSound;
-    public AudioSource TigerUniqueSound;
+    //public AudioSource TigerStartledSound;
+    //public AudioSource TigerCuriousSound;
+    //public AudioSource TigerIdleSound;
+    public AudioSource[] TigerUniqueSound;
 
     //Dragon sounds
-    public AudioSource DragonEatSound;
-    public AudioSource DragonSleepSound;
+    //public AudioSource DragonEatSound;
+    //public AudioSource DragonSleepSound;
     //public AudioSource DragonScaredSound;
-    public AudioSource DragonStartledSound;
-    public AudioSource DragonCuriousSound;
-    public AudioSource DragonIdleSound;
+    //public AudioSource DragonStartledSound;
+    //public AudioSource DragonCuriousSound;
+    //public AudioSource DragonIdleSound;
     public AudioSource DragonUniqueSound;
 
     //Cow sounds
-    public AudioSource CowEatSound;
-    public AudioSource CowSleepSound;
-    public AudioSource CowScaredSound;
-    public AudioSource CowStartledSound;
+    //public AudioSource CowEatSound;
+    //public AudioSource CowSleepSound;
+    //public AudioSource CowScaredSound;
+    //public AudioSource CowStartledSound;
     //public AudioSource CowCuriousSound;
-    public AudioSource CowIdleSound;
+    //public AudioSource CowIdleSound;
     public AudioSource CowUniqueSound;
 
     //Duck sounds
-    public AudioSource DuckEatSound;
-    public AudioSource DuckSleepSound;
-    public AudioSource DuckScaredSound;
-    public AudioSource DuckStartledSound;
+    //public AudioSource DuckEatSound;
+    //public AudioSource DuckSleepSound;
+    //public AudioSource DuckScaredSound;
+    //public AudioSource DuckStartledSound;
     //public AudioSource DuckCuriousSound;
-    public AudioSource DuckIdleSound;
+    //public AudioSource DuckIdleSound;
     public AudioSource DuckUniqueSound;
 
     //Cat sounds
-    public AudioSource CatEatSound;
-    public AudioSource CatSleepSound;
-    public AudioSource CatScaredSound;
-    public AudioSource CatStartledSound;
+    //public AudioSource CatEatSound;
+    //public AudioSource CatSleepSound;
+    //public AudioSource CatScaredSound;
+    //public AudioSource CatStartledSound;
     //public AudioSource CatCuriousSound;
-    public AudioSource CatIdleSound;
+    //public AudioSource CatIdleSound;
     public AudioSource CatUniqueSound;
 
     //Rabbit sounds
-    public AudioSource RabbitEatSound;
-    public AudioSource RabbitSleepSound;
-    public AudioSource RabbitScaredSound;
-    public AudioSource RabbitStartledSound;
+    //public AudioSource RabbitEatSound;
+    //public AudioSource RabbitSleepSound;
+    //public AudioSource RabbitScaredSound;
+    //public AudioSource RabbitStartledSound;
     //public AudioSource RabbitCuriousSound;
-    public AudioSource RabbitIdleSound;
+    //public AudioSource RabbitIdleSound;
     public AudioSource RabbitUniqueSound;
     public AudioSource RabbitWoodSound;
 
@@ -108,15 +114,63 @@ public class SoundStorage : MonoBehaviour
     public AudioSource bushRustleSound;
     public AudioSource TPBuildSound;
 
+    public GameObject player;
+
+    public float distanceChecker = 6;
 
     //to use this, use this
     //(SoundContainer is a public gameobject dragged into your script via inspector)
     //var tempSound = SoundContainer.GetComponent<SoundStorage>();
     //tempSound.playSound(SoundContainer.GetComponent<SoundStorage>(). SOUND YOU WANT HERE);
 
+    //default play sound
     public void playSound(AudioSource audio)
     {
         //Debug.Log("playing sound " + audio);
         audio.PlayOneShot(audio.clip);
     }
+
+    //default stop sound
+    public void stopSound(AudioSource audio)
+    {
+        audio.Stop();
+    }
+
+    //the delay is a float that determines start of the clip
+    public void playSound(AudioSource audio, float delay)
+    {
+        audio.time = delay;
+        audio.PlayOneShot(audio.clip);
+    }
+
+    //checks current position against the player and plays if the distance is ok
+    public void playSound(AudioSource audio, Vector3 pos)
+    {
+        //get the distance between the player and the object emitting the sound
+        float distance = Vector3.Distance(player.gameObject.GetComponent<Transform>().position, pos);
+        if(distance <= distanceChecker /* and the game is not paused!!!*/)
+        {
+            audio.volume = (float)(1 -(distance * 0.1));
+            //if the audio is not playing, play it
+            if(!audio.isPlaying)
+            {
+                audio.PlayOneShot(audio.clip);
+            }
+            
+        }
+        else //stop the audio
+        {
+            audio.Stop();
+        }
+    }
+
+
+
+    //nice scaling sound, but cannot be used for looping clips sadly :(
+    public void playCreatureSound(AudioSource audio, Vector3 creaturePosition)
+    {
+        AudioSource.PlayClipAtPoint(audio.clip, creaturePosition);
+    }
+
+    
 }

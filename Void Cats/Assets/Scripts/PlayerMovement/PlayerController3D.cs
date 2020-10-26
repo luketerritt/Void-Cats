@@ -155,7 +155,7 @@ public class PlayerController3D : MonoBehaviour
 
                 if(footstepIterator > footstepTimer)
                 {
-                    int i = Random.Range(0, 4);
+                    int i = Random.Range(0, 10);
                     //Debug.Log("play footstep sound");
                     var tempSound = soundStorage.GetComponent<SoundStorage>();
                     tempSound.playSound(soundStorage.GetComponent<SoundStorage>().grassStepSounds[i]);
