@@ -40,7 +40,7 @@ GameObject:
   - component: {fileID: 4211300396289758306}
   - component: {fileID: 4211300396289758307}
   - component: {fileID: 4211300396289758308}
-  - component: {fileID: 8604590382123915108}
+  - component: {fileID: 5586308440351447824}
   m_Layer: 0
   m_Name: Fish_Creature
   m_TagString: Creature
@@ -109,6 +109,7 @@ MonoBehaviour:
   reachedDestination: 0
   roarDuration: 5
   creatureAnimator: {fileID: 0}
+  soundObject: {fileID: 0}
 --- !u!195 &4211300396289758308
 NavMeshAgent:
   m_ObjectHideFlags: 0
@@ -131,7 +132,7 @@ NavMeshAgent:
   m_BaseOffset: 0
   m_WalkableMask: 4294967295
   m_ObstacleAvoidanceType: 4
---- !u!95 &8604590382123915108
+--- !u!95 &5586308440351447824
 Animator:
   serializedVersion: 3
   m_ObjectHideFlags: 0
@@ -199,7 +200,7 @@ PrefabInstance:
     - target: {fileID: -4216859302048453862, guid: a2bc50cc37465ec4f820182733545699,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: -0
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: -4216859302048453862, guid: a2bc50cc37465ec4f820182733545699,
         type: 3}
@@ -326,8 +327,7 @@ PrefabInstance:
       propertyPath: m_Materials.Array.data[0]
       value: 
       objectReference: {fileID: 2100000, guid: c74730ae21448b04eb2a05ebdbaf28bd, type: 2}
-    m_RemovedComponents:
-    - {fileID: -6057140222963153312, guid: a2bc50cc37465ec4f820182733545699, type: 3}
+    m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: a2bc50cc37465ec4f820182733545699, type: 3}
 --- !u!4 &6134776756852206370 stripped
 Transform:

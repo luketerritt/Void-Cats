@@ -95,6 +95,7 @@ MonoBehaviour:
   reachedDestination: 0
   roarDuration: 5
   creatureAnimator: {fileID: 0}
+  soundObject: {fileID: 0}
 --- !u!195 &732117392802620771
 NavMeshAgent:
   m_ObjectHideFlags: 0
@@ -126,8 +127,8 @@ Animator:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3573857101445686795}
   m_Enabled: 1
-  m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: 9d062d4e1a0aa2b4191ede23a8613912, type: 2}
+  m_Avatar: {fileID: 9000000, guid: 53da1b1baa05dab48b24229f92041aee, type: 3}
+  m_Controller: {fileID: 9100000, guid: eaa11a2852a27724e8182356f9c13106, type: 2}
   m_CullingMode: 0
   m_UpdateMode: 0
   m_ApplyRootMotion: 0
@@ -185,7 +186,7 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Controller
       value: 
-      objectReference: {fileID: 9100000, guid: 9d062d4e1a0aa2b4191ede23a8613912, type: 2}
+      objectReference: {fileID: 9100000, guid: eaa11a2852a27724e8182356f9c13106, type: 2}
     - target: {fileID: -5872334095885570582, guid: 53da1b1baa05dab48b24229f92041aee,
         type: 3}
       propertyPath: m_Materials.Array.data[0]
@@ -291,6 +292,16 @@ PrefabInstance:
       propertyPath: m_Materials.Array.data[0]
       value: 
       objectReference: {fileID: 2100000, guid: de1241a496bb3114bae51b36027a7a4b, type: 2}
+    - target: {fileID: 1889787858751671169, guid: 53da1b1baa05dab48b24229f92041aee,
+        type: 3}
+      propertyPath: m_LocalRotation.x
+      value: -0.025663437
+      objectReference: {fileID: 0}
+    - target: {fileID: 1889787858751671169, guid: 53da1b1baa05dab48b24229f92041aee,
+        type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0.70750207
+      objectReference: {fileID: 0}
     - target: {fileID: 2222318654435216800, guid: 53da1b1baa05dab48b24229f92041aee,
         type: 3}
       propertyPath: m_Materials.Array.data[0]

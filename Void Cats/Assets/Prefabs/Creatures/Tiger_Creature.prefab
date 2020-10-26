@@ -54,6 +54,7 @@ GameObject:
   - component: {fileID: 7614934947110214879}
   - component: {fileID: 8410989490678827942}
   - component: {fileID: 7325680058781557757}
+  - component: {fileID: 3926751836565478875}
   m_Layer: 0
   m_Name: Tiger_Creature
   m_TagString: Creature
@@ -128,6 +129,7 @@ MonoBehaviour:
   reachedDestination: 0
   roarDuration: 5
   creatureAnimator: {fileID: 0}
+  soundObject: {fileID: 0}
 --- !u!136 &7325680058781557757
 CapsuleCollider:
   m_ObjectHideFlags: 0
@@ -142,6 +144,25 @@ CapsuleCollider:
   m_Height: 1.4518728
   m_Direction: 1
   m_Center: {x: 0.020111084, y: 0.7319026, z: 0}
+--- !u!95 &3926751836565478875
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3888066318443173682}
+  m_Enabled: 1
+  m_Avatar: {fileID: 9000000, guid: 11a962e998160ac478d48ce34102f772, type: 3}
+  m_Controller: {fileID: 9100000, guid: eaa11a2852a27724e8182356f9c13106, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!95 &9073893198876797075
 Animator:
   serializedVersion: 3
@@ -152,7 +173,7 @@ Animator:
   m_GameObject: {fileID: 7928759849797530399}
   m_Enabled: 1
   m_Avatar: {fileID: 9000000, guid: 11a962e998160ac478d48ce34102f772, type: 3}
-  m_Controller: {fileID: 9100000, guid: 9d062d4e1a0aa2b4191ede23a8613912, type: 2}
+  m_Controller: {fileID: 9100000, guid: eaa11a2852a27724e8182356f9c13106, type: 2}
   m_CullingMode: 0
   m_UpdateMode: 0
   m_ApplyRootMotion: 0
@@ -428,6 +449,16 @@ PrefabInstance:
       propertyPath: m_Materials.Array.data[0]
       value: 
       objectReference: {fileID: 2100000, guid: eaefef88f4021b146845b54b36ec5b01, type: 2}
+    - target: {fileID: 1889787858751671169, guid: 11a962e998160ac478d48ce34102f772,
+        type: 3}
+      propertyPath: m_LocalRotation.x
+      value: -0.025663437
+      objectReference: {fileID: 0}
+    - target: {fileID: 1889787858751671169, guid: 11a962e998160ac478d48ce34102f772,
+        type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0.70750207
+      objectReference: {fileID: 0}
     - target: {fileID: 2175806255330211674, guid: 11a962e998160ac478d48ce34102f772,
         type: 3}
       propertyPath: m_Materials.Array.data[0]

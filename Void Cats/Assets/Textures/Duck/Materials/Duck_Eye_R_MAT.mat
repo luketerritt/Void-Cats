@@ -1,0 +1,50 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!21 &2100000
+Material:
+  serializedVersion: 6
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: Duck_Eye_R_MAT
+  m_Shader: {fileID: -6465566751694194690, guid: d56207ae41907344ca4d8e724b2e25a5,
+    type: 3}
+  m_ShaderKeywords: 
+  m_LightmapFlags: 4
+  m_EnableInstancingVariants: 0
+  m_DoubleSidedGI: 0
+  m_CustomRenderQueue: -1
+  stringTagMap: {}
+  disabledShaderPasses: []
+  m_SavedProperties:
+    serializedVersion: 3
+    m_TexEnvs:
+    - Texture2D_1AB89DF3:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - Texture2D_64F6C46C:
+        m_Texture: {fileID: 2800000, guid: 6c02a7b3071469f44b9e7cce1581ce6c, type: 3}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - Texture2D_A84EA9A3:
+        m_Texture: {fileID: 2800000, guid: a7d82fbb978452642a13dbe2a0ab07e1, type: 3}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _Texture2DAsset_18AAF1B1_Out_0:
+        m_Texture: {fileID: 2800000, guid: 4da7c04b75a36eb4a9982cd8fa8ca257, type: 3}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _Texture2DAsset_8C6D7FE9_Out_0:
+        m_Texture: {fileID: 2800000, guid: 15ec39e7a123f27439dc6cb7bc0c3088, type: 3}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    m_Floats:
+    - Boolean_3B520248: 0
+    - Vector1_1005A27C: 2
+    - Vector1_3E3DE1B5: 10
+    - Vector1_AD0DD0F9: 4
+    - Vector1_D754BA7D: 8
+    m_Colors:
+    - _Jnt_Eye_xyz: {r: 0, g: 0, b: 0, a: 0}
