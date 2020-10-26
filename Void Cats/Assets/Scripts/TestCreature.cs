@@ -128,6 +128,9 @@ public class TestCreature : MonoBehaviour
 
     public GameObject soundObject;
 
+    //make this unique for each creature!
+    public int soundID = 0;
+
     private int soundRandom;
     // Start is called before the first frame update
     void Start()
@@ -1149,13 +1152,13 @@ public class TestCreature : MonoBehaviour
 
             tempSound.playSound(tempSound.StartledSound, this.transform.position);
             //ensure looping creature sounds are not playing
-            if(tempSound.EatSound.isPlaying)
+            if(tempSound.EatSound[soundID].isPlaying)
             {
-                tempSound.stopSound(tempSound.EatSound);
+                tempSound.stopSound(tempSound.EatSound[soundID]);
             }
-            if(tempSound.SleepSound.isPlaying)
+            if(tempSound.SleepSound[soundID].isPlaying)
             {
-                tempSound.stopSound(tempSound.SleepSound);
+                tempSound.stopSound(tempSound.SleepSound[soundID]);
             }
             
         }
@@ -1200,13 +1203,13 @@ public class TestCreature : MonoBehaviour
             var tempSound = soundObject.GetComponent<SoundStorage>();
             tempSound.playSound(tempSound.CuriousSound, this.transform.position);
 
-            if (tempSound.EatSound.isPlaying)
+            if (tempSound.EatSound[soundID].isPlaying)
             {
-                tempSound.stopSound(tempSound.EatSound);
+                tempSound.stopSound(tempSound.EatSound[soundID]);
             }
-            if (tempSound.SleepSound.isPlaying)
+            if (tempSound.SleepSound[soundID].isPlaying)
             {
-                tempSound.stopSound(tempSound.SleepSound);
+                tempSound.stopSound(tempSound.SleepSound[soundID]);
             }
         }
 
@@ -1236,11 +1239,11 @@ public class TestCreature : MonoBehaviour
             PlaySleepAnimation();
             //StopFinishedAnimation();
             //var tempSound = soundObject.GetComponent<SoundStorage>();
-            tempSound.playSound(tempSound.SleepSound, this.transform.position);
+            tempSound.playSound(tempSound.SleepSound[soundID], this.transform.position);
             //make sure eat sound is not playing
-            if (tempSound.EatSound.isPlaying)
+            if (tempSound.EatSound[soundID].isPlaying)
             {
-                tempSound.stopSound(tempSound.EatSound);
+                tempSound.stopSound(tempSound.EatSound[soundID]);
             }
             
 
@@ -1251,7 +1254,7 @@ public class TestCreature : MonoBehaviour
         }
 
         
-        tempSound.playSound(tempSound.SleepSound, this.transform.position);
+        tempSound.playSound(tempSound.SleepSound[soundID], this.transform.position);
 
         //need a way to apply this just once -- BINGO
         transform.rotation *= Quaternion.Euler(0, 0, 90.0f);
@@ -1274,13 +1277,13 @@ public class TestCreature : MonoBehaviour
 
             //make sure sleep sound is not playing
             var tempSound = soundObject.GetComponent<SoundStorage>();
-            if (tempSound.EatSound.isPlaying)
+            if (tempSound.EatSound[soundID].isPlaying)
             {
-                tempSound.stopSound(tempSound.EatSound);
+                tempSound.stopSound(tempSound.EatSound[soundID]);
             }
-            if (tempSound.SleepSound.isPlaying)
+            if (tempSound.SleepSound[soundID].isPlaying)
             {
-                tempSound.stopSound(tempSound.SleepSound);
+                tempSound.stopSound(tempSound.SleepSound[soundID]);
             }
         }
         
@@ -1309,7 +1312,7 @@ public class TestCreature : MonoBehaviour
             navMeshAgent.SetDestination(this.transform.position);
             //Debug.Log("" + this.gameObject + " reached a bush");
 
-            tempSound.playSound(tempSound.EatSound, this.transform.position);
+            tempSound.playSound(tempSound.EatSound[soundID], this.transform.position);
         }
     }
 
@@ -1324,13 +1327,13 @@ public class TestCreature : MonoBehaviour
             stateJustChanged = false;
             reachedDestination = false;
             var tempSound = soundObject.GetComponent<SoundStorage>();
-            if (tempSound.EatSound.isPlaying)
+            if (tempSound.EatSound[soundID].isPlaying)
             {
-                tempSound.stopSound(tempSound.EatSound);
+                tempSound.stopSound(tempSound.EatSound[soundID]);
             }
-            if (tempSound.SleepSound.isPlaying)
+            if (tempSound.SleepSound[soundID].isPlaying)
             {
-                tempSound.stopSound(tempSound.SleepSound);
+                tempSound.stopSound(tempSound.SleepSound[soundID]);
             }
         }
 
@@ -1369,13 +1372,13 @@ public class TestCreature : MonoBehaviour
             secondaryLocationReached = 0;
             startedUnInteruptable = false;
             var tempSound = soundObject.GetComponent<SoundStorage>();
-            if (tempSound.EatSound.isPlaying)
+            if (tempSound.EatSound[soundID].isPlaying)
             {
-                tempSound.stopSound(tempSound.EatSound);
+                tempSound.stopSound(tempSound.EatSound[soundID]);
             }
-            if (tempSound.SleepSound.isPlaying)
+            if (tempSound.SleepSound[soundID].isPlaying)
             {
-                tempSound.stopSound(tempSound.SleepSound);
+                tempSound.stopSound(tempSound.SleepSound[soundID]);
             }
         }
 
@@ -1444,13 +1447,13 @@ public class TestCreature : MonoBehaviour
             roarIterator = 0;
             soundRandom = Random.Range(0, 2);
             var tempSound = soundObject.GetComponent<SoundStorage>();
-            if (tempSound.EatSound.isPlaying)
+            if (tempSound.EatSound[soundID].isPlaying)
             {
-                tempSound.stopSound(tempSound.EatSound);
+                tempSound.stopSound(tempSound.EatSound[soundID]);
             }
-            if (tempSound.SleepSound.isPlaying)
+            if (tempSound.SleepSound[soundID].isPlaying)
             {
-                tempSound.stopSound(tempSound.SleepSound);
+                tempSound.stopSound(tempSound.SleepSound[soundID]);
             }
         }
 
@@ -1519,13 +1522,13 @@ public class TestCreature : MonoBehaviour
             secondaryLocationReached = 0;
             startedUnInteruptable = false;
             var tempSound = soundObject.GetComponent<SoundStorage>();
-            if (tempSound.EatSound.isPlaying)
+            if (tempSound.EatSound[soundID].isPlaying)
             {
-                tempSound.stopSound(tempSound.EatSound);
+                tempSound.stopSound(tempSound.EatSound[soundID]);
             }
-            if (tempSound.SleepSound.isPlaying)
+            if (tempSound.SleepSound[soundID].isPlaying)
             {
-                tempSound.stopSound(tempSound.SleepSound);
+                tempSound.stopSound(tempSound.SleepSound[soundID]);
             }
         }
 
@@ -1606,13 +1609,13 @@ public class TestCreature : MonoBehaviour
             reachedDestination = false;
             roarIterator = 0;
             var tempSound = soundObject.GetComponent<SoundStorage>();
-            if (tempSound.EatSound.isPlaying)
+            if (tempSound.EatSound[soundID].isPlaying)
             {
-                tempSound.stopSound(tempSound.EatSound);
+                tempSound.stopSound(tempSound.EatSound[soundID]);
             }
-            if (tempSound.SleepSound.isPlaying)
+            if (tempSound.SleepSound[soundID].isPlaying)
             {
-                tempSound.stopSound(tempSound.SleepSound);
+                tempSound.stopSound(tempSound.SleepSound[soundID]);
             }
         }
 
@@ -1676,13 +1679,13 @@ public class TestCreature : MonoBehaviour
             stateJustChanged = false;
             reachedDestination = false;
             var tempSound = soundObject.GetComponent<SoundStorage>();
-            if (tempSound.EatSound.isPlaying)
+            if (tempSound.EatSound[soundID].isPlaying)
             {
-                tempSound.stopSound(tempSound.EatSound);
+                tempSound.stopSound(tempSound.EatSound[soundID]);
             }
-            if (tempSound.SleepSound.isPlaying)
+            if (tempSound.SleepSound[soundID].isPlaying)
             {
-                tempSound.stopSound(tempSound.SleepSound);
+                tempSound.stopSound(tempSound.SleepSound[soundID]);
             }
         }
 
@@ -1721,13 +1724,13 @@ public class TestCreature : MonoBehaviour
             stateJustChanged = false;
             reachedDestination = false;
             var tempSound = soundObject.GetComponent<SoundStorage>();
-            if (tempSound.EatSound.isPlaying)
+            if (tempSound.EatSound[soundID].isPlaying)
             {
-                tempSound.stopSound(tempSound.EatSound);
+                tempSound.stopSound(tempSound.EatSound[soundID]);
             }
-            if (tempSound.SleepSound.isPlaying)
+            if (tempSound.SleepSound[soundID].isPlaying)
             {
-                tempSound.stopSound(tempSound.SleepSound);
+                tempSound.stopSound(tempSound.SleepSound[soundID]);
             }
         }
 
@@ -1765,13 +1768,13 @@ public class TestCreature : MonoBehaviour
             stateJustChanged = false;
             reachedDestination = false;
             var tempSound = soundObject.GetComponent<SoundStorage>();
-            if (tempSound.EatSound.isPlaying)
+            if (tempSound.EatSound[soundID].isPlaying)
             {
-                tempSound.stopSound(tempSound.EatSound);
+                tempSound.stopSound(tempSound.EatSound[soundID]);
             }
-            if (tempSound.SleepSound.isPlaying)
+            if (tempSound.SleepSound[soundID].isPlaying)
             {
-                tempSound.stopSound(tempSound.SleepSound);
+                tempSound.stopSound(tempSound.SleepSound[soundID]);
             }
         }
 
