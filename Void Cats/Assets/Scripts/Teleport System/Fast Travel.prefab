@@ -44,6 +44,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   playerController: {fileID: 0}
+  currTeleporterId: 0
   travelPosition:
   - {fileID: 0}
   - {fileID: 0}
@@ -53,4 +54,11 @@ MonoBehaviour:
   - {fileID: 0}
   - {fileID: 0}
   - {fileID: 0}
-  buttonTele: {fileID: 0}
+  teleportPadsList:
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  teleportPadMapUi: {fileID: 0}
