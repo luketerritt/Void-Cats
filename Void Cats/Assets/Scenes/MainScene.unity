@@ -176,32 +176,6 @@ GameObject:
     type: 3}
   m_PrefabInstance: {fileID: 29214024603889402}
   m_PrefabAsset: {fileID: 0}
---- !u!21 &50577538
-Material:
-  serializedVersion: 6
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_Name: Height Fog Global
-  m_Shader: {fileID: 4800000, guid: 3a7ef1b66bafb7a448a880ef76d2e6e6, type: 3}
-  m_ShaderKeywords: 
-  m_LightmapFlags: 4
-  m_EnableInstancingVariants: 0
-  m_DoubleSidedGI: 0
-  m_CustomRenderQueue: 3050
-  stringTagMap: {}
-  disabledShaderPasses: []
-  m_SavedProperties:
-    serializedVersion: 3
-    m_TexEnvs: []
-    m_Floats:
-    - _HeightFogGlobal: 1
-    - _IsHeightFogShader: 1
-    - _IsStandardPipeline: 0
-    - _TITLE: 1
-    - _TransparentQueue: 3000
-    m_Colors: []
 --- !u!1001 &54116125
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -4268,6 +4242,32 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1017222808}
   m_CullTransparentMesh: 0
+--- !u!21 &1020060868
+Material:
+  serializedVersion: 6
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: Height Fog Global
+  m_Shader: {fileID: 4800000, guid: 3a7ef1b66bafb7a448a880ef76d2e6e6, type: 3}
+  m_ShaderKeywords: 
+  m_LightmapFlags: 4
+  m_EnableInstancingVariants: 0
+  m_DoubleSidedGI: 0
+  m_CustomRenderQueue: 3050
+  stringTagMap: {}
+  disabledShaderPasses: []
+  m_SavedProperties:
+    serializedVersion: 3
+    m_TexEnvs: []
+    m_Floats:
+    - _HeightFogGlobal: 1
+    - _IsHeightFogShader: 1
+    - _IsStandardPipeline: 0
+    - _TITLE: 1
+    - _TransparentQueue: 3000
+    m_Colors: []
 --- !u!224 &1040238746 stripped
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 1859248921532112050, guid: 8d997d1b0f7e09c44aa985eadf7cc88e,
@@ -4617,6 +4617,63 @@ Transform:
   m_Father: {fileID: 1991565602}
   m_RootOrder: 21
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!21 &1086612174
+Material:
+  serializedVersion: 6
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: Override
+  m_Shader: {fileID: 4800000, guid: a3a3bc8785681554d9558e2ea68f100e, type: 3}
+  m_ShaderKeywords: 
+  m_LightmapFlags: 4
+  m_EnableInstancingVariants: 0
+  m_DoubleSidedGI: 0
+  m_CustomRenderQueue: -1
+  stringTagMap: {}
+  disabledShaderPasses: []
+  m_SavedProperties:
+    serializedVersion: 3
+    m_TexEnvs: []
+    m_Floats:
+    - _DIRECTIONALL: 1
+    - _DirectionalCustom: 0
+    - _DirectionalFalloff: 2
+    - _DirectionalIntensity: 1
+    - _DirectionalMode: 1
+    - _DirectionalModeBlend: 1
+    - _FOGG: 1
+    - _FogAxisMode: 1
+    - _FogColorDuo: 1
+    - _FogDistanceEnd: 200
+    - _FogDistanceFalloff: 2
+    - _FogDistanceStart: -200
+    - _FogHeightEnd: 200
+    - _FogHeightFalloff: 2
+    - _FogHeightStart: 0
+    - _FogIntensity: 1
+    - _IsHeightFogPreset: 1
+    - _IsHeightFogShader: 1
+    - _IsStandardPipeline: 0
+    - _NOISEE: 1
+    - _NoiseDistanceEnd: 50
+    - _NoiseIntensity: 1
+    - _NoiseMode: 2
+    - _NoiseModeBlend: 1
+    - _NoiseScale: 30
+    - _SKYBOXX: 1
+    - _SkyboxFogFalloff: 1
+    - _SkyboxFogFill: 1
+    - _SkyboxFogHeight: 1
+    - _TITLE: 1
+    m_Colors:
+    - _DirectionalColor: {r: 1, g: 0.7793103, b: 0.5, a: 1}
+    - _DirectionalCustomDir: {r: 0, g: 0, b: 0, a: 0}
+    - _FogAxisOption: {r: 0, g: 0, b: 0, a: 0}
+    - _FogColorEnd: {r: 0.8862745, g: 1.443137, b: 2, a: 1}
+    - _FogColorStart: {r: 0.4411765, g: 0.722515, b: 1, a: 1}
+    - _NoiseSpeed: {r: 0.5, g: 0, b: 0.5, a: 0}
 --- !u!1 &1094546235 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 4390436625338237845, guid: d2d7806eaf6caa54aa4068d2099ea571,
@@ -7728,12 +7785,12 @@ MonoBehaviour:
   timeOfDay: 0
   categoryScene: 0
   mainCamera: {fileID: 875725419}
-  mainDirectional: {fileID: 459779192}
+  mainDirectional: {fileID: 0}
   categoryFog: 0
-  fogIntensity: 0.8
+  fogIntensity: 0.244
   fogAxisMode: 1
-  fogColorStart: {r: 0.357647, g: 0.22352944, b: 0.6, a: 1}
-  fogColorEnd: {r: 0.2494118, g: 0.19058827, b: 0.6, a: 1}
+  fogColorStart: {r: 0.33490568, g: 0.6674528, b: 1, a: 1}
+  fogColorEnd: {r: 0.57022077, g: 0.6969528, b: 0.8113208, a: 1}
   fogColorDuo: 1
   fogDistanceStart: -100
   fogDistanceEnd: 100
@@ -7759,7 +7816,7 @@ MonoBehaviour:
   categoryAdvanced: 0
   renderPriority: 50
   styledSpace0: 0
-  overrideMaterial: {fileID: 1585420402}
+  overrideMaterial: {fileID: 1086612174}
   overrideCamToVolumeDistance: 1
   overrideVolumeDistanceFade: 0
   updater: 0
@@ -7788,7 +7845,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 50577538}
+  - {fileID: 1020060868}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -7932,63 +7989,6 @@ GameObject:
     type: 3}
   m_PrefabInstance: {fileID: 29214024603889402}
   m_PrefabAsset: {fileID: 0}
---- !u!21 &1585420402
-Material:
-  serializedVersion: 6
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_Name: Override
-  m_Shader: {fileID: 4800000, guid: a3a3bc8785681554d9558e2ea68f100e, type: 3}
-  m_ShaderKeywords: 
-  m_LightmapFlags: 4
-  m_EnableInstancingVariants: 0
-  m_DoubleSidedGI: 0
-  m_CustomRenderQueue: -1
-  stringTagMap: {}
-  disabledShaderPasses: []
-  m_SavedProperties:
-    serializedVersion: 3
-    m_TexEnvs: []
-    m_Floats:
-    - _DIRECTIONALL: 1
-    - _DirectionalCustom: 0
-    - _DirectionalFalloff: 2
-    - _DirectionalIntensity: 1
-    - _DirectionalMode: 1
-    - _DirectionalModeBlend: 1
-    - _FOGG: 1
-    - _FogAxisMode: 1
-    - _FogColorDuo: 1
-    - _FogDistanceEnd: 200
-    - _FogDistanceFalloff: 2
-    - _FogDistanceStart: -200
-    - _FogHeightEnd: 200
-    - _FogHeightFalloff: 2
-    - _FogHeightStart: 0
-    - _FogIntensity: 1
-    - _IsHeightFogPreset: 1
-    - _IsHeightFogShader: 1
-    - _IsStandardPipeline: 0
-    - _NOISEE: 1
-    - _NoiseDistanceEnd: 50
-    - _NoiseIntensity: 1
-    - _NoiseMode: 2
-    - _NoiseModeBlend: 1
-    - _NoiseScale: 30
-    - _SKYBOXX: 1
-    - _SkyboxFogFalloff: 1
-    - _SkyboxFogFill: 1
-    - _SkyboxFogHeight: 1
-    - _TITLE: 1
-    m_Colors:
-    - _DirectionalColor: {r: 1, g: 0.7793103, b: 0.5, a: 1}
-    - _DirectionalCustomDir: {r: 0, g: 0, b: 0, a: 0}
-    - _FogAxisOption: {r: 0, g: 0, b: 0, a: 0}
-    - _FogColorEnd: {r: 0.8862745, g: 1.443137, b: 2, a: 1}
-    - _FogColorStart: {r: 0.4411765, g: 0.722515, b: 1, a: 1}
-    - _NoiseSpeed: {r: 0.5, g: 0, b: 0.5, a: 0}
 --- !u!1 &1590247058
 GameObject:
   m_ObjectHideFlags: 0
