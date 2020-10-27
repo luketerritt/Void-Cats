@@ -53,6 +53,16 @@ public class LightingManager : MonoBehaviour
                 currentTimeOfDay = 24;
             }            
             UpdateLighting(currentTimeOfDay / 24f);
+
+            //test code to see if light can look ok when turned off 
+            if (currentQuater == (Quater)0 || currentQuater == (Quater)3)
+            {
+                directionalLight.enabled = false;
+            }
+            else
+            {
+                directionalLight.enabled = true;
+            }
         }
         else
         {
@@ -153,7 +163,16 @@ public class LightingManager : MonoBehaviour
         if(directionalLight != null)
         {
             directionalLight.color = preset.ambientColour.Evaluate(time);
-            directionalLight.transform.localRotation = Quaternion.Euler(new Vector3((time * 360f) - 90f, 170f, 0f));
+
+            //if(currentQuater == (Quater)1 || currentQuater == (Quater)2)
+            //{
+                directionalLight.transform.localRotation = Quaternion.Euler(new Vector3((time * 360f) - 90f, 170f, 0f));
+            //}
+            //else
+            //{
+            //    directionalLight.transform.localRotation = Quaternion.Euler(new Vector3((time * 360f) - 270f, 170f, 0f));
+            //}
+            
         }
     }
 
