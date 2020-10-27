@@ -31,8 +31,8 @@ public class SoundStorage : MonoBehaviour
     public AudioSource clickJournalTabsUISound;
 
     //general creature sounds
-    public AudioSource EatSound;
-    public AudioSource SleepSound;
+    public AudioSource[] EatSound;
+    public AudioSource[] SleepSound;
     public AudioSource StartledSound;
     public AudioSource CuriousSound;
 
@@ -160,7 +160,12 @@ public class SoundStorage : MonoBehaviour
         }
         else //stop the audio
         {
-            audio.Stop();
+            //audio.volume = 0;
+            if(audio.isPlaying)
+            {
+                audio.Stop();
+            }
+            
         }
     }
 
