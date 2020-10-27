@@ -21,22 +21,22 @@ MonoBehaviour:
     value: 0
   color:
     overrideState: 1
-    value: {r: 0, g: 0.32546368, b: 0.3773585, a: 1}
+    value: {r: 0, g: 0.6126497, b: 1, a: 1}
   center:
     overrideState: 1
     value: {x: 0.5, y: 0.5}
   intensity:
     overrideState: 1
-    value: 0.577
+    value: 0.666
   smoothness:
     overrideState: 0
     value: 0.2
   roundness:
     overrideState: 1
-    value: 0.223
+    value: 0.666
   rounded:
     overrideState: 0
-    value: 0
+    value: 1
   mask:
     overrideState: 0
     value: {fileID: 0}
@@ -58,7 +58,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   settings:
   - {fileID: 3627152755581017529}
-  - {fileID: 7506993678632113959}
   - {fileID: -5259281243295600142}
 --- !u!114 &3627152755581017529
 MonoBehaviour:
@@ -113,28 +112,28 @@ MonoBehaviour:
     value: 1
   temperature:
     overrideState: 1
-    value: 49
+    value: 10
   tint:
     overrideState: 1
-    value: 4
+    value: 7
   colorFilter:
     overrideState: 0
     value: {r: 1, g: 1, b: 1, a: 1}
   hueShift:
     overrideState: 1
-    value: -2
+    value: -10
   saturation:
     overrideState: 1
-    value: 100
+    value: 60
   brightness:
     overrideState: 0
     value: 0
   postExposure:
     overrideState: 1
-    value: 0
+    value: 0.2
   contrast:
     overrideState: 1
-    value: -22
+    value: -20
   mixerRedOutRedIn:
     overrideState: 0
     value: 100
@@ -145,7 +144,7 @@ MonoBehaviour:
     overrideState: 0
     value: 0
   mixerGreenOutRedIn:
-    overrideState: 1
+    overrideState: 0
     value: 14
   mixerGreenOutGreenIn:
     overrideState: 0
@@ -1371,50 +1370,3 @@ MonoBehaviour:
       - 0.5
       - 0.5
       - 0.5
---- !u!114 &7506993678632113959
-MonoBehaviour:
-  m_ObjectHideFlags: 3
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 48a79b01ea5641d4aa6daa2e23605641, type: 3}
-  m_Name: Bloom
-  m_EditorClassIdentifier: 
-  active: 1
-  enabled:
-    overrideState: 1
-    value: 1
-  intensity:
-    overrideState: 1
-    value: 1.46
-  threshold:
-    overrideState: 1
-    value: 0.5
-  softKnee:
-    overrideState: 0
-    value: 0.5
-  clamp:
-    overrideState: 0
-    value: 65472
-  diffusion:
-    overrideState: 1
-    value: 5
-  anamorphicRatio:
-    overrideState: 0
-    value: 0
-  color:
-    overrideState: 1
-    value: {r: 0, g: 1.0717734, b: 1.0717734, a: 1}
-  fastMode:
-    overrideState: 0
-    value: 0
-  dirtTexture:
-    overrideState: 0
-    value: {fileID: 0}
-    defaultState: 1
-  dirtIntensity:
-    overrideState: 0
-    value: 0

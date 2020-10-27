@@ -1,0 +1,71 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!21 &2100000
+Material:
+  serializedVersion: 6
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: Skybox_MAT
+  m_Shader: {fileID: -6465566751694194690, guid: 630bc8874a72be24d867177756c87f61,
+    type: 3}
+  m_ShaderKeywords: 
+  m_LightmapFlags: 4
+  m_EnableInstancingVariants: 1
+  m_DoubleSidedGI: 0
+  m_CustomRenderQueue: -1
+  stringTagMap: {}
+  disabledShaderPasses: []
+  m_SavedProperties:
+    serializedVersion: 3
+    m_TexEnvs:
+    - _BaseMap:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _MainTex:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _SkyboxClouds_E2B7E6DC_Texture2D5B5F10EB_513637676:
+        m_Texture: {fileID: 2800000, guid: cd8e55b3f28a6de459661618009817c5, type: 3}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    m_Floats:
+    - Boolean_5964DA9E: 1
+    - Vector1_164C7288: 2.02
+    - Vector1_34726380: 0.01
+    - Vector1_3ECA4E8A: 0.22
+    - Vector1_4EAE560: 0.006
+    - Vector1_671E648: 0.71
+    - Vector1_76EBF6A7: 22.02
+    - Vector1_8210BE7C: 0.25
+    - Vector1_99BFEDF4: 0.9937
+    - Vector1_A2E9C39B: 0.62
+    - Vector1_B74CA8CB: 0.644
+    - Vector1_D2B91C13: 0.19
+    - Vector1_EFC1B85F: 1.5
+    - _AlphaClip: 0
+    - _Blend: 0
+    - _Cull: 2
+    - _Cutoff: 0.5
+    - _DstBlend: 0
+    - _QueueOffset: 0
+    - _SampleGI: 0
+    - _SrcBlend: 1
+    - _Surface: 0
+    - _ZWrite: 1
+    m_Colors:
+    - Color_455D7E3E: {r: 0.122641504, g: 0.11850117, b: 0.109336056, a: 1}
+    - Color_525E3A12: {r: 0, g: 0.72220397, b: 1, a: 0}
+    - Color_6238D109: {r: 0, g: 0.028357267, b: 1, a: 0}
+    - Color_648E8CBB: {r: 0.9433962, g: 0.92960924, b: 0.78764683, a: 0}
+    - Color_BED74A82: {r: 1, g: 0.98763174, b: 0.8443396, a: 0}
+    - Color_C3B2D8C0: {r: 0.10799924, g: 0.019624421, b: 0.1981132, a: 1}
+    - Color_CEC8A9FB: {r: 0.504717, g: 0.88236994, b: 1, a: 0}
+    - Color_DB6E7C5E: {r: 0.6509434, g: 0.5311944, b: 0.59491616, a: 1}
+    - Color_E3D91ED0: {r: 1, g: 1, b: 1, a: 0}
+    - Color_F752B610: {r: 0, g: 0.62623525, b: 1, a: 0}
+    - _BaseColor: {r: 1, g: 1, b: 1, a: 1}
+    - _Color: {r: 0.5, g: 0.5, b: 0.5, a: 1}
