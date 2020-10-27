@@ -31,8 +31,8 @@ public class SoundStorage : MonoBehaviour
     public AudioSource clickJournalTabsUISound;
 
     //general creature sounds
-    public AudioSource[] EatSound;
-    public AudioSource[] SleepSound;
+    public AudioSource[] EatSound; //multiple copies of the same sound to prevent bugs
+    public AudioSource[] SleepSound; //multiple copies of the same sound to prevent bugs
     public AudioSource StartledSound;
     public AudioSource CuriousSound;
 
@@ -43,7 +43,7 @@ public class SoundStorage : MonoBehaviour
     //public AudioSource FishStartledSound;
     //public AudioSource FishCuriousSound;
     //public AudioSource FishIdleSound;
-    public AudioSource FishUniqueSound;
+    public AudioSource[] FishUniqueSound; //3 splashes
 
     //Dog sounds
     //public AudioSource DogEatSound;
@@ -52,7 +52,7 @@ public class SoundStorage : MonoBehaviour
     //public AudioSource DogStartledSound;
     //public AudioSource DogCuriousSound;
     //public AudioSource DogIdleSound;
-    public AudioSource DogUniqueSound;
+    public AudioSource[] DogUniqueSound; //0 is pant, 1 and 2 are barks
 
     //Tiger sounds
     //public AudioSource TigerEatSound;
@@ -61,7 +61,7 @@ public class SoundStorage : MonoBehaviour
     //public AudioSource TigerStartledSound;
     //public AudioSource TigerCuriousSound;
     //public AudioSource TigerIdleSound;
-    public AudioSource[] TigerUniqueSound;
+    public AudioSource[] TigerUniqueSound; //3 roars
 
     //Dragon sounds
     //public AudioSource DragonEatSound;
@@ -88,7 +88,7 @@ public class SoundStorage : MonoBehaviour
     //public AudioSource DuckStartledSound;
     //public AudioSource DuckCuriousSound;
     //public AudioSource DuckIdleSound;
-    public AudioSource DuckUniqueSound;
+    public AudioSource DuckUniqueSound; //one peck
 
     //Cat sounds
     //public AudioSource CatEatSound;
@@ -97,7 +97,7 @@ public class SoundStorage : MonoBehaviour
     //public AudioSource CatStartledSound;
     //public AudioSource CatCuriousSound;
     //public AudioSource CatIdleSound;
-    public AudioSource CatUniqueSound;
+    public AudioSource[] CatUniqueSound; //0 low levitate, 1 high levitate
 
     //Rabbit sounds
     //public AudioSource RabbitEatSound;
@@ -106,7 +106,7 @@ public class SoundStorage : MonoBehaviour
     //public AudioSource RabbitStartledSound;
     //public AudioSource RabbitCuriousSound;
     //public AudioSource RabbitIdleSound;
-    public AudioSource RabbitUniqueSound;
+    public AudioSource RabbitUniqueSound; //rabbit scream
     public AudioSource RabbitWoodSound;
 
     //other

@@ -1240,12 +1240,19 @@ public class TestCreature : MonoBehaviour
             //StopFinishedAnimation();
             //var tempSound = soundObject.GetComponent<SoundStorage>();
             tempSound.playSound(tempSound.SleepSound[soundID], this.transform.position);
-            //make sure eat sound is not playing
+            //make sure potential sounds are not playing
             if (tempSound.EatSound[soundID].isPlaying)
             {
                 tempSound.stopSound(tempSound.EatSound[soundID]);
+            }            
+            if(tempSound.DogUniqueSound[0].isPlaying)
+            {
+                tempSound.stopSound(tempSound.DogUniqueSound[0]);
+            }            
+            if (tempSound.CatUniqueSound[soundRandom].isPlaying)
+            {
+                tempSound.stopSound(tempSound.CatUniqueSound[soundRandom]);
             }
-            
 
         }
         else
@@ -1319,6 +1326,7 @@ public class TestCreature : MonoBehaviour
     // a unique behaviour to the FISH, which has it go to an empty gameobject near a water source
     void washFaceState()
     {
+        var tempSound = soundObject.GetComponent<SoundStorage>();
         if (stateJustChanged)
         {
             PlayFinishedAnimation();
@@ -1326,7 +1334,7 @@ public class TestCreature : MonoBehaviour
             //transform.rotation *= Quaternion.Euler(0, 0, 0);
             stateJustChanged = false;
             reachedDestination = false;
-            var tempSound = soundObject.GetComponent<SoundStorage>();
+            
             if (tempSound.EatSound[soundID].isPlaying)
             {
                 tempSound.stopSound(tempSound.EatSound[soundID]);
@@ -1335,6 +1343,7 @@ public class TestCreature : MonoBehaviour
             {
                 tempSound.stopSound(tempSound.SleepSound[soundID]);
             }
+            soundRandom = Random.Range(0, 3);
         }
 
         Vector3 tempLocation = UniqueLocations[randomLocation].transform.position;
@@ -1355,13 +1364,15 @@ public class TestCreature : MonoBehaviour
             navMeshAgent.SetDestination(this.transform.position);            
             reachedDestination = true;
             //probably play wash face animation here
-            
+            tempSound.playSound(tempSound.FishUniqueSound[soundRandom], this.transform.position);
+
         }
     }
 
     //a unique behaviour to the DOG, in which it goes to a set location and then other locations
     void chaseTailState()
     {
+        var tempSound = soundObject.GetComponent<SoundStorage>();
         if (stateJustChanged)
         {
             PlayFinishedAnimation();
@@ -1371,7 +1382,7 @@ public class TestCreature : MonoBehaviour
             reachedDestination = false;
             secondaryLocationReached = 0;
             startedUnInteruptable = false;
-            var tempSound = soundObject.GetComponent<SoundStorage>();
+            
             if (tempSound.EatSound[soundID].isPlaying)
             {
                 tempSound.stopSound(tempSound.EatSound[soundID]);
@@ -1380,6 +1391,7 @@ public class TestCreature : MonoBehaviour
             {
                 tempSound.stopSound(tempSound.SleepSound[soundID]);
             }
+            soundRandom = Random.Range(1, 3);
         }
 
         Vector3 tempLocation = UniqueLocations[randomLocation].transform.position;
@@ -1397,6 +1409,7 @@ public class TestCreature : MonoBehaviour
                 Debug.Log("" + this.gameObject + "now chasing tail!");
                 PlayTailChaseAnimation();
                 StopFinishedAnimation();
+                tempSound.playSound(tempSound.DogUniqueSound[soundRandom], this.transform.position);
             }
 
             //set the new position to go to be the spot you are standing
@@ -1415,6 +1428,8 @@ public class TestCreature : MonoBehaviour
             navMeshAgent.SetDestination(nextLocation);
 
             startedUnInteruptable = true;
+
+            tempSound.playSound(tempSound.DogUniqueSound[0], this.transform.position);
 
             //if the distance between the new position and the object is less than 2
             float nextDistance = Vector3.Distance(nextLocation, transform.position);
@@ -1671,6 +1686,7 @@ public class TestCreature : MonoBehaviour
     //a unique behaviour to the duck, which it moves like the fish
     void peckState()
     {
+        var tempSound = soundObject.GetComponent<SoundStorage>();
         if (stateJustChanged)
         {
             PlayFinishedAnimation();
@@ -1678,7 +1694,7 @@ public class TestCreature : MonoBehaviour
             //transform.rotation *= Quaternion.Euler(0, 0, 0);
             stateJustChanged = false;
             reachedDestination = false;
-            var tempSound = soundObject.GetComponent<SoundStorage>();
+            
             if (tempSound.EatSound[soundID].isPlaying)
             {
                 tempSound.stopSound(tempSound.EatSound[soundID]);
@@ -1708,14 +1724,15 @@ public class TestCreature : MonoBehaviour
             //set the new position to go to be the spot you are standing
             navMeshAgent.SetDestination(this.transform.position);
             //Debug.Log("" + this.gameObject + " reached a bush");
+            tempSound.playSound(tempSound.DuckUniqueSound, this.transform.position);
 
-            
         }
     }
 
     //a unique behaviour to the cat, which it moves like the fish/duck
     void levitateState()
     {
+        var tempSound = soundObject.GetComponent<SoundStorage>();
         if (stateJustChanged)
         {
             PlayFinishedAnimation();
@@ -1723,7 +1740,7 @@ public class TestCreature : MonoBehaviour
             //transform.rotation *= Quaternion.Euler(0, 0, 0);
             stateJustChanged = false;
             reachedDestination = false;
-            var tempSound = soundObject.GetComponent<SoundStorage>();
+            
             if (tempSound.EatSound[soundID].isPlaying)
             {
                 tempSound.stopSound(tempSound.EatSound[soundID]);
@@ -1732,6 +1749,11 @@ public class TestCreature : MonoBehaviour
             {
                 tempSound.stopSound(tempSound.SleepSound[soundID]);
             }
+            if(tempSound.CatUniqueSound[soundRandom].isPlaying)
+            {
+                tempSound.stopSound(tempSound.CatUniqueSound[soundRandom]);
+            }
+            soundRandom = Random.Range(0, 2);
         }
 
         Vector3 tempLocation = UniqueLocations[randomLocation].transform.position;
@@ -1753,13 +1775,14 @@ public class TestCreature : MonoBehaviour
             navMeshAgent.SetDestination(this.transform.position);
             //Debug.Log("" + this.gameObject + " reached a bush");
 
-            
+            tempSound.playSound(tempSound.CatUniqueSound[soundRandom], this.transform.position);
         }
     }
 
     //a unique behaviour to the rabbit, which it moves like the tiger
     void angerState()
     {
+        var tempSound = soundObject.GetComponent<SoundStorage>();
         if (stateJustChanged)
         {
             PlayFinishedAnimation();
@@ -1767,7 +1790,7 @@ public class TestCreature : MonoBehaviour
             //transform.rotation *= Quaternion.Euler(0, 0, 0);
             stateJustChanged = false;
             reachedDestination = false;
-            var tempSound = soundObject.GetComponent<SoundStorage>();
+            
             if (tempSound.EatSound[soundID].isPlaying)
             {
                 tempSound.stopSound(tempSound.EatSound[soundID]);
@@ -1791,6 +1814,7 @@ public class TestCreature : MonoBehaviour
                 PlayPunchAnimation();
                 StopFinishedAnimation();
                 Debug.Log("" + this.gameObject + " reached tree");
+                tempSound.playSound(tempSound.RabbitUniqueSound, this.transform.position);
             }
 
             reachedDestination = true;
