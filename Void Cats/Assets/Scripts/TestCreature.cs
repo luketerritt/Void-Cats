@@ -1305,7 +1305,7 @@ public class TestCreature : MonoBehaviour
         
 
         //need a way to apply this just once -- BINGO
-        transform.rotation *= Quaternion.Euler(0, 0, 90.0f);
+        //transform.rotation *= Quaternion.Euler(0, 0, 90.0f); //goodnight king your animation is now in
 
         Vector3 tempLocation = this.transform.position;
         navMeshAgent.SetDestination(tempLocation);
