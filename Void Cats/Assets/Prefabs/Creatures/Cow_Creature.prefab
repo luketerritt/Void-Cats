@@ -61,6 +61,20 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   eyeShapeInput: {fileID: 1662550139800229491}
   thisMaterial: {fileID: 0}
+--- !u!136 &5819132137958028173
+CapsuleCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4882743512019050563}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  m_Radius: 0.35
+  m_Height: 1.6
+  m_Direction: 0
+  m_Center: {x: -0.36, y: 0, z: 0}
 --- !u!1 &8614957440978253697
 GameObject:
   m_ObjectHideFlags: 0
@@ -70,7 +84,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4743737360209610130}
-  - component: {fileID: 69290316}
   - component: {fileID: 69290317}
   - component: {fileID: 69290318}
   - component: {fileID: 7005234306526601614}
@@ -96,20 +109,6 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 33.592003, z: 0}
---- !u!136 &69290316
-CapsuleCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8614957440978253697}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  m_Radius: 0.3276062
-  m_Height: 1.5575342
-  m_Direction: 1
-  m_Center: {x: -0.012969971, y: 0.76207685, z: 0}
 --- !u!195 &69290317
 NavMeshAgent:
   m_ObjectHideFlags: 0
@@ -154,6 +153,7 @@ MonoBehaviour:
   speed: 3
   runSpeed: 10
   passiveCreatureType: 1
+  waitBeforeRun: 3.3
   FoodLocations:
   - {fileID: 0}
   UniqueLocations:
@@ -165,6 +165,7 @@ MonoBehaviour:
   roarDuration: 5
   creatureAnimator: {fileID: 0}
   soundObject: {fileID: 0}
+  soundID: 0
 --- !u!95 &7005234306526601614
 Animator:
   serializedVersion: 3
@@ -371,6 +372,11 @@ PrefabInstance:
       propertyPath: m_LocalRotation.z
       value: 0.70750207
       objectReference: {fileID: 0}
+    - target: {fileID: 1979482535754411274, guid: b9a0e1d4342ecd948920eca5d0a80899,
+        type: 3}
+      propertyPath: m_TagString
+      value: Creature
+      objectReference: {fileID: 0}
     - target: {fileID: 1979978430416555903, guid: b9a0e1d4342ecd948920eca5d0a80899,
         type: 3}
       propertyPath: m_Materials.Array.data[0]
@@ -454,6 +460,12 @@ GameObject:
 --- !u!1 &6852364481964899185 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 550011496353199672, guid: b9a0e1d4342ecd948920eca5d0a80899,
+    type: 3}
+  m_PrefabInstance: {fileID: 6393552064165055817}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &4882743512019050563 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1979482535754411274, guid: b9a0e1d4342ecd948920eca5d0a80899,
     type: 3}
   m_PrefabInstance: {fileID: 6393552064165055817}
   m_PrefabAsset: {fileID: 0}

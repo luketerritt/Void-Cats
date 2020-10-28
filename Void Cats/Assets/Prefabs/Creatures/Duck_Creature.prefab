@@ -9,7 +9,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 3757558079097836878}
-  - component: {fileID: 3428661135610797295}
   - component: {fileID: 7862151649976529972}
   - component: {fileID: 3198075124116343462}
   - component: {fileID: 2499666903576031282}
@@ -35,20 +34,6 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: -105.336006, z: 0}
---- !u!136 &3428661135610797295
-CapsuleCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 179826170132457309}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  m_Radius: 0.31814575
-  m_Height: 1.520504
-  m_Direction: 1
-  m_Center: {x: -0.0038757324, y: 0.7225857, z: 0}
 --- !u!114 &7862151649976529972
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -71,6 +56,7 @@ MonoBehaviour:
   speed: 3
   runSpeed: 10
   passiveCreatureType: 0
+  waitBeforeRun: 3.3
   FoodLocations:
   - {fileID: 0}
   - {fileID: 0}
@@ -82,6 +68,7 @@ MonoBehaviour:
   roarDuration: 5
   creatureAnimator: {fileID: 0}
   soundObject: {fileID: 0}
+  soundID: 0
 --- !u!195 &3198075124116343462
 NavMeshAgent:
   m_ObjectHideFlags: 0
@@ -170,6 +157,20 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   eyeShapeInput: {fileID: 7014070763174645946}
   thisMaterial: {fileID: 0}
+--- !u!136 &5792803856929587469
+CapsuleCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 9046742469890411400}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  m_Radius: 0.35
+  m_Height: 1.6
+  m_Direction: 0
+  m_Center: {x: -0.36, y: 0, z: 0}
 --- !u!1001 &7418823560970970754
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -482,6 +483,11 @@ PrefabInstance:
       propertyPath: m_Materials.Array.data[0]
       value: 
       objectReference: {fileID: 2100000, guid: 1bd0a2aa523feec469941b1a87916379, type: 2}
+    - target: {fileID: 1979482535754411274, guid: d952dfdde3dcbd44ba124d81cc0bdd52,
+        type: 3}
+      propertyPath: m_TagString
+      value: Creature
+      objectReference: {fileID: 0}
     - target: {fileID: 2175806255330211674, guid: d952dfdde3dcbd44ba124d81cc0bdd52,
         type: 3}
       propertyPath: m_Materials.Array.data[0]
@@ -670,6 +676,12 @@ GameObject:
 --- !u!1 &7014070763174645946 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 550011496353199672, guid: d952dfdde3dcbd44ba124d81cc0bdd52,
+    type: 3}
+  m_PrefabInstance: {fileID: 7418823560970970754}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &9046742469890411400 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1979482535754411274, guid: d952dfdde3dcbd44ba124d81cc0bdd52,
     type: 3}
   m_PrefabInstance: {fileID: 7418823560970970754}
   m_PrefabAsset: {fileID: 0}

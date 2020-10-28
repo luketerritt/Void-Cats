@@ -1,5 +1,19 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
+--- !u!136 &6872525159444075005
+CapsuleCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 455418702930364188}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  m_Radius: 0.35
+  m_Height: 1.6
+  m_Direction: 0
+  m_Center: {x: -0.36, y: 0, z: 0}
 --- !u!114 &5450623382448294150
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -53,7 +67,6 @@ GameObject:
   - component: {fileID: 265279649630758177}
   - component: {fileID: 7614934947110214879}
   - component: {fileID: 8410989490678827942}
-  - component: {fileID: 7325680058781557757}
   - component: {fileID: 3926751836565478875}
   m_Layer: 0
   m_Name: Tiger_Creature
@@ -121,6 +134,7 @@ MonoBehaviour:
   speed: 3
   runSpeed: 10
   passiveCreatureType: 1
+  waitBeforeRun: 3.3
   FoodLocations:
   - {fileID: 0}
   UniqueLocations:
@@ -130,20 +144,7 @@ MonoBehaviour:
   roarDuration: 5
   creatureAnimator: {fileID: 0}
   soundObject: {fileID: 0}
---- !u!136 &7325680058781557757
-CapsuleCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3888066318443173682}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  m_Radius: 0.2593689
-  m_Height: 1.4518728
-  m_Direction: 1
-  m_Center: {x: 0.020111084, y: 0.7319026, z: 0}
+  soundID: 0
 --- !u!95 &3926751836565478875
 Animator:
   serializedVersion: 3
@@ -459,6 +460,11 @@ PrefabInstance:
       propertyPath: m_LocalRotation.z
       value: 0.70750207
       objectReference: {fileID: 0}
+    - target: {fileID: 1979482535754411274, guid: 11a962e998160ac478d48ce34102f772,
+        type: 3}
+      propertyPath: m_TagString
+      value: Creature
+      objectReference: {fileID: 0}
     - target: {fileID: 2175806255330211674, guid: 11a962e998160ac478d48ce34102f772,
         type: 3}
       propertyPath: m_Materials.Array.data[0]
@@ -547,6 +553,12 @@ GameObject:
 --- !u!1 &1912755026284223534 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 550011496353199672, guid: 11a962e998160ac478d48ce34102f772,
+    type: 3}
+  m_PrefabInstance: {fileID: 2101333869440592406}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &455418702930364188 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1979482535754411274, guid: 11a962e998160ac478d48ce34102f772,
     type: 3}
   m_PrefabInstance: {fileID: 2101333869440592406}
   m_PrefabAsset: {fileID: 0}

@@ -14,6 +14,20 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   eyeShapeInput: {fileID: 1126129133208577534}
   thisMaterial: {fileID: 0}
+--- !u!136 &8201147359241348316
+CapsuleCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1320453817377117911}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  m_Radius: 0.35
+  m_Height: 1.6
+  m_Direction: 0
+  m_Center: {x: -0.36, y: 0, z: 0}
 --- !u!1 &1584400836592704181
 GameObject:
   m_ObjectHideFlags: 0
@@ -25,7 +39,6 @@ GameObject:
   - component: {fileID: 2569222165461624998}
   - component: {fileID: 2216826512590768267}
   - component: {fileID: 692296156022518639}
-  - component: {fileID: 1776700830525925427}
   - component: {fileID: 4686858731301165652}
   m_Layer: 0
   m_Name: Dragon_Creature
@@ -93,6 +106,7 @@ MonoBehaviour:
   speed: 3
   runSpeed: 10
   passiveCreatureType: 1
+  waitBeforeRun: 3.3
   FoodLocations:
   - {fileID: 0}
   - {fileID: 0}
@@ -103,20 +117,8 @@ MonoBehaviour:
   reachedDestination: 0
   roarDuration: 5
   creatureAnimator: {fileID: 0}
---- !u!136 &1776700830525925427
-CapsuleCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1584400836592704181}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  m_Radius: 0.3276062
-  m_Height: 1.5575342
-  m_Direction: 1
-  m_Center: {x: -0.012969971, y: 0.76207685, z: 0}
+  soundObject: {fileID: 0}
+  soundID: 0
 --- !u!95 &4686858731301165652
 Animator:
   serializedVersion: 3
@@ -356,6 +358,11 @@ PrefabInstance:
       propertyPath: m_LocalRotation.z
       value: 0.70750207
       objectReference: {fileID: 0}
+    - target: {fileID: 1979482535754411274, guid: 2519cda10604fb94888de9b67d08080e,
+        type: 3}
+      propertyPath: m_TagString
+      value: Creature
+      objectReference: {fileID: 0}
     - target: {fileID: 2064489996433949277, guid: 2519cda10604fb94888de9b67d08080e,
         type: 3}
       propertyPath: m_Materials.Array.data[0]
@@ -429,6 +436,12 @@ GameObject:
 --- !u!1 &1047563733773716965 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 550011496353199672, guid: 2519cda10604fb94888de9b67d08080e,
+    type: 3}
+  m_PrefabInstance: {fileID: 660825320947547101}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &1320453817377117911 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1979482535754411274, guid: 2519cda10604fb94888de9b67d08080e,
     type: 3}
   m_PrefabInstance: {fileID: 660825320947547101}
   m_PrefabAsset: {fileID: 0}

@@ -11,7 +11,6 @@ GameObject:
   - component: {fileID: 3706345910768242285}
   - component: {fileID: 3553677689615493613}
   - component: {fileID: 2982610874521858813}
-  - component: {fileID: 1686146246017591891}
   - component: {fileID: 5646457790377216740}
   m_Layer: 0
   m_Name: Rabbit_Creature
@@ -57,6 +56,7 @@ MonoBehaviour:
   speed: 3
   runSpeed: 10
   passiveCreatureType: 0
+  waitBeforeRun: 3.3
   FoodLocations:
   - {fileID: 0}
   - {fileID: 0}
@@ -68,6 +68,7 @@ MonoBehaviour:
   roarDuration: 5
   creatureAnimator: {fileID: 0}
   soundObject: {fileID: 0}
+  soundID: 0
 --- !u!195 &2982610874521858813
 NavMeshAgent:
   m_ObjectHideFlags: 0
@@ -90,20 +91,6 @@ NavMeshAgent:
   m_BaseOffset: -0.1
   m_WalkableMask: 4294967295
   m_ObstacleAvoidanceType: 4
---- !u!136 &1686146246017591891
-CapsuleCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 375149110774660222}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  m_Radius: 0.39855957
-  m_Height: 1.5116138
-  m_Direction: 1
-  m_Center: {x: -0.0032348633, y: 0.7387562, z: 0}
 --- !u!95 &5646457790377216740
 Animator:
   serializedVersion: 3
@@ -123,6 +110,20 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
+--- !u!136 &1655539085230757637
+CapsuleCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3643866898590163628}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  m_Radius: 0.35
+  m_Height: 1.6
+  m_Direction: 0
+  m_Center: {x: -0.36, y: 0, z: 0}
 --- !u!114 &6534903921232997133
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -302,6 +303,11 @@ PrefabInstance:
       propertyPath: m_LocalRotation.z
       value: 0.70750207
       objectReference: {fileID: 0}
+    - target: {fileID: 1979482535754411274, guid: 8c5b31e9aa7500f428d90daa0d4013ae,
+        type: 3}
+      propertyPath: m_TagString
+      value: Creature
+      objectReference: {fileID: 0}
     - target: {fileID: 4754124969803823327, guid: 8c5b31e9aa7500f428d90daa0d4013ae,
         type: 3}
       propertyPath: m_Materials.Array.data[0]
@@ -334,6 +340,12 @@ GameObject:
 --- !u!1 &3335792698987461022 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 550011496353199672, guid: 8c5b31e9aa7500f428d90daa0d4013ae,
+    type: 3}
+  m_PrefabInstance: {fileID: 3019968404883656614}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &3643866898590163628 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1979482535754411274, guid: 8c5b31e9aa7500f428d90daa0d4013ae,
     type: 3}
   m_PrefabInstance: {fileID: 3019968404883656614}
   m_PrefabAsset: {fileID: 0}

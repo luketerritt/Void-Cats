@@ -139,6 +139,20 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
+--- !u!136 &2923301952243306512
+CapsuleCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4404406939269224062}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  m_Radius: 0.35
+  m_Height: 1.6
+  m_Direction: 0
+  m_Center: {x: -0.36, y: 0, z: 0}
 --- !u!1001 &2767198253380500340
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -261,6 +275,11 @@ PrefabInstance:
       propertyPath: m_LocalRotation.z
       value: 0.70750207
       objectReference: {fileID: 0}
+    - target: {fileID: 1979482535754411274, guid: 21455c4e4ef38da45b6a4a5cd4cfbbd0,
+        type: 3}
+      propertyPath: m_TagString
+      value: Creature
+      objectReference: {fileID: 0}
     - target: {fileID: 2850003524257223537, guid: 21455c4e4ef38da45b6a4a5cd4cfbbd0,
         type: 3}
       propertyPath: m_Materials.Array.data[0]
@@ -292,6 +311,12 @@ PrefabInstance:
 --- !u!4 &7142045904483831918 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: -4216859302048453862, guid: 21455c4e4ef38da45b6a4a5cd4cfbbd0,
+    type: 3}
+  m_PrefabInstance: {fileID: 2767198253380500340}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &4404406939269224062 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1979482535754411274, guid: 21455c4e4ef38da45b6a4a5cd4cfbbd0,
     type: 3}
   m_PrefabInstance: {fileID: 2767198253380500340}
   m_PrefabAsset: {fileID: 0}
