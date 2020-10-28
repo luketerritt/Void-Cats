@@ -403,7 +403,7 @@ public class PlayableCamera : MonoBehaviour
                     //if it was a creature
                     if (hit.collider.gameObject.CompareTag("Creature"))
                     {
-                        var creatureInfo = hit.collider.gameObject.GetComponent<TestCreature>().info;
+                        var creatureInfo = hit.collider.gameObject.GetComponentInParent<TestCreature>().info;
 
                         //turn off all others
                         for (int i = 0; i < detectedCreatureUI.Length; i++)
@@ -483,7 +483,7 @@ public class PlayableCamera : MonoBehaviour
                     if (hit.collider.gameObject.CompareTag("Creature"))
                     {
                         //creature info = the hit creatures information
-                        var creatureInfo = hit.collider.gameObject.GetComponent<TestCreature>().info;
+                        var creatureInfo = hit.collider.gameObject.GetComponentInParent<TestCreature>().info;
                         Debug.Log("You hit creature type " + creatureInfo.CreatureID + " in the state: "
                             + creatureInfo.agentState);
 
