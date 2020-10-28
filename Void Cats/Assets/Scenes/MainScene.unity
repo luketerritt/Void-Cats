@@ -107,7 +107,7 @@ NavMeshSettings:
   m_BuildSettings:
     serializedVersion: 2
     agentTypeID: 0
-    agentRadius: 0.1
+    agentRadius: 0.2
     agentHeight: 2
     agentSlope: 45
     agentClimb: 0.4
@@ -115,7 +115,7 @@ NavMeshSettings:
     maxJumpAcrossDistance: 0
     minRegionArea: 2
     manualCellSize: 0
-    cellSize: 0.033333335
+    cellSize: 0.06666667
     manualTileSize: 0
     tileSize: 256
     accuratePlacement: 0
@@ -128,6 +128,26 @@ GameObject:
     type: 3}
   m_PrefabInstance: {fileID: 29214024603889402}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &21537840 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1339964261975080498, guid: 7c87f0bdd49fb13448a9d04866c2aef0,
+    type: 3}
+  m_PrefabInstance: {fileID: 2578363404058666416}
+  m_PrefabAsset: {fileID: 0}
+--- !u!136 &21537842
+CapsuleCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 21537840}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  m_Radius: 0.47
+  m_Height: 1.42
+  m_Direction: 0
+  m_Center: {x: -0.4, y: 0, z: 0}
 --- !u!1 &25552107 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 29214025848571325, guid: ee70e03a41cc5a044ada690cf20c1ca5,
@@ -583,38 +603,69 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 123884713}
   m_CullTransparentMesh: 0
---- !u!1 &131804535 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 29214025300824210, guid: ee70e03a41cc5a044ada690cf20c1ca5,
-    type: 3}
-  m_PrefabInstance: {fileID: 29214024603889402}
-  m_PrefabAsset: {fileID: 0}
---- !u!21 &133102303
+--- !u!21 &129420982
 Material:
   serializedVersion: 6
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: Height Fog Global
-  m_Shader: {fileID: 4800000, guid: 3a7ef1b66bafb7a448a880ef76d2e6e6, type: 3}
+  m_Name: Override
+  m_Shader: {fileID: 4800000, guid: a3a3bc8785681554d9558e2ea68f100e, type: 3}
   m_ShaderKeywords: 
   m_LightmapFlags: 4
   m_EnableInstancingVariants: 0
   m_DoubleSidedGI: 0
-  m_CustomRenderQueue: 3050
+  m_CustomRenderQueue: -1
   stringTagMap: {}
   disabledShaderPasses: []
   m_SavedProperties:
     serializedVersion: 3
     m_TexEnvs: []
     m_Floats:
-    - _HeightFogGlobal: 1
+    - _DIRECTIONALL: 1
+    - _DirectionalCustom: 0
+    - _DirectionalFalloff: 2
+    - _DirectionalIntensity: 1
+    - _DirectionalMode: 1
+    - _DirectionalModeBlend: 1
+    - _FOGG: 1
+    - _FogAxisMode: 1
+    - _FogColorDuo: 1
+    - _FogDistanceEnd: 200
+    - _FogDistanceFalloff: 2
+    - _FogDistanceStart: -200
+    - _FogHeightEnd: 200
+    - _FogHeightFalloff: 2
+    - _FogHeightStart: 0
+    - _FogIntensity: 1
+    - _IsHeightFogPreset: 1
     - _IsHeightFogShader: 1
     - _IsStandardPipeline: 0
+    - _NOISEE: 1
+    - _NoiseDistanceEnd: 50
+    - _NoiseIntensity: 1
+    - _NoiseMode: 2
+    - _NoiseModeBlend: 1
+    - _NoiseScale: 30
+    - _SKYBOXX: 1
+    - _SkyboxFogFalloff: 1
+    - _SkyboxFogFill: 1
+    - _SkyboxFogHeight: 1
     - _TITLE: 1
-    - _TransparentQueue: 3000
-    m_Colors: []
+    m_Colors:
+    - _DirectionalColor: {r: 1, g: 0.7793103, b: 0.5, a: 1}
+    - _DirectionalCustomDir: {r: 0, g: 0, b: 0, a: 0}
+    - _FogAxisOption: {r: 0, g: 0, b: 0, a: 0}
+    - _FogColorEnd: {r: 0.8862745, g: 1.443137, b: 2, a: 1}
+    - _FogColorStart: {r: 0.4411765, g: 0.722515, b: 1, a: 1}
+    - _NoiseSpeed: {r: 0.5, g: 0, b: 0.5, a: 0}
+--- !u!1 &131804535 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 29214025300824210, guid: ee70e03a41cc5a044ada690cf20c1ca5,
+    type: 3}
+  m_PrefabInstance: {fileID: 29214024603889402}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &133985790 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 29214025838181850, guid: ee70e03a41cc5a044ada690cf20c1ca5,
@@ -5968,7 +6019,7 @@ MonoBehaviour:
   categoryAdvanced: 0
   renderPriority: 50
   styledSpace0: 0
-  overrideMaterial: {fileID: 1538240702}
+  overrideMaterial: {fileID: 129420982}
   overrideCamToVolumeDistance: 1
   overrideVolumeDistanceFade: 0
   updater: 0
@@ -5997,7 +6048,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 133102303}
+  - {fileID: 1825394241}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -6038,63 +6089,6 @@ GameObject:
     type: 3}
   m_PrefabInstance: {fileID: 29214024603889402}
   m_PrefabAsset: {fileID: 0}
---- !u!21 &1538240702
-Material:
-  serializedVersion: 6
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_Name: Override
-  m_Shader: {fileID: 4800000, guid: a3a3bc8785681554d9558e2ea68f100e, type: 3}
-  m_ShaderKeywords: 
-  m_LightmapFlags: 4
-  m_EnableInstancingVariants: 0
-  m_DoubleSidedGI: 0
-  m_CustomRenderQueue: -1
-  stringTagMap: {}
-  disabledShaderPasses: []
-  m_SavedProperties:
-    serializedVersion: 3
-    m_TexEnvs: []
-    m_Floats:
-    - _DIRECTIONALL: 1
-    - _DirectionalCustom: 0
-    - _DirectionalFalloff: 2
-    - _DirectionalIntensity: 1
-    - _DirectionalMode: 1
-    - _DirectionalModeBlend: 1
-    - _FOGG: 1
-    - _FogAxisMode: 1
-    - _FogColorDuo: 1
-    - _FogDistanceEnd: 200
-    - _FogDistanceFalloff: 2
-    - _FogDistanceStart: -200
-    - _FogHeightEnd: 200
-    - _FogHeightFalloff: 2
-    - _FogHeightStart: 0
-    - _FogIntensity: 1
-    - _IsHeightFogPreset: 1
-    - _IsHeightFogShader: 1
-    - _IsStandardPipeline: 0
-    - _NOISEE: 1
-    - _NoiseDistanceEnd: 50
-    - _NoiseIntensity: 1
-    - _NoiseMode: 2
-    - _NoiseModeBlend: 1
-    - _NoiseScale: 30
-    - _SKYBOXX: 1
-    - _SkyboxFogFalloff: 1
-    - _SkyboxFogFill: 1
-    - _SkyboxFogHeight: 1
-    - _TITLE: 1
-    m_Colors:
-    - _DirectionalColor: {r: 1, g: 0.7793103, b: 0.5, a: 1}
-    - _DirectionalCustomDir: {r: 0, g: 0, b: 0, a: 0}
-    - _FogAxisOption: {r: 0, g: 0, b: 0, a: 0}
-    - _FogColorEnd: {r: 0.8862745, g: 1.443137, b: 2, a: 1}
-    - _FogColorStart: {r: 0.4411765, g: 0.722515, b: 1, a: 1}
-    - _NoiseSpeed: {r: 0.5, g: 0, b: 0.5, a: 0}
 --- !u!1 &1539071728 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 6965268915137411947, guid: ee70e03a41cc5a044ada690cf20c1ca5,
@@ -7130,6 +7124,32 @@ GameObject:
     type: 3}
   m_PrefabInstance: {fileID: 29214024603889402}
   m_PrefabAsset: {fileID: 0}
+--- !u!21 &1825394241
+Material:
+  serializedVersion: 6
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: Height Fog Global
+  m_Shader: {fileID: 4800000, guid: 3a7ef1b66bafb7a448a880ef76d2e6e6, type: 3}
+  m_ShaderKeywords: 
+  m_LightmapFlags: 4
+  m_EnableInstancingVariants: 0
+  m_DoubleSidedGI: 0
+  m_CustomRenderQueue: 3050
+  stringTagMap: {}
+  disabledShaderPasses: []
+  m_SavedProperties:
+    serializedVersion: 3
+    m_TexEnvs: []
+    m_Floats:
+    - _HeightFogGlobal: 1
+    - _IsHeightFogShader: 1
+    - _IsStandardPipeline: 0
+    - _TITLE: 1
+    - _TransparentQueue: 3000
+    m_Colors: []
 --- !u!1 &1826997769 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 4913669192540392236, guid: ee70e03a41cc5a044ada690cf20c1ca5,
@@ -9604,9 +9624,38 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 161052355, guid: 7c87f0bdd49fb13448a9d04866c2aef0, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 12.94
+      objectReference: {fileID: 0}
     - target: {fileID: 682712804, guid: 7c87f0bdd49fb13448a9d04866c2aef0, type: 3}
       propertyPath: m_LocalPosition.y
       value: 11.54
+      objectReference: {fileID: 0}
+    - target: {fileID: 891871440, guid: 7c87f0bdd49fb13448a9d04866c2aef0, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 10.98
+      objectReference: {fileID: 0}
+    - target: {fileID: 1642710677, guid: 7c87f0bdd49fb13448a9d04866c2aef0, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 9.67
+      objectReference: {fileID: 0}
+    - target: {fileID: 2016471337, guid: 7c87f0bdd49fb13448a9d04866c2aef0, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 14.21
+      objectReference: {fileID: 0}
+    - target: {fileID: 2033271491, guid: 7c87f0bdd49fb13448a9d04866c2aef0, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 17.07
+      objectReference: {fileID: 0}
+    - target: {fileID: 2062357587, guid: 7c87f0bdd49fb13448a9d04866c2aef0, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 14.32
+      objectReference: {fileID: 0}
+    - target: {fileID: 349817056715991321, guid: 7c87f0bdd49fb13448a9d04866c2aef0,
+        type: 3}
+      propertyPath: m_TagString
+      value: Creature
       objectReference: {fileID: 0}
     - target: {fileID: 443760016582901909, guid: 7c87f0bdd49fb13448a9d04866c2aef0,
         type: 3}
@@ -9622,6 +9671,16 @@ PrefabInstance:
         type: 3}
       propertyPath: losePlayerTimer
       value: 7
+      objectReference: {fileID: 0}
+    - target: {fileID: 1027385931772355840, guid: 7c87f0bdd49fb13448a9d04866c2aef0,
+        type: 3}
+      propertyPath: m_TagString
+      value: Creature
+      objectReference: {fileID: 0}
+    - target: {fileID: 1111091543809314075, guid: 7c87f0bdd49fb13448a9d04866c2aef0,
+        type: 3}
+      propertyPath: m_TagString
+      value: Creature
       objectReference: {fileID: 0}
     - target: {fileID: 1333079465267881874, guid: 7c87f0bdd49fb13448a9d04866c2aef0,
         type: 3}
@@ -9643,6 +9702,11 @@ PrefabInstance:
       propertyPath: LeavesUI
       value: 
       objectReference: {fileID: 694658843}
+    - target: {fileID: 1339964261975080498, guid: 7c87f0bdd49fb13448a9d04866c2aef0,
+        type: 3}
+      propertyPath: m_TagString
+      value: Creature
+      objectReference: {fileID: 0}
     - target: {fileID: 1340134099985869959, guid: 7c87f0bdd49fb13448a9d04866c2aef0,
         type: 3}
       propertyPath: lightingManager
@@ -10508,6 +10572,11 @@ PrefabInstance:
       propertyPath: losePlayerTimer
       value: 7
       objectReference: {fileID: 0}
+    - target: {fileID: 2578363404058666420, guid: 7c87f0bdd49fb13448a9d04866c2aef0,
+        type: 3}
+      propertyPath: roarDuration
+      value: 3
+      objectReference: {fileID: 0}
     - target: {fileID: 2578363404066181021, guid: 7c87f0bdd49fb13448a9d04866c2aef0,
         type: 3}
       propertyPath: player
@@ -10558,6 +10627,11 @@ PrefabInstance:
       propertyPath: losePlayerTimer
       value: 7
       objectReference: {fileID: 0}
+    - target: {fileID: 2578363404193452774, guid: 7c87f0bdd49fb13448a9d04866c2aef0,
+        type: 3}
+      propertyPath: roarDuration
+      value: 3
+      objectReference: {fileID: 0}
     - target: {fileID: 2578363404306428401, guid: 7c87f0bdd49fb13448a9d04866c2aef0,
         type: 3}
       propertyPath: player
@@ -10578,6 +10652,11 @@ PrefabInstance:
       propertyPath: LeavesUI
       value: 
       objectReference: {fileID: 694658843}
+    - target: {fileID: 3049388386693120949, guid: 7c87f0bdd49fb13448a9d04866c2aef0,
+        type: 3}
+      propertyPath: m_TagString
+      value: Creature
+      objectReference: {fileID: 0}
     - target: {fileID: 3049966593713378397, guid: 7c87f0bdd49fb13448a9d04866c2aef0,
         type: 3}
       propertyPath: lightingManager
@@ -10628,6 +10707,11 @@ PrefabInstance:
       propertyPath: LeavesUI
       value: 
       objectReference: {fileID: 694658843}
+    - target: {fileID: 4104605802061433628, guid: 7c87f0bdd49fb13448a9d04866c2aef0,
+        type: 3}
+      propertyPath: m_TagString
+      value: Creature
+      objectReference: {fileID: 0}
     - target: {fileID: 4135292938275409279, guid: 7c87f0bdd49fb13448a9d04866c2aef0,
         type: 3}
       propertyPath: player
@@ -11048,6 +11132,51 @@ PrefabInstance:
       propertyPath: LeavesUI
       value: 
       objectReference: {fileID: 694658843}
+    - target: {fileID: 4827528062275602774, guid: 7c87f0bdd49fb13448a9d04866c2aef0,
+        type: 3}
+      propertyPath: m_TagString
+      value: Creature
+      objectReference: {fileID: 0}
+    - target: {fileID: 4836581978213465893, guid: 7c87f0bdd49fb13448a9d04866c2aef0,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 13.83
+      objectReference: {fileID: 0}
+    - target: {fileID: 4836581978575574846, guid: 7c87f0bdd49fb13448a9d04866c2aef0,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0.18
+      objectReference: {fileID: 0}
+    - target: {fileID: 4836581978616105712, guid: 7c87f0bdd49fb13448a9d04866c2aef0,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 16.46
+      objectReference: {fileID: 0}
+    - target: {fileID: 4836581978675473998, guid: 7c87f0bdd49fb13448a9d04866c2aef0,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 10.92
+      objectReference: {fileID: 0}
+    - target: {fileID: 4836581978850078357, guid: 7c87f0bdd49fb13448a9d04866c2aef0,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0.19
+      objectReference: {fileID: 0}
+    - target: {fileID: 4836581979247446197, guid: 7c87f0bdd49fb13448a9d04866c2aef0,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 19.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 4836581979303700920, guid: 7c87f0bdd49fb13448a9d04866c2aef0,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 8.211
+      objectReference: {fileID: 0}
+    - target: {fileID: 4836844303935266527, guid: 7c87f0bdd49fb13448a9d04866c2aef0,
+        type: 3}
+      propertyPath: m_TagString
+      value: Creature
+      objectReference: {fileID: 0}
     - target: {fileID: 4915123552453754636, guid: 7c87f0bdd49fb13448a9d04866c2aef0,
         type: 3}
       propertyPath: lightingManager
@@ -11523,6 +11652,11 @@ PrefabInstance:
       propertyPath: LeavesUI
       value: 
       objectReference: {fileID: 694658843}
+    - target: {fileID: 5064561337578981378, guid: 7c87f0bdd49fb13448a9d04866c2aef0,
+        type: 3}
+      propertyPath: m_TagString
+      value: Creature
+      objectReference: {fileID: 0}
     - target: {fileID: 5574370998369204565, guid: 7c87f0bdd49fb13448a9d04866c2aef0,
         type: 3}
       propertyPath: player
@@ -12888,6 +13022,11 @@ PrefabInstance:
       propertyPath: LeavesUI
       value: 
       objectReference: {fileID: 694658843}
+    - target: {fileID: 7785089653975179597, guid: 7c87f0bdd49fb13448a9d04866c2aef0,
+        type: 3}
+      propertyPath: m_TagString
+      value: Creature
+      objectReference: {fileID: 0}
     - target: {fileID: 8068793224549405729, guid: 7c87f0bdd49fb13448a9d04866c2aef0,
         type: 3}
       propertyPath: lightingManager
@@ -12903,7 +13042,20 @@ PrefabInstance:
       propertyPath: losePlayerTimer
       value: 7
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    - target: {fileID: 8253014520931337020, guid: 7c87f0bdd49fb13448a9d04866c2aef0,
+        type: 3}
+      propertyPath: m_TagString
+      value: Creature
+      objectReference: {fileID: 0}
+    - target: {fileID: 8845605762182564401, guid: 7c87f0bdd49fb13448a9d04866c2aef0,
+        type: 3}
+      propertyPath: m_TagString
+      value: Creature
+      objectReference: {fileID: 0}
+    m_RemovedComponents:
+    - {fileID: 2578363403956586338, guid: 7c87f0bdd49fb13448a9d04866c2aef0, type: 3}
+    - {fileID: 2578363403956586339, guid: 7c87f0bdd49fb13448a9d04866c2aef0, type: 3}
+    - {fileID: 2578363403956586340, guid: 7c87f0bdd49fb13448a9d04866c2aef0, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: 7c87f0bdd49fb13448a9d04866c2aef0, type: 3}
 --- !u!4 &3579966066696138570 stripped
 Transform:
@@ -13379,7 +13531,7 @@ PrefabInstance:
     - target: {fileID: 5261534393256416120, guid: 3a17e89bb54f3aa408ffea24b533339b,
         type: 3}
       propertyPath: walkCamBlur
-      value: 2.2
+      value: 2.5
       objectReference: {fileID: 0}
     - target: {fileID: 5261534393256416120, guid: 3a17e89bb54f3aa408ffea24b533339b,
         type: 3}
