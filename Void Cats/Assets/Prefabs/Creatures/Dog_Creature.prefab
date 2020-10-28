@@ -1,5 +1,19 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
+--- !u!114 &3645365270387397046
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 263339681222004519}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d38970799951a77478aaa29b3aa85450, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  eyeShapeInput: {fileID: 7624582173533986894}
+  thisMaterial: {fileID: 0}
 --- !u!1 &4318615729153267660
 GameObject:
   m_ObjectHideFlags: 0
@@ -71,6 +85,7 @@ MonoBehaviour:
   speed: 3
   runSpeed: 10
   passiveCreatureType: 1
+  waitBeforeRun: 3.3
   FoodLocations:
   - {fileID: 0}
   - {fileID: 0}
@@ -81,6 +96,8 @@ MonoBehaviour:
   reachedDestination: 0
   roarDuration: 5
   creatureAnimator: {fileID: 0}
+  soundObject: {fileID: 0}
+  soundID: 0
 --- !u!195 &796635617
 NavMeshAgent:
   m_ObjectHideFlags: 0
@@ -275,6 +292,18 @@ PrefabInstance:
 --- !u!4 &7142045904483831918 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: -4216859302048453862, guid: 21455c4e4ef38da45b6a4a5cd4cfbbd0,
+    type: 3}
+  m_PrefabInstance: {fileID: 2767198253380500340}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &7624582173533986894 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 5740089725806943034, guid: 21455c4e4ef38da45b6a4a5cd4cfbbd0,
+    type: 3}
+  m_PrefabInstance: {fileID: 2767198253380500340}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &263339681222004519 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 2720317304873415763, guid: 21455c4e4ef38da45b6a4a5cd4cfbbd0,
     type: 3}
   m_PrefabInstance: {fileID: 2767198253380500340}
   m_PrefabAsset: {fileID: 0}
