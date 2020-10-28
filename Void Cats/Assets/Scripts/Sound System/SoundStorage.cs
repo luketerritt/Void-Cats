@@ -1,5 +1,6 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using System.Runtime.Remoting.Messaging;
 using UnityEngine;
 
 //this script holds allmost all sfx in the project (excludes music)
@@ -169,7 +170,12 @@ public class SoundStorage : MonoBehaviour
         }
     }
 
-
+    //return distance between object and player position, used in creature script before calling above function
+    public float getPlayerDistance(Vector3 pos)
+    {
+        float temp = Vector3.Distance(player.gameObject.GetComponent<Transform>().position, pos);
+        return temp;
+    }
 
     //nice scaling sound, but cannot be used for looping clips sadly :(
     public void playCreatureSound(AudioSource audio, Vector3 creaturePosition)
