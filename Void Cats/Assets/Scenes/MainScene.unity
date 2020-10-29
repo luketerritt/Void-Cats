@@ -99,7 +99,7 @@ LightmapSettings:
     m_TrainingDataDestination: TrainingData
   m_LightingDataAsset: {fileID: 112000000, guid: 70871a96364360c43a7d465051c6fe7e,
     type: 2}
-  m_UseShadowmask: 1
+  m_UseShadowmask: 0
 --- !u!196 &4
 NavMeshSettings:
   serializedVersion: 2
@@ -816,63 +816,6 @@ GameObject:
     type: 3}
   m_PrefabInstance: {fileID: 29214024603889402}
   m_PrefabAsset: {fileID: 0}
---- !u!21 &239531728
-Material:
-  serializedVersion: 6
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_Name: Override
-  m_Shader: {fileID: 4800000, guid: a3a3bc8785681554d9558e2ea68f100e, type: 3}
-  m_ShaderKeywords: 
-  m_LightmapFlags: 4
-  m_EnableInstancingVariants: 0
-  m_DoubleSidedGI: 0
-  m_CustomRenderQueue: -1
-  stringTagMap: {}
-  disabledShaderPasses: []
-  m_SavedProperties:
-    serializedVersion: 3
-    m_TexEnvs: []
-    m_Floats:
-    - _DIRECTIONALL: 1
-    - _DirectionalCustom: 0
-    - _DirectionalFalloff: 2
-    - _DirectionalIntensity: 1
-    - _DirectionalMode: 1
-    - _DirectionalModeBlend: 1
-    - _FOGG: 1
-    - _FogAxisMode: 1
-    - _FogColorDuo: 1
-    - _FogDistanceEnd: 200
-    - _FogDistanceFalloff: 2
-    - _FogDistanceStart: -200
-    - _FogHeightEnd: 200
-    - _FogHeightFalloff: 2
-    - _FogHeightStart: 0
-    - _FogIntensity: 1
-    - _IsHeightFogPreset: 1
-    - _IsHeightFogShader: 1
-    - _IsStandardPipeline: 0
-    - _NOISEE: 1
-    - _NoiseDistanceEnd: 50
-    - _NoiseIntensity: 1
-    - _NoiseMode: 2
-    - _NoiseModeBlend: 1
-    - _NoiseScale: 30
-    - _SKYBOXX: 1
-    - _SkyboxFogFalloff: 1
-    - _SkyboxFogFill: 1
-    - _SkyboxFogHeight: 1
-    - _TITLE: 1
-    m_Colors:
-    - _DirectionalColor: {r: 1, g: 0.7793103, b: 0.5, a: 1}
-    - _DirectionalCustomDir: {r: 0, g: 0, b: 0, a: 0}
-    - _FogAxisOption: {r: 0, g: 0, b: 0, a: 0}
-    - _FogColorEnd: {r: 0.8862745, g: 1.443137, b: 2, a: 1}
-    - _FogColorStart: {r: 0.4411765, g: 0.722515, b: 1, a: 1}
-    - _NoiseSpeed: {r: 0.5, g: 0, b: 0.5, a: 0}
 --- !u!1 &247479583 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 5898095936130437890, guid: ee70e03a41cc5a044ada690cf20c1ca5,
@@ -1332,6 +1275,63 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 12
   m_LocalEulerAnglesHint: {x: 50, y: -30, z: 0}
+--- !u!21 &460047183
+Material:
+  serializedVersion: 6
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: Override
+  m_Shader: {fileID: 4800000, guid: a3a3bc8785681554d9558e2ea68f100e, type: 3}
+  m_ShaderKeywords: 
+  m_LightmapFlags: 4
+  m_EnableInstancingVariants: 0
+  m_DoubleSidedGI: 0
+  m_CustomRenderQueue: -1
+  stringTagMap: {}
+  disabledShaderPasses: []
+  m_SavedProperties:
+    serializedVersion: 3
+    m_TexEnvs: []
+    m_Floats:
+    - _DIRECTIONALL: 1
+    - _DirectionalCustom: 0
+    - _DirectionalFalloff: 2
+    - _DirectionalIntensity: 1
+    - _DirectionalMode: 1
+    - _DirectionalModeBlend: 1
+    - _FOGG: 1
+    - _FogAxisMode: 1
+    - _FogColorDuo: 1
+    - _FogDistanceEnd: 200
+    - _FogDistanceFalloff: 2
+    - _FogDistanceStart: -200
+    - _FogHeightEnd: 200
+    - _FogHeightFalloff: 2
+    - _FogHeightStart: 0
+    - _FogIntensity: 1
+    - _IsHeightFogPreset: 1
+    - _IsHeightFogShader: 1
+    - _IsStandardPipeline: 0
+    - _NOISEE: 1
+    - _NoiseDistanceEnd: 50
+    - _NoiseIntensity: 1
+    - _NoiseMode: 2
+    - _NoiseModeBlend: 1
+    - _NoiseScale: 30
+    - _SKYBOXX: 1
+    - _SkyboxFogFalloff: 1
+    - _SkyboxFogFill: 1
+    - _SkyboxFogHeight: 1
+    - _TITLE: 1
+    m_Colors:
+    - _DirectionalColor: {r: 1, g: 0.7793103, b: 0.5, a: 1}
+    - _DirectionalCustomDir: {r: 0, g: 0, b: 0, a: 0}
+    - _FogAxisOption: {r: 0, g: 0, b: 0, a: 0}
+    - _FogColorEnd: {r: 0.8862745, g: 1.443137, b: 2, a: 1}
+    - _FogColorStart: {r: 0.4411765, g: 0.722515, b: 1, a: 1}
+    - _NoiseSpeed: {r: 0.5, g: 0, b: 0.5, a: 0}
 --- !u!1 &471971037 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 29214024168645379, guid: ee70e03a41cc5a044ada690cf20c1ca5,
@@ -2243,32 +2243,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 776602196}
   m_CullTransparentMesh: 0
---- !u!21 &777489087
-Material:
-  serializedVersion: 6
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_Name: Height Fog Global
-  m_Shader: {fileID: 4800000, guid: 3a7ef1b66bafb7a448a880ef76d2e6e6, type: 3}
-  m_ShaderKeywords: 
-  m_LightmapFlags: 4
-  m_EnableInstancingVariants: 0
-  m_DoubleSidedGI: 0
-  m_CustomRenderQueue: 3050
-  stringTagMap: {}
-  disabledShaderPasses: []
-  m_SavedProperties:
-    serializedVersion: 3
-    m_TexEnvs: []
-    m_Floats:
-    - _HeightFogGlobal: 1
-    - _IsHeightFogShader: 1
-    - _IsStandardPipeline: 0
-    - _TITLE: 1
-    - _TransparentQueue: 3000
-    m_Colors: []
 --- !u!1 &778699204 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 29214024831634078, guid: ee70e03a41cc5a044ada690cf20c1ca5,
@@ -3356,6 +3330,32 @@ GameObject:
     type: 3}
   m_PrefabInstance: {fileID: 29214024603889402}
   m_PrefabAsset: {fileID: 0}
+--- !u!21 &1051768921
+Material:
+  serializedVersion: 6
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: Height Fog Global
+  m_Shader: {fileID: 4800000, guid: 3a7ef1b66bafb7a448a880ef76d2e6e6, type: 3}
+  m_ShaderKeywords: 
+  m_LightmapFlags: 4
+  m_EnableInstancingVariants: 0
+  m_DoubleSidedGI: 0
+  m_CustomRenderQueue: 3050
+  stringTagMap: {}
+  disabledShaderPasses: []
+  m_SavedProperties:
+    serializedVersion: 3
+    m_TexEnvs: []
+    m_Floats:
+    - _HeightFogGlobal: 1
+    - _IsHeightFogShader: 1
+    - _IsStandardPipeline: 0
+    - _TITLE: 1
+    - _TransparentQueue: 3000
+    m_Colors: []
 --- !u!1 &1060025709 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 5148681149371050866, guid: ee70e03a41cc5a044ada690cf20c1ca5,
@@ -3950,17 +3950,17 @@ PrefabInstance:
     - target: {fileID: 8726777150566727646, guid: 041cdc5d538c97144b407014a2e32b57,
         type: 3}
       propertyPath: MiscPhotoIsTaken.Array.size
-      value: 100
+      value: 16
       objectReference: {fileID: 0}
     - target: {fileID: 8726777150566727646, guid: 041cdc5d538c97144b407014a2e32b57,
         type: 3}
       propertyPath: MiscPhotoSpots.Array.size
-      value: 100
+      value: 16
       objectReference: {fileID: 0}
     - target: {fileID: 8726777150566727646, guid: 041cdc5d538c97144b407014a2e32b57,
         type: 3}
       propertyPath: MiscSprites.Array.size
-      value: 100
+      value: 16
       objectReference: {fileID: 0}
     - target: {fileID: 8726777150566727646, guid: 041cdc5d538c97144b407014a2e32b57,
         type: 3}
@@ -7343,7 +7343,7 @@ MonoBehaviour:
   categoryAdvanced: 0
   renderPriority: 50
   styledSpace0: 0
-  overrideMaterial: {fileID: 239531728}
+  overrideMaterial: {fileID: 460047183}
   overrideCamToVolumeDistance: 1
   overrideVolumeDistanceFade: 0
   updater: 0
@@ -7372,7 +7372,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 777489087}
+  - {fileID: 1051768921}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -12562,6 +12562,11 @@ PrefabInstance:
       propertyPath: dataStorage
       value: 
       objectReference: {fileID: 266222612}
+    - target: {fileID: 6679572744847455675, guid: 7c87f0bdd49fb13448a9d04866c2aef0,
+        type: 3}
+      propertyPath: FastTravel
+      value: 
+      objectReference: {fileID: 1138671611}
     - target: {fileID: 6679572744847455676, guid: 7c87f0bdd49fb13448a9d04866c2aef0,
         type: 3}
       propertyPath: playableCameraScript
@@ -12602,6 +12607,11 @@ PrefabInstance:
       propertyPath: dataStorage
       value: 
       objectReference: {fileID: 266222612}
+    - target: {fileID: 6679572745004938865, guid: 7c87f0bdd49fb13448a9d04866c2aef0,
+        type: 3}
+      propertyPath: FastTravel
+      value: 
+      objectReference: {fileID: 1138671611}
     - target: {fileID: 6679572745004938866, guid: 7c87f0bdd49fb13448a9d04866c2aef0,
         type: 3}
       propertyPath: playableCameraScript
@@ -12662,6 +12672,11 @@ PrefabInstance:
       propertyPath: dataStorage
       value: 
       objectReference: {fileID: 266222612}
+    - target: {fileID: 6679572745199168280, guid: 7c87f0bdd49fb13448a9d04866c2aef0,
+        type: 3}
+      propertyPath: FastTravel
+      value: 
+      objectReference: {fileID: 1138671611}
     - target: {fileID: 6679572745199168281, guid: 7c87f0bdd49fb13448a9d04866c2aef0,
         type: 3}
       propertyPath: playableCameraScript
@@ -12762,6 +12777,11 @@ PrefabInstance:
       propertyPath: dataStorage
       value: 
       objectReference: {fileID: 266222612}
+    - target: {fileID: 6679572745413411355, guid: 7c87f0bdd49fb13448a9d04866c2aef0,
+        type: 3}
+      propertyPath: FastTravel
+      value: 
+      objectReference: {fileID: 1138671611}
     - target: {fileID: 6679572745514500720, guid: 7c87f0bdd49fb13448a9d04866c2aef0,
         type: 3}
       propertyPath: TeleButtonImage
@@ -12782,6 +12802,11 @@ PrefabInstance:
       propertyPath: dataStorage
       value: 
       objectReference: {fileID: 266222612}
+    - target: {fileID: 6679572745514500720, guid: 7c87f0bdd49fb13448a9d04866c2aef0,
+        type: 3}
+      propertyPath: FastTravel
+      value: 
+      objectReference: {fileID: 1138671611}
     - target: {fileID: 6679572745514500721, guid: 7c87f0bdd49fb13448a9d04866c2aef0,
         type: 3}
       propertyPath: playableCameraScript
@@ -12982,6 +13007,11 @@ PrefabInstance:
       propertyPath: dataStorage
       value: 
       objectReference: {fileID: 266222612}
+    - target: {fileID: 6679572746402861260, guid: 7c87f0bdd49fb13448a9d04866c2aef0,
+        type: 3}
+      propertyPath: FastTravel
+      value: 
+      objectReference: {fileID: 1138671611}
     - target: {fileID: 6679572746402861261, guid: 7c87f0bdd49fb13448a9d04866c2aef0,
         type: 3}
       propertyPath: playableCameraScript

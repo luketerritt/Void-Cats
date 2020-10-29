@@ -28,25 +28,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   eyeShapeInput: {fileID: 6852364481964899185}
   thisMaterial: {fileID: 0}
---- !u!95 &1715905136472229712
-Animator:
-  serializedVersion: 3
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3142273030521705536}
-  m_Enabled: 1
-  m_Avatar: {fileID: 9000000, guid: b9a0e1d4342ecd948920eca5d0a80899, type: 3}
-  m_Controller: {fileID: 9100000, guid: d95978c86800789419d3e315502e237d, type: 2}
-  m_CullingMode: 0
-  m_UpdateMode: 0
-  m_ApplyRootMotion: 0
-  m_LinearVelocityBlending: 0
-  m_WarningMessage: 
-  m_HasTransformHierarchy: 1
-  m_AllowConstantClipSamplingOptimization: 1
-  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!114 &2045988485826872602
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -163,9 +144,11 @@ MonoBehaviour:
   - {fileID: 0}
   reachedDestination: 0
   roarDuration: 5
+  sleepWakeUpDuration: 8.5
   creatureAnimator: {fileID: 0}
   soundObject: {fileID: 0}
   soundID: 0
+  sleepSnoreOffset: 9.2
 --- !u!95 &7005234306526601614
 Animator:
   serializedVersion: 3
@@ -439,12 +422,6 @@ PrefabInstance:
       objectReference: {fileID: 2100000, guid: a02db331e0a53e74dbe03224c0bf9265, type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: b9a0e1d4342ecd948920eca5d0a80899, type: 3}
---- !u!1 &3142273030521705536 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: -927199367670048503, guid: b9a0e1d4342ecd948920eca5d0a80899,
-    type: 3}
-  m_PrefabInstance: {fileID: 6393552064165055817}
-  m_PrefabAsset: {fileID: 0}
 --- !u!4 &2143926130147567187 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: -4216859302048453862, guid: b9a0e1d4342ecd948920eca5d0a80899,

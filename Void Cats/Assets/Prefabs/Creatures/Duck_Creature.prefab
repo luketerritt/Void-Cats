@@ -66,9 +66,11 @@ MonoBehaviour:
   UniqueSecondaryLocations: []
   reachedDestination: 0
   roarDuration: 5
+  sleepWakeUpDuration: 8.5
   creatureAnimator: {fileID: 0}
   soundObject: {fileID: 0}
   soundID: 0
+  sleepSnoreOffset: 9.2
 --- !u!195 &3198075124116343462
 NavMeshAgent:
   m_ObjectHideFlags: 0
@@ -101,25 +103,6 @@ Animator:
   m_GameObject: {fileID: 179826170132457309}
   m_Enabled: 1
   m_Avatar: {fileID: 9000000, guid: d952dfdde3dcbd44ba124d81cc0bdd52, type: 3}
-  m_Controller: {fileID: 9100000, guid: 41249488bfb90a847b34e851373aa47f, type: 2}
-  m_CullingMode: 0
-  m_UpdateMode: 0
-  m_ApplyRootMotion: 0
-  m_LinearVelocityBlending: 0
-  m_WarningMessage: 
-  m_HasTransformHierarchy: 1
-  m_AllowConstantClipSamplingOptimization: 1
-  m_KeepAnimatorControllerStateOnDisable: 0
---- !u!95 &8826651847666073031
-Animator:
-  serializedVersion: 3
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1573191882986913675}
-  m_Enabled: 1
-  m_Avatar: {fileID: 9000000, guid: a7b6f79b9c4ce6e49a2842c6b89064fa, type: 3}
   m_Controller: {fileID: 9100000, guid: 41249488bfb90a847b34e851373aa47f, type: 2}
   m_CullingMode: 0
   m_UpdateMode: 0
@@ -655,12 +638,6 @@ PrefabInstance:
       objectReference: {fileID: 2100000, guid: 1bd0a2aa523feec469941b1a87916379, type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: d952dfdde3dcbd44ba124d81cc0bdd52, type: 3}
---- !u!1 &1573191882986913675 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: -927199367670048503, guid: d952dfdde3dcbd44ba124d81cc0bdd52,
-    type: 3}
-  m_PrefabInstance: {fileID: 7418823560970970754}
-  m_PrefabAsset: {fileID: 0}
 --- !u!4 &2562056115103763864 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: -4216859302048453862, guid: d952dfdde3dcbd44ba124d81cc0bdd52,

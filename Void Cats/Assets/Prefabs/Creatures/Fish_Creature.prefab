@@ -108,9 +108,11 @@ MonoBehaviour:
   UniqueSecondaryLocations: []
   reachedDestination: 0
   roarDuration: 5
+  sleepWakeUpDuration: 8.5
   creatureAnimator: {fileID: 0}
   soundObject: {fileID: 0}
   soundID: 0
+  sleepSnoreOffset: 9.2
 --- !u!195 &4211300396289758308
 NavMeshAgent:
   m_ObjectHideFlags: 0
@@ -333,7 +335,8 @@ PrefabInstance:
       propertyPath: m_Materials.Array.data[0]
       value: 
       objectReference: {fileID: 2100000, guid: c74730ae21448b04eb2a05ebdbaf28bd, type: 2}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: -6057140222963153312, guid: a2bc50cc37465ec4f820182733545699, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: a2bc50cc37465ec4f820182733545699, type: 3}
 --- !u!4 &6134776756852206370 stripped
 Transform:
