@@ -125,6 +125,10 @@ public class TestCreature : MonoBehaviour
     public float roarDuration = 5.0f;
     private float roarIterator = 0;
 
+    public float sleepWakeUpDuration = 8.5f;
+    private float sleepWakeUpIterator = 0;
+    private bool sleepWakeUpOn = false;
+
     private bool startedUnInteruptable = false;
     
     public Animator creatureAnimator;
@@ -141,6 +145,11 @@ public class TestCreature : MonoBehaviour
     private float distanceMaxSound = 0;
 
     private bool didOneOffSound = false;
+
+    //code to make snores happen when they should
+    public float sleepSnoreOffset = 9.2f;
+    private float sleepSnoreIterator = 0;
+    private bool canSnore = false;
     // Start is called before the first frame update
     void Start()
     {
@@ -332,6 +341,22 @@ public class TestCreature : MonoBehaviour
                         angerState(); //7 = anger -- UNIQUE* to the Rabbit - find tree, punch it (via anitmaiton)
                         break;
                     }
+            }
+
+            //if the creature is waking up, regardless you are uninteractable
+            //and going to the same spot until you wake up entirely
+            if(sleepWakeUpOn && info.agentState != (CreatureState)2)
+            {
+                sleepWakeUpIterator += Time.deltaTime;
+                startedUnInteruptable = true;
+                navMeshAgent.SetDestination(this.transform.position);
+
+                if (sleepWakeUpIterator >= sleepWakeUpDuration)
+                {
+                    startedUnInteruptable = false;
+                    sleepWakeUpIterator = 0;
+                    sleepWakeUpOn = false;
+                }
             }
         }
         
@@ -1273,7 +1298,7 @@ public class TestCreature : MonoBehaviour
             PlaySleepAnimation();
             //StopFinishedAnimation();
             //var tempSound = soundObject.GetComponent<SoundStorage>();
-            tempSound.playSound(tempSound.SleepSound[soundID], this.transform.position);
+            //tempSound.playSound(tempSound.SleepSound[soundID], this.transform.position);
             //make sure potential sounds are not playing
             if(distanceToPlayer < distanceMaxSound)
             {
@@ -1291,18 +1316,29 @@ public class TestCreature : MonoBehaviour
                 }
             }
             waitBeforeRunIterator = 0;
-
+            canSnore = false;
         }
         else
         {
             StopFinishedAnimation();
         }
 
-        if(distanceToPlayer < distanceMaxSound)
+        if(!canSnore)
+        {
+            sleepSnoreIterator += Time.deltaTime;
+            if(sleepSnoreIterator >= sleepSnoreOffset)
+            {
+                canSnore = true;
+                sleepSnoreIterator = 0;
+            }
+        }
+        if(distanceToPlayer < distanceMaxSound && canSnore)
         {
             tempSound.playSound(tempSound.SleepSound[soundID], this.transform.position);
         }
-        
+
+        //set the bool for when we eventually wake up
+        sleepWakeUpOn = true;
 
         //need a way to apply this just once -- BINGO
         //transform.rotation *= Quaternion.Euler(0, 0, 90.0f); //goodnight king your animation is now in
