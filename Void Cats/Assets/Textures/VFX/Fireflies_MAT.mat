@@ -24,12 +24,32 @@ Material:
         m_Texture: {fileID: 2800000, guid: 39d42a0d4ee423f47ac74a2a4115cebc, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
+    - _BaseMap:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _MainTex:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
     m_Floats:
     - Vector1_207FA423: 8.8
     - Vector1_4B6C570F: 0
     - Vector1_B507DFBD: 100
     - Vector1_B95E8DDA: 30
     - Vector1_FB623D3: -32.2
+    - _AlphaClip: 0
+    - _Blend: 0
+    - _Cull: 2
+    - _Cutoff: 0.5
+    - _DstBlend: 0
     - _FlickerSpeed: 0.27
+    - _QueueOffset: 0
+    - _SampleGI: 0
+    - _SrcBlend: 1
+    - _Surface: 0
+    - _ZWrite: 1
     m_Colors:
+    - _BaseColor: {r: 1, g: 1, b: 1, a: 1}
+    - _Color: {r: 0.5, g: 0.5, b: 0.5, a: 1}
     - _ColourMultiply: {r: 11.984314, g: 11.984314, b: 11.984314, a: 0}

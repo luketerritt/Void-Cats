@@ -10,6 +10,7 @@ public class TPPanel : MonoBehaviour
     public GameObject NewPhotoUI;
     public GameObject CapturedImageUI;
     public GameObject GalleryfullPanel;
+    public GameObject FishSplashAnim;
 
     void Start()
     {
@@ -46,4 +47,10 @@ public class TPPanel : MonoBehaviour
     {
         GalleryfullPanel.SetActive(false);
     }
+
+    public void StopFishSplashAnim()
+    {
+        FishSplashAnim.SetActive(false);
+    }
+
 }

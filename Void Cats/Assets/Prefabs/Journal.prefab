@@ -306,6 +306,7 @@ MonoBehaviour:
   journaldata: {fileID: 0}
   isMiscButton: 0
   buttonNumber: 0
+  SoundObject: {fileID: 0}
   creatureID: 3
 --- !u!1 &29214024034149662
 GameObject:
@@ -1225,6 +1226,7 @@ MonoBehaviour:
   PlayableCharacterObject: {fileID: 0}
   Panel: {fileID: 29214024335956538}
   gameIsPaused: 0
+  soundObject: {fileID: 0}
 --- !u!1 &29214024376340479
 GameObject:
   m_ObjectHideFlags: 0
@@ -4084,6 +4086,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   thisPage: {fileID: 5500197238567353480}
   nextPage: {fileID: 29214025420991675}
+  SoundObject: {fileID: 0}
 --- !u!1 &29214025300824210
 GameObject:
   m_ObjectHideFlags: 0
@@ -5970,6 +5973,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   thisPage: {fileID: 29214025420991675}
   nextPage: {fileID: 5500197238567353480}
+  SoundObject: {fileID: 0}
 --- !u!1 &29214025838181850
 GameObject:
   m_ObjectHideFlags: 0
@@ -6692,6 +6696,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   thisPage: {fileID: 7742799147207258543}
   nextPage: {fileID: 3410541122178853520}
+  SoundObject: {fileID: 0}
 --- !u!1 &74720396614267007
 GameObject:
   m_ObjectHideFlags: 0
@@ -7169,6 +7174,7 @@ MonoBehaviour:
   journaldata: {fileID: 0}
   isMiscButton: 0
   buttonNumber: 0
+  SoundObject: {fileID: 0}
   creatureID: 10
 --- !u!1 &139815501784553153
 GameObject:
@@ -7479,6 +7485,7 @@ MonoBehaviour:
   journaldata: {fileID: 0}
   isMiscButton: 1
   buttonNumber: 9
+  SoundObject: {fileID: 0}
   creatureID: 0
 --- !u!1 &205602336901447127
 GameObject:
@@ -7790,6 +7797,7 @@ MonoBehaviour:
   journaldata: {fileID: 0}
   isMiscButton: 1
   buttonNumber: 9
+  SoundObject: {fileID: 0}
   creatureID: 0
 --- !u!1 &228787636757402742
 GameObject:
@@ -8029,6 +8037,7 @@ MonoBehaviour:
   journaldata: {fileID: 0}
   isMiscButton: 0
   buttonNumber: 3
+  SoundObject: {fileID: 0}
   creatureID: 6
 --- !u!1 &309481799819039796
 GameObject:
@@ -8308,6 +8317,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   thisPage: {fileID: 5257844575439308591}
   nextPage: {fileID: 8036865680152570355}
+  SoundObject: {fileID: 0}
 --- !u!1 &357399158817512279
 GameObject:
   m_ObjectHideFlags: 0
@@ -8396,6 +8406,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   thisPage: {fileID: 8036865680152570355}
   nextPage: {fileID: 5257844575439308591}
+  SoundObject: {fileID: 0}
 --- !u!1 &363489980029127597
 GameObject:
   m_ObjectHideFlags: 0
@@ -9093,6 +9104,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   thisPage: {fileID: 2876299632469429258}
   nextPage: {fileID: 3866185863287129043}
+  SoundObject: {fileID: 0}
 --- !u!1 &610791739862285195
 GameObject:
   m_ObjectHideFlags: 0
@@ -9182,6 +9194,7 @@ MonoBehaviour:
   journaldata: {fileID: 0}
   isMiscButton: 0
   buttonNumber: 2
+  SoundObject: {fileID: 0}
   creatureID: 5
 --- !u!1 &629922771147016495
 GameObject:
@@ -9583,6 +9596,7 @@ MonoBehaviour:
   journaldata: {fileID: 0}
   isMiscButton: 0
   buttonNumber: 0
+  SoundObject: {fileID: 0}
   creatureID: 8
 --- !u!1 &648647242444576045
 GameObject:
@@ -9818,6 +9832,7 @@ MonoBehaviour:
   journaldata: {fileID: 0}
   isMiscButton: 0
   buttonNumber: 0
+  SoundObject: {fileID: 0}
   creatureID: 7
 --- !u!1 &677059616409507369
 GameObject:
@@ -10849,6 +10864,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   thisPage: {fileID: 1866328552870411224}
   nextPage: {fileID: 3307949131277984479}
+  SoundObject: {fileID: 0}
 --- !u!1 &917299554876868210
 GameObject:
   m_ObjectHideFlags: 0
@@ -11352,6 +11368,7 @@ MonoBehaviour:
   journaldata: {fileID: 0}
   isMiscButton: 1
   buttonNumber: 11
+  SoundObject: {fileID: 0}
   creatureID: 0
 --- !u!1 &1021426481852510697
 GameObject:
@@ -11388,7 +11405,7 @@ RectTransform:
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
   m_AnchoredPosition: {x: -202.5, y: 1.2999878}
-  m_SizeDelta: {x: 80, y: 80}
+  m_SizeDelta: {x: 75, y: 75}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &8944165849672592718
 CanvasRenderer:
@@ -11514,6 +11531,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   thisPage: {fileID: 8873414187556855645}
   nextPage: {fileID: 3650620171846193754}
+  SoundObject: {fileID: 0}
 --- !u!1 &1051120789308077129
 GameObject:
   m_ObjectHideFlags: 0
@@ -11602,6 +11620,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   thisPage: {fileID: 2557959357873644847}
   nextPage: {fileID: 696084042837742415}
+  SoundObject: {fileID: 0}
 --- !u!1 &1100517064860156221
 GameObject:
   m_ObjectHideFlags: 0
@@ -12148,6 +12167,7 @@ MonoBehaviour:
   journaldata: {fileID: 0}
   isMiscButton: 0
   buttonNumber: 2
+  SoundObject: {fileID: 0}
   creatureID: 11
 --- !u!1 &1213975355404481574
 GameObject:
@@ -12238,6 +12258,7 @@ MonoBehaviour:
   journaldata: {fileID: 0}
   isMiscButton: 1
   buttonNumber: 9
+  SoundObject: {fileID: 0}
   creatureID: 0
 --- !u!1 &1217181554380084548
 GameObject:
@@ -12327,6 +12348,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   thisPage: {fileID: 8495565812974128864}
   nextPage: {fileID: 2073460731925667466}
+  SoundObject: {fileID: 0}
 --- !u!1 &1230968178917635558
 GameObject:
   m_ObjectHideFlags: 0
@@ -12415,6 +12437,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   thisPage: {fileID: 696084042837742415}
   nextPage: {fileID: 2557959357873644847}
+  SoundObject: {fileID: 0}
 --- !u!1 &1230986624761988224
 GameObject:
   m_ObjectHideFlags: 0
@@ -12504,6 +12527,7 @@ MonoBehaviour:
   journaldata: {fileID: 0}
   isMiscButton: 0
   buttonNumber: 3
+  SoundObject: {fileID: 0}
   creatureID: 12
 --- !u!1 &1251003416068485110
 GameObject:
@@ -13050,6 +13074,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   thisPage: {fileID: 3650620171846193754}
   nextPage: {fileID: 8873414187556855645}
+  SoundObject: {fileID: 0}
 --- !u!1 &1357488783869497566
 GameObject:
   m_ObjectHideFlags: 0
@@ -13516,6 +13541,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   thisPage: {fileID: 2557959357873644847}
   nextPage: {fileID: 7758624410076836479}
+  SoundObject: {fileID: 0}
 --- !u!1 &1445617408131262098
 GameObject:
   m_ObjectHideFlags: 0
@@ -13605,6 +13631,7 @@ MonoBehaviour:
   journaldata: {fileID: 0}
   isMiscButton: 0
   buttonNumber: 1
+  SoundObject: {fileID: 0}
   creatureID: 9
 --- !u!1 &1454841402990893569
 GameObject:
@@ -13895,6 +13922,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   thisPage: {fileID: 1866328552870411224}
   nextPage: {fileID: 4501102592139905126}
+  SoundObject: {fileID: 0}
 --- !u!1 &1506338368059575611
 GameObject:
   m_ObjectHideFlags: 0
@@ -13984,6 +14012,7 @@ MonoBehaviour:
   journaldata: {fileID: 0}
   isMiscButton: 1
   buttonNumber: 13
+  SoundObject: {fileID: 0}
   creatureID: 0
 --- !u!1 &1525739306034007182
 GameObject:
@@ -14074,6 +14103,7 @@ MonoBehaviour:
   journaldata: {fileID: 0}
   isMiscButton: 0
   buttonNumber: 2
+  SoundObject: {fileID: 0}
   creatureID: 10
 --- !u!1 &1581748118551986092
 GameObject:
@@ -14164,6 +14194,7 @@ MonoBehaviour:
   journaldata: {fileID: 0}
   isMiscButton: 1
   buttonNumber: 3
+  SoundObject: {fileID: 0}
   creatureID: 0
 --- !u!1 &1596616190632533738
 GameObject:
@@ -14401,6 +14432,7 @@ MonoBehaviour:
   journaldata: {fileID: 0}
   isMiscButton: 0
   buttonNumber: 1
+  SoundObject: {fileID: 0}
   creatureID: 1
 --- !u!1 &1664782651329282475
 GameObject:
@@ -14720,6 +14752,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   thisPage: {fileID: 6788814707795550670}
   nextPage: {fileID: 8495565812974128864}
+  SoundObject: {fileID: 0}
 --- !u!1 &1706627132606480443
 GameObject:
   m_ObjectHideFlags: 0
@@ -14883,6 +14916,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   thisPage: {fileID: 572688504066288205}
   nextPage: {fileID: 4501102592139905126}
+  SoundObject: {fileID: 0}
 --- !u!1 &1787018353266542788
 GameObject:
   m_ObjectHideFlags: 0
@@ -15357,6 +15391,7 @@ MonoBehaviour:
   journaldata: {fileID: 0}
   isMiscButton: 1
   buttonNumber: 15
+  SoundObject: {fileID: 0}
   creatureID: 0
 --- !u!1 &1861474614337242150
 GameObject:
@@ -15752,6 +15787,7 @@ MonoBehaviour:
   journaldata: {fileID: 0}
   isMiscButton: 0
   buttonNumber: 0
+  SoundObject: {fileID: 0}
   creatureID: 14
 --- !u!1 &1931095621133283652
 GameObject:
@@ -15842,6 +15878,7 @@ MonoBehaviour:
   journaldata: {fileID: 0}
   isMiscButton: 0
   buttonNumber: 2
+  SoundObject: {fileID: 0}
   creatureID: 8
 --- !u!1 &1942335998642660435
 GameObject:
@@ -16223,6 +16260,7 @@ MonoBehaviour:
   journaldata: {fileID: 0}
   isMiscButton: 1
   buttonNumber: 9
+  SoundObject: {fileID: 0}
   creatureID: 0
 --- !u!1 &1994944230175489194
 GameObject:
@@ -16502,6 +16540,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   thisPage: {fileID: 3307949131277984479}
   nextPage: {fileID: 1866328552870411224}
+  SoundObject: {fileID: 0}
 --- !u!1 &2056146072449663953
 GameObject:
   m_ObjectHideFlags: 0
@@ -16746,6 +16785,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   thisPage: {fileID: 2073460731925667466}
   nextPage: {fileID: 8495565812974128864}
+  SoundObject: {fileID: 0}
 --- !u!1 &2073460731925667466
 GameObject:
   m_ObjectHideFlags: 0
@@ -16954,6 +16994,7 @@ MonoBehaviour:
   journaldata: {fileID: 0}
   isMiscButton: 0
   buttonNumber: 0
+  SoundObject: {fileID: 0}
   creatureID: 13
 --- !u!1 &2083732324976334890
 GameObject:
@@ -17199,6 +17240,7 @@ MonoBehaviour:
   journaldata: {fileID: 0}
   isMiscButton: 1
   buttonNumber: 10
+  SoundObject: {fileID: 0}
   creatureID: 0
 --- !u!1 &2137611582024144128
 GameObject:
@@ -17435,6 +17477,7 @@ MonoBehaviour:
   journaldata: {fileID: 0}
   isMiscButton: 0
   buttonNumber: 1
+  SoundObject: {fileID: 0}
   creatureID: 10
 --- !u!1 &2175447446935233021
 GameObject:
@@ -17600,6 +17643,7 @@ MonoBehaviour:
   journaldata: {fileID: 0}
   isMiscButton: 1
   buttonNumber: 12
+  SoundObject: {fileID: 0}
   creatureID: 0
 --- !u!1 &2219546259583123959
 GameObject:
@@ -17690,6 +17734,7 @@ MonoBehaviour:
   journaldata: {fileID: 0}
   isMiscButton: 1
   buttonNumber: 10
+  SoundObject: {fileID: 0}
   creatureID: 0
 --- !u!1 &2299095879005259424
 GameObject:
@@ -17926,6 +17971,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   thisPage: {fileID: 7758624410076836479}
   nextPage: {fileID: 2557959357873644847}
+  SoundObject: {fileID: 0}
 --- !u!1 &2356918932211356944
 GameObject:
   m_ObjectHideFlags: 0
@@ -18766,6 +18812,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   thisPage: {fileID: 4501102592139905126}
   nextPage: {fileID: 1866328552870411224}
+  SoundObject: {fileID: 0}
 --- !u!1 &2506301642192647087
 GameObject:
   m_ObjectHideFlags: 0
@@ -19048,6 +19095,7 @@ MonoBehaviour:
   journaldata: {fileID: 0}
   isMiscButton: 0
   buttonNumber: 3
+  SoundObject: {fileID: 0}
   creatureID: 8
 --- !u!1 &2589775490073311200
 GameObject:
@@ -19485,6 +19533,7 @@ MonoBehaviour:
   journaldata: {fileID: 0}
   isMiscButton: 1
   buttonNumber: 11
+  SoundObject: {fileID: 0}
   creatureID: 0
 --- !u!1 &2651584603965305308
 GameObject:
@@ -20906,6 +20955,7 @@ MonoBehaviour:
   journaldata: {fileID: 0}
   isMiscButton: 0
   buttonNumber: 2
+  SoundObject: {fileID: 0}
   creatureID: 7
 --- !u!1 &2911244779873263759
 GameObject:
@@ -20996,6 +21046,7 @@ MonoBehaviour:
   journaldata: {fileID: 0}
   isMiscButton: 0
   buttonNumber: 2
+  SoundObject: {fileID: 0}
   creatureID: 13
 --- !u!1 &2925268052658949406
 GameObject:
@@ -21466,6 +21517,7 @@ MonoBehaviour:
   journaldata: {fileID: 0}
   isMiscButton: 1
   buttonNumber: 9
+  SoundObject: {fileID: 0}
   creatureID: 0
 --- !u!1 &2990773538114491501
 GameObject:
@@ -22088,6 +22140,7 @@ MonoBehaviour:
   journaldata: {fileID: 0}
   isMiscButton: 1
   buttonNumber: 6
+  SoundObject: {fileID: 0}
   creatureID: 0
 --- !u!1 &3174682634329750947
 GameObject:
@@ -23439,6 +23492,7 @@ MonoBehaviour:
   journaldata: {fileID: 0}
   isMiscButton: 0
   buttonNumber: 0
+  SoundObject: {fileID: 0}
   creatureID: 4
 --- !u!1 &3509482106048899609
 GameObject:
@@ -23602,6 +23656,7 @@ MonoBehaviour:
   journaldata: {fileID: 0}
   isMiscButton: 1
   buttonNumber: 4
+  SoundObject: {fileID: 0}
   creatureID: 0
 --- !u!1 &3563708386251354358
 GameObject:
@@ -23692,6 +23747,7 @@ MonoBehaviour:
   journaldata: {fileID: 0}
   isMiscButton: 1
   buttonNumber: 8
+  SoundObject: {fileID: 0}
   creatureID: 0
 --- !u!1 &3650620171846193754
 GameObject:
@@ -23829,6 +23885,7 @@ MonoBehaviour:
   journaldata: {fileID: 0}
   isMiscButton: 0
   buttonNumber: 1
+  SoundObject: {fileID: 0}
   creatureID: 11
 --- !u!1 &3701048326501699320
 GameObject:
@@ -24221,6 +24278,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   thisPage: {fileID: 3307949131277984479}
   nextPage: {fileID: 5305662671627343535}
+  SoundObject: {fileID: 0}
 --- !u!1 &3840873558556007938
 GameObject:
   m_ObjectHideFlags: 0
@@ -24309,6 +24367,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   thisPage: {fileID: 3410541122178853520}
   nextPage: {fileID: 7742799147207258543}
+  SoundObject: {fileID: 0}
 --- !u!1 &3855219669960919889
 GameObject:
   m_ObjectHideFlags: 0
@@ -24662,6 +24721,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   thisPage: {fileID: 8495565812974128864}
   nextPage: {fileID: 6788814707795550670}
+  SoundObject: {fileID: 0}
 --- !u!1 &3913267911245425516
 GameObject:
   m_ObjectHideFlags: 0
@@ -24825,6 +24885,7 @@ MonoBehaviour:
   journaldata: {fileID: 0}
   isMiscButton: 0
   buttonNumber: 0
+  SoundObject: {fileID: 0}
   creatureID: 6
 --- !u!1 &3931054642961169037
 GameObject:
@@ -25290,6 +25351,7 @@ MonoBehaviour:
   journaldata: {fileID: 0}
   isMiscButton: 1
   buttonNumber: 8
+  SoundObject: {fileID: 0}
   creatureID: 0
 --- !u!1 &4061876847976982132
 GameObject:
@@ -25756,6 +25818,7 @@ MonoBehaviour:
   journaldata: {fileID: 0}
   isMiscButton: 1
   buttonNumber: 11
+  SoundObject: {fileID: 0}
   creatureID: 0
 --- !u!1 &4144535638694016036
 GameObject:
@@ -25846,6 +25909,7 @@ MonoBehaviour:
   journaldata: {fileID: 0}
   isMiscButton: 0
   buttonNumber: 3
+  SoundObject: {fileID: 0}
   creatureID: 10
 --- !u!1 &4170520581388720593
 GameObject:
@@ -25936,6 +26000,7 @@ MonoBehaviour:
   journaldata: {fileID: 0}
   isMiscButton: 1
   buttonNumber: 10
+  SoundObject: {fileID: 0}
   creatureID: 0
 --- !u!1 &4206860629311775036
 GameObject:
@@ -26485,6 +26550,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   thisPage: {fileID: 8873414187556855645}
   nextPage: {fileID: 7758624410076836479}
+  SoundObject: {fileID: 0}
 --- !u!1 &4296450498447479880
 GameObject:
   m_ObjectHideFlags: 0
@@ -27021,6 +27087,7 @@ MonoBehaviour:
   journaldata: {fileID: 0}
   isMiscButton: 0
   buttonNumber: 2
+  SoundObject: {fileID: 0}
   creatureID: 2
 --- !u!1 &4399685982021980366
 GameObject:
@@ -27752,6 +27819,7 @@ MonoBehaviour:
   journaldata: {fileID: 0}
   isMiscButton: 0
   buttonNumber: 2
+  SoundObject: {fileID: 0}
   creatureID: 6
 --- !u!1 &4570765463717122315
 GameObject:
@@ -27842,6 +27910,7 @@ MonoBehaviour:
   journaldata: {fileID: 0}
   isMiscButton: 0
   buttonNumber: 2
+  SoundObject: {fileID: 0}
   creatureID: 12
 --- !u!1 &4605478832644862547
 GameObject:
@@ -28277,6 +28346,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   thisPage: {fileID: 4501102592139905126}
   nextPage: {fileID: 572688504066288205}
+  SoundObject: {fileID: 0}
 --- !u!1 &4642422306099259998
 GameObject:
   m_ObjectHideFlags: 0
@@ -28512,6 +28582,7 @@ MonoBehaviour:
   journaldata: {fileID: 0}
   isMiscButton: 1
   buttonNumber: 8
+  SoundObject: {fileID: 0}
   creatureID: 0
 --- !u!1 &4674155561709665775
 GameObject:
@@ -28602,6 +28673,7 @@ MonoBehaviour:
   journaldata: {fileID: 0}
   isMiscButton: 0
   buttonNumber: 1
+  SoundObject: {fileID: 0}
   creatureID: 4
 --- !u!1 &4690730184985976672
 GameObject:
@@ -29604,6 +29676,7 @@ MonoBehaviour:
   journaldata: {fileID: 0}
   isMiscButton: 0
   buttonNumber: 3
+  SoundObject: {fileID: 0}
   creatureID: 7
 --- !u!1 &4837940401032134718
 GameObject:
@@ -29893,6 +29966,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   thisPage: {fileID: 572688504066288205}
   nextPage: {fileID: 5257844575439308591}
+  SoundObject: {fileID: 0}
 --- !u!1 &4864836057459162148
 GameObject:
   m_ObjectHideFlags: 0
@@ -30061,6 +30135,7 @@ MonoBehaviour:
   journaldata: {fileID: 0}
   isMiscButton: 0
   buttonNumber: 1
+  SoundObject: {fileID: 0}
   creatureID: 7
 --- !u!1 &4873024542731644023
 GameObject:
@@ -30682,6 +30757,7 @@ MonoBehaviour:
   journaldata: {fileID: 0}
   isMiscButton: 1
   buttonNumber: 8
+  SoundObject: {fileID: 0}
   creatureID: 0
 --- !u!1 &4962228711951581579
 GameObject:
@@ -31116,6 +31192,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   thisPage: {fileID: 8036865680152570355}
   nextPage: {fileID: 8718797589102531178}
+  SoundObject: {fileID: 0}
 --- !u!1 &5050824876675118975
 GameObject:
   m_ObjectHideFlags: 0
@@ -31639,6 +31716,7 @@ MonoBehaviour:
   journaldata: {fileID: 0}
   isMiscButton: 0
   buttonNumber: 3
+  SoundObject: {fileID: 0}
   creatureID: 2
 --- !u!1 &5148681149371050866
 GameObject:
@@ -32032,6 +32110,7 @@ MonoBehaviour:
   journaldata: {fileID: 0}
   isMiscButton: 1
   buttonNumber: 10
+  SoundObject: {fileID: 0}
   creatureID: 0
 --- !u!1 &5202774396538083162
 GameObject:
@@ -32122,6 +32201,7 @@ MonoBehaviour:
   journaldata: {fileID: 0}
   isMiscButton: 0
   buttonNumber: 2
+  SoundObject: {fileID: 0}
   creatureID: 4
 --- !u!1 &5221344581046251905
 GameObject:
@@ -32212,6 +32292,7 @@ MonoBehaviour:
   journaldata: {fileID: 0}
   isMiscButton: 0
   buttonNumber: 1
+  SoundObject: {fileID: 0}
   creatureID: 3
 --- !u!1 &5257844575439308591
 GameObject:
@@ -32347,6 +32428,7 @@ MonoBehaviour:
   journaldata: {fileID: 0}
   isMiscButton: 0
   buttonNumber: 3
+  SoundObject: {fileID: 0}
   creatureID: 13
 --- !u!1 &5294465228219757591
 GameObject:
@@ -33366,6 +33448,7 @@ MonoBehaviour:
   journaldata: {fileID: 0}
   isMiscButton: 0
   buttonNumber: 1
+  SoundObject: {fileID: 0}
   creatureID: 6
 --- !u!1 &5641444118764245001
 GameObject:
@@ -33455,6 +33538,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   thisPage: {fileID: 3866185863287129043}
   nextPage: {fileID: 2876299632469429258}
+  SoundObject: {fileID: 0}
 --- !u!1 &5648583753819173883
 GameObject:
   m_ObjectHideFlags: 0
@@ -33544,6 +33628,7 @@ MonoBehaviour:
   journaldata: {fileID: 0}
   isMiscButton: 1
   buttonNumber: 0
+  SoundObject: {fileID: 0}
   creatureID: 0
 --- !u!1 &5663749514633952581
 GameObject:
@@ -33634,6 +33719,7 @@ MonoBehaviour:
   journaldata: {fileID: 0}
   isMiscButton: 1
   buttonNumber: 8
+  SoundObject: {fileID: 0}
   creatureID: 0
 --- !u!1 &5677074803273589424
 GameObject:
@@ -33724,6 +33810,7 @@ MonoBehaviour:
   journaldata: {fileID: 0}
   isMiscButton: 0
   buttonNumber: 1
+  SoundObject: {fileID: 0}
   creatureID: 14
 --- !u!1 &5683129191072120702
 GameObject:
@@ -33814,6 +33901,7 @@ MonoBehaviour:
   journaldata: {fileID: 0}
   isMiscButton: 1
   buttonNumber: 11
+  SoundObject: {fileID: 0}
   creatureID: 0
 --- !u!1 &5734333794136311532
 GameObject:
@@ -34268,6 +34356,7 @@ MonoBehaviour:
   journaldata: {fileID: 0}
   isMiscButton: 1
   buttonNumber: 10
+  SoundObject: {fileID: 0}
   creatureID: 0
 --- !u!1 &5803721488079514036
 GameObject:
@@ -34433,6 +34522,7 @@ MonoBehaviour:
   journaldata: {fileID: 0}
   isMiscButton: 1
   buttonNumber: 8
+  SoundObject: {fileID: 0}
   creatureID: 0
 --- !u!1 &5835347691636647788
 GameObject:
@@ -34523,6 +34613,7 @@ MonoBehaviour:
   journaldata: {fileID: 0}
   isMiscButton: 0
   buttonNumber: 3
+  SoundObject: {fileID: 0}
   creatureID: 9
 --- !u!1 &5837601941746940047
 GameObject:
@@ -34914,6 +35005,7 @@ MonoBehaviour:
   journaldata: {fileID: 0}
   isMiscButton: 1
   buttonNumber: 5
+  SoundObject: {fileID: 0}
   creatureID: 0
 --- !u!1 &5889489753576457629
 GameObject:
@@ -35451,6 +35543,7 @@ MonoBehaviour:
   journaldata: {fileID: 0}
   isMiscButton: 0
   buttonNumber: 1
+  SoundObject: {fileID: 0}
   creatureID: 13
 --- !u!1 &6032561850363799844
 GameObject:
@@ -35614,6 +35707,7 @@ MonoBehaviour:
   journaldata: {fileID: 0}
   isMiscButton: 0
   buttonNumber: 1
+  SoundObject: {fileID: 0}
   creatureID: 2
 --- !u!1 &6041256253580774797
 GameObject:
@@ -35704,6 +35798,7 @@ MonoBehaviour:
   journaldata: {fileID: 0}
   isMiscButton: 0
   buttonNumber: 2
+  SoundObject: {fileID: 0}
   creatureID: 1
 --- !u!1 &6046670748700185437
 GameObject:
@@ -35793,6 +35888,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   thisPage: {fileID: 3410541122178853520}
   nextPage: {fileID: 5500197238567353480}
+  SoundObject: {fileID: 0}
 --- !u!1 &6059694207556995448
 GameObject:
   m_ObjectHideFlags: 0
@@ -35955,6 +36051,7 @@ MonoBehaviour:
   journaldata: {fileID: 0}
   isMiscButton: 1
   buttonNumber: 9
+  SoundObject: {fileID: 0}
   creatureID: 0
 --- !u!1 &6067371818808474342
 GameObject:
@@ -36117,6 +36214,7 @@ MonoBehaviour:
   journaldata: {fileID: 0}
   isMiscButton: 0
   buttonNumber: 2
+  SoundObject: {fileID: 0}
   creatureID: 9
 --- !u!1 &6087105458388071606
 GameObject:
@@ -36571,6 +36669,7 @@ MonoBehaviour:
   journaldata: {fileID: 0}
   isMiscButton: 0
   buttonNumber: 0
+  SoundObject: {fileID: 0}
   creatureID: 9
 --- !u!1 &6197433626837130483
 GameObject:
@@ -37478,6 +37577,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   thisPage: {fileID: 5408541460902319415}
   nextPage: {fileID: 3650620171846193754}
+  SoundObject: {fileID: 0}
 --- !u!1 &6385122132815216460
 GameObject:
   m_ObjectHideFlags: 0
@@ -39210,6 +39310,7 @@ MonoBehaviour:
   journaldata: {fileID: 0}
   isMiscButton: 1
   buttonNumber: 11
+  SoundObject: {fileID: 0}
   creatureID: 0
 --- !u!1 &6707808474974903051
 GameObject:
@@ -39299,6 +39400,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   thisPage: {fileID: 2876299632469429258}
   nextPage: {fileID: 8718797589102531178}
+  SoundObject: {fileID: 0}
 --- !u!1 &6762087929831189001
 GameObject:
   m_ObjectHideFlags: 0
@@ -39388,6 +39490,7 @@ MonoBehaviour:
   journaldata: {fileID: 0}
   isMiscButton: 0
   buttonNumber: 0
+  SoundObject: {fileID: 0}
   creatureID: 11
 --- !u!1 &6773672025818013242
 GameObject:
@@ -39553,6 +39656,7 @@ MonoBehaviour:
   journaldata: {fileID: 0}
   isMiscButton: 1
   buttonNumber: 10
+  SoundObject: {fileID: 0}
   creatureID: 0
 --- !u!1 &6788814707795550670
 GameObject:
@@ -40210,6 +40314,7 @@ MonoBehaviour:
   journaldata: {fileID: 0}
   isMiscButton: 1
   buttonNumber: 11
+  SoundObject: {fileID: 0}
   creatureID: 0
 --- !u!1 &6895341667174330329
 GameObject:
@@ -40446,6 +40551,7 @@ MonoBehaviour:
   journaldata: {fileID: 0}
   isMiscButton: 1
   buttonNumber: 8
+  SoundObject: {fileID: 0}
   creatureID: 0
 --- !u!1 &6965268915137411947
 GameObject:
@@ -40764,6 +40870,7 @@ MonoBehaviour:
   journaldata: {fileID: 0}
   isMiscButton: 0
   buttonNumber: 1
+  SoundObject: {fileID: 0}
   creatureID: 8
 --- !u!1 &7025286694089114062
 GameObject:
@@ -41207,6 +41314,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   thisPage: {fileID: 5305662671627343535}
   nextPage: {fileID: 3307949131277984479}
+  SoundObject: {fileID: 0}
 --- !u!1 &7130208071649750433
 GameObject:
   m_ObjectHideFlags: 0
@@ -41607,6 +41715,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   thisPage: {fileID: 5500197238567353480}
   nextPage: {fileID: 3410541122178853520}
+  SoundObject: {fileID: 0}
 --- !u!1 &7185770325710057268
 GameObject:
   m_ObjectHideFlags: 0
@@ -41696,6 +41805,7 @@ MonoBehaviour:
   journaldata: {fileID: 0}
   isMiscButton: 0
   buttonNumber: 3
+  SoundObject: {fileID: 0}
   creatureID: 14
 --- !u!1 &7236008057035765699
 GameObject:
@@ -41786,6 +41896,7 @@ MonoBehaviour:
   journaldata: {fileID: 0}
   isMiscButton: 0
   buttonNumber: 0
+  SoundObject: {fileID: 0}
   creatureID: 12
 --- !u!1 &7236380528730073339
 GameObject:
@@ -41876,6 +41987,7 @@ MonoBehaviour:
   journaldata: {fileID: 0}
   isMiscButton: 0
   buttonNumber: 0
+  SoundObject: {fileID: 0}
   creatureID: 5
 --- !u!1 &7246556755626053067
 GameObject:
@@ -42122,6 +42234,7 @@ MonoBehaviour:
   journaldata: {fileID: 0}
   isMiscButton: 0
   buttonNumber: 2
+  SoundObject: {fileID: 0}
   creatureID: 3
 --- !u!1 &7318084037573079412
 GameObject:
@@ -43041,6 +43154,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   thisPage: {fileID: 5257844575439308591}
   nextPage: {fileID: 572688504066288205}
+  SoundObject: {fileID: 0}
 --- !u!1 &7457044286077013008
 GameObject:
   m_ObjectHideFlags: 0
@@ -43584,6 +43698,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   thisPage: {fileID: 6788814707795550670}
   nextPage: {fileID: 925233879064944767}
+  SoundObject: {fileID: 0}
 --- !u!1 &7552235318625917518
 GameObject:
   m_ObjectHideFlags: 0
@@ -43846,7 +43961,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 11.326}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -202.5, y: 0.7999878}
+  m_AnchoredPosition: {x: -203, y: 3}
   m_SizeDelta: {x: 80, y: 80}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &7875028879259629657
@@ -43973,6 +44088,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   thisPage: {fileID: 2073460731925667466}
   nextPage: {fileID: 7742799147207258543}
+  SoundObject: {fileID: 0}
 --- !u!1 &7600616547945880159
 GameObject:
   m_ObjectHideFlags: 0
@@ -44062,6 +44178,7 @@ MonoBehaviour:
   journaldata: {fileID: 0}
   isMiscButton: 0
   buttonNumber: 2
+  SoundObject: {fileID: 0}
   creatureID: 14
 --- !u!1 &7614633381898628138
 GameObject:
@@ -44537,6 +44654,7 @@ MonoBehaviour:
   journaldata: {fileID: 0}
   isMiscButton: 0
   buttonNumber: 3
+  SoundObject: {fileID: 0}
   creatureID: 3
 --- !u!1 &7644738439043727000
 GameObject:
@@ -45241,6 +45359,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   thisPage: {fileID: 7742799147207258543}
   nextPage: {fileID: 2073460731925667466}
+  SoundObject: {fileID: 0}
 --- !u!1 &7818968895978541646
 GameObject:
   m_ObjectHideFlags: 0
@@ -45477,6 +45596,7 @@ MonoBehaviour:
   journaldata: {fileID: 0}
   isMiscButton: 1
   buttonNumber: 1
+  SoundObject: {fileID: 0}
   creatureID: 0
 --- !u!1 &7878064560571795816
 GameObject:
@@ -45567,6 +45687,7 @@ MonoBehaviour:
   journaldata: {fileID: 0}
   isMiscButton: 1
   buttonNumber: 2
+  SoundObject: {fileID: 0}
   creatureID: 0
 --- !u!1 &7883993435278190381
 GameObject:
@@ -46107,6 +46228,7 @@ MonoBehaviour:
   journaldata: {fileID: 0}
   isMiscButton: 1
   buttonNumber: 10
+  SoundObject: {fileID: 0}
   creatureID: 0
 --- !u!1 &8002827840804463546
 GameObject:
@@ -46849,6 +46971,7 @@ MonoBehaviour:
   journaldata: {fileID: 0}
   isMiscButton: 0
   buttonNumber: 3
+  SoundObject: {fileID: 0}
   creatureID: 11
 --- !u!1 &8088267259764002180
 GameObject:
@@ -47858,6 +47981,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   thisPage: {fileID: 8718797589102531178}
   nextPage: {fileID: 2876299632469429258}
+  SoundObject: {fileID: 0}
 --- !u!1 &8297406091596135349
 GameObject:
   m_ObjectHideFlags: 0
@@ -48748,6 +48872,7 @@ MonoBehaviour:
   journaldata: {fileID: 0}
   isMiscButton: 0
   buttonNumber: 3
+  SoundObject: {fileID: 0}
   creatureID: 1
 --- !u!1 &8536331111425018741
 GameObject:
@@ -49139,6 +49264,7 @@ MonoBehaviour:
   journaldata: {fileID: 0}
   isMiscButton: 1
   buttonNumber: 11
+  SoundObject: {fileID: 0}
   creatureID: 0
 --- !u!1 &8645432292327505344
 GameObject:
@@ -49229,6 +49355,7 @@ MonoBehaviour:
   journaldata: {fileID: 0}
   isMiscButton: 0
   buttonNumber: 1
+  SoundObject: {fileID: 0}
   creatureID: 5
 --- !u!1 &8657918633338605246
 GameObject:
@@ -49474,6 +49601,7 @@ MonoBehaviour:
   journaldata: {fileID: 0}
   isMiscButton: 0
   buttonNumber: 0
+  SoundObject: {fileID: 0}
   creatureID: 1
 --- !u!1 &8680780739532432740
 GameObject:
@@ -49564,6 +49692,7 @@ MonoBehaviour:
   journaldata: {fileID: 0}
   isMiscButton: 0
   buttonNumber: 3
+  SoundObject: {fileID: 0}
   creatureID: 4
 --- !u!1 &8695688773609407472
 GameObject:
@@ -50006,6 +50135,7 @@ MonoBehaviour:
   journaldata: {fileID: 0}
   isMiscButton: 0
   buttonNumber: 1
+  SoundObject: {fileID: 0}
   creatureID: 12
 --- !u!1 &8765287809034793979
 GameObject:
@@ -50317,6 +50447,7 @@ MonoBehaviour:
   journaldata: {fileID: 0}
   isMiscButton: 1
   buttonNumber: 9
+  SoundObject: {fileID: 0}
   creatureID: 0
 --- !u!1 &8805614286749401145
 GameObject:
@@ -50700,6 +50831,7 @@ MonoBehaviour:
   journaldata: {fileID: 0}
   isMiscButton: 1
   buttonNumber: 14
+  SoundObject: {fileID: 0}
   creatureID: 0
 --- !u!1 &8867571402295205644
 GameObject:
@@ -51586,6 +51718,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   thisPage: {fileID: 925233879064944767}
   nextPage: {fileID: 6788814707795550670}
+  SoundObject: {fileID: 0}
 --- !u!1 &8939889323521123591
 GameObject:
   m_ObjectHideFlags: 0
@@ -51675,6 +51808,7 @@ MonoBehaviour:
   journaldata: {fileID: 0}
   isMiscButton: 0
   buttonNumber: 3
+  SoundObject: {fileID: 0}
   creatureID: 5
 --- !u!1 &8962614889184735045
 GameObject:
@@ -51839,6 +51973,7 @@ MonoBehaviour:
   journaldata: {fileID: 0}
   isMiscButton: 1
   buttonNumber: 7
+  SoundObject: {fileID: 0}
   creatureID: 0
 --- !u!1 &8977030997949096722
 GameObject:
@@ -52002,6 +52137,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   thisPage: {fileID: 8718797589102531178}
   nextPage: {fileID: 8036865680152570355}
+  SoundObject: {fileID: 0}
 --- !u!1 &9028382134432193966
 GameObject:
   m_ObjectHideFlags: 0
@@ -52090,6 +52226,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   thisPage: {fileID: 7758624410076836479}
   nextPage: {fileID: 8873414187556855645}
+  SoundObject: {fileID: 0}
 --- !u!1 &9034051789732019598
 GameObject:
   m_ObjectHideFlags: 0
@@ -52408,6 +52545,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   thisPage: {fileID: 3650620171846193754}
   nextPage: {fileID: 5408541460902319415}
+  SoundObject: {fileID: 0}
 --- !u!1 &9067751925567371535
 GameObject:
   m_ObjectHideFlags: 0
@@ -52497,6 +52635,7 @@ MonoBehaviour:
   journaldata: {fileID: 0}
   isMiscButton: 0
   buttonNumber: 0
+  SoundObject: {fileID: 0}
   creatureID: 2
 --- !u!1 &9121746828089630082
 GameObject:
