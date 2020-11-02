@@ -16,6 +16,7 @@ public class RemovePhotoButton : MonoBehaviour, IPointerClickHandler
     public int buttonNumber;
     //for misc it goes from 0 - (max - 1)
     //for creatures it goes from 0 - 3
+    public GameObject SoundObject;
 
      //the ID of the creature (refer to TestCreature comments)
     public int creatureID; //does not matter if this is a misc photo
@@ -26,6 +27,8 @@ public class RemovePhotoButton : MonoBehaviour, IPointerClickHandler
         //replace relevant image with default image
         //untick filled in array
         //if its a creature picture untick the checklist
+        var sound = SoundObject.GetComponent<SoundStorage>();
+        sound.playSound(sound.journalRemovePhotoSound);
 
         var temp = journaldata.GetComponent<JournalDataStorage>();
 

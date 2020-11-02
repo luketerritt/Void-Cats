@@ -160,6 +160,9 @@ public class PlayableCamera : MonoBehaviour
                     zoomToggle = false;
                 }
 
+                var tempSound = SoundContainer.GetComponent<SoundStorage>();
+
+                tempSound.playSound(tempSound.cameraOpenCloseSound);
                 //firstPersonCamera.GetComponent<PostProcessLayer>().enabled = !firstPersonCamera.GetComponent<PostProcessLayer>().enabled;
                 //readyFlash = false;
                 //if(blurryEffect.active)

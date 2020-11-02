@@ -14,9 +14,12 @@ public class NextPageSwap : MonoBehaviour, IPointerClickHandler
     //the gameobject that will be turned on
     public GameObject nextPage;
 
+    public GameObject SoundObject;
 
     public void OnPointerClick(PointerEventData pointerEventData)
     {
+        var sound = SoundObject.GetComponent<SoundStorage>();
+        sound.playSound(sound.journalPageMoveSound);
         nextPage.SetActive(true);
         thisPage.SetActive(false);
     }

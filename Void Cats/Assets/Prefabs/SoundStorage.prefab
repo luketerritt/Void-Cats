@@ -392,7 +392,7 @@ GameObject:
   - component: {fileID: 1941386919092313010}
   - component: {fileID: 7898086388425046202}
   m_Layer: 0
-  m_Name: ClickJournalTabs
+  m_Name: ClickPageTurn
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -410,7 +410,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1919071580292520417}
-  m_RootOrder: 3
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!82 &7898086388425046202
 AudioSource:
@@ -1459,7 +1459,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1919071580292520417}
-  m_RootOrder: 2
+  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!82 &7906721740536432793
 AudioSource:
@@ -3633,7 +3633,7 @@ GameObject:
   - component: {fileID: 345474770697873882}
   - component: {fileID: 2588324765553142460}
   m_Layer: 0
-  m_Name: HoverOverUI
+  m_Name: JournalRemove
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -6794,7 +6794,7 @@ AudioSource:
   m_PlayOnAwake: 0
   m_Volume: 0.2
   m_Pitch: 1
-  Loop: 0
+  Loop: 1
   Mute: 0
   Spatialize: 0
   SpatializePostEffects: 0
@@ -8953,7 +8953,7 @@ AudioSource:
   m_PlayOnAwake: 0
   m_Volume: 0.2
   m_Pitch: 1
-  Loop: 0
+  Loop: 1
   Mute: 0
   Spatialize: 0
   SpatializePostEffects: 0
@@ -9191,8 +9191,8 @@ Transform:
   m_Children:
   - {fileID: 8493501805041469615}
   - {fileID: 345474770697873882}
-  - {fileID: 394846398187309587}
   - {fileID: 1941386919092313010}
+  - {fileID: 394846398187309587}
   m_Father: {fileID: 8057070738790329765}
   m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -9774,8 +9774,8 @@ MonoBehaviour:
   - {fileID: 3992564414065152651}
   - {fileID: 3175959749911495794}
   journalTABSound: {fileID: 1774015584778561206}
-  hoverButtonUISound: {fileID: 2588324765553142460}
-  clickButtonUISound: {fileID: 7906721740536432793}
+  journalRemovePhotoSound: {fileID: 2588324765553142460}
+  journalPageMoveSound: {fileID: 7898086388425046202}
   clickJournalTabsUISound: {fileID: 7898086388425046202}
   EatSound:
   - {fileID: 379700540895468647}

@@ -9,7 +9,7 @@ public class PanelOpen : MonoBehaviour
     private PlayableCamera PlayableCameraScript;
     public GameObject Panel; // this is the Journal
     public bool gameIsPaused = false;
-    
+    public GameObject soundObject;
 
     private void Start()
     {
@@ -30,8 +30,11 @@ public class PanelOpen : MonoBehaviour
          
         if (Input.GetKeyDown(KeyCode.Tab))
         {
+            var sound = soundObject.GetComponent<SoundStorage>();
+
             if (gameIsPaused )
             {
+                sound.playSound(sound.journalTABSound);
                 Resume();
             }
             else
@@ -46,6 +49,7 @@ public class PanelOpen : MonoBehaviour
                     }
                     if(PlayableCameraScript.hasTeleporterUIOpen == false)
                     {
+                        sound.playSound(sound.journalTABSound);
                         Pause();
                     }
                    

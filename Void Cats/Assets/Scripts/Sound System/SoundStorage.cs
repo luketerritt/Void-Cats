@@ -26,8 +26,8 @@ public class SoundStorage : MonoBehaviour
 
     //Journal (and UI) sounds
     public AudioSource journalTABSound;
-    public AudioSource hoverButtonUISound;
-    public AudioSource clickButtonUISound;
+    public AudioSource journalRemovePhotoSound;
+    public AudioSource journalPageMoveSound;
     public AudioSource clickJournalTabsUISound;
 
     //general creature sounds
