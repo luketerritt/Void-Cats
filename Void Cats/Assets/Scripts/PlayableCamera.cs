@@ -100,6 +100,7 @@ public class PlayableCamera : MonoBehaviour
 
     public GameObject SoundContainer;
 
+    public GameObject MapUI;
     //false for original hold, true for toggle
     public bool zoomToggleModeOn;
     
@@ -139,7 +140,7 @@ public class PlayableCamera : MonoBehaviour
             //bool tempGrounded = this.gameObject.GetComponent<CharacterController>().isGrounded;
 
             //if the journal is not active and the player character controller is on the ground
-            if (!tempJournal.activeSelf/* && tempGrounded*/)
+            if (!tempJournal.activeSelf && !MapUI.activeSelf/* && tempGrounded*/)
             {
                 //swap cameras
                 inFirstPerson = !inFirstPerson;
@@ -253,8 +254,8 @@ public class PlayableCamera : MonoBehaviour
 
                 
      
-        //if we are in first person and the journal is NOT open
-        if(inFirstPerson && !tempJournal.activeSelf)
+        //if we are in first person and the journal is NOT open and the mapUI is not open
+        if(inFirstPerson && !tempJournal.activeSelf && !MapUI.activeSelf)
         {
             //camera movement code, creature detection code, photo capture code
 
@@ -487,6 +488,7 @@ public class PlayableCamera : MonoBehaviour
                     {
                         //creature info = the hit creatures information
                         var creatureInfo = hit.collider.gameObject.GetComponentInParent<TestCreature>().info;
+                        bool CanTakePhotoOfCreature = hit.collider.gameObject.GetComponentInParent<TestCreature>().photoCanWork;
                         Debug.Log("You hit creature type " + creatureInfo.CreatureID + " in the state: "
                             + creatureInfo.agentState);
 
@@ -539,7 +541,7 @@ public class PlayableCamera : MonoBehaviour
                                     {
                                         //check the state of the required photo vs state we found and that a photo does not exist there already
                                         if (creatureInfo.agentState == GameStorageData.FishPhotoRequirements[i].agentState
-                                            && !GameStorageData.FishPhotosIsTaken[i])
+                                            && !GameStorageData.FishPhotosIsTaken[i] && CanTakePhotoOfCreature)
                                         {
                                             //assign variables based on check and set boolean to allow coroutine
                                             textureCaptureCreatureType = creatureInfo.CreatureID; //you equal 0 as this check only happens if ID is 0
@@ -580,7 +582,7 @@ public class PlayableCamera : MonoBehaviour
                                     {
                                         //check the state of the required photo vs state we found and that a photo does not exist there already
                                         if (creatureInfo.agentState == GameStorageData.DogPhotoRequirements[i].agentState
-                                            && !GameStorageData.DogPhotosIsTaken[i])
+                                            && !GameStorageData.DogPhotosIsTaken[i] && CanTakePhotoOfCreature)
                                         {
                                             //assign variables based on check and set boolean to allow coroutine
                                             textureCaptureCreatureType = creatureInfo.CreatureID; //you equal 0 as this check only happens if ID is 0
@@ -620,7 +622,7 @@ public class PlayableCamera : MonoBehaviour
                                     {
                                         //check the state of the required photo vs state we found and that a photo does not exist there already
                                         if (creatureInfo.agentState == GameStorageData.TigerPhotoRequirements[i].agentState
-                                            && !GameStorageData.TigerPhotosIsTaken[i])
+                                            && !GameStorageData.TigerPhotosIsTaken[i] && CanTakePhotoOfCreature)
                                         {
                                             //assign variables based on check and set boolean to allow coroutine
                                             textureCaptureCreatureType = creatureInfo.CreatureID; //you equal 0 as this check only happens if ID is 0
@@ -660,7 +662,7 @@ public class PlayableCamera : MonoBehaviour
                                    {
                                        //check the state of the required photo vs state we found and that a photo does not exist there already
                                        if (creatureInfo.agentState == GameStorageData.DragonPhotoRequirements[i].agentState
-                                           && !GameStorageData.DragonPhotosIsTaken[i])
+                                           && !GameStorageData.DragonPhotosIsTaken[i] && CanTakePhotoOfCreature)
                                        {
                                            //assign variables based on check and set boolean to allow coroutine
                                            textureCaptureCreatureType = creatureInfo.CreatureID; //you equal 0 as this check only happens if ID is 0
@@ -700,7 +702,7 @@ public class PlayableCamera : MonoBehaviour
                                     {
                                         //check the state of the required photo vs state we found and that a photo does not exist there already
                                         if (creatureInfo.agentState == GameStorageData.CowPhotoRequirements[i].agentState
-                                            && !GameStorageData.CowPhotosIsTaken[i])
+                                            && !GameStorageData.CowPhotosIsTaken[i] && CanTakePhotoOfCreature)
                                         {
                                             //assign variables based on check and set boolean to allow coroutine
                                             textureCaptureCreatureType = creatureInfo.CreatureID; //you equal 0 as this check only happens if ID is 0
@@ -722,7 +724,7 @@ public class PlayableCamera : MonoBehaviour
                                     {
                                         //check the state of the required photo vs state we found and that a photo does not exist there already
                                         if (creatureInfo.agentState == GameStorageData.DuckPhotoRequirements[i].agentState
-                                            && !GameStorageData.DuckPhotosIsTaken[i])
+                                            && !GameStorageData.DuckPhotosIsTaken[i] && CanTakePhotoOfCreature)
                                         {
                                             //assign variables based on check and set boolean to allow coroutine
                                             textureCaptureCreatureType = creatureInfo.CreatureID; //you equal 0 as this check only happens if ID is 0
@@ -762,7 +764,7 @@ public class PlayableCamera : MonoBehaviour
                                     {
                                         //check the state of the required photo vs state we found and that a photo does not exist there already
                                         if (creatureInfo.agentState == GameStorageData.CatPhotoRequirements[i].agentState
-                                            && !GameStorageData.CatPhotosIsTaken[i])
+                                            && !GameStorageData.CatPhotosIsTaken[i] && CanTakePhotoOfCreature)
                                         {
                                             //assign variables based on check and set boolean to allow coroutine
                                             textureCaptureCreatureType = creatureInfo.CreatureID; //you equal 0 as this check only happens if ID is 0
@@ -802,7 +804,7 @@ public class PlayableCamera : MonoBehaviour
                                     {
                                         //check the state of the required photo vs state we found and that a photo does not exist there already
                                         if (creatureInfo.agentState == GameStorageData.RabbitPhotoRequirements[i].agentState
-                                            && !GameStorageData.RabbitPhotosIsTaken[i])
+                                            && !GameStorageData.RabbitPhotosIsTaken[i] && CanTakePhotoOfCreature)
                                         {
                                             //assign variables based on check and set boolean to allow coroutine
                                             textureCaptureCreatureType = creatureInfo.CreatureID; //you equal 0 as this check only happens if ID is 0

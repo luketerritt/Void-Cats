@@ -172,7 +172,8 @@ public class SoundStorage : MonoBehaviour
     //return distance between object and player position, used in creature script before calling above function
     public float getPlayerDistance(Vector3 pos)
     {
-        float temp = Vector3.Distance(player.gameObject.GetComponent<Transform>().position, pos);
+        //float temp = Vector3.Distance(player.gameObject.GetComponent<Transform>().position, pos);
+        float temp = (player.gameObject.GetComponent<Transform>().position - pos).sqrMagnitude;
         return temp;
     }
 

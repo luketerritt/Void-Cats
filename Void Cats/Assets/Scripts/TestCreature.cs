@@ -150,6 +150,8 @@ public class TestCreature : MonoBehaviour
     public float sleepSnoreOffset = 9.2f;
     private float sleepSnoreIterator = 0;
     private bool canSnore = false;
+
+    public bool photoCanWork = true;
     // Start is called before the first frame update
     void Start()
     {
@@ -1172,9 +1174,9 @@ public class TestCreature : MonoBehaviour
     //this happens if the creature sees the player and is a shy/scared type
     void fleeState()
     {
-        var tempSound = soundObject.GetComponent<SoundStorage>();
+        
         if (stateJustChanged)
-       {
+        {
             PlayFinishedAnimation();
             navMeshAgent.speed = runSpeed;
             stateJustChanged = false;
@@ -1185,9 +1187,9 @@ public class TestCreature : MonoBehaviour
             StopFinishedAnimation();
 
             didOneOffSound = false;
-
-
-            if (distanceToPlayer < distanceMaxSound)
+            photoCanWork = true;
+            var tempSound = soundObject.GetComponent<SoundStorage>();
+            if (distanceToPlayer < (distanceMaxSound * distanceMaxSound))
             {
                 //ensure looping creature sounds are not playing
                 if (tempSound.EatSound[soundID].isPlaying)
@@ -1233,6 +1235,7 @@ public class TestCreature : MonoBehaviour
             navMeshAgent.SetDestination(this.transform.position);
             if (!didOneOffSound && waitBeforeRunIterator >= 2.7f)
             {
+                var tempSound = soundObject.GetComponent<SoundStorage>();
                 tempSound.playSound(tempSound.StartledSound, this.transform.position);
                 didOneOffSound = true;
             }
@@ -1244,20 +1247,21 @@ public class TestCreature : MonoBehaviour
     {
         
         if (stateJustChanged)
-       {
+        {
             PlayFinishedAnimation();
             navMeshAgent.speed = speed;
-            transform.rotation *= Quaternion.Euler(0, 0, 0);
+            //transform.rotation *= Quaternion.Euler(0, 0, 0);
             stateJustChanged = false;
             reachedDestination = true;
             startedUnInteruptable = false;
             roarIterator = 0;
             PlayAlertPassiveAnimation();
             StopFinishedAnimation();
+            photoCanWork = true;
 
             var tempSound = soundObject.GetComponent<SoundStorage>();
             
-            if (distanceToPlayer < distanceMaxSound)
+            if (distanceToPlayer < (distanceMaxSound * distanceMaxSound))
             {
                 if (tempSound.EatSound[soundID].isPlaying)
                 {
@@ -1296,11 +1300,12 @@ public class TestCreature : MonoBehaviour
             startedUnInteruptable = false;
             roarIterator = 0;
             PlaySleepAnimation();
+            photoCanWork = false;
             //StopFinishedAnimation();
             //var tempSound = soundObject.GetComponent<SoundStorage>();
             //tempSound.playSound(tempSound.SleepSound[soundID], this.transform.position);
             //make sure potential sounds are not playing
-            if(distanceToPlayer < distanceMaxSound)
+            if (distanceToPlayer < (distanceMaxSound * distanceMaxSound))
             {
                 if (tempSound.EatSound[soundID].isPlaying)
                 {
@@ -1330,9 +1335,10 @@ public class TestCreature : MonoBehaviour
             {
                 canSnore = true;
                 sleepSnoreIterator = 0;
+                photoCanWork = true;
             }
         }
-        if(distanceToPlayer < distanceMaxSound && canSnore)
+        if(distanceToPlayer < (distanceMaxSound * distanceMaxSound) && canSnore)
         {
             tempSound.playSound(tempSound.SleepSound[soundID], this.transform.position);
         }
@@ -1359,9 +1365,9 @@ public class TestCreature : MonoBehaviour
             reachedDestination = false;
             startedUnInteruptable = false;
             roarIterator = 0;
-
+            photoCanWork = false;
             //make sure sleep sound is not playing
-            if (distanceToPlayer < distanceMaxSound)
+            if (distanceToPlayer < (distanceMaxSound * distanceMaxSound))
             {
                 if (tempSound.EatSound[soundID].isPlaying)
                 {
@@ -1384,7 +1390,7 @@ public class TestCreature : MonoBehaviour
         float distance = Vector3.Distance(tempLocation, transform.position);
         if(distance <= 2)
         {
-            
+            photoCanWork = true;
 
             if (!reachedDestination)
             {
@@ -1399,7 +1405,7 @@ public class TestCreature : MonoBehaviour
             //set the new position to go to be the spot you are standing
             navMeshAgent.SetDestination(this.transform.position);
             //Debug.Log("" + this.gameObject + " reached a bush");
-            if (distanceToPlayer < distanceMaxSound)
+            if (distanceToPlayer < (distanceMaxSound * distanceMaxSound))
             {
                 tempSound.playSound(tempSound.EatSound[soundID], this.transform.position);
             }
@@ -1418,7 +1424,8 @@ public class TestCreature : MonoBehaviour
             //transform.rotation *= Quaternion.Euler(0, 0, 0);
             stateJustChanged = false;
             reachedDestination = false;
-            if (distanceToPlayer < distanceMaxSound)
+            photoCanWork = false;
+            if (distanceToPlayer < (distanceMaxSound * distanceMaxSound))
             {
                 if (tempSound.EatSound[soundID].isPlaying)
                 {
@@ -1441,7 +1448,8 @@ public class TestCreature : MonoBehaviour
         float distance = Vector3.Distance(tempLocation, transform.position);
         if (distance <= 2)
         {
-            if(!reachedDestination)
+            photoCanWork = true;
+            if (!reachedDestination)
             {
                 PlaySplashAnimation();
                 StopFinishedAnimation();
@@ -1451,7 +1459,7 @@ public class TestCreature : MonoBehaviour
             navMeshAgent.SetDestination(this.transform.position);            
             reachedDestination = true;
             //probably play wash face animation here
-            if (distanceToPlayer < distanceMaxSound)
+            if (distanceToPlayer < (distanceMaxSound * distanceMaxSound))
             {
                 tempSound.playSound(tempSound.FishUniqueSound[soundRandom], this.transform.position);
             }
@@ -1471,8 +1479,9 @@ public class TestCreature : MonoBehaviour
             reachedDestination = false;
             secondaryLocationReached = 0;
             startedUnInteruptable = false;
+            photoCanWork = false;
 
-            if (distanceToPlayer < distanceMaxSound)
+            if (distanceToPlayer < (distanceMaxSound * distanceMaxSound))
             {
                 if (tempSound.EatSound[soundID].isPlaying)
                 {
@@ -1496,12 +1505,13 @@ public class TestCreature : MonoBehaviour
         float distance = Vector3.Distance(tempLocation, transform.position);
         if (distance <= 2)
         {
-            if(!reachedDestination)
+            photoCanWork = true;
+            if (!reachedDestination)
             {
                 Debug.Log("" + this.gameObject + "now chasing tail!");
                 PlayTailChaseAnimation();
                 StopFinishedAnimation();
-                if (distanceToPlayer < distanceMaxSound)
+                if (distanceToPlayer < (distanceMaxSound * distanceMaxSound))
                 {
                     tempSound.playSound(tempSound.DogUniqueSound[soundRandom], this.transform.position);
                 }
@@ -1523,7 +1533,7 @@ public class TestCreature : MonoBehaviour
             navMeshAgent.SetDestination(nextLocation);
 
             startedUnInteruptable = true;
-            if (distanceToPlayer < distanceMaxSound)
+            if (distanceToPlayer < (distanceMaxSound * distanceMaxSound))
             {
                 tempSound.playSound(tempSound.DogUniqueSound[0], this.transform.position);
             }
@@ -1559,8 +1569,8 @@ public class TestCreature : MonoBehaviour
             startedUnInteruptable = false;
             roarIterator = 0;
             soundRandom = Random.Range(0, 2);
-            
-            if (distanceToPlayer < distanceMaxSound)
+            photoCanWork = false;
+            if (distanceToPlayer < (distanceMaxSound * distanceMaxSound))
             {
                 if (tempSound.EatSound[soundID].isPlaying)
                 {
@@ -1584,10 +1594,11 @@ public class TestCreature : MonoBehaviour
             if(!reachedDestination)
             {
                 PlayRoarAnimation();
+                photoCanWork = true;
                 //StopFinishedAnimation();
                 Debug.Log("" + this.gameObject + " arrived at position number " + UniqueLocations[randomLocation]);
                 //play roar sound here
-                if (distanceToPlayer < distanceMaxSound)
+                if (distanceToPlayer < (distanceMaxSound * distanceMaxSound))
                 {
                     tempSound.playSound(tempSound.TigerUniqueSound[soundRandom], this.transform.position);
                 }
@@ -1607,7 +1618,7 @@ public class TestCreature : MonoBehaviour
         {
             roarIterator += Time.deltaTime;
             //if the iterator is bigger than the timer
-            if(roarIterator > roarDuration)
+            if(roarIterator > roarDuration) //roarDuration for tiger should be 3.9 seconds
             {               
                 //set a new random location
                 if (UniqueLocations.Length <= 1)
@@ -1622,6 +1633,7 @@ public class TestCreature : MonoBehaviour
                 startedUnInteruptable = false;
                 roarIterator -= roarDuration;
                 soundRandom = Random.Range(0, 2);
+                photoCanWork = false;
                 Debug.Log("" + this.gameObject + " roar finished, changing location to " + UniqueLocations[randomLocation]);
             }
         }
@@ -1639,6 +1651,7 @@ public class TestCreature : MonoBehaviour
             reachedDestination = false;
             secondaryLocationReached = 0;
             startedUnInteruptable = false;
+            photoCanWork = false;
             var tempSound = soundObject.GetComponent<SoundStorage>();
             if (tempSound.EatSound[soundID].isPlaying)
             {
@@ -1666,7 +1679,7 @@ public class TestCreature : MonoBehaviour
                 PlaySlideStartAnimation();
                 StopFinishedAnimation();
                 Debug.Log("start runing " + this.gameObject);
-
+                photoCanWork = true;
             }
 
             //set the new position to go to be the spot you are standing
@@ -1726,6 +1739,7 @@ public class TestCreature : MonoBehaviour
             stateJustChanged = false;
             reachedDestination = false;
             roarIterator = 0;
+            photoCanWork = false;
             var tempSound = soundObject.GetComponent<SoundStorage>();
             if (tempSound.EatSound[soundID].isPlaying)
             {
@@ -1748,6 +1762,7 @@ public class TestCreature : MonoBehaviour
             if (!reachedDestination)
             {
                 PlayRollAnimation();
+                photoCanWork = true;
                 //StopFinishedAnimation();
                 Debug.Log("" + this.gameObject + " arrived at position number " + UniqueLocations[randomLocation]);
                 //play roar sound here
@@ -1781,6 +1796,7 @@ public class TestCreature : MonoBehaviour
                 reachedDestination = false;
                 startedUnInteruptable = false;
                 roarIterator -= roarDuration;
+                photoCanWork = false;
                 Debug.Log("" + this.gameObject + " roll finished, changing location to " + UniqueLocations[randomLocation]);
             }
         }
@@ -1797,7 +1813,8 @@ public class TestCreature : MonoBehaviour
             //transform.rotation *= Quaternion.Euler(0, 0, 0);
             stateJustChanged = false;
             reachedDestination = false;
-            if (distanceToPlayer < distanceMaxSound)
+            photoCanWork = false;
+            if (distanceToPlayer < (distanceMaxSound * distanceMaxSound))
             {
                 if (tempSound.EatSound[soundID].isPlaying)
                 {
@@ -1824,13 +1841,14 @@ public class TestCreature : MonoBehaviour
                 PlayPeckAnimation();
                 StopFinishedAnimation();
                 Debug.Log("" + this.gameObject + " starting pecking");
+                photoCanWork = true;
             }
 
             reachedDestination = true;
             //set the new position to go to be the spot you are standing
             navMeshAgent.SetDestination(this.transform.position);
             //Debug.Log("" + this.gameObject + " reached a bush");
-            if (distanceToPlayer < distanceMaxSound)
+            if (distanceToPlayer < (distanceMaxSound * distanceMaxSound))
             {
                 tempSound.playSound(tempSound.DuckUniqueSound, this.transform.position);
             }
@@ -1849,7 +1867,8 @@ public class TestCreature : MonoBehaviour
             //transform.rotation *= Quaternion.Euler(0, 0, 0);
             stateJustChanged = false;
             reachedDestination = false;
-            if (distanceToPlayer < distanceMaxSound)
+            photoCanWork = false;
+            if (distanceToPlayer < (distanceMaxSound * distanceMaxSound))
             {
                 if (tempSound.EatSound[soundID].isPlaying)
                 {
@@ -1881,12 +1900,13 @@ public class TestCreature : MonoBehaviour
                 PlayLevitateAnimation();
                 StopFinishedAnimation();
                 Debug.Log("" + this.gameObject + " starting levitating");
+                photoCanWork = true;
             }
             reachedDestination = true;
             //set the new position to go to be the spot you are standing
             navMeshAgent.SetDestination(this.transform.position);
             //Debug.Log("" + this.gameObject + " reached a bush");
-            if (distanceToPlayer < distanceMaxSound)
+            if (distanceToPlayer < (distanceMaxSound * distanceMaxSound))
             {
                 tempSound.playSound(tempSound.CatUniqueSound[soundRandom], this.transform.position);
             }
@@ -1904,7 +1924,8 @@ public class TestCreature : MonoBehaviour
             //transform.rotation *= Quaternion.Euler(0, 0, 0);
             stateJustChanged = false;
             reachedDestination = false;
-            if (distanceToPlayer < distanceMaxSound)
+            photoCanWork = false;
+            if (distanceToPlayer < (distanceMaxSound * distanceMaxSound))
             {
                 if (tempSound.EatSound[soundID].isPlaying)
                 {
@@ -1930,8 +1951,9 @@ public class TestCreature : MonoBehaviour
             {
                 PlayPunchAnimation();
                 StopFinishedAnimation();
+                photoCanWork = true;
                 Debug.Log("" + this.gameObject + " reached tree");
-                if (distanceToPlayer < distanceMaxSound)
+                if (distanceToPlayer < (distanceMaxSound * distanceMaxSound))
                 {
                     tempSound.playSound(tempSound.RabbitUniqueSound, this.transform.position);
                 }
@@ -1967,6 +1989,7 @@ public class TestCreature : MonoBehaviour
                 reachedDestination = false;
                 startedUnInteruptable = false;
                 roarIterator -= roarDuration;
+                photoCanWork = false;
                 Debug.Log("" + this.gameObject + " punch finished, changing location to " + UniqueLocations[randomLocation]);
             }
         }
