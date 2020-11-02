@@ -22,7 +22,7 @@ public class SaveJournalData
     public UniqueTextureFormat[] butterflySprites = new UniqueTextureFormat[4];
     public UniqueTextureFormat[] antSprites = new UniqueTextureFormat[4];
 
-    public UniqueTextureFormat[] miscSprites = new UniqueTextureFormat[16];
+    public UniqueTextureFormat[] miscSprites = new UniqueTextureFormat[40]; //used to be 16
 
     //bool arrays which stores if a photo is made
     public bool[] fish = new bool[4];
@@ -41,7 +41,7 @@ public class SaveJournalData
     public bool[] butterfly = new bool[4];
     public bool[] ant = new bool[4];
 
-    public bool[] misc = new bool[16];
+    public bool[] misc = new bool[40]; //used to be 16
 
     public bool[] tp = new bool[6];
 

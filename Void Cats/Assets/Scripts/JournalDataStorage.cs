@@ -211,7 +211,9 @@ public class JournalDataStorage : MonoBehaviour
 
     public Sprite ChecklistTick;
 
-    public Sprite DefaultTexture;
+    public Sprite DefaultPhotoTexture;
+
+    public Sprite DefaultChecklistTexture;
 
     //the location of the new texture, used to put on the animated image
     [HideInInspector]
@@ -418,12 +420,13 @@ public class JournalDataStorage : MonoBehaviour
                             {
                                 //fish update
                                 FishPhotosIsTaken[i] = temp.FishPhotosIsTaken[i];
-                                FishSprites[i] = temp.FishSprites[i];
-                                FishJournalSpots[i].gameObject.GetComponent<Image>().sprite = FishSprites[i];
+                                
 
                                 if (FishPhotosIsTaken[i])
                                 {
                                     FishChecklistSpots[i].gameObject.GetComponent<Image>().sprite = ChecklistTick;
+                                    FishSprites[i] = temp.FishSprites[i];
+                                    FishJournalSpots[i].gameObject.GetComponent<Image>().sprite = FishSprites[i];
                                 }
                                 //assign pop up sprite
                                 ImagePopUp.gameObject.GetComponent<PopUpCameraUI>().child.GetComponent<Image>().sprite
@@ -434,12 +437,13 @@ public class JournalDataStorage : MonoBehaviour
                             {
                                 //dog update
                                 DogPhotosIsTaken[i] = temp.DogPhotosIsTaken[i];
-                                DogSprites[i] = temp.DogSprites[i];
-                                DogJournalSpots[i].gameObject.GetComponent<Image>().sprite = DogSprites[i];
+                                
 
                                 if (DogPhotosIsTaken[i])
                                 {
                                     DogChecklistSpots[i].gameObject.GetComponent<Image>().sprite = ChecklistTick;
+                                    DogSprites[i] = temp.DogSprites[i];
+                                    DogJournalSpots[i].gameObject.GetComponent<Image>().sprite = DogSprites[i];
                                 }
                                 //assign pop up sprite
                                 ImagePopUp.gameObject.GetComponent<PopUpCameraUI>().child.GetComponent<Image>().sprite
@@ -450,12 +454,13 @@ public class JournalDataStorage : MonoBehaviour
                             {
                                 //tiger update
                                 TigerPhotosIsTaken[i] = temp.TigerPhotosIsTaken[i];
-                                TigerSprites[i] = temp.TigerSprites[i];
-                                TigerJournalSpots[i].gameObject.GetComponent<Image>().sprite = TigerSprites[i];
+                                
 
                                 if (TigerPhotosIsTaken[i])
                                 {
                                     TigerChecklistSpots[i].gameObject.GetComponent<Image>().sprite = ChecklistTick;
+                                    TigerSprites[i] = temp.TigerSprites[i];
+                                    TigerJournalSpots[i].gameObject.GetComponent<Image>().sprite = TigerSprites[i];
                                 }
                                 //assign pop up sprite
                                 ImagePopUp.gameObject.GetComponent<PopUpCameraUI>().child.GetComponent<Image>().sprite
@@ -466,12 +471,13 @@ public class JournalDataStorage : MonoBehaviour
                             {
                                 //dragon update
                                 DragonPhotosIsTaken[i] = temp.DragonPhotosIsTaken[i];
-                                DragonSprites[i] = temp.DragonSprites[i];
-                                DragonJournalSpots[i].gameObject.GetComponent<Image>().sprite = DragonSprites[i];
+                                
 
                                 if (DragonPhotosIsTaken[i])
                                 {
                                     DragonChecklistSpots[i].gameObject.GetComponent<Image>().sprite = ChecklistTick;
+                                    DragonSprites[i] = temp.DragonSprites[i];
+                                    DragonJournalSpots[i].gameObject.GetComponent<Image>().sprite = DragonSprites[i];
                                 }
                                 //assign pop up sprite
                                 ImagePopUp.gameObject.GetComponent<PopUpCameraUI>().child.GetComponent<Image>().sprite
@@ -482,12 +488,13 @@ public class JournalDataStorage : MonoBehaviour
                             {
                                 //cow update
                                 CowPhotosIsTaken[i] = temp.CowPhotosIsTaken[i];
-                                CowSprites[i] = temp.CowSprites[i];
-                                CowJournalSpots[i].gameObject.GetComponent<Image>().sprite = CowSprites[i];
+                                
 
                                 if (CowPhotosIsTaken[i])
                                 {
                                     CowChecklistSpots[i].gameObject.GetComponent<Image>().sprite = ChecklistTick;
+                                    CowSprites[i] = temp.CowSprites[i];
+                                    CowJournalSpots[i].gameObject.GetComponent<Image>().sprite = CowSprites[i];
                                 }
                                 //assign pop up sprite
                                 ImagePopUp.gameObject.GetComponent<PopUpCameraUI>().child.GetComponent<Image>().sprite
@@ -498,12 +505,13 @@ public class JournalDataStorage : MonoBehaviour
                             {
                                 //duck update
                                 DuckPhotosIsTaken[i] = temp.DuckPhotosIsTaken[i];
-                                DuckSprites[i] = temp.DuckSprites[i];
-                                DuckJournalSpots[i].gameObject.GetComponent<Image>().sprite = DuckSprites[i];
+                                
 
                                 if (DuckPhotosIsTaken[i])
                                 {
                                     DuckChecklistSpots[i].gameObject.GetComponent<Image>().sprite = ChecklistTick;
+                                    DuckSprites[i] = temp.DuckSprites[i];
+                                    DuckJournalSpots[i].gameObject.GetComponent<Image>().sprite = DuckSprites[i];
                                 }
                                 //assign pop up sprite
                                 ImagePopUp.gameObject.GetComponent<PopUpCameraUI>().child.GetComponent<Image>().sprite
@@ -514,12 +522,13 @@ public class JournalDataStorage : MonoBehaviour
                             {
                                 //cat update
                                 CatPhotosIsTaken[i] = temp.CatPhotosIsTaken[i];
-                                CatSprites[i] = temp.CatSprites[i];
-                                CatJournalSpots[i].gameObject.GetComponent<Image>().sprite = CatSprites[i];
+                                
 
                                 if (CatPhotosIsTaken[i])
                                 {
                                     CatChecklistSpots[i].gameObject.GetComponent<Image>().sprite = ChecklistTick;
+                                    CatSprites[i] = temp.CatSprites[i];
+                                    CatJournalSpots[i].gameObject.GetComponent<Image>().sprite = CatSprites[i];
                                 }
                                 //assign pop up sprite
                                 ImagePopUp.gameObject.GetComponent<PopUpCameraUI>().child.GetComponent<Image>().sprite
@@ -530,12 +539,13 @@ public class JournalDataStorage : MonoBehaviour
                             {
                                 //rabbit update
                                 RabbitPhotosIsTaken[i] = temp.RabbitPhotosIsTaken[i];
-                                RabbitSprites[i] = temp.RabbitSprites[i];
-                                RabbitJournalSpots[i].gameObject.GetComponent<Image>().sprite = RabbitSprites[i];
+                                
 
                                 if (RabbitPhotosIsTaken[i])
                                 {
                                     RabbitChecklistSpots[i].gameObject.GetComponent<Image>().sprite = ChecklistTick;
+                                    RabbitSprites[i] = temp.RabbitSprites[i];
+                                    RabbitJournalSpots[i].gameObject.GetComponent<Image>().sprite = RabbitSprites[i];
                                 }
                                 //assign pop up sprite
                                 ImagePopUp.gameObject.GetComponent<PopUpCameraUI>().child.GetComponent<Image>().sprite
@@ -546,12 +556,13 @@ public class JournalDataStorage : MonoBehaviour
                             {
                                 //beetle update
                                 BeetlePhotosIsTaken[i] = temp.BeetlePhotosIsTaken[i];
-                                BeetleSprites[i] = temp.BeetleSprites[i];
-                                BeetleJournalSpots[i].gameObject.GetComponent<Image>().sprite = BeetleSprites[i];
+                                
 
                                 if (BeetlePhotosIsTaken[i])
                                 {
                                     BeetleChecklistSpots[i].gameObject.GetComponent<Image>().sprite = ChecklistTick;
+                                    BeetleSprites[i] = temp.BeetleSprites[i];
+                                    BeetleJournalSpots[i].gameObject.GetComponent<Image>().sprite = BeetleSprites[i];
                                 }
                                 //assign pop up sprite
                                 ImagePopUp.gameObject.GetComponent<PopUpCameraUI>().child.GetComponent<Image>().sprite
@@ -562,12 +573,13 @@ public class JournalDataStorage : MonoBehaviour
                             {
                                 //snail update
                                 SnailPhotosIsTaken[i] = temp.SnailPhotosIsTaken[i];
-                                SnailSprites[i] = temp.SnailSprites[i];
-                                SnailJournalSpots[i].gameObject.GetComponent<Image>().sprite = SnailSprites[i];
+                                
 
                                 if (SnailPhotosIsTaken[i])
                                 {
                                     SnailChecklistSpots[i].gameObject.GetComponent<Image>().sprite = ChecklistTick;
+                                    SnailSprites[i] = temp.SnailSprites[i];
+                                    SnailJournalSpots[i].gameObject.GetComponent<Image>().sprite = SnailSprites[i];
                                 }
                                 //assign pop up sprite
                                 ImagePopUp.gameObject.GetComponent<PopUpCameraUI>().child.GetComponent<Image>().sprite
@@ -578,12 +590,13 @@ public class JournalDataStorage : MonoBehaviour
                             {
                                 //worm update
                                 WormPhotosIsTaken[i] = temp.WormPhotosIsTaken[i];
-                                WormSprites[i] = temp.WormSprites[i];
-                                WormJournalSpots[i].gameObject.GetComponent<Image>().sprite = WormSprites[i];
+                                
 
                                 if (WormPhotosIsTaken[i])
                                 {
                                     WormChecklistSpots[i].gameObject.GetComponent<Image>().sprite = ChecklistTick;
+                                    WormSprites[i] = temp.WormSprites[i];
+                                    WormJournalSpots[i].gameObject.GetComponent<Image>().sprite = WormSprites[i];
                                 }
                                 //assign pop up sprite
                                 ImagePopUp.gameObject.GetComponent<PopUpCameraUI>().child.GetComponent<Image>().sprite
@@ -594,12 +607,13 @@ public class JournalDataStorage : MonoBehaviour
                             {
                                 //slug update
                                 SlugPhotosIsTaken[i] = temp.SlugPhotosIsTaken[i];
-                                SlugSprites[i] = temp.SlugSprites[i];
-                                SlugJournalSpots[i].gameObject.GetComponent<Image>().sprite = SlugSprites[i];
+                                
 
                                 if (SlugPhotosIsTaken[i])
                                 {
                                     SlugChecklistSpots[i].gameObject.GetComponent<Image>().sprite = ChecklistTick;
+                                    SlugSprites[i] = temp.SlugSprites[i];
+                                    SlugJournalSpots[i].gameObject.GetComponent<Image>().sprite = SlugSprites[i];
                                 }
                                 //assign pop up sprite
                                 ImagePopUp.gameObject.GetComponent<PopUpCameraUI>().child.GetComponent<Image>().sprite
@@ -610,12 +624,12 @@ public class JournalDataStorage : MonoBehaviour
                             {
                                 //Butterfly update
                                 ButterflyPhotosIsTaken[i] = temp.ButterflyPhotosIsTaken[i];
-                                ButterflySprites[i] = temp.ButterflySprites[i];
-                                ButterflyJournalSpots[i].gameObject.GetComponent<Image>().sprite = ButterflySprites[i];
-
+                                
                                 if (ButterflyPhotosIsTaken[i])
                                 {
                                     ButterflyChecklistSpots[i].gameObject.GetComponent<Image>().sprite = ChecklistTick;
+                                    ButterflySprites[i] = temp.ButterflySprites[i];
+                                    ButterflyJournalSpots[i].gameObject.GetComponent<Image>().sprite = ButterflySprites[i];
                                 }
                                 //assign pop up sprite
                                 ImagePopUp.gameObject.GetComponent<PopUpCameraUI>().child.GetComponent<Image>().sprite
@@ -626,12 +640,13 @@ public class JournalDataStorage : MonoBehaviour
                             {
                                 //Ant update
                                 AntPhotosIsTaken[i] = temp.AntPhotosIsTaken[i];
-                                AntSprites[i] = temp.AntSprites[i];
-                                AntJournalSpots[i].gameObject.GetComponent<Image>().sprite = AntSprites[i];
+                                
 
                                 if (AntPhotosIsTaken[i])
                                 {
                                     AntChecklistSpots[i].gameObject.GetComponent<Image>().sprite = ChecklistTick;
+                                    AntSprites[i] = temp.AntSprites[i];
+                                    AntJournalSpots[i].gameObject.GetComponent<Image>().sprite = AntSprites[i];
                                 }
                                 //assign pop up sprite
                                 ImagePopUp.gameObject.GetComponent<PopUpCameraUI>().child.GetComponent<Image>().sprite
@@ -653,8 +668,12 @@ public class JournalDataStorage : MonoBehaviour
                 for (int i = 0; i < MiscSprites.Length; i++)
                 {
                     MiscPhotoIsTaken[i] = temp.MiscPhotoIsTaken[i];
-                    MiscSprites[i] = temp.MiscSprites[i];
-                    MiscPhotoSpots[i].gameObject.GetComponent<Image>().sprite = MiscSprites[i];
+                    if(MiscPhotoIsTaken[i])
+                    {
+                        MiscSprites[i] = temp.MiscSprites[i];
+                        MiscPhotoSpots[i].gameObject.GetComponent<Image>().sprite = MiscSprites[i];
+                    }
+                    
                 }
                 //assign pop up sprite
                 ImagePopUp.gameObject.GetComponent<PopUpCameraUI>().child.GetComponent<Image>().sprite
@@ -743,21 +762,66 @@ public class JournalDataStorage : MonoBehaviour
                 ButterflyPhotosIsTaken[i] = data.butterfly[i];
                 AntPhotosIsTaken[i] = data.ant[i];
 
-                FishSprites[i] = SerialiseTexture.DeSerialise(data.fishSprites[i]) as Sprite;
-                DogSprites[i] = SerialiseTexture.DeSerialise(data.dogSprites[i]) as Sprite;
-                TigerSprites[i] = SerialiseTexture.DeSerialise(data.tigerSprites[i]) as Sprite;
-                DragonSprites[i] = SerialiseTexture.DeSerialise(data.dragonSprites[i]) as Sprite;
-                CowSprites[i] = SerialiseTexture.DeSerialise(data.cowSprites[i]) as Sprite;
-                DuckSprites[i] = SerialiseTexture.DeSerialise(data.duckSprites[i]) as Sprite;
-                CatSprites[i] = SerialiseTexture.DeSerialise(data.catSprites[i]) as Sprite;
-                RabbitSprites[i] = SerialiseTexture.DeSerialise(data.rabbitSprites[i]) as Sprite;
+                //if a photo exists in the spot, deserialise it
 
-                BeetleSprites[i] = SerialiseTexture.DeSerialise(data.beetleSprites[i]) as Sprite;
-                SnailSprites[i] = SerialiseTexture.DeSerialise(data.snailSprites[i]) as Sprite;
-                WormSprites[i] = SerialiseTexture.DeSerialise(data.wormSprites[i]) as Sprite;
-                SlugSprites[i] = SerialiseTexture.DeSerialise(data.slugSprites[i]) as Sprite;
-                ButterflySprites[i] = SerialiseTexture.DeSerialise(data.butterflySprites[i]) as Sprite;
-                AntSprites[i] = SerialiseTexture.DeSerialise(data.antSprites[i]) as Sprite;
+                if (FishPhotosIsTaken[i])
+                {
+                    FishSprites[i] = SerialiseTexture.DeSerialise(data.fishSprites[i]) as Sprite;
+                }
+                if (DogPhotosIsTaken[i])
+                {
+                    DogSprites[i] = SerialiseTexture.DeSerialise(data.dogSprites[i]) as Sprite;
+                }
+                if(TigerPhotosIsTaken[i])
+                {
+                    TigerSprites[i] = SerialiseTexture.DeSerialise(data.tigerSprites[i]) as Sprite;
+                }
+                if (DragonPhotosIsTaken[i])
+                {
+                    DragonSprites[i] = SerialiseTexture.DeSerialise(data.dragonSprites[i]) as Sprite;
+                }
+                if (CowPhotosIsTaken[i])
+                {
+                    CowSprites[i] = SerialiseTexture.DeSerialise(data.cowSprites[i]) as Sprite;
+                }
+                if (DuckPhotosIsTaken[i])
+                {
+                    DuckSprites[i] = SerialiseTexture.DeSerialise(data.duckSprites[i]) as Sprite;
+                }
+                if (CatPhotosIsTaken[i])
+                {
+                    CatSprites[i] = SerialiseTexture.DeSerialise(data.catSprites[i]) as Sprite;
+                }
+                if(RabbitPhotosIsTaken[i])
+                {
+                    RabbitSprites[i] = SerialiseTexture.DeSerialise(data.rabbitSprites[i]) as Sprite;
+                }
+
+                if (BeetlePhotosIsTaken[i])
+                {
+                    BeetleSprites[i] = SerialiseTexture.DeSerialise(data.beetleSprites[i]) as Sprite;
+                }
+                if(SnailPhotosIsTaken[i])
+                {
+                    SnailSprites[i] = SerialiseTexture.DeSerialise(data.snailSprites[i]) as Sprite;
+                }
+                if (WormPhotosIsTaken[i])
+                {
+                    WormSprites[i] = SerialiseTexture.DeSerialise(data.wormSprites[i]) as Sprite;
+                }
+                if(SlugPhotosIsTaken[i])
+                {
+                    SlugSprites[i] = SerialiseTexture.DeSerialise(data.slugSprites[i]) as Sprite;
+                }
+                if(ButterflyPhotosIsTaken[i])
+                {
+                    ButterflySprites[i] = SerialiseTexture.DeSerialise(data.butterflySprites[i]) as Sprite;
+                }
+                if(AntPhotosIsTaken[i])
+                {
+                    AntSprites[i] = SerialiseTexture.DeSerialise(data.antSprites[i]) as Sprite;
+                }
+                
 
             }
 
@@ -765,7 +829,11 @@ public class JournalDataStorage : MonoBehaviour
             for (int i = 0; i < MiscPhotoIsTaken.Length; i++)
             {
                 MiscPhotoIsTaken[i] = data.misc[i];
-                MiscSprites[i] = SerialiseTexture.DeSerialise(data.miscSprites[i]) as Sprite;
+                if(MiscPhotoIsTaken[i])
+                {
+                    MiscSprites[i] = SerialiseTexture.DeSerialise(data.miscSprites[i]) as Sprite;
+                }
+                
             }
 
             //also assign the tp found
@@ -936,6 +1004,8 @@ public class JournalDataStorage : MonoBehaviour
                 MiscSprites[i] = temp.MiscSprites[i];
                 MiscPhotoSpots[i].gameObject.GetComponent<Image>().sprite = MiscSprites[i];
             }
+            
+
         }
         else
         {
@@ -951,6 +1021,8 @@ public class JournalDataStorage : MonoBehaviour
             }
         }
 
+        //force an update of all the journal
+        //ForceUpdateAllJournal();
         //LoadingText.SetActive(false);
         //disable interactability for the buttons
         for (int i = 0; i > SaveQuitButtons.Length; i++)
@@ -961,4 +1033,165 @@ public class JournalDataStorage : MonoBehaviour
         midSaveOrLoad = false;
         Debug.Log("Game loaded");
     }
+
+    //force an update of EVERYTHING IN THE JOURNAL!!!
+    //public void ForceUpdateAllJournal()
+    //{
+    //    var temp = playerCameraInput.gameObject.GetComponent<PlayableCamera>().GameStorageData;
+    //    //this is mostly the same code as the main function except the switch is removed
+    //    for (int i = 0; i < defaultArraySize; i++)
+    //    {
+
+    //        //FISH
+    //        FishPhotosIsTaken[i] = temp.FishPhotosIsTaken[i];
+
+    //        if (FishPhotosIsTaken[i])
+    //        {
+    //            FishChecklistSpots[i].gameObject.GetComponent<Image>().sprite = ChecklistTick;
+    //            FishSprites[i] = temp.FishSprites[i];
+    //            FishJournalSpots[i].gameObject.GetComponent<Image>().sprite = FishSprites[i];
+    //        }
+
+    //        //DOG
+    //        DogPhotosIsTaken[i] = temp.DogPhotosIsTaken[i];
+
+    //        if (DogPhotosIsTaken[i])
+    //        {
+    //            DogChecklistSpots[i].gameObject.GetComponent<Image>().sprite = ChecklistTick;
+    //            DogSprites[i] = temp.DogSprites[i];
+    //            DogJournalSpots[i].gameObject.GetComponent<Image>().sprite = DogSprites[i];
+    //        }
+
+    //        //TIGER
+    //        TigerPhotosIsTaken[i] = temp.TigerPhotosIsTaken[i];
+
+    //        if (TigerPhotosIsTaken[i])
+    //        {
+    //            TigerChecklistSpots[i].gameObject.GetComponent<Image>().sprite = ChecklistTick;
+    //            TigerSprites[i] = temp.TigerSprites[i];
+    //            TigerJournalSpots[i].gameObject.GetComponent<Image>().sprite = TigerSprites[i];
+    //        }
+
+    //        //DRAGON
+    //        DragonPhotosIsTaken[i] = temp.DragonPhotosIsTaken[i];
+
+    //        if (DragonPhotosIsTaken[i])
+    //        {
+    //            DragonChecklistSpots[i].gameObject.GetComponent<Image>().sprite = ChecklistTick;
+    //            DragonSprites[i] = temp.DragonSprites[i];
+    //            DragonJournalSpots[i].gameObject.GetComponent<Image>().sprite = DragonSprites[i];
+    //        }
+
+    //        //COW
+    //        CowPhotosIsTaken[i] = temp.CowPhotosIsTaken[i];
+
+    //        if (CowPhotosIsTaken[i])
+    //        {
+    //            CowChecklistSpots[i].gameObject.GetComponent<Image>().sprite = ChecklistTick;
+    //            CowSprites[i] = temp.CowSprites[i];
+    //            CowJournalSpots[i].gameObject.GetComponent<Image>().sprite = CowSprites[i];
+    //        }
+
+    //        //DUCK
+    //        DuckPhotosIsTaken[i] = temp.DuckPhotosIsTaken[i];
+
+    //        if (DuckPhotosIsTaken[i])
+    //        {
+    //            DuckChecklistSpots[i].gameObject.GetComponent<Image>().sprite = ChecklistTick;
+    //            DuckSprites[i] = temp.DuckSprites[i];
+    //            DuckJournalSpots[i].gameObject.GetComponent<Image>().sprite = DuckSprites[i];
+    //        }
+
+    //        //CAT
+    //        CatPhotosIsTaken[i] = temp.CatPhotosIsTaken[i];
+
+    //        if (CatPhotosIsTaken[i])
+    //        {
+    //            CatChecklistSpots[i].gameObject.GetComponent<Image>().sprite = ChecklistTick;
+    //            CatSprites[i] = temp.CatSprites[i];
+    //            CatJournalSpots[i].gameObject.GetComponent<Image>().sprite = CatSprites[i];
+    //        }
+
+    //        //RABBIT
+    //        RabbitPhotosIsTaken[i] = temp.RabbitPhotosIsTaken[i];
+
+    //        if (RabbitPhotosIsTaken[i])
+    //        {
+    //            RabbitChecklistSpots[i].gameObject.GetComponent<Image>().sprite = ChecklistTick;
+    //            RabbitSprites[i] = temp.RabbitSprites[i];
+    //            RabbitJournalSpots[i].gameObject.GetComponent<Image>().sprite = RabbitSprites[i];
+    //        }
+
+    //        //BEETLE
+    //        BeetlePhotosIsTaken[i] = temp.BeetlePhotosIsTaken[i];
+
+    //        if (BeetlePhotosIsTaken[i])
+    //        {
+    //            BeetleChecklistSpots[i].gameObject.GetComponent<Image>().sprite = ChecklistTick;
+    //            BeetleSprites[i] = temp.BeetleSprites[i];
+    //            BeetleJournalSpots[i].gameObject.GetComponent<Image>().sprite = BeetleSprites[i];
+    //        }
+
+    //        //SNAIL
+    //        SnailPhotosIsTaken[i] = temp.SnailPhotosIsTaken[i];
+
+    //        if (SnailPhotosIsTaken[i])
+    //        {
+    //            SnailChecklistSpots[i].gameObject.GetComponent<Image>().sprite = ChecklistTick;
+    //            SnailSprites[i] = temp.SnailSprites[i];
+    //            SnailJournalSpots[i].gameObject.GetComponent<Image>().sprite = SnailSprites[i];
+    //        }
+
+    //        //WORM
+    //        WormPhotosIsTaken[i] = temp.WormPhotosIsTaken[i];
+
+    //        if (WormPhotosIsTaken[i])
+    //        {
+    //            WormChecklistSpots[i].gameObject.GetComponent<Image>().sprite = ChecklistTick;
+    //            WormSprites[i] = temp.WormSprites[i];
+    //            WormJournalSpots[i].gameObject.GetComponent<Image>().sprite = WormSprites[i];
+    //        }
+
+    //        //SLUG
+    //        SlugPhotosIsTaken[i] = temp.SlugPhotosIsTaken[i];
+
+    //        if (SlugPhotosIsTaken[i])
+    //        {
+    //            SlugChecklistSpots[i].gameObject.GetComponent<Image>().sprite = ChecklistTick;
+    //            SlugSprites[i] = temp.SlugSprites[i];
+    //            SlugJournalSpots[i].gameObject.GetComponent<Image>().sprite = SlugSprites[i];
+    //        }
+
+    //        //BUTTERFLY
+    //        ButterflyPhotosIsTaken[i] = temp.ButterflyPhotosIsTaken[i];
+
+    //        if (ButterflyPhotosIsTaken[i])
+    //        {
+    //            ButterflyChecklistSpots[i].gameObject.GetComponent<Image>().sprite = ChecklistTick;
+    //            ButterflySprites[i] = temp.ButterflySprites[i];
+    //            ButterflyJournalSpots[i].gameObject.GetComponent<Image>().sprite = ButterflySprites[i];
+    //        }
+
+    //        //ANT
+    //        AntPhotosIsTaken[i] = temp.AntPhotosIsTaken[i];
+
+    //        if (AntPhotosIsTaken[i])
+    //        {
+    //            AntChecklistSpots[i].gameObject.GetComponent<Image>().sprite = ChecklistTick;
+    //            AntSprites[i] = temp.AntSprites[i];
+    //            AntJournalSpots[i].gameObject.GetComponent<Image>().sprite = AntSprites[i];
+    //        }
+    //    }
+
+    //    for (int i = 0; i < MiscSprites.Length; i++)
+    //    {
+    //        MiscPhotoIsTaken[i] = temp.MiscPhotoIsTaken[i];
+    //        if (MiscPhotoIsTaken[i])
+    //        {
+    //            MiscSprites[i] = temp.MiscSprites[i];
+    //            MiscPhotoSpots[i].gameObject.GetComponent<Image>().sprite = MiscSprites[i];
+    //        }
+
+    //    }
+    //}
 }

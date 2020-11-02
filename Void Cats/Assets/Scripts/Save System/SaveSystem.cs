@@ -9,7 +9,7 @@ public static class SaveSystem
     {
         Debug.Log("Starting to save journal"); 
         BinaryFormatter formatter = new BinaryFormatter();
-        string path = Application.persistentDataPath + "/GAMESAVE.txt";
+        string path = Application.persistentDataPath + "/CLICGAMESAVE.txt";
         Debug.Log("Creating file at " + path);
 
         FileStream stream = new FileStream(path, FileMode.Create);
@@ -23,7 +23,7 @@ public static class SaveSystem
     public static SaveJournalData loadJournal()
     {
         Debug.Log("starting to load file");
-        string path = Application.persistentDataPath + "/GAMESAVE.txt";
+        string path = Application.persistentDataPath + "/CLICGAMESAVE.txt";
 
         if(File.Exists(path))
         {
