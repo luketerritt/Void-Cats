@@ -19,8 +19,11 @@ public class BushInteraction : MonoBehaviour, IInteractable
     private bool playerInThisBush = false;
     private Collider thisCollider;
 
-    public GameObject LeavesUI;
+    public GameObject LeavesUI; //day leaves
+    public GameObject NightLeavesUI; //night leaves
 
+    public GameObject lightManager;
+    private int currentQuater;
     //gets set to true during the time the player enters or leaves the bush
     private bool bushTransition = false;
 
@@ -46,6 +49,7 @@ public class BushInteraction : MonoBehaviour, IInteractable
         thisCollider = this.gameObject.GetComponent<Collider>();
 
         childRenderers = GetComponentsInChildren<MeshRenderer>();
+        currentQuater = (int)lightManager.GetComponent<LightingManager>().currentQuater;
     }
 
     private void Update()
@@ -60,8 +64,10 @@ public class BushInteraction : MonoBehaviour, IInteractable
         //if the player is in this bush
         if(playerInThisBush)
         {
+            updateTimeBasedLeavesOnUI();
+
             //if the player presses escape or WASD or E
-            if(Input.GetKeyDown(KeyCode.Escape) ||
+            if (Input.GetKeyDown(KeyCode.Escape) ||
                Input.GetKeyDown(KeyCode.W) ||
                Input.GetKeyDown(KeyCode.A) ||
                Input.GetKeyDown(KeyCode.S) ||
@@ -108,7 +114,7 @@ public class BushInteraction : MonoBehaviour, IInteractable
                 //if we are halfway
                 if ((overallDistance * 0.5f) > distance)
                 {
-                    LeavesUI.SetActive(true);
+                    updateTimeBasedLeavesOnUI();
                     thisRenderer.enabled = false;
                     foreach (MeshRenderer renderer in childRenderers)
                     {
@@ -142,6 +148,7 @@ public class BushInteraction : MonoBehaviour, IInteractable
                 if((overallDistance * 0.5f) > (distance))
                 {
                     LeavesUI.SetActive(false);
+                    NightLeavesUI.SetActive(false);
                     thisRenderer.enabled = true;
                     foreach (MeshRenderer renderer in childRenderers)
                     {
@@ -164,6 +171,27 @@ public class BushInteraction : MonoBehaviour, IInteractable
 
     }
 
+    public void updateTimeBasedLeavesOnUI()
+    {
+        currentQuater = (int)lightManager.GetComponent<LightingManager>().currentQuater;
+        //if (currentQuater != (int)lightManager.GetComponent<LightingManager>().currentQuater)
+        //{
+            //if the stored time is 1 or 2 //day
+            if (currentQuater == 1 || currentQuater == 2)
+            {
+                currentQuater = (int)lightManager.GetComponent<LightingManager>().currentQuater;
+                LeavesUI.SetActive(true);
+                NightLeavesUI.SetActive(false);
+
+            }
+            else //the stored time is 0 or 2 (late night going to morning or afternoon going to night)
+            {
+                currentQuater = (int)lightManager.GetComponent<LightingManager>().currentQuater;
+                LeavesUI.SetActive(false);
+                NightLeavesUI.SetActive(true);
+            }
+        //}
+    }
 
     public void OnStartHover()
     {
