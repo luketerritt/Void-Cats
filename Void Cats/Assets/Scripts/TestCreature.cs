@@ -152,6 +152,12 @@ public class TestCreature : MonoBehaviour
     private bool canSnore = false;
 
     public bool photoCanWork = true;
+
+    public int randomTimeCheckMin = 0;
+    public int randomTimeCheckMax = 10;
+
+    public float randomTimeCheckValue = 0;
+    public float randomTimeIterator = 0;
     // Start is called before the first frame update
     void Start()
     {
@@ -246,8 +252,8 @@ public class TestCreature : MonoBehaviour
             UniqueLocations[0] = this.gameObject;
         }
         PlayerObject = GameObject.FindGameObjectWithTag("Player");
-       
 
+        randomTimeCheckValue = 0;
         //if this is a critter - ID is bigger than or equal to 9
         if (ID >= 9)
         {
@@ -451,717 +457,727 @@ public class TestCreature : MonoBehaviour
         }
         else //if the creature can not see the player
         {
-            //determine which creature type this is by using a switch statement with creature ID
-            switch (info.CreatureID)
+            randomTimeIterator += Time.deltaTime;
+            //check the random iterator to see if it can update
+            if (randomTimeIterator > randomTimeCheckValue)
             {
-                case 0: //Block debug code
-                    {
-                        //if it is LateNight
-                        if ((int)timeState == 0)
-                        {
-                            //if the AgentState is not in the desired state yet it becomes the desired state
-                            if (/*AgentState*/ info.agentState != (CreatureState)2) //it may lead to bugs down the line when agent state does not match the state the time gives -- (add other states to the check here) 
-                            {
-                                //PreviousState = info.agentState; //assign the previous state
-                                /*AgentState*/
-                                info.agentState = (CreatureState)2; //agent goes to sleep
-                                stateJustChanged = true;
-                                //return;
-                                break;
-                            }
-                            break;
-                        }
 
-                        //if it is Morning
-                        if ((int)timeState == 1)
+                //determine which creature type this is by using a switch statement with creature ID
+                switch (info.CreatureID)
+                {
+                    case 0: //Block debug code
                         {
-                            if (info.agentState != (CreatureState)0)
+                            //if it is LateNight
+                            if ((int)timeState == 0)
                             {
-                                //PreviousState = info.agentState; //assign the previous state
-                                info.agentState = (CreatureState)0; //agent walks
-                                stateJustChanged = true;
-                                break;
-                            }
-
-                            break;
-                        }
-
-                        //if it is Afternoon
-                        if ((int)timeState == 2)
-                        {
-                            if (info.agentState != (CreatureState)1)
-                            {
-                                //PreviousState = info.agentState; //assign the previous state
-                                info.agentState = (CreatureState)1; //agent notices
-                                stateJustChanged = true;
-                                break;
-                            }
-                            break;
-                        }
-
-                        //if it is Night
-                        if ((int)timeState == 3)
-                        {
-                            if (info.agentState != (CreatureState)2)
-                            {
-                                //PreviousState = info.agentState; //assign the previous state
-                                info.agentState = (CreatureState)2; //agent sleeps
-                                stateJustChanged = true;
-                                break;
-                            }
-                            break;
-                        }
-                        break;
-
-                    }
-                case 1: //Fish
-                    {
-                        //if it is LateNight - Fish should wash its face
-                        if ((int)timeState == 0)
-                        {
-                            if (info.agentState != (CreatureState)4)
-                            {
-                                //PreviousState = info.agentState; //assign the previous state
-                                info.agentState = (CreatureState)4; //agent washes face - UNIQUE
-                                if (UniqueLocations.Length <= 1)
+                                //if the AgentState is not in the desired state yet it becomes the desired state
+                                if (/*AgentState*/ info.agentState != (CreatureState)2) //it may lead to bugs down the line when agent state does not match the state the time gives -- (add other states to the check here) 
                                 {
-                                    randomLocation = 0;
+                                    //PreviousState = info.agentState; //assign the previous state
+                                    /*AgentState*/
+                                    info.agentState = (CreatureState)2; //agent goes to sleep
+                                    stateJustChanged = true;
+                                    //return;
+                                    break;
                                 }
-                                else
+                                break;
+                            }
+
+                            //if it is Morning
+                            if ((int)timeState == 1)
+                            {
+                                if (info.agentState != (CreatureState)0)
                                 {
-                                    randomLocation = Random.Range(0, UniqueLocations.Length);
+                                    //PreviousState = info.agentState; //assign the previous state
+                                    info.agentState = (CreatureState)0; //agent walks
+                                    stateJustChanged = true;
+                                    break;
                                 }
 
-                                stateJustChanged = true;
-                                //revert animation back to default
-                                //PlayFinishedAnimation();
-                                break;
-                            }
-                            break;
-                        }
-
-                        //if it is Morning - Fish go to sleep
-                        if ((int)timeState == 1)
-                        {
-                            if (info.agentState != (CreatureState)2)
-                            {
-                                //PreviousState = info.agentState; //assign the previous state
-                                info.agentState = (CreatureState)2; //agent sleeps
-                                stateJustChanged = true;
-                                //revert animation back to default
-                                //PlayFinishedAnimation();
                                 break;
                             }
 
-                            break;
-                        }
-
-                        //if it is Afternoon - Fish continue to sleep
-                        if ((int)timeState == 2)
-                        {
-                            if (info.agentState != (CreatureState)2)
+                            //if it is Afternoon
+                            if ((int)timeState == 2)
                             {
-                                //PreviousState = info.agentState; //assign the previous state
-                                info.agentState = (CreatureState)2; //agent sleeps
-                                stateJustChanged = true;
-                                break;
-                            }
-                            break;
-
-                        }
-                        //if it is Night - Fish go and eat
-                        if ((int)timeState == 3)
-                        {
-                            if (info.agentState != (CreatureState)3)
-                            {
-                                //PreviousState = info.agentState; //assign the previous state
-                                info.agentState = (CreatureState)3; //agent "goes for food"
-
-                                //if the size of the foodlocations is less than 1
-                                if (FoodLocations.Length <= 1)
+                                if (info.agentState != (CreatureState)1)
                                 {
-                                    randomLocation = 0;
+                                    //PreviousState = info.agentState; //assign the previous state
+                                    info.agentState = (CreatureState)1; //agent notices
+                                    stateJustChanged = true;
+                                    break;
                                 }
-                                else
-                                {
-                                    randomLocation = Random.Range(0, FoodLocations.Length);
-                                }
+                                break;
+                            }
 
-                                stateJustChanged = true;
-                                //revert animation back to default
-                                //PlayFinishedAnimation();
+                            //if it is Night
+                            if ((int)timeState == 3)
+                            {
+                                if (info.agentState != (CreatureState)2)
+                                {
+                                    //PreviousState = info.agentState; //assign the previous state
+                                    info.agentState = (CreatureState)2; //agent sleeps
+                                    stateJustChanged = true;
+                                    break;
+                                }
                                 break;
                             }
                             break;
+
                         }
-                        break;
-                    }
-                case 2: //Dog
-                    {
-                        //if it is LateNight - Dog should continue to sleep
-                        if ((int)timeState == 0)
+                    case 1: //Fish
                         {
-                            if (info.agentState != (CreatureState)2)
+                            //if it is LateNight - Fish should wash its face
+                            if ((int)timeState == 0)
                             {
-                                //PreviousState = info.agentState; //assign the previous state
-                                info.agentState = (CreatureState)2; //agent sleeps
-                                stateJustChanged = true;
+                                if (info.agentState != (CreatureState)4)
+                                {
+                                    //PreviousState = info.agentState; //assign the previous state
+                                    info.agentState = (CreatureState)4; //agent washes face - UNIQUE
+                                    if (UniqueLocations.Length <= 1)
+                                    {
+                                        randomLocation = 0;
+                                    }
+                                    else
+                                    {
+                                        randomLocation = Random.Range(0, UniqueLocations.Length);
+                                    }
+
+                                    stateJustChanged = true;
+                                    //revert animation back to default
+                                    //PlayFinishedAnimation();
+                                    break;
+                                }
                                 break;
                             }
-                            break;
-                        }
 
-                        //if it is Morning - Dog should eat
-                        if ((int)timeState == 1)
-                        {
-                            if (info.agentState != (CreatureState)3)
+                            //if it is Morning - Fish go to sleep
+                            if ((int)timeState == 1)
                             {
-                                //PreviousState = info.agentState; //assign the previous state
-                                info.agentState = (CreatureState)3; //agent "goes for food"
-
-                                //if the size of the foodlocations is less than 1
-                                if (FoodLocations.Length <= 1)
+                                if (info.agentState != (CreatureState)2)
                                 {
-                                    randomLocation = 0;
-                                }
-                                else
-                                {
-                                    randomLocation = Random.Range(0, FoodLocations.Length);
+                                    //PreviousState = info.agentState; //assign the previous state
+                                    info.agentState = (CreatureState)2; //agent sleeps
+                                    stateJustChanged = true;
+                                    //revert animation back to default
+                                    //PlayFinishedAnimation();
+                                    break;
                                 }
 
-                                stateJustChanged = true;
-                                //revert animation back to default
-                                //PlayFinishedAnimation();
                                 break;
                             }
 
-                            break;
-                        }
-
-                        //if it is Afternoon - Dog should chase its tail
-                        if ((int)timeState == 2)
-                        {
-                            if (info.agentState != (CreatureState)5)
+                            //if it is Afternoon - Fish continue to sleep
+                            if ((int)timeState == 2)
                             {
-                                //PreviousState = info.agentState; //assign the previous state
-                                info.agentState = (CreatureState)5; //agent chases tail - UNIQUE
-                                if (UniqueLocations.Length <= 1)
+                                if (info.agentState != (CreatureState)2)
                                 {
-                                    randomLocation = 0;
+                                    //PreviousState = info.agentState; //assign the previous state
+                                    info.agentState = (CreatureState)2; //agent sleeps
+                                    stateJustChanged = true;
+                                    break;
                                 }
-                                else
-                                {
-                                    randomLocation = Random.Range(0, UniqueLocations.Length);
-                                }
-
-                                stateJustChanged = true;
-                                //revert animation back to default
-                                //PlayFinishedAnimation();
                                 break;
-                            }
-                            break;
 
-                        }
-                        //if it is Night - Dog should sleep
-                        if ((int)timeState == 3)
-                        {
-                            if (info.agentState != (CreatureState)2)
+                            }
+                            //if it is Night - Fish go and eat
+                            if ((int)timeState == 3)
                             {
-                                //PreviousState = info.agentState; //assign the previous state
-                                info.agentState = (CreatureState)2; //agent sleeps
-                                stateJustChanged = true;
-                                //revert animation back to default
-                                //PlayFinishedAnimation();
+                                if (info.agentState != (CreatureState)3)
+                                {
+                                    //PreviousState = info.agentState; //assign the previous state
+                                    info.agentState = (CreatureState)3; //agent "goes for food"
+
+                                    //if the size of the foodlocations is less than 1
+                                    if (FoodLocations.Length <= 1)
+                                    {
+                                        randomLocation = 0;
+                                    }
+                                    else
+                                    {
+                                        randomLocation = Random.Range(0, FoodLocations.Length);
+                                    }
+
+                                    stateJustChanged = true;
+                                    //revert animation back to default
+                                    //PlayFinishedAnimation();
+                                    break;
+                                }
                                 break;
                             }
                             break;
                         }
-                        break;
-                    }
-                case 3: //Tiger
-                    {
-                        //if it is LateNight - Tiger continue to be asleep
-                        if ((int)timeState == 0)
+                    case 2: //Dog
                         {
-                            if (info.agentState != (CreatureState)2)
+                            //if it is LateNight - Dog should continue to sleep
+                            if ((int)timeState == 0)
                             {
-                                //PreviousState = info.agentState; //assign the previous state
-                                info.agentState = (CreatureState)2; //agent sleeps
-                                stateJustChanged = true;
-                                break;
-                            }
-                            break;
-                        }
-
-                        //if it is Morning - Tiger should eat
-                        if ((int)timeState == 1)
-                        {
-                            if (info.agentState != (CreatureState)3)
-                            {
-                                //PreviousState = info.agentState; //assign the previous state
-                                info.agentState = (CreatureState)3; //agent "goes for food"
-
-                                //if the size of the foodlocations is less than 1
-                                if (FoodLocations.Length <= 1)
+                                if (info.agentState != (CreatureState)2)
                                 {
-                                    randomLocation = 0;
+                                    //PreviousState = info.agentState; //assign the previous state
+                                    info.agentState = (CreatureState)2; //agent sleeps
+                                    stateJustChanged = true;
+                                    break;
                                 }
-                                else
-                                {
-                                    randomLocation = Random.Range(0, FoodLocations.Length);
-                                }
-
-                                stateJustChanged = true;
-                                //revert animation back to default
-                                //PlayFinishedAnimation();
                                 break;
                             }
 
-                            break;
-                        }
-
-                        //if it is Afternoon - Tiger should go ROAAAAAAAAAAAAAAAAAAAAAR
-                        if ((int)timeState == 2)
-                        {
-                            if (info.agentState != (CreatureState)6)
+                            //if it is Morning - Dog should eat
+                            if ((int)timeState == 1)
                             {
-                                //PreviousState = info.agentState; //assign the previous state
-                                info.agentState = (CreatureState)6; //agent roars - UNIQUE
-                                if (UniqueLocations.Length <= 1)
+                                if (info.agentState != (CreatureState)3)
                                 {
-                                    randomLocation = 0;
-                                }
-                                else
-                                {
-                                    randomLocation = Random.Range(0, UniqueLocations.Length);
+                                    //PreviousState = info.agentState; //assign the previous state
+                                    info.agentState = (CreatureState)3; //agent "goes for food"
+
+                                    //if the size of the foodlocations is less than 1
+                                    if (FoodLocations.Length <= 1)
+                                    {
+                                        randomLocation = 0;
+                                    }
+                                    else
+                                    {
+                                        randomLocation = Random.Range(0, FoodLocations.Length);
+                                    }
+
+                                    stateJustChanged = true;
+                                    //revert animation back to default
+                                    //PlayFinishedAnimation();
+                                    break;
                                 }
 
-                                stateJustChanged = true;
-                                //revert animation back to default
-                                //PlayFinishedAnimation();
                                 break;
                             }
-                            break;
 
-                        }
-                        //if it is Night - Tiger should sleep
-                        if ((int)timeState == 3)
-                        {
-                            if (info.agentState != (CreatureState)2)
+                            //if it is Afternoon - Dog should chase its tail
+                            if ((int)timeState == 2)
                             {
-                                //PreviousState = info.agentState; //assign the previous state
-                                info.agentState = (CreatureState)2; //agent sleeps
-                                stateJustChanged = true;
-                                //revert animation back to default
-                                //PlayFinishedAnimation();
-                                break;
-                            }
-                            break;
-                        }
-                        break;
-                    }
-                case 4: //Dragon
-                    {
-                        //if it is LateNight - Dragon should be asleep
-                        if ((int)timeState == 0)
-                        {
-                            if (info.agentState != (CreatureState)2)
-                            {
-                                //PreviousState = info.agentState; //assign the previous state
-                                info.agentState = (CreatureState)2; //agent sleeps
-                                stateJustChanged = true;
-                                break;
-                            }
-                            break;
-                        }
-
-                        //if it is Morning - Dragon should eat
-                        if ((int)timeState == 1)
-                        {
-                            if (info.agentState != (CreatureState)3)
-                            {
-                                //PreviousState = info.agentState; //assign the previous state
-                                info.agentState = (CreatureState)3; //agent "goes for food"
-
-                                //if the size of the foodlocations is less than 1
-                                if (FoodLocations.Length <= 1)
+                                if (info.agentState != (CreatureState)5)
                                 {
-                                    randomLocation = 0;
+                                    //PreviousState = info.agentState; //assign the previous state
+                                    info.agentState = (CreatureState)5; //agent chases tail - UNIQUE
+                                    if (UniqueLocations.Length <= 1)
+                                    {
+                                        randomLocation = 0;
+                                    }
+                                    else
+                                    {
+                                        randomLocation = Random.Range(0, UniqueLocations.Length);
+                                    }
+
+                                    stateJustChanged = true;
+                                    //revert animation back to default
+                                    //PlayFinishedAnimation();
+                                    break;
                                 }
-                                else
-                                {
-                                    randomLocation = Random.Range(0, FoodLocations.Length);
-                                }
-
-                                stateJustChanged = true;
-                                //revert animation back to default
-                                //PlayFinishedAnimation();
                                 break;
+
                             }
-
-                            break;
-                        }
-
-                        //if it is Afternoon - Dragon should do a belly flop
-                        if ((int)timeState == 2)
-                        {
-                            if (info.agentState != (CreatureState)7)
+                            //if it is Night - Dog should sleep
+                            if ((int)timeState == 3)
                             {
-                                //PreviousState = info.agentState; //assign the previous state
-                                info.agentState = (CreatureState)7; //agent roars - UNIQUE
-                                if (UniqueLocations.Length <= 1)
+                                if (info.agentState != (CreatureState)2)
                                 {
-                                    randomLocation = 0;
+                                    //PreviousState = info.agentState; //assign the previous state
+                                    info.agentState = (CreatureState)2; //agent sleeps
+                                    stateJustChanged = true;
+                                    //revert animation back to default
+                                    //PlayFinishedAnimation();
+                                    break;
                                 }
-                                else
-                                {
-                                    randomLocation = Random.Range(0, UniqueLocations.Length);
-                                }
-
-                                stateJustChanged = true;
-                                //revert animation back to default
-                                //PlayFinishedAnimation();
-                                break;
-                            }
-                            break;
-
-                        }
-                        //if it is Night - Dragon should sleep
-                        if ((int)timeState == 3)
-                        {
-                            if (info.agentState != (CreatureState)2)
-                            {
-                                //PreviousState = info.agentState; //assign the previous state
-                                info.agentState = (CreatureState)2; //agent sleeps
-                                stateJustChanged = true;
-                                //revert animation back to default
-                                //PlayFinishedAnimation();
                                 break;
                             }
                             break;
                         }
-                        break;
-                    }
-                case 5: //Cow
-                    {
-                        //if it is LateNight - Cow should roll
-                        if ((int)timeState == 0)
+                    case 3: //Tiger
                         {
-                            if (info.agentState != (CreatureState)8)
+                            //if it is LateNight - Tiger continue to be asleep
+                            if ((int)timeState == 0)
                             {
-                                //PreviousState = info.agentState; //assign the previous state
-                                info.agentState = (CreatureState)8; //agent goes rolls                                
-                                if (UniqueLocations.Length <= 1)
+                                if (info.agentState != (CreatureState)2)
                                 {
-                                    randomLocation = 0;
+                                    //PreviousState = info.agentState; //assign the previous state
+                                    info.agentState = (CreatureState)2; //agent sleeps
+                                    stateJustChanged = true;
+                                    break;
                                 }
-                                else
-                                {
-                                    randomLocation = Random.Range(0, UniqueLocations.Length);
-                                }
-                                stateJustChanged = true;
-                                //revert animation back to default
-                                //PlayFinishedAnimation();
-                                break;
-                            }
-                            break;
-                        }
-
-                        //if it is Morning - Cow should sleep
-                        if ((int)timeState == 1)
-                        {
-                            if (info.agentState != (CreatureState)2)
-                            {
-                                //PreviousState = info.agentState; //assign the previous state
-                                info.agentState = (CreatureState)2; //agent sleeps                               
-                                stateJustChanged = true;
-                                //revert animation back to default
-                                //PlayFinishedAnimation();
                                 break;
                             }
 
-                            break;
-                        }
-
-                        //if it is Afternoon - Cow should continue to sleep
-                        if ((int)timeState == 2)
-                        {
-                            if (info.agentState != (CreatureState)2)
+                            //if it is Morning - Tiger should eat
+                            if ((int)timeState == 1)
                             {
-                                //PreviousState = info.agentState; //assign the previous state
-                                info.agentState = (CreatureState)2; //agent sleeps                               
-                                stateJustChanged = true;
-                                break;
-                            }
-                            break;
+                                if (info.agentState != (CreatureState)3)
+                                {
+                                    //PreviousState = info.agentState; //assign the previous state
+                                    info.agentState = (CreatureState)3; //agent "goes for food"
 
-                        }
-                        //if it is Night - Dragon should go and eat
-                        if ((int)timeState == 3)
-                        {
-                            if (info.agentState != (CreatureState)3)
-                            {
-                                //PreviousState = info.agentState; //assign the previous state
-                                info.agentState = (CreatureState)3; //agent sleeps
-                                //if the size of the foodlocations is less than 1
-                                if (FoodLocations.Length <= 1)
-                                {
-                                    randomLocation = 0;
-                                }
-                                else
-                                {
-                                    randomLocation = Random.Range(0, FoodLocations.Length);
-                                }
-                                stateJustChanged = true;
-                                //revert animation back to default
-                                //PlayFinishedAnimation();
-                                break;
-                            }
-                            break;
-                        }
-                        break;
-                    }
-                case 6: //Duck
-                    {
-                        //if it is LateNight - Duck should continue to be asleep
-                        if ((int)timeState == 0)
-                        {
-                            if (info.agentState != (CreatureState)2)
-                            {
-                                //PreviousState = info.agentState; //assign the previous state
-                                info.agentState = (CreatureState)2; //agent sleeps
-                                stateJustChanged = true;
-                                break;
-                            }
-                            break;
-                        }
+                                    //if the size of the foodlocations is less than 1
+                                    if (FoodLocations.Length <= 1)
+                                    {
+                                        randomLocation = 0;
+                                    }
+                                    else
+                                    {
+                                        randomLocation = Random.Range(0, FoodLocations.Length);
+                                    }
 
-                        //if it is Morning - Duck should eat
-                        if ((int)timeState == 1)
-                        {
-                            if (info.agentState != (CreatureState)3)
-                            {
-                                //PreviousState = info.agentState; //assign the previous state
-                                info.agentState = (CreatureState)3; //agent "goes for food"
-
-                                //if the size of the foodlocations is less than 1
-                                if (FoodLocations.Length <= 1)
-                                {
-                                    randomLocation = 0;
-                                }
-                                else
-                                {
-                                    randomLocation = Random.Range(0, FoodLocations.Length);
+                                    stateJustChanged = true;
+                                    //revert animation back to default
+                                    //PlayFinishedAnimation();
+                                    break;
                                 }
 
-                                stateJustChanged = true;
-                                //revert animation back to default
-                                //PlayFinishedAnimation();
                                 break;
                             }
 
-                            break;
-                        }
-
-                        //if it is Afternoon - Duck should peck
-                        if ((int)timeState == 2)
-                        {
-                            if (info.agentState != (CreatureState)9)
+                            //if it is Afternoon - Tiger should go ROAAAAAAAAAAAAAAAAAAAAAR
+                            if ((int)timeState == 2)
                             {
-                                //PreviousState = info.agentState; //assign the previous state
-                                info.agentState = (CreatureState)9; //agent pecks - UNIQUE
-                                if (UniqueLocations.Length <= 1)
+                                if (info.agentState != (CreatureState)6)
                                 {
-                                    randomLocation = 0;
-                                }
-                                else
-                                {
-                                    randomLocation = Random.Range(0, UniqueLocations.Length);
-                                }
+                                    //PreviousState = info.agentState; //assign the previous state
+                                    info.agentState = (CreatureState)6; //agent roars - UNIQUE
+                                    if (UniqueLocations.Length <= 1)
+                                    {
+                                        randomLocation = 0;
+                                    }
+                                    else
+                                    {
+                                        randomLocation = Random.Range(0, UniqueLocations.Length);
+                                    }
 
-                                stateJustChanged = true;
-                                //revert animation back to default
-                                //PlayFinishedAnimation();
+                                    stateJustChanged = true;
+                                    //revert animation back to default
+                                    //PlayFinishedAnimation();
+                                    break;
+                                }
                                 break;
-                            }
-                            break;
 
-                        }
-                        //if it is Night - Duck should sleep
-                        if ((int)timeState == 3)
-                        {
-                            if (info.agentState != (CreatureState)2)
+                            }
+                            //if it is Night - Tiger should sleep
+                            if ((int)timeState == 3)
                             {
-                                //PreviousState = info.agentState; //assign the previous state
-                                info.agentState = (CreatureState)2; //agent sleeps
-                                stateJustChanged = true;
-                                //revert animation back to default
-                                //PlayFinishedAnimation();
-                                break;
-                            }
-                            break;
-                        }
-                        break;
-                    }
-                case 7: //Cat
-                    {
-                        //if it is LateNight - Cat should levitate
-                        if ((int)timeState == 0)
-                        {
-                            if (info.agentState != (CreatureState)10)
-                            {
-                                //PreviousState = info.agentState; //assign the previous state
-                                info.agentState = (CreatureState)10; //agent levitates                                
-                                if (UniqueLocations.Length <= 1)
+                                if (info.agentState != (CreatureState)2)
                                 {
-                                    randomLocation = 0;
+                                    //PreviousState = info.agentState; //assign the previous state
+                                    info.agentState = (CreatureState)2; //agent sleeps
+                                    stateJustChanged = true;
+                                    //revert animation back to default
+                                    //PlayFinishedAnimation();
+                                    break;
                                 }
-                                else
-                                {
-                                    randomLocation = Random.Range(0, UniqueLocations.Length);
-                                }
-                                stateJustChanged = true;
-                                //revert animation back to default
-                                //PlayFinishedAnimation();
                                 break;
                             }
                             break;
                         }
-
-                        //if it is Morning - Cat should sleep
-                        if ((int)timeState == 1)
+                    case 4: //Dragon
                         {
-                            if (info.agentState != (CreatureState)2)
+                            //if it is LateNight - Dragon should be asleep
+                            if ((int)timeState == 0)
                             {
-                                //PreviousState = info.agentState; //assign the previous state
-                                info.agentState = (CreatureState)2; //agent sleeps                               
-                                stateJustChanged = true;
-                                //revert animation back to default
-                                //PlayFinishedAnimation();
-                                break;
-                            }
-
-                            break;
-                        }
-
-                        //if it is Afternoon - Cat should continue to sleep
-                        if ((int)timeState == 2)
-                        {
-                            if (info.agentState != (CreatureState)2)
-                            {
-                                //PreviousState = info.agentState; //assign the previous state
-                                info.agentState = (CreatureState)2; //agent roars - UNIQUE                                
-                                stateJustChanged = true;
-                                break;
-                            }
-                            break;
-
-                        }
-                        //if it is Night - cat should go and eat
-                        if ((int)timeState == 3)
-                        {
-                            if (info.agentState != (CreatureState)3)
-                            {
-                                //PreviousState = info.agentState; //assign the previous state
-                                info.agentState = (CreatureState)3; //agent sleeps
-                                //if the size of the foodlocations is less than 1
-                                if (FoodLocations.Length <= 1)
+                                if (info.agentState != (CreatureState)2)
                                 {
-                                    randomLocation = 0;
+                                    //PreviousState = info.agentState; //assign the previous state
+                                    info.agentState = (CreatureState)2; //agent sleeps
+                                    stateJustChanged = true;
+                                    break;
                                 }
-                                else
-                                {
-                                    randomLocation = Random.Range(0, FoodLocations.Length);
-                                }
-                                stateJustChanged = true;
-                                //revert animation back to default
-                                //PlayFinishedAnimation();
                                 break;
                             }
-                            break;
-                        }
-                        break;
-                    }
-                case 8: //Rabbit
-                    {
-                        //if it is LateNight - Rabbit should eat
-                        if ((int)timeState == 0)
-                        {
-                            if (info.agentState != (CreatureState)3)
+
+                            //if it is Morning - Dragon should eat
+                            if ((int)timeState == 1)
                             {
-                                //PreviousState = info.agentState; //assign the previous state
-                                info.agentState = (CreatureState)3; //agent eats                               
-                                if (FoodLocations.Length <= 1)
+                                if (info.agentState != (CreatureState)3)
                                 {
-                                    randomLocation = 0;
+                                    //PreviousState = info.agentState; //assign the previous state
+                                    info.agentState = (CreatureState)3; //agent "goes for food"
+
+                                    //if the size of the foodlocations is less than 1
+                                    if (FoodLocations.Length <= 1)
+                                    {
+                                        randomLocation = 0;
+                                    }
+                                    else
+                                    {
+                                        randomLocation = Random.Range(0, FoodLocations.Length);
+                                    }
+
+                                    stateJustChanged = true;
+                                    //revert animation back to default
+                                    //PlayFinishedAnimation();
+                                    break;
                                 }
-                                else
-                                {
-                                    randomLocation = Random.Range(0, FoodLocations.Length);
-                                }
-                                stateJustChanged = true;
-                                //revert animation back to default
-                                //PlayFinishedAnimation();
+
                                 break;
                             }
-                            break;
-                        }
 
-                        //if it is Morning - Rabbit should sleep
-                        if ((int)timeState == 1)
-                        {
-                            if (info.agentState != (CreatureState)2)
+                            //if it is Afternoon - Dragon should do a belly flop
+                            if ((int)timeState == 2)
                             {
-                                //PreviousState = info.agentState; //assign the previous state
-                                info.agentState = (CreatureState)2; //agent sleeps                               
-                                stateJustChanged = true;
-                                //revert animation back to default
-                                //PlayFinishedAnimation();
-                                break;
-                            }
-
-                            break;
-                        }
-
-                        //if it is Afternoon - Rabbit should continue to sleep
-                        if ((int)timeState == 2)
-                        {
-                            if (info.agentState != (CreatureState)2)
-                            {
-                                //PreviousState = info.agentState; //assign the previous state
-                                info.agentState = (CreatureState)2; //agent roars - UNIQUE                                
-                                stateJustChanged = true;
-                                break;
-                            }
-                            break;
-
-                        }
-                        //if it is Night - Rabbit should go and punch a tree
-                        if ((int)timeState == 3)
-                        {
-                            if (info.agentState != (CreatureState)11)
-                            {
-                                //PreviousState = info.agentState; //assign the previous state
-                                info.agentState = (CreatureState)11; //agent sleeps is ANGER
-                                //if the size of the foodlocations is less than 1
-                                if (UniqueLocations.Length <= 1)
+                                if (info.agentState != (CreatureState)7)
                                 {
-                                    randomLocation = 0;
+                                    //PreviousState = info.agentState; //assign the previous state
+                                    info.agentState = (CreatureState)7; //agent roars - UNIQUE
+                                    if (UniqueLocations.Length <= 1)
+                                    {
+                                        randomLocation = 0;
+                                    }
+                                    else
+                                    {
+                                        randomLocation = Random.Range(0, UniqueLocations.Length);
+                                    }
+
+                                    stateJustChanged = true;
+                                    //revert animation back to default
+                                    //PlayFinishedAnimation();
+                                    break;
                                 }
-                                else
+                                break;
+
+                            }
+                            //if it is Night - Dragon should sleep
+                            if ((int)timeState == 3)
+                            {
+                                if (info.agentState != (CreatureState)2)
                                 {
-                                    randomLocation = Random.Range(0,  UniqueLocations.Length);
+                                    //PreviousState = info.agentState; //assign the previous state
+                                    info.agentState = (CreatureState)2; //agent sleeps
+                                    stateJustChanged = true;
+                                    //revert animation back to default
+                                    //PlayFinishedAnimation();
+                                    break;
                                 }
-                                stateJustChanged = true;
-                                //revert animation back to default
-                                //PlayFinishedAnimation();
                                 break;
                             }
                             break;
                         }
-                        break;
-                    }
+                    case 5: //Cow
+                        {
+                            //if it is LateNight - Cow should roll
+                            if ((int)timeState == 0)
+                            {
+                                if (info.agentState != (CreatureState)8)
+                                {
+                                    //PreviousState = info.agentState; //assign the previous state
+                                    info.agentState = (CreatureState)8; //agent goes rolls                                
+                                    if (UniqueLocations.Length <= 1)
+                                    {
+                                        randomLocation = 0;
+                                    }
+                                    else
+                                    {
+                                        randomLocation = Random.Range(0, UniqueLocations.Length);
+                                    }
+                                    stateJustChanged = true;
+                                    //revert animation back to default
+                                    //PlayFinishedAnimation();
+                                    break;
+                                }
+                                break;
+                            }
 
+                            //if it is Morning - Cow should sleep
+                            if ((int)timeState == 1)
+                            {
+                                if (info.agentState != (CreatureState)2)
+                                {
+                                    //PreviousState = info.agentState; //assign the previous state
+                                    info.agentState = (CreatureState)2; //agent sleeps                               
+                                    stateJustChanged = true;
+                                    //revert animation back to default
+                                    //PlayFinishedAnimation();
+                                    break;
+                                }
+
+                                break;
+                            }
+
+                            //if it is Afternoon - Cow should continue to sleep
+                            if ((int)timeState == 2)
+                            {
+                                if (info.agentState != (CreatureState)2)
+                                {
+                                    //PreviousState = info.agentState; //assign the previous state
+                                    info.agentState = (CreatureState)2; //agent sleeps                               
+                                    stateJustChanged = true;
+                                    break;
+                                }
+                                break;
+
+                            }
+                            //if it is Night - Dragon should go and eat
+                            if ((int)timeState == 3)
+                            {
+                                if (info.agentState != (CreatureState)3)
+                                {
+                                    //PreviousState = info.agentState; //assign the previous state
+                                    info.agentState = (CreatureState)3; //agent sleeps
+                                                                        //if the size of the foodlocations is less than 1
+                                    if (FoodLocations.Length <= 1)
+                                    {
+                                        randomLocation = 0;
+                                    }
+                                    else
+                                    {
+                                        randomLocation = Random.Range(0, FoodLocations.Length);
+                                    }
+                                    stateJustChanged = true;
+                                    //revert animation back to default
+                                    //PlayFinishedAnimation();
+                                    break;
+                                }
+                                break;
+                            }
+                            break;
+                        }
+                    case 6: //Duck
+                        {
+                            //if it is LateNight - Duck should continue to be asleep
+                            if ((int)timeState == 0)
+                            {
+                                if (info.agentState != (CreatureState)2)
+                                {
+                                    //PreviousState = info.agentState; //assign the previous state
+                                    info.agentState = (CreatureState)2; //agent sleeps
+                                    stateJustChanged = true;
+                                    break;
+                                }
+                                break;
+                            }
+
+                            //if it is Morning - Duck should eat
+                            if ((int)timeState == 1)
+                            {
+                                if (info.agentState != (CreatureState)3)
+                                {
+                                    //PreviousState = info.agentState; //assign the previous state
+                                    info.agentState = (CreatureState)3; //agent "goes for food"
+
+                                    //if the size of the foodlocations is less than 1
+                                    if (FoodLocations.Length <= 1)
+                                    {
+                                        randomLocation = 0;
+                                    }
+                                    else
+                                    {
+                                        randomLocation = Random.Range(0, FoodLocations.Length);
+                                    }
+
+                                    stateJustChanged = true;
+                                    //revert animation back to default
+                                    //PlayFinishedAnimation();
+                                    break;
+                                }
+
+                                break;
+                            }
+
+                            //if it is Afternoon - Duck should peck
+                            if ((int)timeState == 2)
+                            {
+                                if (info.agentState != (CreatureState)9)
+                                {
+                                    //PreviousState = info.agentState; //assign the previous state
+                                    info.agentState = (CreatureState)9; //agent pecks - UNIQUE
+                                    if (UniqueLocations.Length <= 1)
+                                    {
+                                        randomLocation = 0;
+                                    }
+                                    else
+                                    {
+                                        randomLocation = Random.Range(0, UniqueLocations.Length);
+                                    }
+
+                                    stateJustChanged = true;
+                                    //revert animation back to default
+                                    //PlayFinishedAnimation();
+                                    break;
+                                }
+                                break;
+
+                            }
+                            //if it is Night - Duck should sleep
+                            if ((int)timeState == 3)
+                            {
+                                if (info.agentState != (CreatureState)2)
+                                {
+                                    //PreviousState = info.agentState; //assign the previous state
+                                    info.agentState = (CreatureState)2; //agent sleeps
+                                    stateJustChanged = true;
+                                    //revert animation back to default
+                                    //PlayFinishedAnimation();
+                                    break;
+                                }
+                                break;
+                            }
+                            break;
+                        }
+                    case 7: //Cat
+                        {
+                            //if it is LateNight - Cat should levitate
+                            if ((int)timeState == 0)
+                            {
+                                if (info.agentState != (CreatureState)10)
+                                {
+                                    //PreviousState = info.agentState; //assign the previous state
+                                    info.agentState = (CreatureState)10; //agent levitates                                
+                                    if (UniqueLocations.Length <= 1)
+                                    {
+                                        randomLocation = 0;
+                                    }
+                                    else
+                                    {
+                                        randomLocation = Random.Range(0, UniqueLocations.Length);
+                                    }
+                                    stateJustChanged = true;
+                                    //revert animation back to default
+                                    //PlayFinishedAnimation();
+                                    break;
+                                }
+                                break;
+                            }
+
+                            //if it is Morning - Cat should sleep
+                            if ((int)timeState == 1)
+                            {
+                                if (info.agentState != (CreatureState)2)
+                                {
+                                    //PreviousState = info.agentState; //assign the previous state
+                                    info.agentState = (CreatureState)2; //agent sleeps                               
+                                    stateJustChanged = true;
+                                    //revert animation back to default
+                                    //PlayFinishedAnimation();
+                                    break;
+                                }
+
+                                break;
+                            }
+
+                            //if it is Afternoon - Cat should continue to sleep
+                            if ((int)timeState == 2)
+                            {
+                                if (info.agentState != (CreatureState)2)
+                                {
+                                    //PreviousState = info.agentState; //assign the previous state
+                                    info.agentState = (CreatureState)2; //agent roars - UNIQUE                                
+                                    stateJustChanged = true;
+                                    break;
+                                }
+                                break;
+
+                            }
+                            //if it is Night - cat should go and eat
+                            if ((int)timeState == 3)
+                            {
+                                if (info.agentState != (CreatureState)3)
+                                {
+                                    //PreviousState = info.agentState; //assign the previous state
+                                    info.agentState = (CreatureState)3; //agent sleeps
+                                                                        //if the size of the foodlocations is less than 1
+                                    if (FoodLocations.Length <= 1)
+                                    {
+                                        randomLocation = 0;
+                                    }
+                                    else
+                                    {
+                                        randomLocation = Random.Range(0, FoodLocations.Length);
+                                    }
+                                    stateJustChanged = true;
+                                    //revert animation back to default
+                                    //PlayFinishedAnimation();
+                                    break;
+                                }
+                                break;
+                            }
+                            break;
+                        }
+                    case 8: //Rabbit
+                        {
+                            //if it is LateNight - Rabbit should eat
+                            if ((int)timeState == 0)
+                            {
+                                if (info.agentState != (CreatureState)3)
+                                {
+                                    //PreviousState = info.agentState; //assign the previous state
+                                    info.agentState = (CreatureState)3; //agent eats                               
+                                    if (FoodLocations.Length <= 1)
+                                    {
+                                        randomLocation = 0;
+                                    }
+                                    else
+                                    {
+                                        randomLocation = Random.Range(0, FoodLocations.Length);
+                                    }
+                                    stateJustChanged = true;
+                                    //revert animation back to default
+                                    //PlayFinishedAnimation();
+                                    break;
+                                }
+                                break;
+                            }
+
+                            //if it is Morning - Rabbit should sleep
+                            if ((int)timeState == 1)
+                            {
+                                if (info.agentState != (CreatureState)2)
+                                {
+                                    //PreviousState = info.agentState; //assign the previous state
+                                    info.agentState = (CreatureState)2; //agent sleeps                               
+                                    stateJustChanged = true;
+                                    //revert animation back to default
+                                    //PlayFinishedAnimation();
+                                    break;
+                                }
+
+                                break;
+                            }
+
+                            //if it is Afternoon - Rabbit should continue to sleep
+                            if ((int)timeState == 2)
+                            {
+                                if (info.agentState != (CreatureState)2)
+                                {
+                                    //PreviousState = info.agentState; //assign the previous state
+                                    info.agentState = (CreatureState)2; //agent roars - UNIQUE                                
+                                    stateJustChanged = true;
+                                    break;
+                                }
+                                break;
+
+                            }
+                            //if it is Night - Rabbit should go and punch a tree
+                            if ((int)timeState == 3)
+                            {
+                                if (info.agentState != (CreatureState)11)
+                                {
+                                    //PreviousState = info.agentState; //assign the previous state
+                                    info.agentState = (CreatureState)11; //agent sleeps is ANGER
+                                                                         //if the size of the foodlocations is less than 1
+                                    if (UniqueLocations.Length <= 1)
+                                    {
+                                        randomLocation = 0;
+                                    }
+                                    else
+                                    {
+                                        randomLocation = Random.Range(0, UniqueLocations.Length);
+                                    }
+                                    stateJustChanged = true;
+                                    //revert animation back to default
+                                    //PlayFinishedAnimation();
+                                    break;
+                                }
+                                break;
+                            }
+                            break;
+                        }
+
+                }
+
+                //reset the iterator and set a new value to the time checker
+                randomTimeIterator = 0;
+                randomTimeCheckValue = Random.Range(randomTimeCheckMin, (randomTimeCheckMax + 1));
             }
         }
         
@@ -1199,6 +1215,10 @@ public class TestCreature : MonoBehaviour
                 if (tempSound.SleepSound[soundID].isPlaying)
                 {
                     tempSound.stopSound(tempSound.SleepSound[soundID]);
+                }
+                if (tempSound.CatUniqueSound[soundRandom].isPlaying)
+                {
+                    tempSound.stopSound(tempSound.CatUniqueSound[soundRandom]);
                 }
             }
             waitBeforeRunIterator = 0;
@@ -1293,7 +1313,7 @@ public class TestCreature : MonoBehaviour
 
         if (stateJustChanged)
         {
-            PlayFinishedAnimation();
+            //PlayFinishedAnimation();
             navMeshAgent.speed = speed;
             stateJustChanged = false;
             reachedDestination = true;
@@ -1322,6 +1342,7 @@ public class TestCreature : MonoBehaviour
             }
             waitBeforeRunIterator = 0;
             canSnore = false;
+            sleepSnoreIterator = 0;
         }
         else
         {
@@ -1388,7 +1409,7 @@ public class TestCreature : MonoBehaviour
 
         //if you get close enough to your destination
         float distance = Vector3.Distance(tempLocation, transform.position);
-        if(distance <= 2)
+        if(distance <= 1.7f)
         {
             photoCanWork = true;
 
@@ -1480,6 +1501,7 @@ public class TestCreature : MonoBehaviour
             secondaryLocationReached = 0;
             startedUnInteruptable = false;
             photoCanWork = false;
+            roarIterator = 0;
 
             if (distanceToPlayer < (distanceMaxSound * distanceMaxSound))
             {
@@ -1527,30 +1549,40 @@ public class TestCreature : MonoBehaviour
 
         //if the dog reached the starting point
         if(reachedDestination)
-        {            
-            //get the next location
-            Vector3 nextLocation = UniqueSecondaryLocations[secondaryLocationReached].transform.position;
-            navMeshAgent.SetDestination(nextLocation);
+        {
 
-            startedUnInteruptable = true;
-            if (distanceToPlayer < (distanceMaxSound * distanceMaxSound))
+            roarIterator += Time.deltaTime;
+            //if the iterator is bigger than the timer
+            if (roarIterator > roarDuration) //should be 1.9f
             {
-                tempSound.playSound(tempSound.DogUniqueSound[0], this.transform.position);
+                //get the next location
+                Vector3 nextLocation = UniqueSecondaryLocations[secondaryLocationReached].transform.position;
+                navMeshAgent.SetDestination(nextLocation);
+
+                startedUnInteruptable = true;
+                if (distanceToPlayer < (distanceMaxSound * distanceMaxSound))
+                {
+                    tempSound.playSound(tempSound.DogUniqueSound[0], this.transform.position);
+                }
+
+                //if the distance between the new position and the object is less than 2
+                float nextDistance = Vector3.Distance(nextLocation, transform.position);
+                if (nextDistance <= 2)
+                {
+                    //if the length of secondary locations is bigger than the location we have reached
+                    if (UniqueSecondaryLocations.Length - 1 > secondaryLocationReached)
+                    {
+                        secondaryLocationReached++;
+                    }
+                    else
+                    {
+                        secondaryLocationReached = 0;
+                    }
+                }
             }
-
-            //if the distance between the new position and the object is less than 2
-            float nextDistance = Vector3.Distance(nextLocation, transform.position);
-            if (nextDistance <= 2)
+            else //if it is not time to run yet, stay where you are
             {
-                //if the length of secondary locations is bigger than the location we have reached
-                if(UniqueSecondaryLocations.Length - 1 > secondaryLocationReached)
-                {
-                    secondaryLocationReached++;
-                }
-                else
-                {
-                    secondaryLocationReached = 0;
-                }
+                navMeshAgent.SetDestination(this.transform.position);
             }
         }
     }
