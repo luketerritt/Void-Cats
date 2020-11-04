@@ -123,6 +123,9 @@ public class PlayableCamera : MonoBehaviour
         
         blurryEffect.active = true;
         blurryEffect.focusDistance.value = walkCamBlur; //defaultBlur;
+
+        //force the camera to look in the right direction
+        yaw = -90;
     }
 
     // Update is called once per frame
