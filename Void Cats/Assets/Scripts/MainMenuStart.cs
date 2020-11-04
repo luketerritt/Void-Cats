@@ -21,7 +21,7 @@ public class MainMenuStart : MonoBehaviour
         //if this is the load game button
         if (!newGameButton)
         {
-            string path = Application.persistentDataPath + "/GAMESAVE.txt";
+            string path = Application.persistentDataPath + "/CLICGAMESAVE.txt";
             //if the file exists
             if (File.Exists(path))
             {

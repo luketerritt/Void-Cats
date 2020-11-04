@@ -746,6 +746,7 @@ public class JournalDataStorage : MonoBehaviour
             //assign the data that was just read
             for (int i = 0; i < FishPhotosIsTaken.Length; i++)
             {
+                Debug.Log("Photo data reading part " + i);
                 FishPhotosIsTaken[i] = data.fish[i];
                 DogPhotosIsTaken[i] = data.dog[i];
                 TigerPhotosIsTaken[i] = data.tiger[i];

@@ -247,7 +247,7 @@ public class TestCreature : MonoBehaviour
         //error checking incase food locations and unique locations are null
         if(FoodLocations[0] == null || UniqueLocations[0] == null)
         {
-            Debug.Log("Creature " + this.gameObject + " FoodLocations or UniqueLocations is null!");
+            //Debug.Log("Creature " + this.gameObject + " FoodLocations or UniqueLocations is null!");
             FoodLocations[0] = this.gameObject;
             UniqueLocations[0] = this.gameObject;
         }
