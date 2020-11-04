@@ -116,9 +116,16 @@ MonoBehaviour:
   UniqueSecondaryLocations: []
   reachedDestination: 0
   roarDuration: 5
+  sleepWakeUpDuration: 8.5
   creatureAnimator: {fileID: 0}
   soundObject: {fileID: 0}
   soundID: 0
+  sleepSnoreOffset: 14.8
+  photoCanWork: 1
+  randomTimeCheckMin: 0
+  randomTimeCheckMax: 10
+  randomTimeCheckValue: 0
+  randomTimeIterator: 0
 --- !u!95 &4686858731301165652
 Animator:
   serializedVersion: 3

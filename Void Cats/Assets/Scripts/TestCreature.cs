@@ -1313,13 +1313,21 @@ public class TestCreature : MonoBehaviour
 
         if (stateJustChanged)
         {
-            //PlayFinishedAnimation();
+            //if you are the dragon, else
+            if(ID == 4)
+            {
+                PlayFinishedAnimation();
+            }
+            else
+            {
+                PlaySleepAnimation();
+            }
             navMeshAgent.speed = speed;
             stateJustChanged = false;
             reachedDestination = true;
             startedUnInteruptable = false;
             roarIterator = 0;
-            PlaySleepAnimation();
+            
             photoCanWork = false;
             //StopFinishedAnimation();
             //var tempSound = soundObject.GetComponent<SoundStorage>();
@@ -1349,7 +1357,7 @@ public class TestCreature : MonoBehaviour
             StopFinishedAnimation();
         }
 
-        if(!canSnore)
+        if(!canSnore) //9.2 - for all except dragon (9.2 + 5.6  = 14.8 - for dragon)
         {
             sleepSnoreIterator += Time.deltaTime;
             if(sleepSnoreIterator >= sleepSnoreOffset)
