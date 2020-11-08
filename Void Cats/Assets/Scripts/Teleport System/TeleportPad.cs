@@ -14,6 +14,7 @@ public class TeleportPad : MonoBehaviour
     public bool currStandingOn;
     public FastTravel FastTravel;
     public JournalDataStorage dataStorage;
+    
     UiOnInteract onInteractScript;
     // Start is called before the first frame update
     void Start()
