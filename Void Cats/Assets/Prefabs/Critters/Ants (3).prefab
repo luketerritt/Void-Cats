@@ -59,7 +59,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 41eb9e46e2535d1458c471b65c668814, type: 2}
+  - {fileID: 2100000, guid: 91edf9b58f57f5344bf4c24e2050a8c1, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -115,6 +115,7 @@ MonoBehaviour:
   speed: 3
   runSpeed: 10
   passiveCreatureType: 0
+  waitBeforeRun: 3.3
   FoodLocations:
   - {fileID: 0}
   UniqueLocations:
@@ -122,3 +123,13 @@ MonoBehaviour:
   UniqueSecondaryLocations: []
   reachedDestination: 0
   roarDuration: 5
+  sleepWakeUpDuration: 8.5
+  creatureAnimator: {fileID: 0}
+  soundObject: {fileID: 0}
+  soundID: 0
+  sleepSnoreOffset: 9.2
+  photoCanWork: 1
+  randomTimeCheckMin: 0
+  randomTimeCheckMax: 10
+  randomTimeCheckValue: 0
+  randomTimeIterator: 0

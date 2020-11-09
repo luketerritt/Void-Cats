@@ -134,6 +134,12 @@ GameObject:
     type: 3}
   m_PrefabInstance: {fileID: 29214024603889402}
   m_PrefabAsset: {fileID: 0}
+--- !u!4 &26804395 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 1017398635013300847, guid: 196f826da40225748ac9a04171531dfa,
+    type: 3}
+  m_PrefabInstance: {fileID: 976076245}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &34322874 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 2044046233691022732, guid: 5808bc468c0c33045b0583429f1c40ee,
@@ -309,9 +315,9 @@ GameObject:
     type: 3}
   m_PrefabInstance: {fileID: 29214024603889402}
   m_PrefabAsset: {fileID: 0}
---- !u!4 &91088327 stripped
+--- !u!4 &89178680 stripped
 Transform:
-  m_CorrespondingSourceObject: {fileID: 1428419982680839294, guid: 7c87f0bdd49fb13448a9d04866c2aef0,
+  m_CorrespondingSourceObject: {fileID: 2350039846391101142, guid: 7c87f0bdd49fb13448a9d04866c2aef0,
     type: 3}
   m_PrefabInstance: {fileID: 2578363404058666416}
   m_PrefabAsset: {fileID: 0}
@@ -606,6 +612,75 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 123884713}
   m_CullTransparentMesh: 0
+--- !u!1001 &129111900
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 890667085}
+    m_Modifications:
+    - target: {fileID: 1017398635013300847, guid: 196f826da40225748ac9a04171531dfa,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 671.892
+      objectReference: {fileID: 0}
+    - target: {fileID: 1017398635013300847, guid: 196f826da40225748ac9a04171531dfa,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 7.387
+      objectReference: {fileID: 0}
+    - target: {fileID: 1017398635013300847, guid: 196f826da40225748ac9a04171531dfa,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -42.704
+      objectReference: {fileID: 0}
+    - target: {fileID: 1017398635013300847, guid: 196f826da40225748ac9a04171531dfa,
+        type: 3}
+      propertyPath: m_LocalRotation.x
+      value: -0.023638088
+      objectReference: {fileID: 0}
+    - target: {fileID: 1017398635013300847, guid: 196f826da40225748ac9a04171531dfa,
+        type: 3}
+      propertyPath: m_LocalRotation.y
+      value: -0.5886141
+      objectReference: {fileID: 0}
+    - target: {fileID: 1017398635013300847, guid: 196f826da40225748ac9a04171531dfa,
+        type: 3}
+      propertyPath: m_LocalRotation.z
+      value: -0.061134122
+      objectReference: {fileID: 0}
+    - target: {fileID: 1017398635013300847, guid: 196f826da40225748ac9a04171531dfa,
+        type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 0.8057527
+      objectReference: {fileID: 0}
+    - target: {fileID: 1017398635013300847, guid: 196f826da40225748ac9a04171531dfa,
+        type: 3}
+      propertyPath: m_RootOrder
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 1017398635013300847, guid: 196f826da40225748ac9a04171531dfa,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: -6.3190002
+      objectReference: {fileID: 0}
+    - target: {fileID: 1017398635013300847, guid: 196f826da40225748ac9a04171531dfa,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: -72.07201
+      objectReference: {fileID: 0}
+    - target: {fileID: 1017398635013300847, guid: 196f826da40225748ac9a04171531dfa,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: -4.078
+      objectReference: {fileID: 0}
+    - target: {fileID: 4054892728381182076, guid: 196f826da40225748ac9a04171531dfa,
+        type: 3}
+      propertyPath: m_Name
+      value: Paw_Print (5)
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 196f826da40225748ac9a04171531dfa, type: 3}
 --- !u!1 &131804535 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 29214025300824210, guid: ee70e03a41cc5a044ada690cf20c1ca5,
@@ -850,36 +925,6 @@ GameObject:
     type: 3}
   m_PrefabInstance: {fileID: 29214024603889402}
   m_PrefabAsset: {fileID: 0}
---- !u!1 &259086407
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 259086408}
-  m_Layer: 0
-  m_Name: DogUniqueLocation (3)
-  m_TagString: Untagged
-  m_Icon: {fileID: 3443629218296621865, guid: 0000000000000000d000000000000000, type: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &259086408
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 259086407}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 5.81, y: -3.56, z: -51.5}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children: []
-  m_Father: {fileID: 1063426060}
-  m_RootOrder: 3
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &266222612 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 8726777150566727646, guid: 041cdc5d538c97144b407014a2e32b57,
@@ -898,48 +943,176 @@ GameObject:
     type: 3}
   m_PrefabInstance: {fileID: 29214024603889402}
   m_PrefabAsset: {fileID: 0}
+--- !u!1001 &286488376
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 890667085}
+    m_Modifications:
+    - target: {fileID: 1017398635013300847, guid: 196f826da40225748ac9a04171531dfa,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 623.901
+      objectReference: {fileID: 0}
+    - target: {fileID: 1017398635013300847, guid: 196f826da40225748ac9a04171531dfa,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 7.307
+      objectReference: {fileID: 0}
+    - target: {fileID: 1017398635013300847, guid: 196f826da40225748ac9a04171531dfa,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 197.877
+      objectReference: {fileID: 0}
+    - target: {fileID: 1017398635013300847, guid: 196f826da40225748ac9a04171531dfa,
+        type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0.03785695
+      objectReference: {fileID: 0}
+    - target: {fileID: 1017398635013300847, guid: 196f826da40225748ac9a04171531dfa,
+        type: 3}
+      propertyPath: m_LocalRotation.y
+      value: -0.6428909
+      objectReference: {fileID: 0}
+    - target: {fileID: 1017398635013300847, guid: 196f826da40225748ac9a04171531dfa,
+        type: 3}
+      propertyPath: m_LocalRotation.z
+      value: -0.017614624
+      objectReference: {fileID: 0}
+    - target: {fileID: 1017398635013300847, guid: 196f826da40225748ac9a04171531dfa,
+        type: 3}
+      propertyPath: m_LocalRotation.w
+      value: -0.76481897
+      objectReference: {fileID: 0}
+    - target: {fileID: 1017398635013300847, guid: 196f826da40225748ac9a04171531dfa,
+        type: 3}
+      propertyPath: m_RootOrder
+      value: 9
+      objectReference: {fileID: 0}
+    - target: {fileID: 1017398635013300847, guid: 196f826da40225748ac9a04171531dfa,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: -4.6210003
+      objectReference: {fileID: 0}
+    - target: {fileID: 1017398635013300847, guid: 196f826da40225748ac9a04171531dfa,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: -279.85
+      objectReference: {fileID: 0}
+    - target: {fileID: 1017398635013300847, guid: 196f826da40225748ac9a04171531dfa,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: -1.2490001
+      objectReference: {fileID: 0}
+    - target: {fileID: 4054892728381182076, guid: 196f826da40225748ac9a04171531dfa,
+        type: 3}
+      propertyPath: m_Name
+      value: Paw_Print (9)
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 196f826da40225748ac9a04171531dfa, type: 3}
 --- !u!1 &286651031 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 5775938594975263789, guid: 041cdc5d538c97144b407014a2e32b57,
     type: 3}
   m_PrefabInstance: {fileID: 1286919257}
   m_PrefabAsset: {fileID: 0}
+--- !u!21 &289161431
+Material:
+  serializedVersion: 6
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: Override
+  m_Shader: {fileID: 4800000, guid: a3a3bc8785681554d9558e2ea68f100e, type: 3}
+  m_ShaderKeywords: 
+  m_LightmapFlags: 4
+  m_EnableInstancingVariants: 0
+  m_DoubleSidedGI: 0
+  m_CustomRenderQueue: -1
+  stringTagMap: {}
+  disabledShaderPasses: []
+  m_SavedProperties:
+    serializedVersion: 3
+    m_TexEnvs: []
+    m_Floats:
+    - _DIRECTIONALL: 1
+    - _DirectionalCustom: 0
+    - _DirectionalFalloff: 2
+    - _DirectionalIntensity: 1
+    - _DirectionalMode: 1
+    - _DirectionalModeBlend: 1
+    - _FOGG: 1
+    - _FogAxisMode: 1
+    - _FogColorDuo: 1
+    - _FogDistanceEnd: 200
+    - _FogDistanceFalloff: 2
+    - _FogDistanceStart: -200
+    - _FogHeightEnd: 200
+    - _FogHeightFalloff: 2
+    - _FogHeightStart: 0
+    - _FogIntensity: 1
+    - _IsHeightFogPreset: 1
+    - _IsHeightFogShader: 1
+    - _IsStandardPipeline: 0
+    - _NOISEE: 1
+    - _NoiseDistanceEnd: 50
+    - _NoiseIntensity: 1
+    - _NoiseMode: 2
+    - _NoiseModeBlend: 1
+    - _NoiseScale: 30
+    - _SKYBOXX: 1
+    - _SkyboxFogFalloff: 1
+    - _SkyboxFogFill: 1
+    - _SkyboxFogHeight: 1
+    - _TITLE: 1
+    m_Colors:
+    - _DirectionalColor: {r: 1, g: 0.7793103, b: 0.5, a: 1}
+    - _DirectionalCustomDir: {r: 0, g: 0, b: 0, a: 0}
+    - _FogAxisOption: {r: 0, g: 0, b: 0, a: 0}
+    - _FogColorEnd: {r: 0.8862745, g: 1.443137, b: 2, a: 1}
+    - _FogColorStart: {r: 0.4411765, g: 0.722515, b: 1, a: 1}
+    - _NoiseSpeed: {r: 0.5, g: 0, b: 0.5, a: 0}
 --- !u!1 &290213291 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 4390436624704380899, guid: d2d7806eaf6caa54aa4068d2099ea571,
     type: 3}
   m_PrefabInstance: {fileID: 1991942767}
   m_PrefabAsset: {fileID: 0}
---- !u!1 &351820087
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
+--- !u!21 &291076236
+Material:
   serializedVersion: 6
-  m_Component:
-  - component: {fileID: 351820088}
-  m_Layer: 0
-  m_Name: DogUniqueLocation (8)
-  m_TagString: Untagged
-  m_Icon: {fileID: 3443629218296621865, guid: 0000000000000000d000000000000000, type: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &351820088
-Transform:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 351820087}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -24.34, y: -7.55, z: -86.53}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children: []
-  m_Father: {fileID: 1537843417}
-  m_RootOrder: 4
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_Name: Height Fog Global
+  m_Shader: {fileID: 4800000, guid: 3a7ef1b66bafb7a448a880ef76d2e6e6, type: 3}
+  m_ShaderKeywords: 
+  m_LightmapFlags: 4
+  m_EnableInstancingVariants: 0
+  m_DoubleSidedGI: 0
+  m_CustomRenderQueue: 3050
+  stringTagMap: {}
+  disabledShaderPasses: []
+  m_SavedProperties:
+    serializedVersion: 3
+    m_TexEnvs: []
+    m_Floats:
+    - _HeightFogGlobal: 1
+    - _IsHeightFogShader: 1
+    - _IsStandardPipeline: 0
+    - _TITLE: 1
+    - _TransparentQueue: 3000
+    m_Colors: []
+--- !u!4 &294075078 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 1017398635013300847, guid: 196f826da40225748ac9a04171531dfa,
+    type: 3}
+  m_PrefabInstance: {fileID: 1462039173}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &359985520
 GameObject:
   m_ObjectHideFlags: 0
@@ -1353,59 +1526,6 @@ GameObject:
     type: 3}
   m_PrefabInstance: {fileID: 29214024603889402}
   m_PrefabAsset: {fileID: 0}
---- !u!1 &486104455
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 486104456}
-  - component: {fileID: 486104458}
-  - component: {fileID: 486104457}
-  m_Layer: 0
-  m_Name: Cube (1)
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &486104456
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 486104455}
-  m_LocalRotation: {x: 0.019220792, y: -0.14218181, z: 0.017929006, w: 0.9894916}
-  m_LocalPosition: {x: -35.45, y: 8.73, z: -11.09}
-  m_LocalScale: {x: 1.9032, y: 20.39886, z: 10.612}
-  m_Children: []
-  m_Father: {fileID: 91088327}
-  m_RootOrder: 57
-  m_LocalEulerAnglesHint: {x: 2.4720001, y: -16.317001, z: 1.7220001}
---- !u!65 &486104457
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 486104455}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Size: {x: 1, y: 1, z: 1}
-  m_Center: {x: 0, y: 0, z: 0}
---- !u!33 &486104458
-MeshFilter:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 486104455}
-  m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
 --- !u!1 &514671652 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 7457044286077013008, guid: ee70e03a41cc5a044ada690cf20c1ca5,
@@ -1976,6 +2096,12 @@ GameObject:
     type: 3}
   m_PrefabInstance: {fileID: 29214024603889402}
   m_PrefabAsset: {fileID: 0}
+--- !u!4 &621790607 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 1017398635013300847, guid: 196f826da40225748ac9a04171531dfa,
+    type: 3}
+  m_PrefabInstance: {fileID: 1494701375}
+  m_PrefabAsset: {fileID: 0}
 --- !u!4 &633147154 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 5083401574415618037, guid: b9f10c0bbc9122049851b838e06b4cf7,
@@ -2078,6 +2204,75 @@ GameObject:
     type: 3}
   m_PrefabInstance: {fileID: 6586919658715880630}
   m_PrefabAsset: {fileID: 0}
+--- !u!1001 &702305935
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 890667085}
+    m_Modifications:
+    - target: {fileID: 1017398635013300847, guid: 196f826da40225748ac9a04171531dfa,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 575.087
+      objectReference: {fileID: 0}
+    - target: {fileID: 1017398635013300847, guid: 196f826da40225748ac9a04171531dfa,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 6.677
+      objectReference: {fileID: 0}
+    - target: {fileID: 1017398635013300847, guid: 196f826da40225748ac9a04171531dfa,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 180.582
+      objectReference: {fileID: 0}
+    - target: {fileID: 1017398635013300847, guid: 196f826da40225748ac9a04171531dfa,
+        type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0.062383436
+      objectReference: {fileID: 0}
+    - target: {fileID: 1017398635013300847, guid: 196f826da40225748ac9a04171531dfa,
+        type: 3}
+      propertyPath: m_LocalRotation.y
+      value: -0.75431067
+      objectReference: {fileID: 0}
+    - target: {fileID: 1017398635013300847, guid: 196f826da40225748ac9a04171531dfa,
+        type: 3}
+      propertyPath: m_LocalRotation.z
+      value: -0.099375434
+      objectReference: {fileID: 0}
+    - target: {fileID: 1017398635013300847, guid: 196f826da40225748ac9a04171531dfa,
+        type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 0.6459476
+      objectReference: {fileID: 0}
+    - target: {fileID: 1017398635013300847, guid: 196f826da40225748ac9a04171531dfa,
+        type: 3}
+      propertyPath: m_RootOrder
+      value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: 1017398635013300847, guid: 196f826da40225748ac9a04171531dfa,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: -3.9750001
+      objectReference: {fileID: 0}
+    - target: {fileID: 1017398635013300847, guid: 196f826da40225748ac9a04171531dfa,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: -98.401
+      objectReference: {fileID: 0}
+    - target: {fileID: 1017398635013300847, guid: 196f826da40225748ac9a04171531dfa,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: -12.887001
+      objectReference: {fileID: 0}
+    - target: {fileID: 4054892728381182076, guid: 196f826da40225748ac9a04171531dfa,
+        type: 3}
+      propertyPath: m_Name
+      value: Paw_Print (8)
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 196f826da40225748ac9a04171531dfa, type: 3}
 --- !u!1 &726733957 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 4991252428465499482, guid: ee70e03a41cc5a044ada690cf20c1ca5,
@@ -2190,36 +2385,6 @@ GameObject:
     type: 3}
   m_PrefabInstance: {fileID: 29214024603889402}
   m_PrefabAsset: {fileID: 0}
---- !u!1 &810820151
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 810820152}
-  m_Layer: 0
-  m_Name: DogUniqueLocation (7)
-  m_TagString: Untagged
-  m_Icon: {fileID: 3443629218296621865, guid: 0000000000000000d000000000000000, type: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &810820152
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 810820151}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -17.32, y: -8.14, z: -75.98}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children: []
-  m_Father: {fileID: 1537843417}
-  m_RootOrder: 3
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &815289730
 GameObject:
   m_ObjectHideFlags: 0
@@ -2324,6 +2489,12 @@ GameObject:
     type: 3}
   m_PrefabInstance: {fileID: 29214024603889402}
   m_PrefabAsset: {fileID: 0}
+--- !u!4 &865088462 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 1017398635013300847, guid: 196f826da40225748ac9a04171531dfa,
+    type: 3}
+  m_PrefabInstance: {fileID: 286488376}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &870182479 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 221377573763686507, guid: ee70e03a41cc5a044ada690cf20c1ca5,
@@ -2336,6 +2507,46 @@ Camera:
     type: 3}
   m_PrefabInstance: {fileID: 5261534393227900485}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &890667084
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 890667085}
+  m_Layer: 0
+  m_Name: PawPrints
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &890667085
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 890667084}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children:
+  - {fileID: 26804395}
+  - {fileID: 1881161154}
+  - {fileID: 1205666350}
+  - {fileID: 621790607}
+  - {fileID: 1934168719}
+  - {fileID: 1287843530}
+  - {fileID: 1710618088}
+  - {fileID: 294075078}
+  - {fileID: 1646606746}
+  - {fileID: 865088462}
+  m_Father: {fileID: 89178680}
+  m_RootOrder: 36
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &892485849 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 228787636757402742, guid: ee70e03a41cc5a044ada690cf20c1ca5,
@@ -2527,6 +2738,75 @@ GameObject:
     type: 3}
   m_PrefabInstance: {fileID: 29214024603889402}
   m_PrefabAsset: {fileID: 0}
+--- !u!1001 &965460935
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 890667085}
+    m_Modifications:
+    - target: {fileID: 1017398635013300847, guid: 196f826da40225748ac9a04171531dfa,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 579.525
+      objectReference: {fileID: 0}
+    - target: {fileID: 1017398635013300847, guid: 196f826da40225748ac9a04171531dfa,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 6.994
+      objectReference: {fileID: 0}
+    - target: {fileID: 1017398635013300847, guid: 196f826da40225748ac9a04171531dfa,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 169.079
+      objectReference: {fileID: 0}
+    - target: {fileID: 1017398635013300847, guid: 196f826da40225748ac9a04171531dfa,
+        type: 3}
+      propertyPath: m_LocalRotation.x
+      value: -0.03198361
+      objectReference: {fileID: 0}
+    - target: {fileID: 1017398635013300847, guid: 196f826da40225748ac9a04171531dfa,
+        type: 3}
+      propertyPath: m_LocalRotation.y
+      value: -0.9280242
+      objectReference: {fileID: 0}
+    - target: {fileID: 1017398635013300847, guid: 196f826da40225748ac9a04171531dfa,
+        type: 3}
+      propertyPath: m_LocalRotation.z
+      value: -0.03451156
+      objectReference: {fileID: 0}
+    - target: {fileID: 1017398635013300847, guid: 196f826da40225748ac9a04171531dfa,
+        type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 0.36953652
+      objectReference: {fileID: 0}
+    - target: {fileID: 1017398635013300847, guid: 196f826da40225748ac9a04171531dfa,
+        type: 3}
+      propertyPath: m_RootOrder
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 1017398635013300847, guid: 196f826da40225748ac9a04171531dfa,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: -5.031
+      objectReference: {fileID: 0}
+    - target: {fileID: 1017398635013300847, guid: 196f826da40225748ac9a04171531dfa,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: -136.66101
+      objectReference: {fileID: 0}
+    - target: {fileID: 1017398635013300847, guid: 196f826da40225748ac9a04171531dfa,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 1.9480001
+      objectReference: {fileID: 0}
+    - target: {fileID: 4054892728381182076, guid: 196f826da40225748ac9a04171531dfa,
+        type: 3}
+      propertyPath: m_Name
+      value: Paw_Print (6)
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 196f826da40225748ac9a04171531dfa, type: 3}
 --- !u!1 &965725569
 GameObject:
   m_ObjectHideFlags: 0
@@ -2691,6 +2971,144 @@ GameObject:
     type: 3}
   m_PrefabInstance: {fileID: 1991942767}
   m_PrefabAsset: {fileID: 0}
+--- !u!1001 &976076245
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 890667085}
+    m_Modifications:
+    - target: {fileID: 1017398635013300847, guid: 196f826da40225748ac9a04171531dfa,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 717.676
+      objectReference: {fileID: 0}
+    - target: {fileID: 1017398635013300847, guid: 196f826da40225748ac9a04171531dfa,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 7.561
+      objectReference: {fileID: 0}
+    - target: {fileID: 1017398635013300847, guid: 196f826da40225748ac9a04171531dfa,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -55.269
+      objectReference: {fileID: 0}
+    - target: {fileID: 1017398635013300847, guid: 196f826da40225748ac9a04171531dfa,
+        type: 3}
+      propertyPath: m_LocalRotation.x
+      value: -0.042807132
+      objectReference: {fileID: 0}
+    - target: {fileID: 1017398635013300847, guid: 196f826da40225748ac9a04171531dfa,
+        type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0.83847666
+      objectReference: {fileID: 0}
+    - target: {fileID: 1017398635013300847, guid: 196f826da40225748ac9a04171531dfa,
+        type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0.014614483
+      objectReference: {fileID: 0}
+    - target: {fileID: 1017398635013300847, guid: 196f826da40225748ac9a04171531dfa,
+        type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 0.5430571
+      objectReference: {fileID: 0}
+    - target: {fileID: 1017398635013300847, guid: 196f826da40225748ac9a04171531dfa,
+        type: 3}
+      propertyPath: m_RootOrder
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1017398635013300847, guid: 196f826da40225748ac9a04171531dfa,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: -4.071
+      objectReference: {fileID: 0}
+    - target: {fileID: 1017398635013300847, guid: 196f826da40225748ac9a04171531dfa,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 114.254005
+      objectReference: {fileID: 0}
+    - target: {fileID: 1017398635013300847, guid: 196f826da40225748ac9a04171531dfa,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: -3.213
+      objectReference: {fileID: 0}
+    - target: {fileID: 4054892728381182076, guid: 196f826da40225748ac9a04171531dfa,
+        type: 3}
+      propertyPath: m_Name
+      value: Paw_Print
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 196f826da40225748ac9a04171531dfa, type: 3}
+--- !u!1001 &981169636
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 890667085}
+    m_Modifications:
+    - target: {fileID: 1017398635013300847, guid: 196f826da40225748ac9a04171531dfa,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 720.35
+      objectReference: {fileID: 0}
+    - target: {fileID: 1017398635013300847, guid: 196f826da40225748ac9a04171531dfa,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 7.6
+      objectReference: {fileID: 0}
+    - target: {fileID: 1017398635013300847, guid: 196f826da40225748ac9a04171531dfa,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -48.4
+      objectReference: {fileID: 0}
+    - target: {fileID: 1017398635013300847, guid: 196f826da40225748ac9a04171531dfa,
+        type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0.015420208
+      objectReference: {fileID: 0}
+    - target: {fileID: 1017398635013300847, guid: 196f826da40225748ac9a04171531dfa,
+        type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0.64641684
+      objectReference: {fileID: 0}
+    - target: {fileID: 1017398635013300847, guid: 196f826da40225748ac9a04171531dfa,
+        type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0.103899635
+      objectReference: {fileID: 0}
+    - target: {fileID: 1017398635013300847, guid: 196f826da40225748ac9a04171531dfa,
+        type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 0.7557198
+      objectReference: {fileID: 0}
+    - target: {fileID: 1017398635013300847, guid: 196f826da40225748ac9a04171531dfa,
+        type: 3}
+      propertyPath: m_RootOrder
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1017398635013300847, guid: 196f826da40225748ac9a04171531dfa,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: -6.374
+      objectReference: {fileID: 0}
+    - target: {fileID: 1017398635013300847, guid: 196f826da40225748ac9a04171531dfa,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 80.512
+      objectReference: {fileID: 0}
+    - target: {fileID: 1017398635013300847, guid: 196f826da40225748ac9a04171531dfa,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 10.258
+      objectReference: {fileID: 0}
+    - target: {fileID: 4054892728381182076, guid: 196f826da40225748ac9a04171531dfa,
+        type: 3}
+      propertyPath: m_Name
+      value: Paw_Print (1)
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 196f826da40225748ac9a04171531dfa, type: 3}
 --- !u!1 &981907420
 GameObject:
   m_ObjectHideFlags: 0
@@ -3281,12 +3699,6 @@ GameObject:
     type: 3}
   m_PrefabInstance: {fileID: 29214024603889402}
   m_PrefabAsset: {fileID: 0}
---- !u!4 &1063426060 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: 86057782, guid: 7c87f0bdd49fb13448a9d04866c2aef0,
-    type: 3}
-  m_PrefabInstance: {fileID: 2578363404058666416}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1066713141 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 6442595049459074659, guid: ee70e03a41cc5a044ada690cf20c1ca5,
@@ -3456,29 +3868,6 @@ GameObject:
     type: 3}
   m_PrefabInstance: {fileID: 29214024603889402}
   m_PrefabAsset: {fileID: 0}
---- !u!1 &1086110467 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 123287430962513253, guid: 7c87f0bdd49fb13448a9d04866c2aef0,
-    type: 3}
-  m_PrefabInstance: {fileID: 2578363404058666416}
-  m_PrefabAsset: {fileID: 0}
---- !u!114 &1086110471
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1086110467}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: bab4caca830c5ef4d9af0b0a3041e2c9, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  TPpanel: {fileID: 0}
-  NewPhotoUI: {fileID: 0}
-  CapturedImageUI: {fileID: 0}
-  GalleryfullPanel: {fileID: 0}
-  FishSplashAnim: {fileID: 1086110467}
 --- !u!1 &1094546235 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 4390436625338237845, guid: d2d7806eaf6caa54aa4068d2099ea571,
@@ -3719,38 +4108,87 @@ GameObject:
     type: 3}
   m_PrefabInstance: {fileID: 29214024603889402}
   m_PrefabAsset: {fileID: 0}
+--- !u!1001 &1184774357
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 890667085}
+    m_Modifications:
+    - target: {fileID: 1017398635013300847, guid: 196f826da40225748ac9a04171531dfa,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 746.218
+      objectReference: {fileID: 0}
+    - target: {fileID: 1017398635013300847, guid: 196f826da40225748ac9a04171531dfa,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 7.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 1017398635013300847, guid: 196f826da40225748ac9a04171531dfa,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 30.725
+      objectReference: {fileID: 0}
+    - target: {fileID: 1017398635013300847, guid: 196f826da40225748ac9a04171531dfa,
+        type: 3}
+      propertyPath: m_LocalRotation.x
+      value: -0.026142262
+      objectReference: {fileID: 0}
+    - target: {fileID: 1017398635013300847, guid: 196f826da40225748ac9a04171531dfa,
+        type: 3}
+      propertyPath: m_LocalRotation.y
+      value: -0.23016977
+      objectReference: {fileID: 0}
+    - target: {fileID: 1017398635013300847, guid: 196f826da40225748ac9a04171531dfa,
+        type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0.045537543
+      objectReference: {fileID: 0}
+    - target: {fileID: 1017398635013300847, guid: 196f826da40225748ac9a04171531dfa,
+        type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 0.9717329
+      objectReference: {fileID: 0}
+    - target: {fileID: 1017398635013300847, guid: 196f826da40225748ac9a04171531dfa,
+        type: 3}
+      propertyPath: m_RootOrder
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 1017398635013300847, guid: 196f826da40225748ac9a04171531dfa,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: -1.71
+      objectReference: {fileID: 0}
+    - target: {fileID: 1017398635013300847, guid: 196f826da40225748ac9a04171531dfa,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: -26.738
+      objectReference: {fileID: 0}
+    - target: {fileID: 1017398635013300847, guid: 196f826da40225748ac9a04171531dfa,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 5.7730002
+      objectReference: {fileID: 0}
+    - target: {fileID: 4054892728381182076, guid: 196f826da40225748ac9a04171531dfa,
+        type: 3}
+      propertyPath: m_Name
+      value: Paw_Print (2)
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 196f826da40225748ac9a04171531dfa, type: 3}
 --- !u!1 &1202721174 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 8041836522660354170, guid: ee70e03a41cc5a044ada690cf20c1ca5,
     type: 3}
   m_PrefabInstance: {fileID: 29214024603889402}
   m_PrefabAsset: {fileID: 0}
---- !u!21 &1202770009
-Material:
-  serializedVersion: 6
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
+--- !u!4 &1205666350 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 1017398635013300847, guid: 196f826da40225748ac9a04171531dfa,
+    type: 3}
+  m_PrefabInstance: {fileID: 1184774357}
   m_PrefabAsset: {fileID: 0}
-  m_Name: Height Fog Global
-  m_Shader: {fileID: 4800000, guid: 3a7ef1b66bafb7a448a880ef76d2e6e6, type: 3}
-  m_ShaderKeywords: 
-  m_LightmapFlags: 4
-  m_EnableInstancingVariants: 0
-  m_DoubleSidedGI: 0
-  m_CustomRenderQueue: 3050
-  stringTagMap: {}
-  disabledShaderPasses: []
-  m_SavedProperties:
-    serializedVersion: 3
-    m_TexEnvs: []
-    m_Floats:
-    - _HeightFogGlobal: 1
-    - _IsHeightFogShader: 1
-    - _IsStandardPipeline: 0
-    - _TITLE: 1
-    - _TransparentQueue: 3000
-    m_Colors: []
 --- !u!1 &1212996816 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 8737258593690719047, guid: ee70e03a41cc5a044ada690cf20c1ca5,
@@ -5063,6 +5501,12 @@ PrefabInstance:
       objectReference: {fileID: 1758834625}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 041cdc5d538c97144b407014a2e32b57, type: 3}
+--- !u!4 &1287843530 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 1017398635013300847, guid: 196f826da40225748ac9a04171531dfa,
+    type: 3}
+  m_PrefabInstance: {fileID: 129111900}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1294159795
 GameObject:
   m_ObjectHideFlags: 0
@@ -5142,6 +5586,75 @@ GameObject:
     type: 3}
   m_PrefabInstance: {fileID: 29214024603889402}
   m_PrefabAsset: {fileID: 0}
+--- !u!1001 &1319135429
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 890667085}
+    m_Modifications:
+    - target: {fileID: 1017398635013300847, guid: 196f826da40225748ac9a04171531dfa,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 670.107
+      objectReference: {fileID: 0}
+    - target: {fileID: 1017398635013300847, guid: 196f826da40225748ac9a04171531dfa,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 7.326
+      objectReference: {fileID: 0}
+    - target: {fileID: 1017398635013300847, guid: 196f826da40225748ac9a04171531dfa,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -47.602
+      objectReference: {fileID: 0}
+    - target: {fileID: 1017398635013300847, guid: 196f826da40225748ac9a04171531dfa,
+        type: 3}
+      propertyPath: m_LocalRotation.x
+      value: -0.054094743
+      objectReference: {fileID: 0}
+    - target: {fileID: 1017398635013300847, guid: 196f826da40225748ac9a04171531dfa,
+        type: 3}
+      propertyPath: m_LocalRotation.y
+      value: -0.639913
+      objectReference: {fileID: 0}
+    - target: {fileID: 1017398635013300847, guid: 196f826da40225748ac9a04171531dfa,
+        type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0.0126752565
+      objectReference: {fileID: 0}
+    - target: {fileID: 1017398635013300847, guid: 196f826da40225748ac9a04171531dfa,
+        type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 0.7664363
+      objectReference: {fileID: 0}
+    - target: {fileID: 1017398635013300847, guid: 196f826da40225748ac9a04171531dfa,
+        type: 3}
+      propertyPath: m_RootOrder
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 1017398635013300847, guid: 196f826da40225748ac9a04171531dfa,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: -3.8240001
+      objectReference: {fileID: 0}
+    - target: {fileID: 1017398635013300847, guid: 196f826da40225748ac9a04171531dfa,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: -79.88901
+      objectReference: {fileID: 0}
+    - target: {fileID: 1017398635013300847, guid: 196f826da40225748ac9a04171531dfa,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 5.098
+      objectReference: {fileID: 0}
+    - target: {fileID: 4054892728381182076, guid: 196f826da40225748ac9a04171531dfa,
+        type: 3}
+      propertyPath: m_Name
+      value: Paw_Print (4)
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 196f826da40225748ac9a04171531dfa, type: 3}
 --- !u!1 &1321101331 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 4390436624821036237, guid: d2d7806eaf6caa54aa4068d2099ea571,
@@ -5894,59 +6407,6 @@ GameObject:
     type: 3}
   m_PrefabInstance: {fileID: 6586919658715880630}
   m_PrefabAsset: {fileID: 0}
---- !u!1 &1445162214
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 1445162215}
-  - component: {fileID: 1445162217}
-  - component: {fileID: 1445162216}
-  m_Layer: 0
-  m_Name: Cube
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &1445162215
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1445162214}
-  m_LocalRotation: {x: -0.027064765, y: -0.21070454, z: -0.09211552, w: 0.9728237}
-  m_LocalPosition: {x: -25.82, y: 9.38, z: -6.04}
-  m_LocalScale: {x: 2.4967756, y: 24.106293, z: 10.612}
-  m_Children: []
-  m_Father: {fileID: 91088327}
-  m_RootOrder: 56
-  m_LocalEulerAnglesHint: {x: -5.249, y: -23.996, z: -9.702001}
---- !u!65 &1445162216
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1445162214}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Size: {x: 1, y: 1, z: 1}
-  m_Center: {x: 0, y: 0, z: 0}
---- !u!33 &1445162217
-MeshFilter:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1445162214}
-  m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
 --- !u!1 &1451587951
 GameObject:
   m_ObjectHideFlags: 0
@@ -6250,6 +6710,75 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1455932019}
   m_CullTransparentMesh: 0
+--- !u!1001 &1462039173
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 890667085}
+    m_Modifications:
+    - target: {fileID: 1017398635013300847, guid: 196f826da40225748ac9a04171531dfa,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 577.944
+      objectReference: {fileID: 0}
+    - target: {fileID: 1017398635013300847, guid: 196f826da40225748ac9a04171531dfa,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 6.944
+      objectReference: {fileID: 0}
+    - target: {fileID: 1017398635013300847, guid: 196f826da40225748ac9a04171531dfa,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 172.027
+      objectReference: {fileID: 0}
+    - target: {fileID: 1017398635013300847, guid: 196f826da40225748ac9a04171531dfa,
+        type: 3}
+      propertyPath: m_LocalRotation.x
+      value: -0.010002841
+      objectReference: {fileID: 0}
+    - target: {fileID: 1017398635013300847, guid: 196f826da40225748ac9a04171531dfa,
+        type: 3}
+      propertyPath: m_LocalRotation.y
+      value: -0.8303993
+      objectReference: {fileID: 0}
+    - target: {fileID: 1017398635013300847, guid: 196f826da40225748ac9a04171531dfa,
+        type: 3}
+      propertyPath: m_LocalRotation.z
+      value: -0.019561023
+      objectReference: {fileID: 0}
+    - target: {fileID: 1017398635013300847, guid: 196f826da40225748ac9a04171531dfa,
+        type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 0.55673546
+      objectReference: {fileID: 0}
+    - target: {fileID: 1017398635013300847, guid: 196f826da40225748ac9a04171531dfa,
+        type: 3}
+      propertyPath: m_RootOrder
+      value: 7
+      objectReference: {fileID: 0}
+    - target: {fileID: 1017398635013300847, guid: 196f826da40225748ac9a04171531dfa,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: -2.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 1017398635013300847, guid: 196f826da40225748ac9a04171531dfa,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: -112.314
+      objectReference: {fileID: 0}
+    - target: {fileID: 1017398635013300847, guid: 196f826da40225748ac9a04171531dfa,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: -0.296
+      objectReference: {fileID: 0}
+    - target: {fileID: 4054892728381182076, guid: 196f826da40225748ac9a04171531dfa,
+        type: 3}
+      propertyPath: m_Name
+      value: Paw_Print (7)
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 196f826da40225748ac9a04171531dfa, type: 3}
 --- !u!1 &1468305042
 GameObject:
   m_ObjectHideFlags: 0
@@ -6561,6 +7090,75 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1489236948}
   m_CullTransparentMesh: 0
+--- !u!1001 &1494701375
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 890667085}
+    m_Modifications:
+    - target: {fileID: 1017398635013300847, guid: 196f826da40225748ac9a04171531dfa,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 752.7
+      objectReference: {fileID: 0}
+    - target: {fileID: 1017398635013300847, guid: 196f826da40225748ac9a04171531dfa,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 7.55
+      objectReference: {fileID: 0}
+    - target: {fileID: 1017398635013300847, guid: 196f826da40225748ac9a04171531dfa,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 29.67
+      objectReference: {fileID: 0}
+    - target: {fileID: 1017398635013300847, guid: 196f826da40225748ac9a04171531dfa,
+        type: 3}
+      propertyPath: m_LocalRotation.x
+      value: -0.027317058
+      objectReference: {fileID: 0}
+    - target: {fileID: 1017398635013300847, guid: 196f826da40225748ac9a04171531dfa,
+        type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0.27971244
+      objectReference: {fileID: 0}
+    - target: {fileID: 1017398635013300847, guid: 196f826da40225748ac9a04171531dfa,
+        type: 3}
+      propertyPath: m_LocalRotation.z
+      value: -0.052492537
+      objectReference: {fileID: 0}
+    - target: {fileID: 1017398635013300847, guid: 196f826da40225748ac9a04171531dfa,
+        type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 0.9582585
+      objectReference: {fileID: 0}
+    - target: {fileID: 1017398635013300847, guid: 196f826da40225748ac9a04171531dfa,
+        type: 3}
+      propertyPath: m_RootOrder
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 1017398635013300847, guid: 196f826da40225748ac9a04171531dfa,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: -1.317
+      objectReference: {fileID: 0}
+    - target: {fileID: 1017398635013300847, guid: 196f826da40225748ac9a04171531dfa,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 32.621002
+      objectReference: {fileID: 0}
+    - target: {fileID: 1017398635013300847, guid: 196f826da40225748ac9a04171531dfa,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: -6.656
+      objectReference: {fileID: 0}
+    - target: {fileID: 4054892728381182076, guid: 196f826da40225748ac9a04171531dfa,
+        type: 3}
+      propertyPath: m_Name
+      value: Paw_Print (3)
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 196f826da40225748ac9a04171531dfa, type: 3}
 --- !u!1 &1507206536 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 3188953511368405574, guid: ee70e03a41cc5a044ada690cf20c1ca5,
@@ -6884,7 +7482,7 @@ MonoBehaviour:
   categoryAdvanced: 0
   renderPriority: 50
   styledSpace0: 0
-  overrideMaterial: {fileID: 1604216412}
+  overrideMaterial: {fileID: 289161431}
   overrideCamToVolumeDistance: 1
   overrideVolumeDistanceFade: 0
   updater: 0
@@ -6913,7 +7511,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 1202770009}
+  - {fileID: 291076236}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -6948,12 +7546,6 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 14
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!4 &1537843417 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: 4836581978096803200, guid: 7c87f0bdd49fb13448a9d04866c2aef0,
-    type: 3}
-  m_PrefabInstance: {fileID: 2578363404058666416}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1538116780 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 589227856869206320, guid: ee70e03a41cc5a044ada690cf20c1ca5,
@@ -7224,63 +7816,6 @@ GameObject:
     type: 3}
   m_PrefabInstance: {fileID: 2084867444}
   m_PrefabAsset: {fileID: 0}
---- !u!21 &1604216412
-Material:
-  serializedVersion: 6
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_Name: Override
-  m_Shader: {fileID: 4800000, guid: a3a3bc8785681554d9558e2ea68f100e, type: 3}
-  m_ShaderKeywords: 
-  m_LightmapFlags: 4
-  m_EnableInstancingVariants: 0
-  m_DoubleSidedGI: 0
-  m_CustomRenderQueue: -1
-  stringTagMap: {}
-  disabledShaderPasses: []
-  m_SavedProperties:
-    serializedVersion: 3
-    m_TexEnvs: []
-    m_Floats:
-    - _DIRECTIONALL: 1
-    - _DirectionalCustom: 0
-    - _DirectionalFalloff: 2
-    - _DirectionalIntensity: 1
-    - _DirectionalMode: 1
-    - _DirectionalModeBlend: 1
-    - _FOGG: 1
-    - _FogAxisMode: 1
-    - _FogColorDuo: 1
-    - _FogDistanceEnd: 200
-    - _FogDistanceFalloff: 2
-    - _FogDistanceStart: -200
-    - _FogHeightEnd: 200
-    - _FogHeightFalloff: 2
-    - _FogHeightStart: 0
-    - _FogIntensity: 1
-    - _IsHeightFogPreset: 1
-    - _IsHeightFogShader: 1
-    - _IsStandardPipeline: 0
-    - _NOISEE: 1
-    - _NoiseDistanceEnd: 50
-    - _NoiseIntensity: 1
-    - _NoiseMode: 2
-    - _NoiseModeBlend: 1
-    - _NoiseScale: 30
-    - _SKYBOXX: 1
-    - _SkyboxFogFalloff: 1
-    - _SkyboxFogFill: 1
-    - _SkyboxFogHeight: 1
-    - _TITLE: 1
-    m_Colors:
-    - _DirectionalColor: {r: 1, g: 0.7793103, b: 0.5, a: 1}
-    - _DirectionalCustomDir: {r: 0, g: 0, b: 0, a: 0}
-    - _FogAxisOption: {r: 0, g: 0, b: 0, a: 0}
-    - _FogColorEnd: {r: 0.8862745, g: 1.443137, b: 2, a: 1}
-    - _FogColorStart: {r: 0.4411765, g: 0.722515, b: 1, a: 1}
-    - _NoiseSpeed: {r: 0.5, g: 0, b: 0.5, a: 0}
 --- !u!1 &1612155161 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 4390436624261494691, guid: d2d7806eaf6caa54aa4068d2099ea571,
@@ -7292,6 +7827,12 @@ GameObject:
   m_CorrespondingSourceObject: {fileID: 4483511569823667647, guid: ee70e03a41cc5a044ada690cf20c1ca5,
     type: 3}
   m_PrefabInstance: {fileID: 29214024603889402}
+  m_PrefabAsset: {fileID: 0}
+--- !u!4 &1646606746 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 1017398635013300847, guid: 196f826da40225748ac9a04171531dfa,
+    type: 3}
+  m_PrefabInstance: {fileID: 702305935}
   m_PrefabAsset: {fileID: 0}
 --- !u!1 &1660941882 stripped
 GameObject:
@@ -7316,6 +7857,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Fireflies_VFX
+      objectReference: {fileID: 0}
+    - target: {fileID: 7518797141131966968, guid: cfb416f1e9448ff47aa33eb6bf5fcd9d,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 7518797141131966969, guid: cfb416f1e9448ff47aa33eb6bf5fcd9d,
         type: 3}
@@ -7397,6 +7943,12 @@ GameObject:
   m_CorrespondingSourceObject: {fileID: 1432901265392801358, guid: ee70e03a41cc5a044ada690cf20c1ca5,
     type: 3}
   m_PrefabInstance: {fileID: 29214024603889402}
+  m_PrefabAsset: {fileID: 0}
+--- !u!4 &1710618088 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 1017398635013300847, guid: 196f826da40225748ac9a04171531dfa,
+    type: 3}
+  m_PrefabInstance: {fileID: 965460935}
   m_PrefabAsset: {fileID: 0}
 --- !u!1 &1729831932
 GameObject:
@@ -8240,8 +8792,8 @@ Camera:
     y: 0
     width: 1
     height: 1
-  near clip plane: 1e-17
-  far clip plane: 71
+  near clip plane: -4
+  far clip plane: 74.45
   field of view: 42
   orthographic: 1
   orthographic size: 250
@@ -8434,11 +8986,11 @@ GameObject:
     type: 3}
   m_PrefabInstance: {fileID: 29214024603889402}
   m_PrefabAsset: {fileID: 0}
---- !u!1 &1880915858 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 444744828, guid: 7c87f0bdd49fb13448a9d04866c2aef0,
+--- !u!4 &1881161154 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 1017398635013300847, guid: 196f826da40225748ac9a04171531dfa,
     type: 3}
-  m_PrefabInstance: {fileID: 2578363404058666416}
+  m_PrefabInstance: {fileID: 981169636}
   m_PrefabAsset: {fileID: 0}
 --- !u!1 &1882829700
 GameObject:
@@ -8536,6 +9088,12 @@ GameObject:
   m_CorrespondingSourceObject: {fileID: 4399685982021980366, guid: ee70e03a41cc5a044ada690cf20c1ca5,
     type: 3}
   m_PrefabInstance: {fileID: 29214024603889402}
+  m_PrefabAsset: {fileID: 0}
+--- !u!4 &1934168719 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 1017398635013300847, guid: 196f826da40225748ac9a04171531dfa,
+    type: 3}
+  m_PrefabInstance: {fileID: 1319135429}
   m_PrefabAsset: {fileID: 0}
 --- !u!82 &1955046028 stripped
 AudioSource:
@@ -8817,6 +9375,12 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 815289731}
     m_Modifications:
+    - target: {fileID: 4390436624516416084, guid: d2d7806eaf6caa54aa4068d2099ea571,
+        type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: b756fd3cd0b4f0f47a6ff3b72cf9d3ee,
+        type: 3}
     - target: {fileID: 4390436625684885333, guid: d2d7806eaf6caa54aa4068d2099ea571,
         type: 3}
       propertyPath: m_Name
@@ -9199,36 +9763,6 @@ GameObject:
     type: 3}
   m_PrefabInstance: {fileID: 29214024603889402}
   m_PrefabAsset: {fileID: 0}
---- !u!1 &2091800451
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 2091800452}
-  m_Layer: 0
-  m_Name: DogUniqueLocation (9)
-  m_TagString: Untagged
-  m_Icon: {fileID: 3443629218296621865, guid: 0000000000000000d000000000000000, type: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &2091800452
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2091800451}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -40.81, y: -8.06, z: -86.71}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children: []
-  m_Father: {fileID: 1537843417}
-  m_RootOrder: 5
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &2129647031 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 6291162113371584462, guid: ee70e03a41cc5a044ada690cf20c1ca5,
@@ -11077,47 +11611,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 86057782, guid: 7c87f0bdd49fb13448a9d04866c2aef0, type: 3}
-      propertyPath: m_LocalPosition.x
-      value: 448.97
-      objectReference: {fileID: 0}
-    - target: {fileID: 86057782, guid: 7c87f0bdd49fb13448a9d04866c2aef0, type: 3}
-      propertyPath: m_LocalPosition.z
-      value: 88.04
-      objectReference: {fileID: 0}
-    - target: {fileID: 86057782, guid: 7c87f0bdd49fb13448a9d04866c2aef0, type: 3}
-      propertyPath: m_LocalPosition.y
-      value: 16.94
-      objectReference: {fileID: 0}
-    - target: {fileID: 444744829, guid: 7c87f0bdd49fb13448a9d04866c2aef0, type: 3}
-      propertyPath: m_LocalPosition.z
-      value: -85.67
-      objectReference: {fileID: 0}
-    - target: {fileID: 444744829, guid: 7c87f0bdd49fb13448a9d04866c2aef0, type: 3}
-      propertyPath: m_LocalPosition.y
-      value: -1.58
-      objectReference: {fileID: 0}
-    - target: {fileID: 444744829, guid: 7c87f0bdd49fb13448a9d04866c2aef0, type: 3}
-      propertyPath: m_LocalPosition.x
-      value: 0.8
-      objectReference: {fileID: 0}
-    - target: {fileID: 1132608983, guid: 7c87f0bdd49fb13448a9d04866c2aef0, type: 3}
-      propertyPath: m_LocalPosition.y
-      value: 0.44
-      objectReference: {fileID: 0}
-    - target: {fileID: 1132608983, guid: 7c87f0bdd49fb13448a9d04866c2aef0, type: 3}
-      propertyPath: m_LocalPosition.z
-      value: -13.61
-      objectReference: {fileID: 0}
-    - target: {fileID: 1608152032, guid: 7c87f0bdd49fb13448a9d04866c2aef0, type: 3}
-      propertyPath: m_LocalPosition.y
-      value: -1.363
-      objectReference: {fileID: 0}
-    - target: {fileID: 123287430962513253, guid: 7c87f0bdd49fb13448a9d04866c2aef0,
-        type: 3}
-      propertyPath: m_IsActive
-      value: 0
-      objectReference: {fileID: 0}
     - target: {fileID: 443760016582901909, guid: 7c87f0bdd49fb13448a9d04866c2aef0,
         type: 3}
       propertyPath: lightingManager
@@ -11128,20 +11621,50 @@ PrefabInstance:
       propertyPath: soundObject
       value: 
       objectReference: {fileID: 1590751471}
-    - target: {fileID: 1110289989704950218, guid: 7c87f0bdd49fb13448a9d04866c2aef0,
+    - target: {fileID: 1022459520071467710, guid: 7c87f0bdd49fb13448a9d04866c2aef0,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: 18.494
+      value: 6.553
       objectReference: {fileID: 0}
-    - target: {fileID: 1110289989704950218, guid: 7c87f0bdd49fb13448a9d04866c2aef0,
+    - target: {fileID: 1022459520071467710, guid: 7c87f0bdd49fb13448a9d04866c2aef0,
         type: 3}
-      propertyPath: m_LocalPosition.z
-      value: -16.304
+      propertyPath: m_LocalRotation.x
+      value: 0.02029245
       objectReference: {fileID: 0}
-    - target: {fileID: 1110289989704950218, guid: 7c87f0bdd49fb13448a9d04866c2aef0,
+    - target: {fileID: 1022459520071467710, guid: 7c87f0bdd49fb13448a9d04866c2aef0,
+        type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0.9535045
+      objectReference: {fileID: 0}
+    - target: {fileID: 1022459520071467710, guid: 7c87f0bdd49fb13448a9d04866c2aef0,
+        type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0.06595349
+      objectReference: {fileID: 0}
+    - target: {fileID: 1022459520071467710, guid: 7c87f0bdd49fb13448a9d04866c2aef0,
+        type: 3}
+      propertyPath: m_LocalRotation.w
+      value: -0.29337254
+      objectReference: {fileID: 0}
+    - target: {fileID: 1022459520071467710, guid: 7c87f0bdd49fb13448a9d04866c2aef0,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: -7.9140005
+      objectReference: {fileID: 0}
+    - target: {fileID: 1022459520071467710, guid: 7c87f0bdd49fb13448a9d04866c2aef0,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: -145.796
+      objectReference: {fileID: 0}
+    - target: {fileID: 1022459520071467710, guid: 7c87f0bdd49fb13448a9d04866c2aef0,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: 444.903
+      value: 573.584
+      objectReference: {fileID: 0}
+    - target: {fileID: 1022459520071467710, guid: 7c87f0bdd49fb13448a9d04866c2aef0,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 181.288
       objectReference: {fileID: 0}
     - target: {fileID: 1333079465267881874, guid: 7c87f0bdd49fb13448a9d04866c2aef0,
         type: 3}
@@ -11165,14 +11688,14 @@ PrefabInstance:
       objectReference: {fileID: 694658843}
     - target: {fileID: 1333079465267881874, guid: 7c87f0bdd49fb13448a9d04866c2aef0,
         type: 3}
-      propertyPath: lightManager
-      value: 
-      objectReference: {fileID: 34322874}
-    - target: {fileID: 1333079465267881874, guid: 7c87f0bdd49fb13448a9d04866c2aef0,
-        type: 3}
       propertyPath: NightLeavesUI
       value: 
       objectReference: {fileID: 1339971717}
+    - target: {fileID: 1333079465267881874, guid: 7c87f0bdd49fb13448a9d04866c2aef0,
+        type: 3}
+      propertyPath: lightManager
+      value: 
+      objectReference: {fileID: 34322874}
     - target: {fileID: 1340134099985869959, guid: 7c87f0bdd49fb13448a9d04866c2aef0,
         type: 3}
       propertyPath: lightingManager
@@ -11193,106 +11716,6 @@ PrefabInstance:
       propertyPath: soundObject
       value: 
       objectReference: {fileID: 1590751471}
-    - target: {fileID: 1857779699241424956, guid: 7c87f0bdd49fb13448a9d04866c2aef0,
-        type: 3}
-      propertyPath: m_LocalRotation.x
-      value: 0.005631375
-      objectReference: {fileID: 0}
-    - target: {fileID: 1857779699241424956, guid: 7c87f0bdd49fb13448a9d04866c2aef0,
-        type: 3}
-      propertyPath: m_LocalRotation.y
-      value: 0.0005451468
-      objectReference: {fileID: 0}
-    - target: {fileID: 1857779699241424956, guid: 7c87f0bdd49fb13448a9d04866c2aef0,
-        type: 3}
-      propertyPath: m_LocalRotation.z
-      value: -0.013281286
-      objectReference: {fileID: 0}
-    - target: {fileID: 1857779699241424956, guid: 7c87f0bdd49fb13448a9d04866c2aef0,
-        type: 3}
-      propertyPath: m_LocalRotation.w
-      value: 0.9998958
-      objectReference: {fileID: 0}
-    - target: {fileID: 1857779699241424956, guid: 7c87f0bdd49fb13448a9d04866c2aef0,
-        type: 3}
-      propertyPath: m_LocalPosition.x
-      value: 70.22583
-      objectReference: {fileID: 0}
-    - target: {fileID: 1857779699241424956, guid: 7c87f0bdd49fb13448a9d04866c2aef0,
-        type: 3}
-      propertyPath: m_LocalPosition.y
-      value: 30.31
-      objectReference: {fileID: 0}
-    - target: {fileID: 1857779699241424956, guid: 7c87f0bdd49fb13448a9d04866c2aef0,
-        type: 3}
-      propertyPath: m_LocalPosition.z
-      value: -120.387886
-      objectReference: {fileID: 0}
-    - target: {fileID: 1857779699241424956, guid: 7c87f0bdd49fb13448a9d04866c2aef0,
-        type: 3}
-      propertyPath: m_LocalEulerAnglesHint.x
-      value: 0.646
-      objectReference: {fileID: 0}
-    - target: {fileID: 1857779699241424956, guid: 7c87f0bdd49fb13448a9d04866c2aef0,
-        type: 3}
-      propertyPath: m_LocalEulerAnglesHint.z
-      value: -1.5220001
-      objectReference: {fileID: 0}
-    - target: {fileID: 1857779699241424956, guid: 7c87f0bdd49fb13448a9d04866c2aef0,
-        type: 3}
-      propertyPath: m_LocalEulerAnglesHint.y
-      value: 0.054
-      objectReference: {fileID: 0}
-    - target: {fileID: 1857779699586340873, guid: 7c87f0bdd49fb13448a9d04866c2aef0,
-        type: 3}
-      propertyPath: m_LocalRotation.x
-      value: 0.02665412
-      objectReference: {fileID: 0}
-    - target: {fileID: 1857779699586340873, guid: 7c87f0bdd49fb13448a9d04866c2aef0,
-        type: 3}
-      propertyPath: m_LocalRotation.y
-      value: -0.000059865444
-      objectReference: {fileID: 0}
-    - target: {fileID: 1857779699586340873, guid: 7c87f0bdd49fb13448a9d04866c2aef0,
-        type: 3}
-      propertyPath: m_LocalRotation.z
-      value: 0.0037702098
-      objectReference: {fileID: 0}
-    - target: {fileID: 1857779699586340873, guid: 7c87f0bdd49fb13448a9d04866c2aef0,
-        type: 3}
-      propertyPath: m_LocalRotation.w
-      value: 0.9996376
-      objectReference: {fileID: 0}
-    - target: {fileID: 1857779699586340873, guid: 7c87f0bdd49fb13448a9d04866c2aef0,
-        type: 3}
-      propertyPath: m_LocalPosition.x
-      value: 26.183105
-      objectReference: {fileID: 0}
-    - target: {fileID: 1857779699586340873, guid: 7c87f0bdd49fb13448a9d04866c2aef0,
-        type: 3}
-      propertyPath: m_LocalPosition.y
-      value: -5.731988
-      objectReference: {fileID: 0}
-    - target: {fileID: 1857779699586340873, guid: 7c87f0bdd49fb13448a9d04866c2aef0,
-        type: 3}
-      propertyPath: m_LocalPosition.z
-      value: 123.99929
-      objectReference: {fileID: 0}
-    - target: {fileID: 1857779699586340873, guid: 7c87f0bdd49fb13448a9d04866c2aef0,
-        type: 3}
-      propertyPath: m_LocalEulerAnglesHint.x
-      value: 3.055
-      objectReference: {fileID: 0}
-    - target: {fileID: 1857779699586340873, guid: 7c87f0bdd49fb13448a9d04866c2aef0,
-        type: 3}
-      propertyPath: m_LocalEulerAnglesHint.y
-      value: 0.0050000004
-      objectReference: {fileID: 0}
-    - target: {fileID: 1857779699586340873, guid: 7c87f0bdd49fb13448a9d04866c2aef0,
-        type: 3}
-      propertyPath: m_LocalEulerAnglesHint.z
-      value: 0.432
-      objectReference: {fileID: 0}
     - target: {fileID: 1943754834319134310, guid: 7c87f0bdd49fb13448a9d04866c2aef0,
         type: 3}
       propertyPath: lightingManager
@@ -11325,14 +11748,14 @@ PrefabInstance:
       objectReference: {fileID: 694658843}
     - target: {fileID: 2194400161769093152, guid: 7c87f0bdd49fb13448a9d04866c2aef0,
         type: 3}
-      propertyPath: lightManager
+      propertyPath: NightLeavesUI
       value: 
-      objectReference: {fileID: 34322874}
+      objectReference: {fileID: 1339971717}
     - target: {fileID: 2194400161769093152, guid: 7c87f0bdd49fb13448a9d04866c2aef0,
         type: 3}
-      propertyPath: NightLeavesUI
+      propertyPath: lightManager
       value: 
-      objectReference: {fileID: 1339971717}
+      objectReference: {fileID: 34322874}
     - target: {fileID: 2194400161808670955, guid: 7c87f0bdd49fb13448a9d04866c2aef0,
         type: 3}
       propertyPath: player
@@ -11355,14 +11778,14 @@ PrefabInstance:
       objectReference: {fileID: 694658843}
     - target: {fileID: 2194400161808670955, guid: 7c87f0bdd49fb13448a9d04866c2aef0,
         type: 3}
-      propertyPath: lightManager
-      value: 
-      objectReference: {fileID: 34322874}
-    - target: {fileID: 2194400161808670955, guid: 7c87f0bdd49fb13448a9d04866c2aef0,
-        type: 3}
       propertyPath: NightLeavesUI
       value: 
       objectReference: {fileID: 1339971717}
+    - target: {fileID: 2194400161808670955, guid: 7c87f0bdd49fb13448a9d04866c2aef0,
+        type: 3}
+      propertyPath: lightManager
+      value: 
+      objectReference: {fileID: 34322874}
     - target: {fileID: 2194400161843182898, guid: 7c87f0bdd49fb13448a9d04866c2aef0,
         type: 3}
       propertyPath: player
@@ -11385,14 +11808,14 @@ PrefabInstance:
       objectReference: {fileID: 694658843}
     - target: {fileID: 2194400161843182898, guid: 7c87f0bdd49fb13448a9d04866c2aef0,
         type: 3}
-      propertyPath: lightManager
+      propertyPath: NightLeavesUI
       value: 
-      objectReference: {fileID: 34322874}
+      objectReference: {fileID: 1339971717}
     - target: {fileID: 2194400161843182898, guid: 7c87f0bdd49fb13448a9d04866c2aef0,
         type: 3}
-      propertyPath: NightLeavesUI
+      propertyPath: lightManager
       value: 
-      objectReference: {fileID: 1339971717}
+      objectReference: {fileID: 34322874}
     - target: {fileID: 2194400161871365153, guid: 7c87f0bdd49fb13448a9d04866c2aef0,
         type: 3}
       propertyPath: player
@@ -11415,14 +11838,14 @@ PrefabInstance:
       objectReference: {fileID: 694658843}
     - target: {fileID: 2194400161871365153, guid: 7c87f0bdd49fb13448a9d04866c2aef0,
         type: 3}
-      propertyPath: lightManager
-      value: 
-      objectReference: {fileID: 34322874}
-    - target: {fileID: 2194400161871365153, guid: 7c87f0bdd49fb13448a9d04866c2aef0,
-        type: 3}
       propertyPath: NightLeavesUI
       value: 
       objectReference: {fileID: 1339971717}
+    - target: {fileID: 2194400161871365153, guid: 7c87f0bdd49fb13448a9d04866c2aef0,
+        type: 3}
+      propertyPath: lightManager
+      value: 
+      objectReference: {fileID: 34322874}
     - target: {fileID: 2194400161879349794, guid: 7c87f0bdd49fb13448a9d04866c2aef0,
         type: 3}
       propertyPath: player
@@ -11445,14 +11868,14 @@ PrefabInstance:
       objectReference: {fileID: 694658843}
     - target: {fileID: 2194400161879349794, guid: 7c87f0bdd49fb13448a9d04866c2aef0,
         type: 3}
-      propertyPath: lightManager
+      propertyPath: NightLeavesUI
       value: 
-      objectReference: {fileID: 34322874}
+      objectReference: {fileID: 1339971717}
     - target: {fileID: 2194400161879349794, guid: 7c87f0bdd49fb13448a9d04866c2aef0,
         type: 3}
-      propertyPath: NightLeavesUI
+      propertyPath: lightManager
       value: 
-      objectReference: {fileID: 1339971717}
+      objectReference: {fileID: 34322874}
     - target: {fileID: 2194400162028028480, guid: 7c87f0bdd49fb13448a9d04866c2aef0,
         type: 3}
       propertyPath: player
@@ -11475,14 +11898,14 @@ PrefabInstance:
       objectReference: {fileID: 694658843}
     - target: {fileID: 2194400162028028480, guid: 7c87f0bdd49fb13448a9d04866c2aef0,
         type: 3}
-      propertyPath: lightManager
-      value: 
-      objectReference: {fileID: 34322874}
-    - target: {fileID: 2194400162028028480, guid: 7c87f0bdd49fb13448a9d04866c2aef0,
-        type: 3}
       propertyPath: NightLeavesUI
       value: 
       objectReference: {fileID: 1339971717}
+    - target: {fileID: 2194400162028028480, guid: 7c87f0bdd49fb13448a9d04866c2aef0,
+        type: 3}
+      propertyPath: lightManager
+      value: 
+      objectReference: {fileID: 34322874}
     - target: {fileID: 2194400162086228730, guid: 7c87f0bdd49fb13448a9d04866c2aef0,
         type: 3}
       propertyPath: player
@@ -11505,14 +11928,14 @@ PrefabInstance:
       objectReference: {fileID: 694658843}
     - target: {fileID: 2194400162086228730, guid: 7c87f0bdd49fb13448a9d04866c2aef0,
         type: 3}
-      propertyPath: lightManager
+      propertyPath: NightLeavesUI
       value: 
-      objectReference: {fileID: 34322874}
+      objectReference: {fileID: 1339971717}
     - target: {fileID: 2194400162086228730, guid: 7c87f0bdd49fb13448a9d04866c2aef0,
         type: 3}
-      propertyPath: NightLeavesUI
+      propertyPath: lightManager
       value: 
-      objectReference: {fileID: 1339971717}
+      objectReference: {fileID: 34322874}
     - target: {fileID: 2194400162225345260, guid: 7c87f0bdd49fb13448a9d04866c2aef0,
         type: 3}
       propertyPath: player
@@ -11535,14 +11958,14 @@ PrefabInstance:
       objectReference: {fileID: 694658843}
     - target: {fileID: 2194400162225345260, guid: 7c87f0bdd49fb13448a9d04866c2aef0,
         type: 3}
-      propertyPath: lightManager
-      value: 
-      objectReference: {fileID: 34322874}
-    - target: {fileID: 2194400162225345260, guid: 7c87f0bdd49fb13448a9d04866c2aef0,
-        type: 3}
       propertyPath: NightLeavesUI
       value: 
       objectReference: {fileID: 1339971717}
+    - target: {fileID: 2194400162225345260, guid: 7c87f0bdd49fb13448a9d04866c2aef0,
+        type: 3}
+      propertyPath: lightManager
+      value: 
+      objectReference: {fileID: 34322874}
     - target: {fileID: 2194400162274574839, guid: 7c87f0bdd49fb13448a9d04866c2aef0,
         type: 3}
       propertyPath: player
@@ -11565,14 +11988,14 @@ PrefabInstance:
       objectReference: {fileID: 694658843}
     - target: {fileID: 2194400162274574839, guid: 7c87f0bdd49fb13448a9d04866c2aef0,
         type: 3}
-      propertyPath: lightManager
+      propertyPath: NightLeavesUI
       value: 
-      objectReference: {fileID: 34322874}
+      objectReference: {fileID: 1339971717}
     - target: {fileID: 2194400162274574839, guid: 7c87f0bdd49fb13448a9d04866c2aef0,
         type: 3}
-      propertyPath: NightLeavesUI
+      propertyPath: lightManager
       value: 
-      objectReference: {fileID: 1339971717}
+      objectReference: {fileID: 34322874}
     - target: {fileID: 2194400162332967906, guid: 7c87f0bdd49fb13448a9d04866c2aef0,
         type: 3}
       propertyPath: player
@@ -11595,14 +12018,14 @@ PrefabInstance:
       objectReference: {fileID: 694658843}
     - target: {fileID: 2194400162332967906, guid: 7c87f0bdd49fb13448a9d04866c2aef0,
         type: 3}
-      propertyPath: lightManager
-      value: 
-      objectReference: {fileID: 34322874}
-    - target: {fileID: 2194400162332967906, guid: 7c87f0bdd49fb13448a9d04866c2aef0,
-        type: 3}
       propertyPath: NightLeavesUI
       value: 
       objectReference: {fileID: 1339971717}
+    - target: {fileID: 2194400162332967906, guid: 7c87f0bdd49fb13448a9d04866c2aef0,
+        type: 3}
+      propertyPath: lightManager
+      value: 
+      objectReference: {fileID: 34322874}
     - target: {fileID: 2194400162482435916, guid: 7c87f0bdd49fb13448a9d04866c2aef0,
         type: 3}
       propertyPath: player
@@ -11625,14 +12048,14 @@ PrefabInstance:
       objectReference: {fileID: 694658843}
     - target: {fileID: 2194400162482435916, guid: 7c87f0bdd49fb13448a9d04866c2aef0,
         type: 3}
-      propertyPath: lightManager
+      propertyPath: NightLeavesUI
       value: 
-      objectReference: {fileID: 34322874}
+      objectReference: {fileID: 1339971717}
     - target: {fileID: 2194400162482435916, guid: 7c87f0bdd49fb13448a9d04866c2aef0,
         type: 3}
-      propertyPath: NightLeavesUI
+      propertyPath: lightManager
       value: 
-      objectReference: {fileID: 1339971717}
+      objectReference: {fileID: 34322874}
     - target: {fileID: 2194400162577942120, guid: 7c87f0bdd49fb13448a9d04866c2aef0,
         type: 3}
       propertyPath: player
@@ -11655,14 +12078,14 @@ PrefabInstance:
       objectReference: {fileID: 694658843}
     - target: {fileID: 2194400162577942120, guid: 7c87f0bdd49fb13448a9d04866c2aef0,
         type: 3}
-      propertyPath: lightManager
-      value: 
-      objectReference: {fileID: 34322874}
-    - target: {fileID: 2194400162577942120, guid: 7c87f0bdd49fb13448a9d04866c2aef0,
-        type: 3}
       propertyPath: NightLeavesUI
       value: 
       objectReference: {fileID: 1339971717}
+    - target: {fileID: 2194400162577942120, guid: 7c87f0bdd49fb13448a9d04866c2aef0,
+        type: 3}
+      propertyPath: lightManager
+      value: 
+      objectReference: {fileID: 34322874}
     - target: {fileID: 2194400162686849885, guid: 7c87f0bdd49fb13448a9d04866c2aef0,
         type: 3}
       propertyPath: player
@@ -11685,14 +12108,14 @@ PrefabInstance:
       objectReference: {fileID: 694658843}
     - target: {fileID: 2194400162686849885, guid: 7c87f0bdd49fb13448a9d04866c2aef0,
         type: 3}
-      propertyPath: lightManager
+      propertyPath: NightLeavesUI
       value: 
-      objectReference: {fileID: 34322874}
+      objectReference: {fileID: 1339971717}
     - target: {fileID: 2194400162686849885, guid: 7c87f0bdd49fb13448a9d04866c2aef0,
         type: 3}
-      propertyPath: NightLeavesUI
+      propertyPath: lightManager
       value: 
-      objectReference: {fileID: 1339971717}
+      objectReference: {fileID: 34322874}
     - target: {fileID: 2194400162702815604, guid: 7c87f0bdd49fb13448a9d04866c2aef0,
         type: 3}
       propertyPath: player
@@ -11715,14 +12138,14 @@ PrefabInstance:
       objectReference: {fileID: 694658843}
     - target: {fileID: 2194400162702815604, guid: 7c87f0bdd49fb13448a9d04866c2aef0,
         type: 3}
-      propertyPath: lightManager
-      value: 
-      objectReference: {fileID: 34322874}
-    - target: {fileID: 2194400162702815604, guid: 7c87f0bdd49fb13448a9d04866c2aef0,
-        type: 3}
       propertyPath: NightLeavesUI
       value: 
       objectReference: {fileID: 1339971717}
+    - target: {fileID: 2194400162702815604, guid: 7c87f0bdd49fb13448a9d04866c2aef0,
+        type: 3}
+      propertyPath: lightManager
+      value: 
+      objectReference: {fileID: 34322874}
     - target: {fileID: 2194400162710948915, guid: 7c87f0bdd49fb13448a9d04866c2aef0,
         type: 3}
       propertyPath: player
@@ -11745,14 +12168,14 @@ PrefabInstance:
       objectReference: {fileID: 694658843}
     - target: {fileID: 2194400162710948915, guid: 7c87f0bdd49fb13448a9d04866c2aef0,
         type: 3}
-      propertyPath: lightManager
+      propertyPath: NightLeavesUI
       value: 
-      objectReference: {fileID: 34322874}
+      objectReference: {fileID: 1339971717}
     - target: {fileID: 2194400162710948915, guid: 7c87f0bdd49fb13448a9d04866c2aef0,
         type: 3}
-      propertyPath: NightLeavesUI
+      propertyPath: lightManager
       value: 
-      objectReference: {fileID: 1339971717}
+      objectReference: {fileID: 34322874}
     - target: {fileID: 2194400162774416301, guid: 7c87f0bdd49fb13448a9d04866c2aef0,
         type: 3}
       propertyPath: player
@@ -11775,14 +12198,14 @@ PrefabInstance:
       objectReference: {fileID: 694658843}
     - target: {fileID: 2194400162774416301, guid: 7c87f0bdd49fb13448a9d04866c2aef0,
         type: 3}
-      propertyPath: lightManager
+      propertyPath: NightLeavesUI
       value: 
-      objectReference: {fileID: 34322874}
+      objectReference: {fileID: 1339971717}
     - target: {fileID: 2194400162774416301, guid: 7c87f0bdd49fb13448a9d04866c2aef0,
         type: 3}
-      propertyPath: NightLeavesUI
+      propertyPath: lightManager
       value: 
-      objectReference: {fileID: 1339971717}
+      objectReference: {fileID: 34322874}
     - target: {fileID: 2194400163017303035, guid: 7c87f0bdd49fb13448a9d04866c2aef0,
         type: 3}
       propertyPath: player
@@ -11805,14 +12228,14 @@ PrefabInstance:
       objectReference: {fileID: 694658843}
     - target: {fileID: 2194400163017303035, guid: 7c87f0bdd49fb13448a9d04866c2aef0,
         type: 3}
-      propertyPath: lightManager
+      propertyPath: NightLeavesUI
       value: 
-      objectReference: {fileID: 34322874}
+      objectReference: {fileID: 1339971717}
     - target: {fileID: 2194400163017303035, guid: 7c87f0bdd49fb13448a9d04866c2aef0,
         type: 3}
-      propertyPath: NightLeavesUI
+      propertyPath: lightManager
       value: 
-      objectReference: {fileID: 1339971717}
+      objectReference: {fileID: 34322874}
     - target: {fileID: 2194400163096551937, guid: 7c87f0bdd49fb13448a9d04866c2aef0,
         type: 3}
       propertyPath: player
@@ -11835,14 +12258,14 @@ PrefabInstance:
       objectReference: {fileID: 694658843}
     - target: {fileID: 2194400163096551937, guid: 7c87f0bdd49fb13448a9d04866c2aef0,
         type: 3}
-      propertyPath: lightManager
+      propertyPath: NightLeavesUI
       value: 
-      objectReference: {fileID: 34322874}
+      objectReference: {fileID: 1339971717}
     - target: {fileID: 2194400163096551937, guid: 7c87f0bdd49fb13448a9d04866c2aef0,
         type: 3}
-      propertyPath: NightLeavesUI
+      propertyPath: lightManager
       value: 
-      objectReference: {fileID: 1339971717}
+      objectReference: {fileID: 34322874}
     - target: {fileID: 2194400163284964625, guid: 7c87f0bdd49fb13448a9d04866c2aef0,
         type: 3}
       propertyPath: player
@@ -11865,14 +12288,14 @@ PrefabInstance:
       objectReference: {fileID: 694658843}
     - target: {fileID: 2194400163284964625, guid: 7c87f0bdd49fb13448a9d04866c2aef0,
         type: 3}
-      propertyPath: lightManager
-      value: 
-      objectReference: {fileID: 34322874}
-    - target: {fileID: 2194400163284964625, guid: 7c87f0bdd49fb13448a9d04866c2aef0,
-        type: 3}
       propertyPath: NightLeavesUI
       value: 
       objectReference: {fileID: 1339971717}
+    - target: {fileID: 2194400163284964625, guid: 7c87f0bdd49fb13448a9d04866c2aef0,
+        type: 3}
+      propertyPath: lightManager
+      value: 
+      objectReference: {fileID: 34322874}
     - target: {fileID: 2194400163313047506, guid: 7c87f0bdd49fb13448a9d04866c2aef0,
         type: 3}
       propertyPath: player
@@ -11895,14 +12318,14 @@ PrefabInstance:
       objectReference: {fileID: 694658843}
     - target: {fileID: 2194400163313047506, guid: 7c87f0bdd49fb13448a9d04866c2aef0,
         type: 3}
-      propertyPath: lightManager
-      value: 
-      objectReference: {fileID: 34322874}
-    - target: {fileID: 2194400163313047506, guid: 7c87f0bdd49fb13448a9d04866c2aef0,
-        type: 3}
       propertyPath: NightLeavesUI
       value: 
       objectReference: {fileID: 1339971717}
+    - target: {fileID: 2194400163313047506, guid: 7c87f0bdd49fb13448a9d04866c2aef0,
+        type: 3}
+      propertyPath: lightManager
+      value: 
+      objectReference: {fileID: 34322874}
     - target: {fileID: 2350039846391101141, guid: 7c87f0bdd49fb13448a9d04866c2aef0,
         type: 3}
       propertyPath: m_Name
@@ -11985,14 +12408,14 @@ PrefabInstance:
       objectReference: {fileID: 694658843}
     - target: {fileID: 2367173678436376048, guid: 7c87f0bdd49fb13448a9d04866c2aef0,
         type: 3}
-      propertyPath: lightManager
+      propertyPath: NightLeavesUI
       value: 
-      objectReference: {fileID: 34322874}
+      objectReference: {fileID: 1339971717}
     - target: {fileID: 2367173678436376048, guid: 7c87f0bdd49fb13448a9d04866c2aef0,
         type: 3}
-      propertyPath: NightLeavesUI
+      propertyPath: lightManager
       value: 
-      objectReference: {fileID: 1339971717}
+      objectReference: {fileID: 34322874}
     - target: {fileID: 2578363402229827112, guid: 7c87f0bdd49fb13448a9d04866c2aef0,
         type: 3}
       propertyPath: player
@@ -12015,14 +12438,14 @@ PrefabInstance:
       objectReference: {fileID: 694658843}
     - target: {fileID: 2578363402229827112, guid: 7c87f0bdd49fb13448a9d04866c2aef0,
         type: 3}
-      propertyPath: lightManager
-      value: 
-      objectReference: {fileID: 34322874}
-    - target: {fileID: 2578363402229827112, guid: 7c87f0bdd49fb13448a9d04866c2aef0,
-        type: 3}
       propertyPath: NightLeavesUI
       value: 
       objectReference: {fileID: 1339971717}
+    - target: {fileID: 2578363402229827112, guid: 7c87f0bdd49fb13448a9d04866c2aef0,
+        type: 3}
+      propertyPath: lightManager
+      value: 
+      objectReference: {fileID: 34322874}
     - target: {fileID: 2578363402518362261, guid: 7c87f0bdd49fb13448a9d04866c2aef0,
         type: 3}
       propertyPath: player
@@ -12045,14 +12468,14 @@ PrefabInstance:
       objectReference: {fileID: 694658843}
     - target: {fileID: 2578363402518362261, guid: 7c87f0bdd49fb13448a9d04866c2aef0,
         type: 3}
-      propertyPath: lightManager
-      value: 
-      objectReference: {fileID: 34322874}
-    - target: {fileID: 2578363402518362261, guid: 7c87f0bdd49fb13448a9d04866c2aef0,
-        type: 3}
       propertyPath: NightLeavesUI
       value: 
       objectReference: {fileID: 1339971717}
+    - target: {fileID: 2578363402518362261, guid: 7c87f0bdd49fb13448a9d04866c2aef0,
+        type: 3}
+      propertyPath: lightManager
+      value: 
+      objectReference: {fileID: 34322874}
     - target: {fileID: 2578363402665504937, guid: 7c87f0bdd49fb13448a9d04866c2aef0,
         type: 3}
       propertyPath: lightingManager
@@ -12085,14 +12508,14 @@ PrefabInstance:
       objectReference: {fileID: 694658843}
     - target: {fileID: 2578363402718192765, guid: 7c87f0bdd49fb13448a9d04866c2aef0,
         type: 3}
-      propertyPath: lightManager
+      propertyPath: NightLeavesUI
       value: 
-      objectReference: {fileID: 34322874}
+      objectReference: {fileID: 1339971717}
     - target: {fileID: 2578363402718192765, guid: 7c87f0bdd49fb13448a9d04866c2aef0,
         type: 3}
-      propertyPath: NightLeavesUI
+      propertyPath: lightManager
       value: 
-      objectReference: {fileID: 1339971717}
+      objectReference: {fileID: 34322874}
     - target: {fileID: 2578363402762715177, guid: 7c87f0bdd49fb13448a9d04866c2aef0,
         type: 3}
       propertyPath: lightingManager
@@ -12125,14 +12548,14 @@ PrefabInstance:
       objectReference: {fileID: 694658843}
     - target: {fileID: 2578363402905109849, guid: 7c87f0bdd49fb13448a9d04866c2aef0,
         type: 3}
-      propertyPath: lightManager
+      propertyPath: NightLeavesUI
       value: 
-      objectReference: {fileID: 34322874}
+      objectReference: {fileID: 1339971717}
     - target: {fileID: 2578363402905109849, guid: 7c87f0bdd49fb13448a9d04866c2aef0,
         type: 3}
-      propertyPath: NightLeavesUI
+      propertyPath: lightManager
       value: 
-      objectReference: {fileID: 1339971717}
+      objectReference: {fileID: 34322874}
     - target: {fileID: 2578363402913665642, guid: 7c87f0bdd49fb13448a9d04866c2aef0,
         type: 3}
       propertyPath: player
@@ -12155,14 +12578,14 @@ PrefabInstance:
       objectReference: {fileID: 694658843}
     - target: {fileID: 2578363402913665642, guid: 7c87f0bdd49fb13448a9d04866c2aef0,
         type: 3}
-      propertyPath: lightManager
+      propertyPath: NightLeavesUI
       value: 
-      objectReference: {fileID: 34322874}
+      objectReference: {fileID: 1339971717}
     - target: {fileID: 2578363402913665642, guid: 7c87f0bdd49fb13448a9d04866c2aef0,
         type: 3}
-      propertyPath: NightLeavesUI
+      propertyPath: lightManager
       value: 
-      objectReference: {fileID: 1339971717}
+      objectReference: {fileID: 34322874}
     - target: {fileID: 2578363403007381591, guid: 7c87f0bdd49fb13448a9d04866c2aef0,
         type: 3}
       propertyPath: player
@@ -12185,14 +12608,14 @@ PrefabInstance:
       objectReference: {fileID: 694658843}
     - target: {fileID: 2578363403007381591, guid: 7c87f0bdd49fb13448a9d04866c2aef0,
         type: 3}
-      propertyPath: lightManager
+      propertyPath: NightLeavesUI
       value: 
-      objectReference: {fileID: 34322874}
+      objectReference: {fileID: 1339971717}
     - target: {fileID: 2578363403007381591, guid: 7c87f0bdd49fb13448a9d04866c2aef0,
         type: 3}
-      propertyPath: NightLeavesUI
+      propertyPath: lightManager
       value: 
-      objectReference: {fileID: 1339971717}
+      objectReference: {fileID: 34322874}
     - target: {fileID: 2578363403127142101, guid: 7c87f0bdd49fb13448a9d04866c2aef0,
         type: 3}
       propertyPath: player
@@ -12215,14 +12638,14 @@ PrefabInstance:
       objectReference: {fileID: 694658843}
     - target: {fileID: 2578363403127142101, guid: 7c87f0bdd49fb13448a9d04866c2aef0,
         type: 3}
-      propertyPath: lightManager
-      value: 
-      objectReference: {fileID: 34322874}
-    - target: {fileID: 2578363403127142101, guid: 7c87f0bdd49fb13448a9d04866c2aef0,
-        type: 3}
       propertyPath: NightLeavesUI
       value: 
       objectReference: {fileID: 1339971717}
+    - target: {fileID: 2578363403127142101, guid: 7c87f0bdd49fb13448a9d04866c2aef0,
+        type: 3}
+      propertyPath: lightManager
+      value: 
+      objectReference: {fileID: 34322874}
     - target: {fileID: 2578363403158665671, guid: 7c87f0bdd49fb13448a9d04866c2aef0,
         type: 3}
       propertyPath: player
@@ -12245,14 +12668,14 @@ PrefabInstance:
       objectReference: {fileID: 694658843}
     - target: {fileID: 2578363403158665671, guid: 7c87f0bdd49fb13448a9d04866c2aef0,
         type: 3}
-      propertyPath: lightManager
-      value: 
-      objectReference: {fileID: 34322874}
-    - target: {fileID: 2578363403158665671, guid: 7c87f0bdd49fb13448a9d04866c2aef0,
-        type: 3}
       propertyPath: NightLeavesUI
       value: 
       objectReference: {fileID: 1339971717}
+    - target: {fileID: 2578363403158665671, guid: 7c87f0bdd49fb13448a9d04866c2aef0,
+        type: 3}
+      propertyPath: lightManager
+      value: 
+      objectReference: {fileID: 34322874}
     - target: {fileID: 2578363403217281122, guid: 7c87f0bdd49fb13448a9d04866c2aef0,
         type: 3}
       propertyPath: lightingManager
@@ -12285,14 +12708,14 @@ PrefabInstance:
       objectReference: {fileID: 694658843}
     - target: {fileID: 2578363403273044527, guid: 7c87f0bdd49fb13448a9d04866c2aef0,
         type: 3}
-      propertyPath: lightManager
+      propertyPath: NightLeavesUI
       value: 
-      objectReference: {fileID: 34322874}
+      objectReference: {fileID: 1339971717}
     - target: {fileID: 2578363403273044527, guid: 7c87f0bdd49fb13448a9d04866c2aef0,
         type: 3}
-      propertyPath: NightLeavesUI
+      propertyPath: lightManager
       value: 
-      objectReference: {fileID: 1339971717}
+      objectReference: {fileID: 34322874}
     - target: {fileID: 2578363403375508292, guid: 7c87f0bdd49fb13448a9d04866c2aef0,
         type: 3}
       propertyPath: player
@@ -12315,14 +12738,14 @@ PrefabInstance:
       objectReference: {fileID: 694658843}
     - target: {fileID: 2578363403375508292, guid: 7c87f0bdd49fb13448a9d04866c2aef0,
         type: 3}
-      propertyPath: lightManager
+      propertyPath: NightLeavesUI
       value: 
-      objectReference: {fileID: 34322874}
+      objectReference: {fileID: 1339971717}
     - target: {fileID: 2578363403375508292, guid: 7c87f0bdd49fb13448a9d04866c2aef0,
         type: 3}
-      propertyPath: NightLeavesUI
+      propertyPath: lightManager
       value: 
-      objectReference: {fileID: 1339971717}
+      objectReference: {fileID: 34322874}
     - target: {fileID: 2578363403493278089, guid: 7c87f0bdd49fb13448a9d04866c2aef0,
         type: 3}
       propertyPath: player
@@ -12345,14 +12768,14 @@ PrefabInstance:
       objectReference: {fileID: 694658843}
     - target: {fileID: 2578363403493278089, guid: 7c87f0bdd49fb13448a9d04866c2aef0,
         type: 3}
-      propertyPath: lightManager
+      propertyPath: NightLeavesUI
       value: 
-      objectReference: {fileID: 34322874}
+      objectReference: {fileID: 1339971717}
     - target: {fileID: 2578363403493278089, guid: 7c87f0bdd49fb13448a9d04866c2aef0,
         type: 3}
-      propertyPath: NightLeavesUI
+      propertyPath: lightManager
       value: 
-      objectReference: {fileID: 1339971717}
+      objectReference: {fileID: 34322874}
     - target: {fileID: 2578363403587815852, guid: 7c87f0bdd49fb13448a9d04866c2aef0,
         type: 3}
       propertyPath: player
@@ -12375,14 +12798,14 @@ PrefabInstance:
       objectReference: {fileID: 694658843}
     - target: {fileID: 2578363403587815852, guid: 7c87f0bdd49fb13448a9d04866c2aef0,
         type: 3}
-      propertyPath: lightManager
-      value: 
-      objectReference: {fileID: 34322874}
-    - target: {fileID: 2578363403587815852, guid: 7c87f0bdd49fb13448a9d04866c2aef0,
-        type: 3}
       propertyPath: NightLeavesUI
       value: 
       objectReference: {fileID: 1339971717}
+    - target: {fileID: 2578363403587815852, guid: 7c87f0bdd49fb13448a9d04866c2aef0,
+        type: 3}
+      propertyPath: lightManager
+      value: 
+      objectReference: {fileID: 34322874}
     - target: {fileID: 2578363403642518564, guid: 7c87f0bdd49fb13448a9d04866c2aef0,
         type: 3}
       propertyPath: player
@@ -12405,14 +12828,14 @@ PrefabInstance:
       objectReference: {fileID: 694658843}
     - target: {fileID: 2578363403642518564, guid: 7c87f0bdd49fb13448a9d04866c2aef0,
         type: 3}
-      propertyPath: lightManager
-      value: 
-      objectReference: {fileID: 34322874}
-    - target: {fileID: 2578363403642518564, guid: 7c87f0bdd49fb13448a9d04866c2aef0,
-        type: 3}
       propertyPath: NightLeavesUI
       value: 
       objectReference: {fileID: 1339971717}
+    - target: {fileID: 2578363403642518564, guid: 7c87f0bdd49fb13448a9d04866c2aef0,
+        type: 3}
+      propertyPath: lightManager
+      value: 
+      objectReference: {fileID: 34322874}
     - target: {fileID: 2578363403956586339, guid: 7c87f0bdd49fb13448a9d04866c2aef0,
         type: 3}
       propertyPath: lightingManager
@@ -12445,14 +12868,14 @@ PrefabInstance:
       objectReference: {fileID: 694658843}
     - target: {fileID: 2578363403970931803, guid: 7c87f0bdd49fb13448a9d04866c2aef0,
         type: 3}
-      propertyPath: lightManager
-      value: 
-      objectReference: {fileID: 34322874}
-    - target: {fileID: 2578363403970931803, guid: 7c87f0bdd49fb13448a9d04866c2aef0,
-        type: 3}
       propertyPath: NightLeavesUI
       value: 
       objectReference: {fileID: 1339971717}
+    - target: {fileID: 2578363403970931803, guid: 7c87f0bdd49fb13448a9d04866c2aef0,
+        type: 3}
+      propertyPath: lightManager
+      value: 
+      objectReference: {fileID: 34322874}
     - target: {fileID: 2578363404058666420, guid: 7c87f0bdd49fb13448a9d04866c2aef0,
         type: 3}
       propertyPath: lightingManager
@@ -12485,14 +12908,14 @@ PrefabInstance:
       objectReference: {fileID: 694658843}
     - target: {fileID: 2578363404066181021, guid: 7c87f0bdd49fb13448a9d04866c2aef0,
         type: 3}
-      propertyPath: lightManager
-      value: 
-      objectReference: {fileID: 34322874}
-    - target: {fileID: 2578363404066181021, guid: 7c87f0bdd49fb13448a9d04866c2aef0,
-        type: 3}
       propertyPath: NightLeavesUI
       value: 
       objectReference: {fileID: 1339971717}
+    - target: {fileID: 2578363404066181021, guid: 7c87f0bdd49fb13448a9d04866c2aef0,
+        type: 3}
+      propertyPath: lightManager
+      value: 
+      objectReference: {fileID: 34322874}
     - target: {fileID: 2578363404091624206, guid: 7c87f0bdd49fb13448a9d04866c2aef0,
         type: 3}
       propertyPath: lightingManager
@@ -12535,34 +12958,14 @@ PrefabInstance:
       objectReference: {fileID: 694658843}
     - target: {fileID: 2578363404306428401, guid: 7c87f0bdd49fb13448a9d04866c2aef0,
         type: 3}
-      propertyPath: lightManager
+      propertyPath: NightLeavesUI
       value: 
-      objectReference: {fileID: 34322874}
+      objectReference: {fileID: 1339971717}
     - target: {fileID: 2578363404306428401, guid: 7c87f0bdd49fb13448a9d04866c2aef0,
         type: 3}
-      propertyPath: NightLeavesUI
+      propertyPath: lightManager
       value: 
-      objectReference: {fileID: 1339971717}
-    - target: {fileID: 2597330256171258668, guid: 7c87f0bdd49fb13448a9d04866c2aef0,
-        type: 3}
-      propertyPath: m_LocalPosition.x
-      value: 447.2
-      objectReference: {fileID: 0}
-    - target: {fileID: 2597330256171258668, guid: 7c87f0bdd49fb13448a9d04866c2aef0,
-        type: 3}
-      propertyPath: m_LocalPosition.z
-      value: -20.5
-      objectReference: {fileID: 0}
-    - target: {fileID: 2597330256171258668, guid: 7c87f0bdd49fb13448a9d04866c2aef0,
-        type: 3}
-      propertyPath: m_LocalPosition.y
-      value: 18.656
-      objectReference: {fileID: 0}
-    - target: {fileID: 3049966593713378397, guid: 7c87f0bdd49fb13448a9d04866c2aef0,
-        type: 3}
-      propertyPath: UniqueSecondaryLocations.Array.size
-      value: 4
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 34322874}
     - target: {fileID: 3049966593713378397, guid: 7c87f0bdd49fb13448a9d04866c2aef0,
         type: 3}
       propertyPath: lightingManager
@@ -12573,16 +12976,6 @@ PrefabInstance:
       propertyPath: soundObject
       value: 
       objectReference: {fileID: 1590751471}
-    - target: {fileID: 3049966593713378397, guid: 7c87f0bdd49fb13448a9d04866c2aef0,
-        type: 3}
-      propertyPath: UniqueSecondaryLocations.Array.data[2]
-      value: 
-      objectReference: {fileID: 259086407}
-    - target: {fileID: 3049966593713378397, guid: 7c87f0bdd49fb13448a9d04866c2aef0,
-        type: 3}
-      propertyPath: UniqueSecondaryLocations.Array.data[3]
-      value: 
-      objectReference: {fileID: 1880915858}
     - target: {fileID: 3300173904428958498, guid: 7c87f0bdd49fb13448a9d04866c2aef0,
         type: 3}
       propertyPath: lightingManager
@@ -12615,14 +13008,14 @@ PrefabInstance:
       objectReference: {fileID: 694658843}
     - target: {fileID: 3988900039262503923, guid: 7c87f0bdd49fb13448a9d04866c2aef0,
         type: 3}
-      propertyPath: lightManager
+      propertyPath: NightLeavesUI
       value: 
-      objectReference: {fileID: 34322874}
+      objectReference: {fileID: 1339971717}
     - target: {fileID: 3988900039262503923, guid: 7c87f0bdd49fb13448a9d04866c2aef0,
         type: 3}
-      propertyPath: NightLeavesUI
+      propertyPath: lightManager
       value: 
-      objectReference: {fileID: 1339971717}
+      objectReference: {fileID: 34322874}
     - target: {fileID: 4135292938275409279, guid: 7c87f0bdd49fb13448a9d04866c2aef0,
         type: 3}
       propertyPath: player
@@ -12645,14 +13038,14 @@ PrefabInstance:
       objectReference: {fileID: 694658843}
     - target: {fileID: 4135292938275409279, guid: 7c87f0bdd49fb13448a9d04866c2aef0,
         type: 3}
-      propertyPath: lightManager
-      value: 
-      objectReference: {fileID: 34322874}
-    - target: {fileID: 4135292938275409279, guid: 7c87f0bdd49fb13448a9d04866c2aef0,
-        type: 3}
       propertyPath: NightLeavesUI
       value: 
       objectReference: {fileID: 1339971717}
+    - target: {fileID: 4135292938275409279, guid: 7c87f0bdd49fb13448a9d04866c2aef0,
+        type: 3}
+      propertyPath: lightManager
+      value: 
+      objectReference: {fileID: 34322874}
     - target: {fileID: 4135292938489181800, guid: 7c87f0bdd49fb13448a9d04866c2aef0,
         type: 3}
       propertyPath: player
@@ -12675,14 +13068,14 @@ PrefabInstance:
       objectReference: {fileID: 694658843}
     - target: {fileID: 4135292938489181800, guid: 7c87f0bdd49fb13448a9d04866c2aef0,
         type: 3}
-      propertyPath: lightManager
+      propertyPath: NightLeavesUI
       value: 
-      objectReference: {fileID: 34322874}
+      objectReference: {fileID: 1339971717}
     - target: {fileID: 4135292938489181800, guid: 7c87f0bdd49fb13448a9d04866c2aef0,
         type: 3}
-      propertyPath: NightLeavesUI
+      propertyPath: lightManager
       value: 
-      objectReference: {fileID: 1339971717}
+      objectReference: {fileID: 34322874}
     - target: {fileID: 4135292938490064214, guid: 7c87f0bdd49fb13448a9d04866c2aef0,
         type: 3}
       propertyPath: player
@@ -12705,14 +13098,14 @@ PrefabInstance:
       objectReference: {fileID: 694658843}
     - target: {fileID: 4135292938490064214, guid: 7c87f0bdd49fb13448a9d04866c2aef0,
         type: 3}
-      propertyPath: lightManager
-      value: 
-      objectReference: {fileID: 34322874}
-    - target: {fileID: 4135292938490064214, guid: 7c87f0bdd49fb13448a9d04866c2aef0,
-        type: 3}
       propertyPath: NightLeavesUI
       value: 
       objectReference: {fileID: 1339971717}
+    - target: {fileID: 4135292938490064214, guid: 7c87f0bdd49fb13448a9d04866c2aef0,
+        type: 3}
+      propertyPath: lightManager
+      value: 
+      objectReference: {fileID: 34322874}
     - target: {fileID: 4135292938681154793, guid: 7c87f0bdd49fb13448a9d04866c2aef0,
         type: 3}
       propertyPath: player
@@ -12735,14 +13128,14 @@ PrefabInstance:
       objectReference: {fileID: 694658843}
     - target: {fileID: 4135292938681154793, guid: 7c87f0bdd49fb13448a9d04866c2aef0,
         type: 3}
-      propertyPath: lightManager
+      propertyPath: NightLeavesUI
       value: 
-      objectReference: {fileID: 34322874}
+      objectReference: {fileID: 1339971717}
     - target: {fileID: 4135292938681154793, guid: 7c87f0bdd49fb13448a9d04866c2aef0,
         type: 3}
-      propertyPath: NightLeavesUI
+      propertyPath: lightManager
       value: 
-      objectReference: {fileID: 1339971717}
+      objectReference: {fileID: 34322874}
     - target: {fileID: 4135292938701535368, guid: 7c87f0bdd49fb13448a9d04866c2aef0,
         type: 3}
       propertyPath: player
@@ -12765,14 +13158,14 @@ PrefabInstance:
       objectReference: {fileID: 694658843}
     - target: {fileID: 4135292938701535368, guid: 7c87f0bdd49fb13448a9d04866c2aef0,
         type: 3}
-      propertyPath: lightManager
-      value: 
-      objectReference: {fileID: 34322874}
-    - target: {fileID: 4135292938701535368, guid: 7c87f0bdd49fb13448a9d04866c2aef0,
-        type: 3}
       propertyPath: NightLeavesUI
       value: 
       objectReference: {fileID: 1339971717}
+    - target: {fileID: 4135292938701535368, guid: 7c87f0bdd49fb13448a9d04866c2aef0,
+        type: 3}
+      propertyPath: lightManager
+      value: 
+      objectReference: {fileID: 34322874}
     - target: {fileID: 4135292938719751465, guid: 7c87f0bdd49fb13448a9d04866c2aef0,
         type: 3}
       propertyPath: player
@@ -12795,14 +13188,14 @@ PrefabInstance:
       objectReference: {fileID: 694658843}
     - target: {fileID: 4135292938719751465, guid: 7c87f0bdd49fb13448a9d04866c2aef0,
         type: 3}
-      propertyPath: lightManager
+      propertyPath: NightLeavesUI
       value: 
-      objectReference: {fileID: 34322874}
+      objectReference: {fileID: 1339971717}
     - target: {fileID: 4135292938719751465, guid: 7c87f0bdd49fb13448a9d04866c2aef0,
         type: 3}
-      propertyPath: NightLeavesUI
+      propertyPath: lightManager
       value: 
-      objectReference: {fileID: 1339971717}
+      objectReference: {fileID: 34322874}
     - target: {fileID: 4135292938763664536, guid: 7c87f0bdd49fb13448a9d04866c2aef0,
         type: 3}
       propertyPath: player
@@ -12825,14 +13218,14 @@ PrefabInstance:
       objectReference: {fileID: 694658843}
     - target: {fileID: 4135292938763664536, guid: 7c87f0bdd49fb13448a9d04866c2aef0,
         type: 3}
-      propertyPath: lightManager
-      value: 
-      objectReference: {fileID: 34322874}
-    - target: {fileID: 4135292938763664536, guid: 7c87f0bdd49fb13448a9d04866c2aef0,
-        type: 3}
       propertyPath: NightLeavesUI
       value: 
       objectReference: {fileID: 1339971717}
+    - target: {fileID: 4135292938763664536, guid: 7c87f0bdd49fb13448a9d04866c2aef0,
+        type: 3}
+      propertyPath: lightManager
+      value: 
+      objectReference: {fileID: 34322874}
     - target: {fileID: 4135292938879060797, guid: 7c87f0bdd49fb13448a9d04866c2aef0,
         type: 3}
       propertyPath: player
@@ -12855,14 +13248,14 @@ PrefabInstance:
       objectReference: {fileID: 694658843}
     - target: {fileID: 4135292938879060797, guid: 7c87f0bdd49fb13448a9d04866c2aef0,
         type: 3}
-      propertyPath: lightManager
+      propertyPath: NightLeavesUI
       value: 
-      objectReference: {fileID: 34322874}
+      objectReference: {fileID: 1339971717}
     - target: {fileID: 4135292938879060797, guid: 7c87f0bdd49fb13448a9d04866c2aef0,
         type: 3}
-      propertyPath: NightLeavesUI
+      propertyPath: lightManager
       value: 
-      objectReference: {fileID: 1339971717}
+      objectReference: {fileID: 34322874}
     - target: {fileID: 4135292938879354717, guid: 7c87f0bdd49fb13448a9d04866c2aef0,
         type: 3}
       propertyPath: player
@@ -12885,14 +13278,14 @@ PrefabInstance:
       objectReference: {fileID: 694658843}
     - target: {fileID: 4135292938879354717, guid: 7c87f0bdd49fb13448a9d04866c2aef0,
         type: 3}
-      propertyPath: lightManager
-      value: 
-      objectReference: {fileID: 34322874}
-    - target: {fileID: 4135292938879354717, guid: 7c87f0bdd49fb13448a9d04866c2aef0,
-        type: 3}
       propertyPath: NightLeavesUI
       value: 
       objectReference: {fileID: 1339971717}
+    - target: {fileID: 4135292938879354717, guid: 7c87f0bdd49fb13448a9d04866c2aef0,
+        type: 3}
+      propertyPath: lightManager
+      value: 
+      objectReference: {fileID: 34322874}
     - target: {fileID: 4135292938892546736, guid: 7c87f0bdd49fb13448a9d04866c2aef0,
         type: 3}
       propertyPath: player
@@ -12915,14 +13308,14 @@ PrefabInstance:
       objectReference: {fileID: 694658843}
     - target: {fileID: 4135292938892546736, guid: 7c87f0bdd49fb13448a9d04866c2aef0,
         type: 3}
-      propertyPath: lightManager
+      propertyPath: NightLeavesUI
       value: 
-      objectReference: {fileID: 34322874}
+      objectReference: {fileID: 1339971717}
     - target: {fileID: 4135292938892546736, guid: 7c87f0bdd49fb13448a9d04866c2aef0,
         type: 3}
-      propertyPath: NightLeavesUI
+      propertyPath: lightManager
       value: 
-      objectReference: {fileID: 1339971717}
+      objectReference: {fileID: 34322874}
     - target: {fileID: 4135292939372421615, guid: 7c87f0bdd49fb13448a9d04866c2aef0,
         type: 3}
       propertyPath: player
@@ -12945,14 +13338,14 @@ PrefabInstance:
       objectReference: {fileID: 694658843}
     - target: {fileID: 4135292939372421615, guid: 7c87f0bdd49fb13448a9d04866c2aef0,
         type: 3}
-      propertyPath: lightManager
-      value: 
-      objectReference: {fileID: 34322874}
-    - target: {fileID: 4135292939372421615, guid: 7c87f0bdd49fb13448a9d04866c2aef0,
-        type: 3}
       propertyPath: NightLeavesUI
       value: 
       objectReference: {fileID: 1339971717}
+    - target: {fileID: 4135292939372421615, guid: 7c87f0bdd49fb13448a9d04866c2aef0,
+        type: 3}
+      propertyPath: lightManager
+      value: 
+      objectReference: {fileID: 34322874}
     - target: {fileID: 4135292939379611346, guid: 7c87f0bdd49fb13448a9d04866c2aef0,
         type: 3}
       propertyPath: player
@@ -12975,14 +13368,14 @@ PrefabInstance:
       objectReference: {fileID: 694658843}
     - target: {fileID: 4135292939379611346, guid: 7c87f0bdd49fb13448a9d04866c2aef0,
         type: 3}
-      propertyPath: lightManager
+      propertyPath: NightLeavesUI
       value: 
-      objectReference: {fileID: 34322874}
+      objectReference: {fileID: 1339971717}
     - target: {fileID: 4135292939379611346, guid: 7c87f0bdd49fb13448a9d04866c2aef0,
         type: 3}
-      propertyPath: NightLeavesUI
+      propertyPath: lightManager
       value: 
-      objectReference: {fileID: 1339971717}
+      objectReference: {fileID: 34322874}
     - target: {fileID: 4135292939457996983, guid: 7c87f0bdd49fb13448a9d04866c2aef0,
         type: 3}
       propertyPath: player
@@ -13005,14 +13398,14 @@ PrefabInstance:
       objectReference: {fileID: 694658843}
     - target: {fileID: 4135292939457996983, guid: 7c87f0bdd49fb13448a9d04866c2aef0,
         type: 3}
-      propertyPath: lightManager
-      value: 
-      objectReference: {fileID: 34322874}
-    - target: {fileID: 4135292939457996983, guid: 7c87f0bdd49fb13448a9d04866c2aef0,
-        type: 3}
       propertyPath: NightLeavesUI
       value: 
       objectReference: {fileID: 1339971717}
+    - target: {fileID: 4135292939457996983, guid: 7c87f0bdd49fb13448a9d04866c2aef0,
+        type: 3}
+      propertyPath: lightManager
+      value: 
+      objectReference: {fileID: 34322874}
     - target: {fileID: 4135292939741876053, guid: 7c87f0bdd49fb13448a9d04866c2aef0,
         type: 3}
       propertyPath: player
@@ -13035,14 +13428,14 @@ PrefabInstance:
       objectReference: {fileID: 694658843}
     - target: {fileID: 4135292939741876053, guid: 7c87f0bdd49fb13448a9d04866c2aef0,
         type: 3}
-      propertyPath: lightManager
+      propertyPath: NightLeavesUI
       value: 
-      objectReference: {fileID: 34322874}
+      objectReference: {fileID: 1339971717}
     - target: {fileID: 4135292939741876053, guid: 7c87f0bdd49fb13448a9d04866c2aef0,
         type: 3}
-      propertyPath: NightLeavesUI
+      propertyPath: lightManager
       value: 
-      objectReference: {fileID: 1339971717}
+      objectReference: {fileID: 34322874}
     - target: {fileID: 4135292939841604263, guid: 7c87f0bdd49fb13448a9d04866c2aef0,
         type: 3}
       propertyPath: player
@@ -13065,14 +13458,14 @@ PrefabInstance:
       objectReference: {fileID: 694658843}
     - target: {fileID: 4135292939841604263, guid: 7c87f0bdd49fb13448a9d04866c2aef0,
         type: 3}
-      propertyPath: lightManager
-      value: 
-      objectReference: {fileID: 34322874}
-    - target: {fileID: 4135292939841604263, guid: 7c87f0bdd49fb13448a9d04866c2aef0,
-        type: 3}
       propertyPath: NightLeavesUI
       value: 
       objectReference: {fileID: 1339971717}
+    - target: {fileID: 4135292939841604263, guid: 7c87f0bdd49fb13448a9d04866c2aef0,
+        type: 3}
+      propertyPath: lightManager
+      value: 
+      objectReference: {fileID: 34322874}
     - target: {fileID: 4135292939909008440, guid: 7c87f0bdd49fb13448a9d04866c2aef0,
         type: 3}
       propertyPath: player
@@ -13095,14 +13488,14 @@ PrefabInstance:
       objectReference: {fileID: 694658843}
     - target: {fileID: 4135292939909008440, guid: 7c87f0bdd49fb13448a9d04866c2aef0,
         type: 3}
-      propertyPath: lightManager
+      propertyPath: NightLeavesUI
       value: 
-      objectReference: {fileID: 34322874}
+      objectReference: {fileID: 1339971717}
     - target: {fileID: 4135292939909008440, guid: 7c87f0bdd49fb13448a9d04866c2aef0,
         type: 3}
-      propertyPath: NightLeavesUI
+      propertyPath: lightManager
       value: 
-      objectReference: {fileID: 1339971717}
+      objectReference: {fileID: 34322874}
     - target: {fileID: 4135292940081275831, guid: 7c87f0bdd49fb13448a9d04866c2aef0,
         type: 3}
       propertyPath: player
@@ -13125,14 +13518,14 @@ PrefabInstance:
       objectReference: {fileID: 694658843}
     - target: {fileID: 4135292940081275831, guid: 7c87f0bdd49fb13448a9d04866c2aef0,
         type: 3}
-      propertyPath: lightManager
+      propertyPath: NightLeavesUI
       value: 
-      objectReference: {fileID: 34322874}
+      objectReference: {fileID: 1339971717}
     - target: {fileID: 4135292940081275831, guid: 7c87f0bdd49fb13448a9d04866c2aef0,
         type: 3}
-      propertyPath: NightLeavesUI
+      propertyPath: lightManager
       value: 
-      objectReference: {fileID: 1339971717}
+      objectReference: {fileID: 34322874}
     - target: {fileID: 4135292940242899859, guid: 7c87f0bdd49fb13448a9d04866c2aef0,
         type: 3}
       propertyPath: player
@@ -13155,14 +13548,14 @@ PrefabInstance:
       objectReference: {fileID: 694658843}
     - target: {fileID: 4135292940242899859, guid: 7c87f0bdd49fb13448a9d04866c2aef0,
         type: 3}
-      propertyPath: lightManager
+      propertyPath: NightLeavesUI
       value: 
-      objectReference: {fileID: 34322874}
+      objectReference: {fileID: 1339971717}
     - target: {fileID: 4135292940242899859, guid: 7c87f0bdd49fb13448a9d04866c2aef0,
         type: 3}
-      propertyPath: NightLeavesUI
+      propertyPath: lightManager
       value: 
-      objectReference: {fileID: 1339971717}
+      objectReference: {fileID: 34322874}
     - target: {fileID: 4135292940251924750, guid: 7c87f0bdd49fb13448a9d04866c2aef0,
         type: 3}
       propertyPath: player
@@ -13185,14 +13578,14 @@ PrefabInstance:
       objectReference: {fileID: 694658843}
     - target: {fileID: 4135292940251924750, guid: 7c87f0bdd49fb13448a9d04866c2aef0,
         type: 3}
-      propertyPath: lightManager
+      propertyPath: NightLeavesUI
       value: 
-      objectReference: {fileID: 34322874}
+      objectReference: {fileID: 1339971717}
     - target: {fileID: 4135292940251924750, guid: 7c87f0bdd49fb13448a9d04866c2aef0,
         type: 3}
-      propertyPath: NightLeavesUI
+      propertyPath: lightManager
       value: 
-      objectReference: {fileID: 1339971717}
+      objectReference: {fileID: 34322874}
     - target: {fileID: 4135292940278353384, guid: 7c87f0bdd49fb13448a9d04866c2aef0,
         type: 3}
       propertyPath: player
@@ -13215,14 +13608,14 @@ PrefabInstance:
       objectReference: {fileID: 694658843}
     - target: {fileID: 4135292940278353384, guid: 7c87f0bdd49fb13448a9d04866c2aef0,
         type: 3}
-      propertyPath: lightManager
-      value: 
-      objectReference: {fileID: 34322874}
-    - target: {fileID: 4135292940278353384, guid: 7c87f0bdd49fb13448a9d04866c2aef0,
-        type: 3}
       propertyPath: NightLeavesUI
       value: 
       objectReference: {fileID: 1339971717}
+    - target: {fileID: 4135292940278353384, guid: 7c87f0bdd49fb13448a9d04866c2aef0,
+        type: 3}
+      propertyPath: lightManager
+      value: 
+      objectReference: {fileID: 34322874}
     - target: {fileID: 4135292940352046407, guid: 7c87f0bdd49fb13448a9d04866c2aef0,
         type: 3}
       propertyPath: player
@@ -13245,124 +13638,14 @@ PrefabInstance:
       objectReference: {fileID: 694658843}
     - target: {fileID: 4135292940352046407, guid: 7c87f0bdd49fb13448a9d04866c2aef0,
         type: 3}
-      propertyPath: lightManager
-      value: 
-      objectReference: {fileID: 34322874}
-    - target: {fileID: 4135292940352046407, guid: 7c87f0bdd49fb13448a9d04866c2aef0,
-        type: 3}
       propertyPath: NightLeavesUI
       value: 
       objectReference: {fileID: 1339971717}
-    - target: {fileID: 4307563466405088991, guid: 7c87f0bdd49fb13448a9d04866c2aef0,
+    - target: {fileID: 4135292940352046407, guid: 7c87f0bdd49fb13448a9d04866c2aef0,
         type: 3}
-      propertyPath: m_IsActive
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4687158800369503908, guid: 7c87f0bdd49fb13448a9d04866c2aef0,
-        type: 3}
-      propertyPath: m_LocalPosition.x
-      value: 142.83
-      objectReference: {fileID: 0}
-    - target: {fileID: 4687158800369503908, guid: 7c87f0bdd49fb13448a9d04866c2aef0,
-        type: 3}
-      propertyPath: m_LocalPosition.y
-      value: 244.34
-      objectReference: {fileID: 0}
-    - target: {fileID: 4687158800369503908, guid: 7c87f0bdd49fb13448a9d04866c2aef0,
-        type: 3}
-      propertyPath: m_LocalPosition.z
-      value: 283.47
-      objectReference: {fileID: 0}
-    - target: {fileID: 4836581978096803200, guid: 7c87f0bdd49fb13448a9d04866c2aef0,
-        type: 3}
-      propertyPath: m_LocalPosition.z
-      value: -31.91
-      objectReference: {fileID: 0}
-    - target: {fileID: 4836581978096803200, guid: 7c87f0bdd49fb13448a9d04866c2aef0,
-        type: 3}
-      propertyPath: m_LocalPosition.y
-      value: 19.22
-      objectReference: {fileID: 0}
-    - target: {fileID: 4836581978096803200, guid: 7c87f0bdd49fb13448a9d04866c2aef0,
-        type: 3}
-      propertyPath: m_LocalPosition.x
-      value: 485.37
-      objectReference: {fileID: 0}
-    - target: {fileID: 4836581978147682528, guid: 7c87f0bdd49fb13448a9d04866c2aef0,
-        type: 3}
-      propertyPath: m_LocalPosition.x
-      value: 9.15
-      objectReference: {fileID: 0}
-    - target: {fileID: 4836581978147682528, guid: 7c87f0bdd49fb13448a9d04866c2aef0,
-        type: 3}
-      propertyPath: m_LocalPosition.z
-      value: -32.73
-      objectReference: {fileID: 0}
-    - target: {fileID: 4836581978147682528, guid: 7c87f0bdd49fb13448a9d04866c2aef0,
-        type: 3}
-      propertyPath: m_LocalPosition.y
-      value: -6.67
-      objectReference: {fileID: 0}
-    - target: {fileID: 4836581979303700920, guid: 7c87f0bdd49fb13448a9d04866c2aef0,
-        type: 3}
-      propertyPath: m_LocalPosition.x
-      value: 770.54
-      objectReference: {fileID: 0}
-    - target: {fileID: 4836581979303700920, guid: 7c87f0bdd49fb13448a9d04866c2aef0,
-        type: 3}
-      propertyPath: m_LocalPosition.z
-      value: 116.32
-      objectReference: {fileID: 0}
-    - target: {fileID: 4836581979303700920, guid: 7c87f0bdd49fb13448a9d04866c2aef0,
-        type: 3}
-      propertyPath: m_LocalPosition.y
-      value: 4.45
-      objectReference: {fileID: 0}
-    - target: {fileID: 4836581979486603349, guid: 7c87f0bdd49fb13448a9d04866c2aef0,
-        type: 3}
-      propertyPath: m_LocalPosition.x
-      value: 779.31
-      objectReference: {fileID: 0}
-    - target: {fileID: 4836581979486603349, guid: 7c87f0bdd49fb13448a9d04866c2aef0,
-        type: 3}
-      propertyPath: m_LocalPosition.z
-      value: 43.92
-      objectReference: {fileID: 0}
-    - target: {fileID: 4836581979486603349, guid: 7c87f0bdd49fb13448a9d04866c2aef0,
-        type: 3}
-      propertyPath: m_LocalPosition.y
-      value: 3.6
-      objectReference: {fileID: 0}
-    - target: {fileID: 4836581979791002471, guid: 7c87f0bdd49fb13448a9d04866c2aef0,
-        type: 3}
-      propertyPath: m_LocalPosition.z
-      value: -11.88
-      objectReference: {fileID: 0}
-    - target: {fileID: 4836581979791002471, guid: 7c87f0bdd49fb13448a9d04866c2aef0,
-        type: 3}
-      propertyPath: m_LocalPosition.x
-      value: 2.34
-      objectReference: {fileID: 0}
-    - target: {fileID: 4836581979791002471, guid: 7c87f0bdd49fb13448a9d04866c2aef0,
-        type: 3}
-      propertyPath: m_LocalPosition.y
-      value: -1.28
-      objectReference: {fileID: 0}
-    - target: {fileID: 4836581979996699774, guid: 7c87f0bdd49fb13448a9d04866c2aef0,
-        type: 3}
-      propertyPath: m_LocalPosition.x
-      value: -2.36
-      objectReference: {fileID: 0}
-    - target: {fileID: 4836581979996699774, guid: 7c87f0bdd49fb13448a9d04866c2aef0,
-        type: 3}
-      propertyPath: m_LocalPosition.z
-      value: -51.97
-      objectReference: {fileID: 0}
-    - target: {fileID: 4836581979996699774, guid: 7c87f0bdd49fb13448a9d04866c2aef0,
-        type: 3}
-      propertyPath: m_LocalPosition.y
-      value: -8.09
-      objectReference: {fileID: 0}
+      propertyPath: lightManager
+      value: 
+      objectReference: {fileID: 34322874}
     - target: {fileID: 4915123552453754636, guid: 7c87f0bdd49fb13448a9d04866c2aef0,
         type: 3}
       propertyPath: lightingManager
@@ -13373,21 +13656,6 @@ PrefabInstance:
       propertyPath: soundObject
       value: 
       objectReference: {fileID: 1590751471}
-    - target: {fileID: 5027757651344871400, guid: 7c87f0bdd49fb13448a9d04866c2aef0,
-        type: 3}
-      propertyPath: m_LocalPosition.x
-      value: 478.4
-      objectReference: {fileID: 0}
-    - target: {fileID: 5027757651344871400, guid: 7c87f0bdd49fb13448a9d04866c2aef0,
-        type: 3}
-      propertyPath: m_LocalPosition.z
-      value: -26.6
-      objectReference: {fileID: 0}
-    - target: {fileID: 5027757651344871400, guid: 7c87f0bdd49fb13448a9d04866c2aef0,
-        type: 3}
-      propertyPath: m_LocalPosition.y
-      value: 19.038
-      objectReference: {fileID: 0}
     - target: {fileID: 5051122176549478704, guid: 7c87f0bdd49fb13448a9d04866c2aef0,
         type: 3}
       propertyPath: player
@@ -13410,14 +13678,14 @@ PrefabInstance:
       objectReference: {fileID: 694658843}
     - target: {fileID: 5051122176549478704, guid: 7c87f0bdd49fb13448a9d04866c2aef0,
         type: 3}
-      propertyPath: lightManager
+      propertyPath: NightLeavesUI
       value: 
-      objectReference: {fileID: 34322874}
+      objectReference: {fileID: 1339971717}
     - target: {fileID: 5051122176549478704, guid: 7c87f0bdd49fb13448a9d04866c2aef0,
         type: 3}
-      propertyPath: NightLeavesUI
+      propertyPath: lightManager
       value: 
-      objectReference: {fileID: 1339971717}
+      objectReference: {fileID: 34322874}
     - target: {fileID: 5051122176865283189, guid: 7c87f0bdd49fb13448a9d04866c2aef0,
         type: 3}
       propertyPath: player
@@ -13440,14 +13708,14 @@ PrefabInstance:
       objectReference: {fileID: 694658843}
     - target: {fileID: 5051122176865283189, guid: 7c87f0bdd49fb13448a9d04866c2aef0,
         type: 3}
-      propertyPath: lightManager
-      value: 
-      objectReference: {fileID: 34322874}
-    - target: {fileID: 5051122176865283189, guid: 7c87f0bdd49fb13448a9d04866c2aef0,
-        type: 3}
       propertyPath: NightLeavesUI
       value: 
       objectReference: {fileID: 1339971717}
+    - target: {fileID: 5051122176865283189, guid: 7c87f0bdd49fb13448a9d04866c2aef0,
+        type: 3}
+      propertyPath: lightManager
+      value: 
+      objectReference: {fileID: 34322874}
     - target: {fileID: 5051122176866643490, guid: 7c87f0bdd49fb13448a9d04866c2aef0,
         type: 3}
       propertyPath: player
@@ -13470,14 +13738,14 @@ PrefabInstance:
       objectReference: {fileID: 694658843}
     - target: {fileID: 5051122176866643490, guid: 7c87f0bdd49fb13448a9d04866c2aef0,
         type: 3}
-      propertyPath: lightManager
+      propertyPath: NightLeavesUI
       value: 
-      objectReference: {fileID: 34322874}
+      objectReference: {fileID: 1339971717}
     - target: {fileID: 5051122176866643490, guid: 7c87f0bdd49fb13448a9d04866c2aef0,
         type: 3}
-      propertyPath: NightLeavesUI
+      propertyPath: lightManager
       value: 
-      objectReference: {fileID: 1339971717}
+      objectReference: {fileID: 34322874}
     - target: {fileID: 5051122176887950797, guid: 7c87f0bdd49fb13448a9d04866c2aef0,
         type: 3}
       propertyPath: player
@@ -13500,14 +13768,14 @@ PrefabInstance:
       objectReference: {fileID: 694658843}
     - target: {fileID: 5051122176887950797, guid: 7c87f0bdd49fb13448a9d04866c2aef0,
         type: 3}
-      propertyPath: lightManager
-      value: 
-      objectReference: {fileID: 34322874}
-    - target: {fileID: 5051122176887950797, guid: 7c87f0bdd49fb13448a9d04866c2aef0,
-        type: 3}
       propertyPath: NightLeavesUI
       value: 
       objectReference: {fileID: 1339971717}
+    - target: {fileID: 5051122176887950797, guid: 7c87f0bdd49fb13448a9d04866c2aef0,
+        type: 3}
+      propertyPath: lightManager
+      value: 
+      objectReference: {fileID: 34322874}
     - target: {fileID: 5051122177007694074, guid: 7c87f0bdd49fb13448a9d04866c2aef0,
         type: 3}
       propertyPath: player
@@ -13520,11 +13788,6 @@ PrefabInstance:
       objectReference: {fileID: 1367322909107758192}
     - target: {fileID: 5051122177007694074, guid: 7c87f0bdd49fb13448a9d04866c2aef0,
         type: 3}
-      propertyPath: speed
-      value: 350
-      objectReference: {fileID: 0}
-    - target: {fileID: 5051122177007694074, guid: 7c87f0bdd49fb13448a9d04866c2aef0,
-        type: 3}
       propertyPath: interactProgressImage
       value: 
       objectReference: {fileID: 1367322910661260265}
@@ -13535,14 +13798,14 @@ PrefabInstance:
       objectReference: {fileID: 694658843}
     - target: {fileID: 5051122177007694074, guid: 7c87f0bdd49fb13448a9d04866c2aef0,
         type: 3}
-      propertyPath: lightManager
-      value: 
-      objectReference: {fileID: 34322874}
-    - target: {fileID: 5051122177007694074, guid: 7c87f0bdd49fb13448a9d04866c2aef0,
-        type: 3}
       propertyPath: NightLeavesUI
       value: 
       objectReference: {fileID: 1339971717}
+    - target: {fileID: 5051122177007694074, guid: 7c87f0bdd49fb13448a9d04866c2aef0,
+        type: 3}
+      propertyPath: lightManager
+      value: 
+      objectReference: {fileID: 34322874}
     - target: {fileID: 5051122177015854884, guid: 7c87f0bdd49fb13448a9d04866c2aef0,
         type: 3}
       propertyPath: player
@@ -13565,14 +13828,14 @@ PrefabInstance:
       objectReference: {fileID: 694658843}
     - target: {fileID: 5051122177015854884, guid: 7c87f0bdd49fb13448a9d04866c2aef0,
         type: 3}
-      propertyPath: lightManager
+      propertyPath: NightLeavesUI
       value: 
-      objectReference: {fileID: 34322874}
+      objectReference: {fileID: 1339971717}
     - target: {fileID: 5051122177015854884, guid: 7c87f0bdd49fb13448a9d04866c2aef0,
         type: 3}
-      propertyPath: NightLeavesUI
+      propertyPath: lightManager
       value: 
-      objectReference: {fileID: 1339971717}
+      objectReference: {fileID: 34322874}
     - target: {fileID: 5051122177073484239, guid: 7c87f0bdd49fb13448a9d04866c2aef0,
         type: 3}
       propertyPath: player
@@ -13595,14 +13858,14 @@ PrefabInstance:
       objectReference: {fileID: 694658843}
     - target: {fileID: 5051122177073484239, guid: 7c87f0bdd49fb13448a9d04866c2aef0,
         type: 3}
-      propertyPath: lightManager
-      value: 
-      objectReference: {fileID: 34322874}
-    - target: {fileID: 5051122177073484239, guid: 7c87f0bdd49fb13448a9d04866c2aef0,
-        type: 3}
       propertyPath: NightLeavesUI
       value: 
       objectReference: {fileID: 1339971717}
+    - target: {fileID: 5051122177073484239, guid: 7c87f0bdd49fb13448a9d04866c2aef0,
+        type: 3}
+      propertyPath: lightManager
+      value: 
+      objectReference: {fileID: 34322874}
     - target: {fileID: 5051122177095544561, guid: 7c87f0bdd49fb13448a9d04866c2aef0,
         type: 3}
       propertyPath: player
@@ -13625,14 +13888,14 @@ PrefabInstance:
       objectReference: {fileID: 694658843}
     - target: {fileID: 5051122177095544561, guid: 7c87f0bdd49fb13448a9d04866c2aef0,
         type: 3}
-      propertyPath: lightManager
+      propertyPath: NightLeavesUI
       value: 
-      objectReference: {fileID: 34322874}
+      objectReference: {fileID: 1339971717}
     - target: {fileID: 5051122177095544561, guid: 7c87f0bdd49fb13448a9d04866c2aef0,
         type: 3}
-      propertyPath: NightLeavesUI
+      propertyPath: lightManager
       value: 
-      objectReference: {fileID: 1339971717}
+      objectReference: {fileID: 34322874}
     - target: {fileID: 5051122177158264575, guid: 7c87f0bdd49fb13448a9d04866c2aef0,
         type: 3}
       propertyPath: player
@@ -13655,14 +13918,14 @@ PrefabInstance:
       objectReference: {fileID: 694658843}
     - target: {fileID: 5051122177158264575, guid: 7c87f0bdd49fb13448a9d04866c2aef0,
         type: 3}
-      propertyPath: lightManager
-      value: 
-      objectReference: {fileID: 34322874}
-    - target: {fileID: 5051122177158264575, guid: 7c87f0bdd49fb13448a9d04866c2aef0,
-        type: 3}
       propertyPath: NightLeavesUI
       value: 
       objectReference: {fileID: 1339971717}
+    - target: {fileID: 5051122177158264575, guid: 7c87f0bdd49fb13448a9d04866c2aef0,
+        type: 3}
+      propertyPath: lightManager
+      value: 
+      objectReference: {fileID: 34322874}
     - target: {fileID: 5051122177188101040, guid: 7c87f0bdd49fb13448a9d04866c2aef0,
         type: 3}
       propertyPath: player
@@ -13685,14 +13948,14 @@ PrefabInstance:
       objectReference: {fileID: 694658843}
     - target: {fileID: 5051122177188101040, guid: 7c87f0bdd49fb13448a9d04866c2aef0,
         type: 3}
-      propertyPath: lightManager
+      propertyPath: NightLeavesUI
       value: 
-      objectReference: {fileID: 34322874}
+      objectReference: {fileID: 1339971717}
     - target: {fileID: 5051122177188101040, guid: 7c87f0bdd49fb13448a9d04866c2aef0,
         type: 3}
-      propertyPath: NightLeavesUI
+      propertyPath: lightManager
       value: 
-      objectReference: {fileID: 1339971717}
+      objectReference: {fileID: 34322874}
     - target: {fileID: 5051122177192374765, guid: 7c87f0bdd49fb13448a9d04866c2aef0,
         type: 3}
       propertyPath: player
@@ -13715,14 +13978,14 @@ PrefabInstance:
       objectReference: {fileID: 694658843}
     - target: {fileID: 5051122177192374765, guid: 7c87f0bdd49fb13448a9d04866c2aef0,
         type: 3}
-      propertyPath: lightManager
-      value: 
-      objectReference: {fileID: 34322874}
-    - target: {fileID: 5051122177192374765, guid: 7c87f0bdd49fb13448a9d04866c2aef0,
-        type: 3}
       propertyPath: NightLeavesUI
       value: 
       objectReference: {fileID: 1339971717}
+    - target: {fileID: 5051122177192374765, guid: 7c87f0bdd49fb13448a9d04866c2aef0,
+        type: 3}
+      propertyPath: lightManager
+      value: 
+      objectReference: {fileID: 34322874}
     - target: {fileID: 5051122177249081338, guid: 7c87f0bdd49fb13448a9d04866c2aef0,
         type: 3}
       propertyPath: player
@@ -13745,14 +14008,14 @@ PrefabInstance:
       objectReference: {fileID: 694658843}
     - target: {fileID: 5051122177249081338, guid: 7c87f0bdd49fb13448a9d04866c2aef0,
         type: 3}
-      propertyPath: lightManager
+      propertyPath: NightLeavesUI
       value: 
-      objectReference: {fileID: 34322874}
+      objectReference: {fileID: 1339971717}
     - target: {fileID: 5051122177249081338, guid: 7c87f0bdd49fb13448a9d04866c2aef0,
         type: 3}
-      propertyPath: NightLeavesUI
+      propertyPath: lightManager
       value: 
-      objectReference: {fileID: 1339971717}
+      objectReference: {fileID: 34322874}
     - target: {fileID: 5051122177339386956, guid: 7c87f0bdd49fb13448a9d04866c2aef0,
         type: 3}
       propertyPath: player
@@ -13775,14 +14038,14 @@ PrefabInstance:
       objectReference: {fileID: 694658843}
     - target: {fileID: 5051122177339386956, guid: 7c87f0bdd49fb13448a9d04866c2aef0,
         type: 3}
-      propertyPath: lightManager
-      value: 
-      objectReference: {fileID: 34322874}
-    - target: {fileID: 5051122177339386956, guid: 7c87f0bdd49fb13448a9d04866c2aef0,
-        type: 3}
       propertyPath: NightLeavesUI
       value: 
       objectReference: {fileID: 1339971717}
+    - target: {fileID: 5051122177339386956, guid: 7c87f0bdd49fb13448a9d04866c2aef0,
+        type: 3}
+      propertyPath: lightManager
+      value: 
+      objectReference: {fileID: 34322874}
     - target: {fileID: 5051122177447758822, guid: 7c87f0bdd49fb13448a9d04866c2aef0,
         type: 3}
       propertyPath: player
@@ -13805,14 +14068,14 @@ PrefabInstance:
       objectReference: {fileID: 694658843}
     - target: {fileID: 5051122177447758822, guid: 7c87f0bdd49fb13448a9d04866c2aef0,
         type: 3}
-      propertyPath: lightManager
+      propertyPath: NightLeavesUI
       value: 
-      objectReference: {fileID: 34322874}
+      objectReference: {fileID: 1339971717}
     - target: {fileID: 5051122177447758822, guid: 7c87f0bdd49fb13448a9d04866c2aef0,
         type: 3}
-      propertyPath: NightLeavesUI
+      propertyPath: lightManager
       value: 
-      objectReference: {fileID: 1339971717}
+      objectReference: {fileID: 34322874}
     - target: {fileID: 5051122177648956386, guid: 7c87f0bdd49fb13448a9d04866c2aef0,
         type: 3}
       propertyPath: player
@@ -13835,14 +14098,14 @@ PrefabInstance:
       objectReference: {fileID: 694658843}
     - target: {fileID: 5051122177648956386, guid: 7c87f0bdd49fb13448a9d04866c2aef0,
         type: 3}
-      propertyPath: lightManager
-      value: 
-      objectReference: {fileID: 34322874}
-    - target: {fileID: 5051122177648956386, guid: 7c87f0bdd49fb13448a9d04866c2aef0,
-        type: 3}
       propertyPath: NightLeavesUI
       value: 
       objectReference: {fileID: 1339971717}
+    - target: {fileID: 5051122177648956386, guid: 7c87f0bdd49fb13448a9d04866c2aef0,
+        type: 3}
+      propertyPath: lightManager
+      value: 
+      objectReference: {fileID: 34322874}
     - target: {fileID: 5051122177720825032, guid: 7c87f0bdd49fb13448a9d04866c2aef0,
         type: 3}
       propertyPath: player
@@ -13865,14 +14128,14 @@ PrefabInstance:
       objectReference: {fileID: 694658843}
     - target: {fileID: 5051122177720825032, guid: 7c87f0bdd49fb13448a9d04866c2aef0,
         type: 3}
-      propertyPath: lightManager
+      propertyPath: NightLeavesUI
       value: 
-      objectReference: {fileID: 34322874}
+      objectReference: {fileID: 1339971717}
     - target: {fileID: 5051122177720825032, guid: 7c87f0bdd49fb13448a9d04866c2aef0,
         type: 3}
-      propertyPath: NightLeavesUI
+      propertyPath: lightManager
       value: 
-      objectReference: {fileID: 1339971717}
+      objectReference: {fileID: 34322874}
     - target: {fileID: 5051122177736408931, guid: 7c87f0bdd49fb13448a9d04866c2aef0,
         type: 3}
       propertyPath: player
@@ -13895,14 +14158,14 @@ PrefabInstance:
       objectReference: {fileID: 694658843}
     - target: {fileID: 5051122177736408931, guid: 7c87f0bdd49fb13448a9d04866c2aef0,
         type: 3}
-      propertyPath: lightManager
-      value: 
-      objectReference: {fileID: 34322874}
-    - target: {fileID: 5051122177736408931, guid: 7c87f0bdd49fb13448a9d04866c2aef0,
-        type: 3}
       propertyPath: NightLeavesUI
       value: 
       objectReference: {fileID: 1339971717}
+    - target: {fileID: 5051122177736408931, guid: 7c87f0bdd49fb13448a9d04866c2aef0,
+        type: 3}
+      propertyPath: lightManager
+      value: 
+      objectReference: {fileID: 34322874}
     - target: {fileID: 5051122177962617619, guid: 7c87f0bdd49fb13448a9d04866c2aef0,
         type: 3}
       propertyPath: player
@@ -13925,14 +14188,14 @@ PrefabInstance:
       objectReference: {fileID: 694658843}
     - target: {fileID: 5051122177962617619, guid: 7c87f0bdd49fb13448a9d04866c2aef0,
         type: 3}
-      propertyPath: lightManager
+      propertyPath: NightLeavesUI
       value: 
-      objectReference: {fileID: 34322874}
+      objectReference: {fileID: 1339971717}
     - target: {fileID: 5051122177962617619, guid: 7c87f0bdd49fb13448a9d04866c2aef0,
         type: 3}
-      propertyPath: NightLeavesUI
+      propertyPath: lightManager
       value: 
-      objectReference: {fileID: 1339971717}
+      objectReference: {fileID: 34322874}
     - target: {fileID: 5051122178015250366, guid: 7c87f0bdd49fb13448a9d04866c2aef0,
         type: 3}
       propertyPath: player
@@ -13955,14 +14218,14 @@ PrefabInstance:
       objectReference: {fileID: 694658843}
     - target: {fileID: 5051122178015250366, guid: 7c87f0bdd49fb13448a9d04866c2aef0,
         type: 3}
-      propertyPath: lightManager
-      value: 
-      objectReference: {fileID: 34322874}
-    - target: {fileID: 5051122178015250366, guid: 7c87f0bdd49fb13448a9d04866c2aef0,
-        type: 3}
       propertyPath: NightLeavesUI
       value: 
       objectReference: {fileID: 1339971717}
+    - target: {fileID: 5051122178015250366, guid: 7c87f0bdd49fb13448a9d04866c2aef0,
+        type: 3}
+      propertyPath: lightManager
+      value: 
+      objectReference: {fileID: 34322874}
     - target: {fileID: 5051122178152023367, guid: 7c87f0bdd49fb13448a9d04866c2aef0,
         type: 3}
       propertyPath: player
@@ -13985,14 +14248,14 @@ PrefabInstance:
       objectReference: {fileID: 694658843}
     - target: {fileID: 5051122178152023367, guid: 7c87f0bdd49fb13448a9d04866c2aef0,
         type: 3}
-      propertyPath: lightManager
+      propertyPath: NightLeavesUI
       value: 
-      objectReference: {fileID: 34322874}
+      objectReference: {fileID: 1339971717}
     - target: {fileID: 5051122178152023367, guid: 7c87f0bdd49fb13448a9d04866c2aef0,
         type: 3}
-      propertyPath: NightLeavesUI
+      propertyPath: lightManager
       value: 
-      objectReference: {fileID: 1339971717}
+      objectReference: {fileID: 34322874}
     - target: {fileID: 5051122178216807527, guid: 7c87f0bdd49fb13448a9d04866c2aef0,
         type: 3}
       propertyPath: player
@@ -14015,14 +14278,14 @@ PrefabInstance:
       objectReference: {fileID: 694658843}
     - target: {fileID: 5051122178216807527, guid: 7c87f0bdd49fb13448a9d04866c2aef0,
         type: 3}
-      propertyPath: lightManager
-      value: 
-      objectReference: {fileID: 34322874}
-    - target: {fileID: 5051122178216807527, guid: 7c87f0bdd49fb13448a9d04866c2aef0,
-        type: 3}
       propertyPath: NightLeavesUI
       value: 
       objectReference: {fileID: 1339971717}
+    - target: {fileID: 5051122178216807527, guid: 7c87f0bdd49fb13448a9d04866c2aef0,
+        type: 3}
+      propertyPath: lightManager
+      value: 
+      objectReference: {fileID: 34322874}
     - target: {fileID: 5051122178271218731, guid: 7c87f0bdd49fb13448a9d04866c2aef0,
         type: 3}
       propertyPath: player
@@ -14045,14 +14308,14 @@ PrefabInstance:
       objectReference: {fileID: 694658843}
     - target: {fileID: 5051122178271218731, guid: 7c87f0bdd49fb13448a9d04866c2aef0,
         type: 3}
-      propertyPath: lightManager
+      propertyPath: NightLeavesUI
       value: 
-      objectReference: {fileID: 34322874}
+      objectReference: {fileID: 1339971717}
     - target: {fileID: 5051122178271218731, guid: 7c87f0bdd49fb13448a9d04866c2aef0,
         type: 3}
-      propertyPath: NightLeavesUI
+      propertyPath: lightManager
       value: 
-      objectReference: {fileID: 1339971717}
+      objectReference: {fileID: 34322874}
     - target: {fileID: 5051122178330189198, guid: 7c87f0bdd49fb13448a9d04866c2aef0,
         type: 3}
       propertyPath: player
@@ -14075,14 +14338,14 @@ PrefabInstance:
       objectReference: {fileID: 694658843}
     - target: {fileID: 5051122178330189198, guid: 7c87f0bdd49fb13448a9d04866c2aef0,
         type: 3}
-      propertyPath: lightManager
+      propertyPath: NightLeavesUI
       value: 
-      objectReference: {fileID: 34322874}
+      objectReference: {fileID: 1339971717}
     - target: {fileID: 5051122178330189198, guid: 7c87f0bdd49fb13448a9d04866c2aef0,
         type: 3}
-      propertyPath: NightLeavesUI
+      propertyPath: lightManager
       value: 
-      objectReference: {fileID: 1339971717}
+      objectReference: {fileID: 34322874}
     - target: {fileID: 5051122178454542577, guid: 7c87f0bdd49fb13448a9d04866c2aef0,
         type: 3}
       propertyPath: player
@@ -14095,11 +14358,6 @@ PrefabInstance:
       objectReference: {fileID: 1367322909107758192}
     - target: {fileID: 5051122178454542577, guid: 7c87f0bdd49fb13448a9d04866c2aef0,
         type: 3}
-      propertyPath: speed
-      value: 350
-      objectReference: {fileID: 0}
-    - target: {fileID: 5051122178454542577, guid: 7c87f0bdd49fb13448a9d04866c2aef0,
-        type: 3}
       propertyPath: interactProgressImage
       value: 
       objectReference: {fileID: 1367322910661260265}
@@ -14110,14 +14368,14 @@ PrefabInstance:
       objectReference: {fileID: 694658843}
     - target: {fileID: 5051122178454542577, guid: 7c87f0bdd49fb13448a9d04866c2aef0,
         type: 3}
-      propertyPath: lightManager
-      value: 
-      objectReference: {fileID: 34322874}
-    - target: {fileID: 5051122178454542577, guid: 7c87f0bdd49fb13448a9d04866c2aef0,
-        type: 3}
       propertyPath: NightLeavesUI
       value: 
       objectReference: {fileID: 1339971717}
+    - target: {fileID: 5051122178454542577, guid: 7c87f0bdd49fb13448a9d04866c2aef0,
+        type: 3}
+      propertyPath: lightManager
+      value: 
+      objectReference: {fileID: 34322874}
     - target: {fileID: 5051122178475785864, guid: 7c87f0bdd49fb13448a9d04866c2aef0,
         type: 3}
       propertyPath: player
@@ -14140,14 +14398,14 @@ PrefabInstance:
       objectReference: {fileID: 694658843}
     - target: {fileID: 5051122178475785864, guid: 7c87f0bdd49fb13448a9d04866c2aef0,
         type: 3}
-      propertyPath: lightManager
+      propertyPath: NightLeavesUI
       value: 
-      objectReference: {fileID: 34322874}
+      objectReference: {fileID: 1339971717}
     - target: {fileID: 5051122178475785864, guid: 7c87f0bdd49fb13448a9d04866c2aef0,
         type: 3}
-      propertyPath: NightLeavesUI
+      propertyPath: lightManager
       value: 
-      objectReference: {fileID: 1339971717}
+      objectReference: {fileID: 34322874}
     - target: {fileID: 5051122178506776995, guid: 7c87f0bdd49fb13448a9d04866c2aef0,
         type: 3}
       propertyPath: player
@@ -14160,11 +14418,6 @@ PrefabInstance:
       objectReference: {fileID: 1367322909107758192}
     - target: {fileID: 5051122178506776995, guid: 7c87f0bdd49fb13448a9d04866c2aef0,
         type: 3}
-      propertyPath: speed
-      value: 350
-      objectReference: {fileID: 0}
-    - target: {fileID: 5051122178506776995, guid: 7c87f0bdd49fb13448a9d04866c2aef0,
-        type: 3}
       propertyPath: interactProgressImage
       value: 
       objectReference: {fileID: 1367322910661260265}
@@ -14175,14 +14428,14 @@ PrefabInstance:
       objectReference: {fileID: 694658843}
     - target: {fileID: 5051122178506776995, guid: 7c87f0bdd49fb13448a9d04866c2aef0,
         type: 3}
-      propertyPath: lightManager
-      value: 
-      objectReference: {fileID: 34322874}
-    - target: {fileID: 5051122178506776995, guid: 7c87f0bdd49fb13448a9d04866c2aef0,
-        type: 3}
       propertyPath: NightLeavesUI
       value: 
       objectReference: {fileID: 1339971717}
+    - target: {fileID: 5051122178506776995, guid: 7c87f0bdd49fb13448a9d04866c2aef0,
+        type: 3}
+      propertyPath: lightManager
+      value: 
+      objectReference: {fileID: 34322874}
     - target: {fileID: 5574370998369204565, guid: 7c87f0bdd49fb13448a9d04866c2aef0,
         type: 3}
       propertyPath: player
@@ -14205,14 +14458,14 @@ PrefabInstance:
       objectReference: {fileID: 694658843}
     - target: {fileID: 5574370998369204565, guid: 7c87f0bdd49fb13448a9d04866c2aef0,
         type: 3}
-      propertyPath: lightManager
-      value: 
-      objectReference: {fileID: 34322874}
-    - target: {fileID: 5574370998369204565, guid: 7c87f0bdd49fb13448a9d04866c2aef0,
-        type: 3}
       propertyPath: NightLeavesUI
       value: 
       objectReference: {fileID: 1339971717}
+    - target: {fileID: 5574370998369204565, guid: 7c87f0bdd49fb13448a9d04866c2aef0,
+        type: 3}
+      propertyPath: lightManager
+      value: 
+      objectReference: {fileID: 34322874}
     - target: {fileID: 5680119537053127839, guid: 7c87f0bdd49fb13448a9d04866c2aef0,
         type: 3}
       propertyPath: lightingManager
@@ -14265,14 +14518,14 @@ PrefabInstance:
       objectReference: {fileID: 694658843}
     - target: {fileID: 6679572744823748217, guid: 7c87f0bdd49fb13448a9d04866c2aef0,
         type: 3}
-      propertyPath: lightManager
-      value: 
-      objectReference: {fileID: 34322874}
-    - target: {fileID: 6679572744823748217, guid: 7c87f0bdd49fb13448a9d04866c2aef0,
-        type: 3}
       propertyPath: NightLeavesUI
       value: 
       objectReference: {fileID: 1339971717}
+    - target: {fileID: 6679572744823748217, guid: 7c87f0bdd49fb13448a9d04866c2aef0,
+        type: 3}
+      propertyPath: lightManager
+      value: 
+      objectReference: {fileID: 34322874}
     - target: {fileID: 6679572744847455675, guid: 7c87f0bdd49fb13448a9d04866c2aef0,
         type: 3}
       propertyPath: TeleButtonImage
@@ -14385,14 +14638,14 @@ PrefabInstance:
       objectReference: {fileID: 694658843}
     - target: {fileID: 6679572745064495729, guid: 7c87f0bdd49fb13448a9d04866c2aef0,
         type: 3}
-      propertyPath: lightManager
-      value: 
-      objectReference: {fileID: 34322874}
-    - target: {fileID: 6679572745064495729, guid: 7c87f0bdd49fb13448a9d04866c2aef0,
-        type: 3}
       propertyPath: NightLeavesUI
       value: 
       objectReference: {fileID: 1339971717}
+    - target: {fileID: 6679572745064495729, guid: 7c87f0bdd49fb13448a9d04866c2aef0,
+        type: 3}
+      propertyPath: lightManager
+      value: 
+      objectReference: {fileID: 34322874}
     - target: {fileID: 6679572745199168280, guid: 7c87f0bdd49fb13448a9d04866c2aef0,
         type: 3}
       propertyPath: TeleButtonImage
@@ -14460,14 +14713,14 @@ PrefabInstance:
       objectReference: {fileID: 694658843}
     - target: {fileID: 6679572745295130611, guid: 7c87f0bdd49fb13448a9d04866c2aef0,
         type: 3}
-      propertyPath: lightManager
-      value: 
-      objectReference: {fileID: 34322874}
-    - target: {fileID: 6679572745295130611, guid: 7c87f0bdd49fb13448a9d04866c2aef0,
-        type: 3}
       propertyPath: NightLeavesUI
       value: 
       objectReference: {fileID: 1339971717}
+    - target: {fileID: 6679572745295130611, guid: 7c87f0bdd49fb13448a9d04866c2aef0,
+        type: 3}
+      propertyPath: lightManager
+      value: 
+      objectReference: {fileID: 34322874}
     - target: {fileID: 6679572745355517215, guid: 7c87f0bdd49fb13448a9d04866c2aef0,
         type: 3}
       propertyPath: player
@@ -14490,14 +14743,14 @@ PrefabInstance:
       objectReference: {fileID: 694658843}
     - target: {fileID: 6679572745355517215, guid: 7c87f0bdd49fb13448a9d04866c2aef0,
         type: 3}
-      propertyPath: lightManager
-      value: 
-      objectReference: {fileID: 34322874}
-    - target: {fileID: 6679572745355517215, guid: 7c87f0bdd49fb13448a9d04866c2aef0,
-        type: 3}
       propertyPath: NightLeavesUI
       value: 
       objectReference: {fileID: 1339971717}
+    - target: {fileID: 6679572745355517215, guid: 7c87f0bdd49fb13448a9d04866c2aef0,
+        type: 3}
+      propertyPath: lightManager
+      value: 
+      objectReference: {fileID: 34322874}
     - target: {fileID: 6679572745413411354, guid: 7c87f0bdd49fb13448a9d04866c2aef0,
         type: 3}
       propertyPath: playableCameraScript
@@ -14610,14 +14863,14 @@ PrefabInstance:
       objectReference: {fileID: 694658843}
     - target: {fileID: 6679572745684026851, guid: 7c87f0bdd49fb13448a9d04866c2aef0,
         type: 3}
-      propertyPath: lightManager
+      propertyPath: NightLeavesUI
       value: 
-      objectReference: {fileID: 34322874}
+      objectReference: {fileID: 1339971717}
     - target: {fileID: 6679572745684026851, guid: 7c87f0bdd49fb13448a9d04866c2aef0,
         type: 3}
-      propertyPath: NightLeavesUI
+      propertyPath: lightManager
       value: 
-      objectReference: {fileID: 1339971717}
+      objectReference: {fileID: 34322874}
     - target: {fileID: 6679572745808760851, guid: 7c87f0bdd49fb13448a9d04866c2aef0,
         type: 3}
       propertyPath: player
@@ -14640,14 +14893,14 @@ PrefabInstance:
       objectReference: {fileID: 694658843}
     - target: {fileID: 6679572745808760851, guid: 7c87f0bdd49fb13448a9d04866c2aef0,
         type: 3}
-      propertyPath: lightManager
-      value: 
-      objectReference: {fileID: 34322874}
-    - target: {fileID: 6679572745808760851, guid: 7c87f0bdd49fb13448a9d04866c2aef0,
-        type: 3}
       propertyPath: NightLeavesUI
       value: 
       objectReference: {fileID: 1339971717}
+    - target: {fileID: 6679572745808760851, guid: 7c87f0bdd49fb13448a9d04866c2aef0,
+        type: 3}
+      propertyPath: lightManager
+      value: 
+      objectReference: {fileID: 34322874}
     - target: {fileID: 6679572745929881199, guid: 7c87f0bdd49fb13448a9d04866c2aef0,
         type: 3}
       propertyPath: player
@@ -14670,14 +14923,14 @@ PrefabInstance:
       objectReference: {fileID: 694658843}
     - target: {fileID: 6679572745929881199, guid: 7c87f0bdd49fb13448a9d04866c2aef0,
         type: 3}
-      propertyPath: lightManager
+      propertyPath: NightLeavesUI
       value: 
-      objectReference: {fileID: 34322874}
+      objectReference: {fileID: 1339971717}
     - target: {fileID: 6679572745929881199, guid: 7c87f0bdd49fb13448a9d04866c2aef0,
         type: 3}
-      propertyPath: NightLeavesUI
+      propertyPath: lightManager
       value: 
-      objectReference: {fileID: 1339971717}
+      objectReference: {fileID: 34322874}
     - target: {fileID: 6679572746071152722, guid: 7c87f0bdd49fb13448a9d04866c2aef0,
         type: 3}
       propertyPath: player
@@ -14700,14 +14953,14 @@ PrefabInstance:
       objectReference: {fileID: 694658843}
     - target: {fileID: 6679572746071152722, guid: 7c87f0bdd49fb13448a9d04866c2aef0,
         type: 3}
-      propertyPath: lightManager
+      propertyPath: NightLeavesUI
       value: 
-      objectReference: {fileID: 34322874}
+      objectReference: {fileID: 1339971717}
     - target: {fileID: 6679572746071152722, guid: 7c87f0bdd49fb13448a9d04866c2aef0,
         type: 3}
-      propertyPath: NightLeavesUI
+      propertyPath: lightManager
       value: 
-      objectReference: {fileID: 1339971717}
+      objectReference: {fileID: 34322874}
     - target: {fileID: 6679572746110656350, guid: 7c87f0bdd49fb13448a9d04866c2aef0,
         type: 3}
       propertyPath: player
@@ -14730,14 +14983,14 @@ PrefabInstance:
       objectReference: {fileID: 694658843}
     - target: {fileID: 6679572746110656350, guid: 7c87f0bdd49fb13448a9d04866c2aef0,
         type: 3}
-      propertyPath: lightManager
+      propertyPath: NightLeavesUI
       value: 
-      objectReference: {fileID: 34322874}
+      objectReference: {fileID: 1339971717}
     - target: {fileID: 6679572746110656350, guid: 7c87f0bdd49fb13448a9d04866c2aef0,
         type: 3}
-      propertyPath: NightLeavesUI
+      propertyPath: lightManager
       value: 
-      objectReference: {fileID: 1339971717}
+      objectReference: {fileID: 34322874}
     - target: {fileID: 6679572746307630786, guid: 7c87f0bdd49fb13448a9d04866c2aef0,
         type: 3}
       propertyPath: player
@@ -14760,14 +15013,14 @@ PrefabInstance:
       objectReference: {fileID: 694658843}
     - target: {fileID: 6679572746307630786, guid: 7c87f0bdd49fb13448a9d04866c2aef0,
         type: 3}
-      propertyPath: lightManager
+      propertyPath: NightLeavesUI
       value: 
-      objectReference: {fileID: 34322874}
+      objectReference: {fileID: 1339971717}
     - target: {fileID: 6679572746307630786, guid: 7c87f0bdd49fb13448a9d04866c2aef0,
         type: 3}
-      propertyPath: NightLeavesUI
+      propertyPath: lightManager
       value: 
-      objectReference: {fileID: 1339971717}
+      objectReference: {fileID: 34322874}
     - target: {fileID: 6679572746320033258, guid: 7c87f0bdd49fb13448a9d04866c2aef0,
         type: 3}
       propertyPath: player
@@ -14790,14 +15043,14 @@ PrefabInstance:
       objectReference: {fileID: 694658843}
     - target: {fileID: 6679572746320033258, guid: 7c87f0bdd49fb13448a9d04866c2aef0,
         type: 3}
-      propertyPath: lightManager
-      value: 
-      objectReference: {fileID: 34322874}
-    - target: {fileID: 6679572746320033258, guid: 7c87f0bdd49fb13448a9d04866c2aef0,
-        type: 3}
       propertyPath: NightLeavesUI
       value: 
       objectReference: {fileID: 1339971717}
+    - target: {fileID: 6679572746320033258, guid: 7c87f0bdd49fb13448a9d04866c2aef0,
+        type: 3}
+      propertyPath: lightManager
+      value: 
+      objectReference: {fileID: 34322874}
     - target: {fileID: 6679572746321904282, guid: 7c87f0bdd49fb13448a9d04866c2aef0,
         type: 3}
       propertyPath: player
@@ -14820,14 +15073,14 @@ PrefabInstance:
       objectReference: {fileID: 694658843}
     - target: {fileID: 6679572746321904282, guid: 7c87f0bdd49fb13448a9d04866c2aef0,
         type: 3}
-      propertyPath: lightManager
-      value: 
-      objectReference: {fileID: 34322874}
-    - target: {fileID: 6679572746321904282, guid: 7c87f0bdd49fb13448a9d04866c2aef0,
-        type: 3}
       propertyPath: NightLeavesUI
       value: 
       objectReference: {fileID: 1339971717}
+    - target: {fileID: 6679572746321904282, guid: 7c87f0bdd49fb13448a9d04866c2aef0,
+        type: 3}
+      propertyPath: lightManager
+      value: 
+      objectReference: {fileID: 34322874}
     - target: {fileID: 6679572746402861260, guid: 7c87f0bdd49fb13448a9d04866c2aef0,
         type: 3}
       propertyPath: TeleButtonImage
@@ -14895,14 +15148,14 @@ PrefabInstance:
       objectReference: {fileID: 694658843}
     - target: {fileID: 6679572746555982687, guid: 7c87f0bdd49fb13448a9d04866c2aef0,
         type: 3}
-      propertyPath: lightManager
+      propertyPath: NightLeavesUI
       value: 
-      objectReference: {fileID: 34322874}
+      objectReference: {fileID: 1339971717}
     - target: {fileID: 6679572746555982687, guid: 7c87f0bdd49fb13448a9d04866c2aef0,
         type: 3}
-      propertyPath: NightLeavesUI
+      propertyPath: lightManager
       value: 
-      objectReference: {fileID: 1339971717}
+      objectReference: {fileID: 34322874}
     - target: {fileID: 6679572746632118291, guid: 7c87f0bdd49fb13448a9d04866c2aef0,
         type: 3}
       propertyPath: player
@@ -14925,14 +15178,14 @@ PrefabInstance:
       objectReference: {fileID: 694658843}
     - target: {fileID: 6679572746632118291, guid: 7c87f0bdd49fb13448a9d04866c2aef0,
         type: 3}
-      propertyPath: lightManager
-      value: 
-      objectReference: {fileID: 34322874}
-    - target: {fileID: 6679572746632118291, guid: 7c87f0bdd49fb13448a9d04866c2aef0,
-        type: 3}
       propertyPath: NightLeavesUI
       value: 
       objectReference: {fileID: 1339971717}
+    - target: {fileID: 6679572746632118291, guid: 7c87f0bdd49fb13448a9d04866c2aef0,
+        type: 3}
+      propertyPath: lightManager
+      value: 
+      objectReference: {fileID: 34322874}
     - target: {fileID: 6679572746660690107, guid: 7c87f0bdd49fb13448a9d04866c2aef0,
         type: 3}
       propertyPath: player
@@ -14955,14 +15208,14 @@ PrefabInstance:
       objectReference: {fileID: 694658843}
     - target: {fileID: 6679572746660690107, guid: 7c87f0bdd49fb13448a9d04866c2aef0,
         type: 3}
-      propertyPath: lightManager
+      propertyPath: NightLeavesUI
       value: 
-      objectReference: {fileID: 34322874}
+      objectReference: {fileID: 1339971717}
     - target: {fileID: 6679572746660690107, guid: 7c87f0bdd49fb13448a9d04866c2aef0,
         type: 3}
-      propertyPath: NightLeavesUI
+      propertyPath: lightManager
       value: 
-      objectReference: {fileID: 1339971717}
+      objectReference: {fileID: 34322874}
     - target: {fileID: 6679572746677822860, guid: 7c87f0bdd49fb13448a9d04866c2aef0,
         type: 3}
       propertyPath: player
@@ -14985,14 +15238,14 @@ PrefabInstance:
       objectReference: {fileID: 694658843}
     - target: {fileID: 6679572746677822860, guid: 7c87f0bdd49fb13448a9d04866c2aef0,
         type: 3}
-      propertyPath: lightManager
+      propertyPath: NightLeavesUI
       value: 
-      objectReference: {fileID: 34322874}
+      objectReference: {fileID: 1339971717}
     - target: {fileID: 6679572746677822860, guid: 7c87f0bdd49fb13448a9d04866c2aef0,
         type: 3}
-      propertyPath: NightLeavesUI
+      propertyPath: lightManager
       value: 
-      objectReference: {fileID: 1339971717}
+      objectReference: {fileID: 34322874}
     - target: {fileID: 6679572746725144268, guid: 7c87f0bdd49fb13448a9d04866c2aef0,
         type: 3}
       propertyPath: player
@@ -15015,14 +15268,14 @@ PrefabInstance:
       objectReference: {fileID: 694658843}
     - target: {fileID: 6679572746725144268, guid: 7c87f0bdd49fb13448a9d04866c2aef0,
         type: 3}
-      propertyPath: lightManager
+      propertyPath: NightLeavesUI
       value: 
-      objectReference: {fileID: 34322874}
+      objectReference: {fileID: 1339971717}
     - target: {fileID: 6679572746725144268, guid: 7c87f0bdd49fb13448a9d04866c2aef0,
         type: 3}
-      propertyPath: NightLeavesUI
+      propertyPath: lightManager
       value: 
-      objectReference: {fileID: 1339971717}
+      objectReference: {fileID: 34322874}
     - target: {fileID: 6679572746805411242, guid: 7c87f0bdd49fb13448a9d04866c2aef0,
         type: 3}
       propertyPath: player
@@ -15045,14 +15298,14 @@ PrefabInstance:
       objectReference: {fileID: 694658843}
     - target: {fileID: 6679572746805411242, guid: 7c87f0bdd49fb13448a9d04866c2aef0,
         type: 3}
-      propertyPath: lightManager
+      propertyPath: NightLeavesUI
       value: 
-      objectReference: {fileID: 34322874}
+      objectReference: {fileID: 1339971717}
     - target: {fileID: 6679572746805411242, guid: 7c87f0bdd49fb13448a9d04866c2aef0,
         type: 3}
-      propertyPath: NightLeavesUI
+      propertyPath: lightManager
       value: 
-      objectReference: {fileID: 1339971717}
+      objectReference: {fileID: 34322874}
     - target: {fileID: 6679572746826053744, guid: 7c87f0bdd49fb13448a9d04866c2aef0,
         type: 3}
       propertyPath: player
@@ -15075,14 +15328,14 @@ PrefabInstance:
       objectReference: {fileID: 694658843}
     - target: {fileID: 6679572746826053744, guid: 7c87f0bdd49fb13448a9d04866c2aef0,
         type: 3}
-      propertyPath: lightManager
-      value: 
-      objectReference: {fileID: 34322874}
-    - target: {fileID: 6679572746826053744, guid: 7c87f0bdd49fb13448a9d04866c2aef0,
-        type: 3}
       propertyPath: NightLeavesUI
       value: 
       objectReference: {fileID: 1339971717}
+    - target: {fileID: 6679572746826053744, guid: 7c87f0bdd49fb13448a9d04866c2aef0,
+        type: 3}
+      propertyPath: lightManager
+      value: 
+      objectReference: {fileID: 34322874}
     - target: {fileID: 6679572746905079078, guid: 7c87f0bdd49fb13448a9d04866c2aef0,
         type: 3}
       propertyPath: player
@@ -15105,14 +15358,14 @@ PrefabInstance:
       objectReference: {fileID: 694658843}
     - target: {fileID: 6679572746905079078, guid: 7c87f0bdd49fb13448a9d04866c2aef0,
         type: 3}
-      propertyPath: lightManager
-      value: 
-      objectReference: {fileID: 34322874}
-    - target: {fileID: 6679572746905079078, guid: 7c87f0bdd49fb13448a9d04866c2aef0,
-        type: 3}
       propertyPath: NightLeavesUI
       value: 
       objectReference: {fileID: 1339971717}
+    - target: {fileID: 6679572746905079078, guid: 7c87f0bdd49fb13448a9d04866c2aef0,
+        type: 3}
+      propertyPath: lightManager
+      value: 
+      objectReference: {fileID: 34322874}
     - target: {fileID: 6972307417020413479, guid: 7c87f0bdd49fb13448a9d04866c2aef0,
         type: 3}
       propertyPath: lightingManager
@@ -15145,14 +15398,14 @@ PrefabInstance:
       objectReference: {fileID: 694658843}
     - target: {fileID: 6993703798817699457, guid: 7c87f0bdd49fb13448a9d04866c2aef0,
         type: 3}
-      propertyPath: lightManager
+      propertyPath: NightLeavesUI
       value: 
-      objectReference: {fileID: 34322874}
+      objectReference: {fileID: 1339971717}
     - target: {fileID: 6993703798817699457, guid: 7c87f0bdd49fb13448a9d04866c2aef0,
         type: 3}
-      propertyPath: NightLeavesUI
+      propertyPath: lightManager
       value: 
-      objectReference: {fileID: 1339971717}
+      objectReference: {fileID: 34322874}
     - target: {fileID: 6993703798850241355, guid: 7c87f0bdd49fb13448a9d04866c2aef0,
         type: 3}
       propertyPath: player
@@ -15175,14 +15428,14 @@ PrefabInstance:
       objectReference: {fileID: 6586919658715880631}
     - target: {fileID: 6993703798850241355, guid: 7c87f0bdd49fb13448a9d04866c2aef0,
         type: 3}
-      propertyPath: lightManager
-      value: 
-      objectReference: {fileID: 34322874}
-    - target: {fileID: 6993703798850241355, guid: 7c87f0bdd49fb13448a9d04866c2aef0,
-        type: 3}
       propertyPath: NightLeavesUI
       value: 
       objectReference: {fileID: 1435851359}
+    - target: {fileID: 6993703798850241355, guid: 7c87f0bdd49fb13448a9d04866c2aef0,
+        type: 3}
+      propertyPath: lightManager
+      value: 
+      objectReference: {fileID: 34322874}
     - target: {fileID: 6993703798904235113, guid: 7c87f0bdd49fb13448a9d04866c2aef0,
         type: 3}
       propertyPath: player
@@ -15205,14 +15458,14 @@ PrefabInstance:
       objectReference: {fileID: 6586919658715880631}
     - target: {fileID: 6993703798904235113, guid: 7c87f0bdd49fb13448a9d04866c2aef0,
         type: 3}
-      propertyPath: lightManager
+      propertyPath: NightLeavesUI
       value: 
-      objectReference: {fileID: 34322874}
+      objectReference: {fileID: 1435851359}
     - target: {fileID: 6993703798904235113, guid: 7c87f0bdd49fb13448a9d04866c2aef0,
         type: 3}
-      propertyPath: NightLeavesUI
+      propertyPath: lightManager
       value: 
-      objectReference: {fileID: 1435851359}
+      objectReference: {fileID: 34322874}
     - target: {fileID: 6993703798909936558, guid: 7c87f0bdd49fb13448a9d04866c2aef0,
         type: 3}
       propertyPath: player
@@ -15235,14 +15488,14 @@ PrefabInstance:
       objectReference: {fileID: 694658843}
     - target: {fileID: 6993703798909936558, guid: 7c87f0bdd49fb13448a9d04866c2aef0,
         type: 3}
-      propertyPath: lightManager
-      value: 
-      objectReference: {fileID: 34322874}
-    - target: {fileID: 6993703798909936558, guid: 7c87f0bdd49fb13448a9d04866c2aef0,
-        type: 3}
       propertyPath: NightLeavesUI
       value: 
       objectReference: {fileID: 1339971717}
+    - target: {fileID: 6993703798909936558, guid: 7c87f0bdd49fb13448a9d04866c2aef0,
+        type: 3}
+      propertyPath: lightManager
+      value: 
+      objectReference: {fileID: 34322874}
     - target: {fileID: 6993703798932310921, guid: 7c87f0bdd49fb13448a9d04866c2aef0,
         type: 3}
       propertyPath: player
@@ -15265,14 +15518,14 @@ PrefabInstance:
       objectReference: {fileID: 6586919658715880631}
     - target: {fileID: 6993703798932310921, guid: 7c87f0bdd49fb13448a9d04866c2aef0,
         type: 3}
-      propertyPath: lightManager
+      propertyPath: NightLeavesUI
       value: 
-      objectReference: {fileID: 34322874}
+      objectReference: {fileID: 1435851359}
     - target: {fileID: 6993703798932310921, guid: 7c87f0bdd49fb13448a9d04866c2aef0,
         type: 3}
-      propertyPath: NightLeavesUI
+      propertyPath: lightManager
       value: 
-      objectReference: {fileID: 1435851359}
+      objectReference: {fileID: 34322874}
     - target: {fileID: 6993703798940220689, guid: 7c87f0bdd49fb13448a9d04866c2aef0,
         type: 3}
       propertyPath: player
@@ -15295,14 +15548,14 @@ PrefabInstance:
       objectReference: {fileID: 694658843}
     - target: {fileID: 6993703798940220689, guid: 7c87f0bdd49fb13448a9d04866c2aef0,
         type: 3}
-      propertyPath: lightManager
-      value: 
-      objectReference: {fileID: 34322874}
-    - target: {fileID: 6993703798940220689, guid: 7c87f0bdd49fb13448a9d04866c2aef0,
-        type: 3}
       propertyPath: NightLeavesUI
       value: 
       objectReference: {fileID: 1339971717}
+    - target: {fileID: 6993703798940220689, guid: 7c87f0bdd49fb13448a9d04866c2aef0,
+        type: 3}
+      propertyPath: lightManager
+      value: 
+      objectReference: {fileID: 34322874}
     - target: {fileID: 6993703799014553870, guid: 7c87f0bdd49fb13448a9d04866c2aef0,
         type: 3}
       propertyPath: player
@@ -15325,14 +15578,14 @@ PrefabInstance:
       objectReference: {fileID: 694658843}
     - target: {fileID: 6993703799014553870, guid: 7c87f0bdd49fb13448a9d04866c2aef0,
         type: 3}
-      propertyPath: lightManager
+      propertyPath: NightLeavesUI
       value: 
-      objectReference: {fileID: 34322874}
+      objectReference: {fileID: 1339971717}
     - target: {fileID: 6993703799014553870, guid: 7c87f0bdd49fb13448a9d04866c2aef0,
         type: 3}
-      propertyPath: NightLeavesUI
+      propertyPath: lightManager
       value: 
-      objectReference: {fileID: 1339971717}
+      objectReference: {fileID: 34322874}
     - target: {fileID: 6993703799022521863, guid: 7c87f0bdd49fb13448a9d04866c2aef0,
         type: 3}
       propertyPath: player
@@ -15355,14 +15608,14 @@ PrefabInstance:
       objectReference: {fileID: 6586919658715880631}
     - target: {fileID: 6993703799022521863, guid: 7c87f0bdd49fb13448a9d04866c2aef0,
         type: 3}
-      propertyPath: lightManager
-      value: 
-      objectReference: {fileID: 34322874}
-    - target: {fileID: 6993703799022521863, guid: 7c87f0bdd49fb13448a9d04866c2aef0,
-        type: 3}
       propertyPath: NightLeavesUI
       value: 
       objectReference: {fileID: 1435851359}
+    - target: {fileID: 6993703799022521863, guid: 7c87f0bdd49fb13448a9d04866c2aef0,
+        type: 3}
+      propertyPath: lightManager
+      value: 
+      objectReference: {fileID: 34322874}
     - target: {fileID: 6993703799110441026, guid: 7c87f0bdd49fb13448a9d04866c2aef0,
         type: 3}
       propertyPath: player
@@ -15385,14 +15638,14 @@ PrefabInstance:
       objectReference: {fileID: 694658843}
     - target: {fileID: 6993703799110441026, guid: 7c87f0bdd49fb13448a9d04866c2aef0,
         type: 3}
-      propertyPath: lightManager
+      propertyPath: NightLeavesUI
       value: 
-      objectReference: {fileID: 34322874}
+      objectReference: {fileID: 1339971717}
     - target: {fileID: 6993703799110441026, guid: 7c87f0bdd49fb13448a9d04866c2aef0,
         type: 3}
-      propertyPath: NightLeavesUI
+      propertyPath: lightManager
       value: 
-      objectReference: {fileID: 1339971717}
+      objectReference: {fileID: 34322874}
     - target: {fileID: 6993703799136275457, guid: 7c87f0bdd49fb13448a9d04866c2aef0,
         type: 3}
       propertyPath: player
@@ -15415,14 +15668,14 @@ PrefabInstance:
       objectReference: {fileID: 694658843}
     - target: {fileID: 6993703799136275457, guid: 7c87f0bdd49fb13448a9d04866c2aef0,
         type: 3}
-      propertyPath: lightManager
-      value: 
-      objectReference: {fileID: 34322874}
-    - target: {fileID: 6993703799136275457, guid: 7c87f0bdd49fb13448a9d04866c2aef0,
-        type: 3}
       propertyPath: NightLeavesUI
       value: 
       objectReference: {fileID: 1339971717}
+    - target: {fileID: 6993703799136275457, guid: 7c87f0bdd49fb13448a9d04866c2aef0,
+        type: 3}
+      propertyPath: lightManager
+      value: 
+      objectReference: {fileID: 34322874}
     - target: {fileID: 6993703799329319407, guid: 7c87f0bdd49fb13448a9d04866c2aef0,
         type: 3}
       propertyPath: player
@@ -15445,14 +15698,14 @@ PrefabInstance:
       objectReference: {fileID: 6586919658715880631}
     - target: {fileID: 6993703799329319407, guid: 7c87f0bdd49fb13448a9d04866c2aef0,
         type: 3}
-      propertyPath: lightManager
+      propertyPath: NightLeavesUI
       value: 
-      objectReference: {fileID: 34322874}
+      objectReference: {fileID: 1435851359}
     - target: {fileID: 6993703799329319407, guid: 7c87f0bdd49fb13448a9d04866c2aef0,
         type: 3}
-      propertyPath: NightLeavesUI
+      propertyPath: lightManager
       value: 
-      objectReference: {fileID: 1435851359}
+      objectReference: {fileID: 34322874}
     - target: {fileID: 6993703799409499955, guid: 7c87f0bdd49fb13448a9d04866c2aef0,
         type: 3}
       propertyPath: player
@@ -15475,14 +15728,14 @@ PrefabInstance:
       objectReference: {fileID: 6586919658715880631}
     - target: {fileID: 6993703799409499955, guid: 7c87f0bdd49fb13448a9d04866c2aef0,
         type: 3}
-      propertyPath: lightManager
+      propertyPath: NightLeavesUI
       value: 
-      objectReference: {fileID: 34322874}
+      objectReference: {fileID: 1435851359}
     - target: {fileID: 6993703799409499955, guid: 7c87f0bdd49fb13448a9d04866c2aef0,
         type: 3}
-      propertyPath: NightLeavesUI
+      propertyPath: lightManager
       value: 
-      objectReference: {fileID: 1435851359}
+      objectReference: {fileID: 34322874}
     - target: {fileID: 6993703799505040631, guid: 7c87f0bdd49fb13448a9d04866c2aef0,
         type: 3}
       propertyPath: player
@@ -15505,14 +15758,14 @@ PrefabInstance:
       objectReference: {fileID: 694658843}
     - target: {fileID: 6993703799505040631, guid: 7c87f0bdd49fb13448a9d04866c2aef0,
         type: 3}
-      propertyPath: lightManager
+      propertyPath: NightLeavesUI
       value: 
-      objectReference: {fileID: 34322874}
+      objectReference: {fileID: 1339971717}
     - target: {fileID: 6993703799505040631, guid: 7c87f0bdd49fb13448a9d04866c2aef0,
         type: 3}
-      propertyPath: NightLeavesUI
+      propertyPath: lightManager
       value: 
-      objectReference: {fileID: 1339971717}
+      objectReference: {fileID: 34322874}
     - target: {fileID: 6993703799547590283, guid: 7c87f0bdd49fb13448a9d04866c2aef0,
         type: 3}
       propertyPath: player
@@ -15535,14 +15788,14 @@ PrefabInstance:
       objectReference: {fileID: 694658843}
     - target: {fileID: 6993703799547590283, guid: 7c87f0bdd49fb13448a9d04866c2aef0,
         type: 3}
-      propertyPath: lightManager
+      propertyPath: NightLeavesUI
       value: 
-      objectReference: {fileID: 34322874}
+      objectReference: {fileID: 1339971717}
     - target: {fileID: 6993703799547590283, guid: 7c87f0bdd49fb13448a9d04866c2aef0,
         type: 3}
-      propertyPath: NightLeavesUI
+      propertyPath: lightManager
       value: 
-      objectReference: {fileID: 1339971717}
+      objectReference: {fileID: 34322874}
     - target: {fileID: 6993703799583672091, guid: 7c87f0bdd49fb13448a9d04866c2aef0,
         type: 3}
       propertyPath: player
@@ -15565,14 +15818,14 @@ PrefabInstance:
       objectReference: {fileID: 694658843}
     - target: {fileID: 6993703799583672091, guid: 7c87f0bdd49fb13448a9d04866c2aef0,
         type: 3}
-      propertyPath: lightManager
-      value: 
-      objectReference: {fileID: 34322874}
-    - target: {fileID: 6993703799583672091, guid: 7c87f0bdd49fb13448a9d04866c2aef0,
-        type: 3}
       propertyPath: NightLeavesUI
       value: 
       objectReference: {fileID: 1339971717}
+    - target: {fileID: 6993703799583672091, guid: 7c87f0bdd49fb13448a9d04866c2aef0,
+        type: 3}
+      propertyPath: lightManager
+      value: 
+      objectReference: {fileID: 34322874}
     - target: {fileID: 6993703799591430984, guid: 7c87f0bdd49fb13448a9d04866c2aef0,
         type: 3}
       propertyPath: player
@@ -15595,14 +15848,14 @@ PrefabInstance:
       objectReference: {fileID: 694658843}
     - target: {fileID: 6993703799591430984, guid: 7c87f0bdd49fb13448a9d04866c2aef0,
         type: 3}
-      propertyPath: lightManager
-      value: 
-      objectReference: {fileID: 34322874}
-    - target: {fileID: 6993703799591430984, guid: 7c87f0bdd49fb13448a9d04866c2aef0,
-        type: 3}
       propertyPath: NightLeavesUI
       value: 
       objectReference: {fileID: 1339971717}
+    - target: {fileID: 6993703799591430984, guid: 7c87f0bdd49fb13448a9d04866c2aef0,
+        type: 3}
+      propertyPath: lightManager
+      value: 
+      objectReference: {fileID: 34322874}
     - target: {fileID: 6993703799715669186, guid: 7c87f0bdd49fb13448a9d04866c2aef0,
         type: 3}
       propertyPath: player
@@ -15625,14 +15878,14 @@ PrefabInstance:
       objectReference: {fileID: 6586919658715880631}
     - target: {fileID: 6993703799715669186, guid: 7c87f0bdd49fb13448a9d04866c2aef0,
         type: 3}
-      propertyPath: lightManager
+      propertyPath: NightLeavesUI
       value: 
-      objectReference: {fileID: 34322874}
+      objectReference: {fileID: 1435851359}
     - target: {fileID: 6993703799715669186, guid: 7c87f0bdd49fb13448a9d04866c2aef0,
         type: 3}
-      propertyPath: NightLeavesUI
+      propertyPath: lightManager
       value: 
-      objectReference: {fileID: 1435851359}
+      objectReference: {fileID: 34322874}
     - target: {fileID: 6993703799773926030, guid: 7c87f0bdd49fb13448a9d04866c2aef0,
         type: 3}
       propertyPath: player
@@ -15655,14 +15908,14 @@ PrefabInstance:
       objectReference: {fileID: 694658843}
     - target: {fileID: 6993703799773926030, guid: 7c87f0bdd49fb13448a9d04866c2aef0,
         type: 3}
-      propertyPath: lightManager
-      value: 
-      objectReference: {fileID: 34322874}
-    - target: {fileID: 6993703799773926030, guid: 7c87f0bdd49fb13448a9d04866c2aef0,
-        type: 3}
       propertyPath: NightLeavesUI
       value: 
       objectReference: {fileID: 1339971717}
+    - target: {fileID: 6993703799773926030, guid: 7c87f0bdd49fb13448a9d04866c2aef0,
+        type: 3}
+      propertyPath: lightManager
+      value: 
+      objectReference: {fileID: 34322874}
     - target: {fileID: 6993703799886405876, guid: 7c87f0bdd49fb13448a9d04866c2aef0,
         type: 3}
       propertyPath: player
@@ -15685,14 +15938,14 @@ PrefabInstance:
       objectReference: {fileID: 6586919658715880631}
     - target: {fileID: 6993703799886405876, guid: 7c87f0bdd49fb13448a9d04866c2aef0,
         type: 3}
-      propertyPath: lightManager
+      propertyPath: NightLeavesUI
       value: 
-      objectReference: {fileID: 34322874}
+      objectReference: {fileID: 1435851359}
     - target: {fileID: 6993703799886405876, guid: 7c87f0bdd49fb13448a9d04866c2aef0,
         type: 3}
-      propertyPath: NightLeavesUI
+      propertyPath: lightManager
       value: 
-      objectReference: {fileID: 1435851359}
+      objectReference: {fileID: 34322874}
     - target: {fileID: 6993703800171042882, guid: 7c87f0bdd49fb13448a9d04866c2aef0,
         type: 3}
       propertyPath: player
@@ -15715,14 +15968,14 @@ PrefabInstance:
       objectReference: {fileID: 694658843}
     - target: {fileID: 6993703800171042882, guid: 7c87f0bdd49fb13448a9d04866c2aef0,
         type: 3}
-      propertyPath: lightManager
+      propertyPath: NightLeavesUI
       value: 
-      objectReference: {fileID: 34322874}
+      objectReference: {fileID: 1339971717}
     - target: {fileID: 6993703800171042882, guid: 7c87f0bdd49fb13448a9d04866c2aef0,
         type: 3}
-      propertyPath: NightLeavesUI
+      propertyPath: lightManager
       value: 
-      objectReference: {fileID: 1339971717}
+      objectReference: {fileID: 34322874}
     - target: {fileID: 6993703800181504848, guid: 7c87f0bdd49fb13448a9d04866c2aef0,
         type: 3}
       propertyPath: player
@@ -15745,14 +15998,14 @@ PrefabInstance:
       objectReference: {fileID: 694658843}
     - target: {fileID: 6993703800181504848, guid: 7c87f0bdd49fb13448a9d04866c2aef0,
         type: 3}
-      propertyPath: lightManager
-      value: 
-      objectReference: {fileID: 34322874}
-    - target: {fileID: 6993703800181504848, guid: 7c87f0bdd49fb13448a9d04866c2aef0,
-        type: 3}
       propertyPath: NightLeavesUI
       value: 
       objectReference: {fileID: 1339971717}
+    - target: {fileID: 6993703800181504848, guid: 7c87f0bdd49fb13448a9d04866c2aef0,
+        type: 3}
+      propertyPath: lightManager
+      value: 
+      objectReference: {fileID: 34322874}
     - target: {fileID: 6993703800194446590, guid: 7c87f0bdd49fb13448a9d04866c2aef0,
         type: 3}
       propertyPath: player
@@ -15775,14 +16028,14 @@ PrefabInstance:
       objectReference: {fileID: 694658843}
     - target: {fileID: 6993703800194446590, guid: 7c87f0bdd49fb13448a9d04866c2aef0,
         type: 3}
-      propertyPath: lightManager
-      value: 
-      objectReference: {fileID: 34322874}
-    - target: {fileID: 6993703800194446590, guid: 7c87f0bdd49fb13448a9d04866c2aef0,
-        type: 3}
       propertyPath: NightLeavesUI
       value: 
       objectReference: {fileID: 1339971717}
+    - target: {fileID: 6993703800194446590, guid: 7c87f0bdd49fb13448a9d04866c2aef0,
+        type: 3}
+      propertyPath: lightManager
+      value: 
+      objectReference: {fileID: 34322874}
     - target: {fileID: 6993703800208673306, guid: 7c87f0bdd49fb13448a9d04866c2aef0,
         type: 3}
       propertyPath: player
@@ -15805,14 +16058,14 @@ PrefabInstance:
       objectReference: {fileID: 6586919658715880631}
     - target: {fileID: 6993703800208673306, guid: 7c87f0bdd49fb13448a9d04866c2aef0,
         type: 3}
-      propertyPath: lightManager
+      propertyPath: NightLeavesUI
       value: 
-      objectReference: {fileID: 34322874}
+      objectReference: {fileID: 1435851359}
     - target: {fileID: 6993703800208673306, guid: 7c87f0bdd49fb13448a9d04866c2aef0,
         type: 3}
-      propertyPath: NightLeavesUI
+      propertyPath: lightManager
       value: 
-      objectReference: {fileID: 1435851359}
+      objectReference: {fileID: 34322874}
     - target: {fileID: 6993703800324482068, guid: 7c87f0bdd49fb13448a9d04866c2aef0,
         type: 3}
       propertyPath: player
@@ -15835,14 +16088,14 @@ PrefabInstance:
       objectReference: {fileID: 694658843}
     - target: {fileID: 6993703800324482068, guid: 7c87f0bdd49fb13448a9d04866c2aef0,
         type: 3}
-      propertyPath: lightManager
-      value: 
-      objectReference: {fileID: 34322874}
-    - target: {fileID: 6993703800324482068, guid: 7c87f0bdd49fb13448a9d04866c2aef0,
-        type: 3}
       propertyPath: NightLeavesUI
       value: 
       objectReference: {fileID: 1339971717}
+    - target: {fileID: 6993703800324482068, guid: 7c87f0bdd49fb13448a9d04866c2aef0,
+        type: 3}
+      propertyPath: lightManager
+      value: 
+      objectReference: {fileID: 34322874}
     - target: {fileID: 6993703800384736968, guid: 7c87f0bdd49fb13448a9d04866c2aef0,
         type: 3}
       propertyPath: player
@@ -15865,14 +16118,14 @@ PrefabInstance:
       objectReference: {fileID: 6586919658715880631}
     - target: {fileID: 6993703800384736968, guid: 7c87f0bdd49fb13448a9d04866c2aef0,
         type: 3}
-      propertyPath: lightManager
-      value: 
-      objectReference: {fileID: 34322874}
-    - target: {fileID: 6993703800384736968, guid: 7c87f0bdd49fb13448a9d04866c2aef0,
-        type: 3}
       propertyPath: NightLeavesUI
       value: 
       objectReference: {fileID: 1435851359}
+    - target: {fileID: 6993703800384736968, guid: 7c87f0bdd49fb13448a9d04866c2aef0,
+        type: 3}
+      propertyPath: lightManager
+      value: 
+      objectReference: {fileID: 34322874}
     - target: {fileID: 6993703800504774526, guid: 7c87f0bdd49fb13448a9d04866c2aef0,
         type: 3}
       propertyPath: player
@@ -15895,14 +16148,14 @@ PrefabInstance:
       objectReference: {fileID: 694658843}
     - target: {fileID: 6993703800504774526, guid: 7c87f0bdd49fb13448a9d04866c2aef0,
         type: 3}
-      propertyPath: lightManager
-      value: 
-      objectReference: {fileID: 34322874}
-    - target: {fileID: 6993703800504774526, guid: 7c87f0bdd49fb13448a9d04866c2aef0,
-        type: 3}
       propertyPath: NightLeavesUI
       value: 
       objectReference: {fileID: 1339971717}
+    - target: {fileID: 6993703800504774526, guid: 7c87f0bdd49fb13448a9d04866c2aef0,
+        type: 3}
+      propertyPath: lightManager
+      value: 
+      objectReference: {fileID: 34322874}
     - target: {fileID: 6993703800570206535, guid: 7c87f0bdd49fb13448a9d04866c2aef0,
         type: 3}
       propertyPath: player
@@ -15925,14 +16178,14 @@ PrefabInstance:
       objectReference: {fileID: 6586919658715880631}
     - target: {fileID: 6993703800570206535, guid: 7c87f0bdd49fb13448a9d04866c2aef0,
         type: 3}
-      propertyPath: lightManager
-      value: 
-      objectReference: {fileID: 34322874}
-    - target: {fileID: 6993703800570206535, guid: 7c87f0bdd49fb13448a9d04866c2aef0,
-        type: 3}
       propertyPath: NightLeavesUI
       value: 
       objectReference: {fileID: 1435851359}
+    - target: {fileID: 6993703800570206535, guid: 7c87f0bdd49fb13448a9d04866c2aef0,
+        type: 3}
+      propertyPath: lightManager
+      value: 
+      objectReference: {fileID: 34322874}
     - target: {fileID: 6993703800595917667, guid: 7c87f0bdd49fb13448a9d04866c2aef0,
         type: 3}
       propertyPath: player
@@ -15955,14 +16208,14 @@ PrefabInstance:
       objectReference: {fileID: 694658843}
     - target: {fileID: 6993703800595917667, guid: 7c87f0bdd49fb13448a9d04866c2aef0,
         type: 3}
-      propertyPath: lightManager
+      propertyPath: NightLeavesUI
       value: 
-      objectReference: {fileID: 34322874}
+      objectReference: {fileID: 1339971717}
     - target: {fileID: 6993703800595917667, guid: 7c87f0bdd49fb13448a9d04866c2aef0,
         type: 3}
-      propertyPath: NightLeavesUI
+      propertyPath: lightManager
       value: 
-      objectReference: {fileID: 1339971717}
+      objectReference: {fileID: 34322874}
     - target: {fileID: 6993703800643214466, guid: 7c87f0bdd49fb13448a9d04866c2aef0,
         type: 3}
       propertyPath: player
@@ -15985,14 +16238,14 @@ PrefabInstance:
       objectReference: {fileID: 694658843}
     - target: {fileID: 6993703800643214466, guid: 7c87f0bdd49fb13448a9d04866c2aef0,
         type: 3}
-      propertyPath: lightManager
+      propertyPath: NightLeavesUI
       value: 
-      objectReference: {fileID: 34322874}
+      objectReference: {fileID: 1339971717}
     - target: {fileID: 6993703800643214466, guid: 7c87f0bdd49fb13448a9d04866c2aef0,
         type: 3}
-      propertyPath: NightLeavesUI
+      propertyPath: lightManager
       value: 
-      objectReference: {fileID: 1339971717}
+      objectReference: {fileID: 34322874}
     - target: {fileID: 6993703800650260503, guid: 7c87f0bdd49fb13448a9d04866c2aef0,
         type: 3}
       propertyPath: player
@@ -16015,14 +16268,14 @@ PrefabInstance:
       objectReference: {fileID: 694658843}
     - target: {fileID: 6993703800650260503, guid: 7c87f0bdd49fb13448a9d04866c2aef0,
         type: 3}
-      propertyPath: lightManager
+      propertyPath: NightLeavesUI
       value: 
-      objectReference: {fileID: 34322874}
+      objectReference: {fileID: 1339971717}
     - target: {fileID: 6993703800650260503, guid: 7c87f0bdd49fb13448a9d04866c2aef0,
         type: 3}
-      propertyPath: NightLeavesUI
+      propertyPath: lightManager
       value: 
-      objectReference: {fileID: 1339971717}
+      objectReference: {fileID: 34322874}
     - target: {fileID: 6993703800887367267, guid: 7c87f0bdd49fb13448a9d04866c2aef0,
         type: 3}
       propertyPath: player
@@ -16045,14 +16298,14 @@ PrefabInstance:
       objectReference: {fileID: 694658843}
     - target: {fileID: 6993703800887367267, guid: 7c87f0bdd49fb13448a9d04866c2aef0,
         type: 3}
-      propertyPath: lightManager
+      propertyPath: NightLeavesUI
       value: 
-      objectReference: {fileID: 34322874}
+      objectReference: {fileID: 1339971717}
     - target: {fileID: 6993703800887367267, guid: 7c87f0bdd49fb13448a9d04866c2aef0,
         type: 3}
-      propertyPath: NightLeavesUI
+      propertyPath: lightManager
       value: 
-      objectReference: {fileID: 1339971717}
+      objectReference: {fileID: 34322874}
     - target: {fileID: 7080562407358142905, guid: 7c87f0bdd49fb13448a9d04866c2aef0,
         type: 3}
       propertyPath: player
@@ -16075,14 +16328,14 @@ PrefabInstance:
       objectReference: {fileID: 694658843}
     - target: {fileID: 7080562407358142905, guid: 7c87f0bdd49fb13448a9d04866c2aef0,
         type: 3}
-      propertyPath: lightManager
-      value: 
-      objectReference: {fileID: 34322874}
-    - target: {fileID: 7080562407358142905, guid: 7c87f0bdd49fb13448a9d04866c2aef0,
-        type: 3}
       propertyPath: NightLeavesUI
       value: 
       objectReference: {fileID: 1339971717}
+    - target: {fileID: 7080562407358142905, guid: 7c87f0bdd49fb13448a9d04866c2aef0,
+        type: 3}
+      propertyPath: lightManager
+      value: 
+      objectReference: {fileID: 34322874}
     - target: {fileID: 7722168967473277762, guid: 7c87f0bdd49fb13448a9d04866c2aef0,
         type: 3}
       propertyPath: player
@@ -16105,19 +16358,14 @@ PrefabInstance:
       objectReference: {fileID: 694658843}
     - target: {fileID: 7722168967473277762, guid: 7c87f0bdd49fb13448a9d04866c2aef0,
         type: 3}
-      propertyPath: lightManager
-      value: 
-      objectReference: {fileID: 34322874}
-    - target: {fileID: 7722168967473277762, guid: 7c87f0bdd49fb13448a9d04866c2aef0,
-        type: 3}
       propertyPath: NightLeavesUI
       value: 
       objectReference: {fileID: 1339971717}
-    - target: {fileID: 8068793224549405729, guid: 7c87f0bdd49fb13448a9d04866c2aef0,
+    - target: {fileID: 7722168967473277762, guid: 7c87f0bdd49fb13448a9d04866c2aef0,
         type: 3}
-      propertyPath: UniqueSecondaryLocations.Array.size
-      value: 6
-      objectReference: {fileID: 0}
+      propertyPath: lightManager
+      value: 
+      objectReference: {fileID: 34322874}
     - target: {fileID: 8068793224549405729, guid: 7c87f0bdd49fb13448a9d04866c2aef0,
         type: 3}
       propertyPath: lightingManager
@@ -16128,31 +16376,6 @@ PrefabInstance:
       propertyPath: soundObject
       value: 
       objectReference: {fileID: 1590751471}
-    - target: {fileID: 8068793224549405729, guid: 7c87f0bdd49fb13448a9d04866c2aef0,
-        type: 3}
-      propertyPath: UniqueSecondaryLocations.Array.data[3]
-      value: 
-      objectReference: {fileID: 810820151}
-    - target: {fileID: 8068793224549405729, guid: 7c87f0bdd49fb13448a9d04866c2aef0,
-        type: 3}
-      propertyPath: UniqueSecondaryLocations.Array.data[4]
-      value: 
-      objectReference: {fileID: 351820087}
-    - target: {fileID: 8068793224549405729, guid: 7c87f0bdd49fb13448a9d04866c2aef0,
-        type: 3}
-      propertyPath: UniqueSecondaryLocations.Array.data[5]
-      value: 
-      objectReference: {fileID: 2091800451}
-    - target: {fileID: 8075579769182788168, guid: 7c87f0bdd49fb13448a9d04866c2aef0,
-        type: 3}
-      propertyPath: m_LocalPosition.y
-      value: 37.87
-      objectReference: {fileID: 0}
-    - target: {fileID: 8075579770588684356, guid: 7c87f0bdd49fb13448a9d04866c2aef0,
-        type: 3}
-      propertyPath: m_LocalPosition.y
-      value: 25.34
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 7c87f0bdd49fb13448a9d04866c2aef0, type: 3}
 --- !u!4 &3579966066696138570 stripped
@@ -16480,6 +16703,31 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalScale.y
       value: 0.36625105
+      objectReference: {fileID: 0}
+    - target: {fileID: 4717015825584684310, guid: 3a17e89bb54f3aa408ffea24b533339b,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 43
+      objectReference: {fileID: 0}
+    - target: {fileID: 4717015825584684310, guid: 3a17e89bb54f3aa408ffea24b533339b,
+        type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4717015825584684310, guid: 3a17e89bb54f3aa408ffea24b533339b,
+        type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4717015825584684310, guid: 3a17e89bb54f3aa408ffea24b533339b,
+        type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4717015825584684310, guid: 3a17e89bb54f3aa408ffea24b533339b,
+        type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 5261534392817221930, guid: 3a17e89bb54f3aa408ffea24b533339b,
         type: 3}
