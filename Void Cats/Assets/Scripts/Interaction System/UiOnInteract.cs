@@ -17,11 +17,10 @@ public class UiOnInteract : MonoBehaviour, IInteractable
     public bool isProgressImageOn = false; //
     public GameObject teleportPadMapUi;
     
-   
-
-
-    private void Update()
+  
+    public void Update()
     {
+        
        if(isProgressImageOn == true && Input.GetKeyUp(KeyCode.E)) // if the player lets go if e 
         {
             interactProgressImage.fillAmount = 0.0f; // resets circle to 0 
@@ -31,6 +30,7 @@ public class UiOnInteract : MonoBehaviour, IInteractable
        if(playableCameraScript.hasTeleporterUIOpen == true && Input.GetKeyUp(KeyCode.Tab) || Input.GetKeyUp(KeyCode.Escape))
         {
             OnEndHover();
+            
         }
         
     }
@@ -50,7 +50,7 @@ public class UiOnInteract : MonoBehaviour, IInteractable
        
     }
 
-    private void UpdateinteractProgressImage()
+    public void UpdateinteractProgressImage()
     {
          if(currentAmount < 100 && isProgressImageOn == true)
         {
@@ -61,6 +61,7 @@ public class UiOnInteract : MonoBehaviour, IInteractable
 
         if(currentAmount >= 100) // when reached 100
         {
+            
             teleportPadMapUi.SetActive(true); // turns on buttons for teleport
             interactProgressImage.fillAmount = 0.0f; // turns off cirlce
             currentAmount = 0.0f; // resets the circle to 0
@@ -79,8 +80,8 @@ public class UiOnInteract : MonoBehaviour, IInteractable
 
     public void OnEndHover()
     {
-        
-        
+
+       
             interactTextUi.SetActive(false);
             isProgressImageOn = false;
             interactProgressImage.fillAmount = 0.0f;
@@ -88,8 +89,7 @@ public class UiOnInteract : MonoBehaviour, IInteractable
             teleportPadMapUi.SetActive(false);
             playableCameraScript.isCursorLocked = true;
             playableCameraScript.hasTeleporterUIOpen = false;
-
-
+       
 
     }
 

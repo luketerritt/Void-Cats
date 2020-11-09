@@ -15,14 +15,9 @@ public class TeleportPad : MonoBehaviour
     public FastTravel FastTravel;
     public JournalDataStorage dataStorage;
     
-    UiOnInteract onInteractScript;
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-        
-    }
-
+    
+    //UiOnInteract onInteractScript;
+   
     // Update is called once per frame
     void Update()
     {
@@ -36,6 +31,8 @@ public class TeleportPad : MonoBehaviour
         if (currStandingOn == false)
         {
             TeleButtonImage.enabled = true;
+            
+            //onInteractScript.OnEndHover();
             if (IsDiscovered == true)
             {
                 TeleButton.interactable = true;
@@ -148,13 +145,16 @@ public class TeleportPad : MonoBehaviour
     
     public void OnTriggerExit(Collider other)
     {
+        UiOnInteract onInteractScript = GetComponent<UiOnInteract>(); // gets the ui interaction script thats on the pads
         if (other.gameObject.tag == "Player")
         {
             currStandingOn = false;
             FastTravel.currTeleporterId = 0;
             Debug.Log("Not standing on Tp pad");
             TeleButtonImage.enabled = true;
-            if(IsDiscovered == true)
+            onInteractScript.interactTextUi.SetActive(false);
+            onInteractScript.isProgressImageOn = false;
+            if (IsDiscovered == true)
             {
                 TeleButton.interactable = true;
             }
