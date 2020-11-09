@@ -32,11 +32,23 @@ Material:
         m_Texture: {fileID: 2800000, guid: e587faa80b5d180458da5315e6429bb6, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
+    - _GrassTexture:
+        m_Texture: {fileID: 2800000, guid: 8506858b53b09284a8f5996f60daf7a6, type: 3}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _TopAlbedo:
+        m_Texture: {fileID: 2800000, guid: 8506858b53b09284a8f5996f60daf7a6, type: 3}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
     m_Floats:
+    - Boolean_5745958: 0
     - Vector1_36059209: 1.8
     - Vector1_922B3257: 1
     - Vector1_D9FDCC4F: 0.35
+    - _GrassAmount: 0
+    - _GrassOpacity: 1
     m_Colors:
     - Color_8EB131E4: {r: 1, g: 1, b: 1, a: 0}
     - Vector3_3F2CB4C3: {r: 1, g: 1, b: 1, a: 0}
     - Vector3_6CA53DD0: {r: 0, g: 0, b: 0, a: 0}
+    - _GrassDirection: {r: 0, g: 1, b: 0, a: 0}
