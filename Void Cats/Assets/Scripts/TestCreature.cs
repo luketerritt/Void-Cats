@@ -74,7 +74,7 @@ public class TestCreature : MonoBehaviour
 
     //a way to store the previous state of the agent
     //[HideInInspector]
-    //public CreatureState PreviousState;
+    public CreatureState PreviousState;
 
     //an instance of the lighting manager (drag into via unity editor)
     public GameObject lightingManager;
@@ -132,6 +132,8 @@ public class TestCreature : MonoBehaviour
     private bool startedUnInteruptable = false;
     
     public Animator creatureAnimator;
+
+    public Animator[] vfxAnimators; //0 for passive or scared, 1 for sleep, 2 for unique
 
     public GameObject soundObject;
 
@@ -427,6 +429,7 @@ public class TestCreature : MonoBehaviour
             {
                 if (info.agentState != (CreatureState)1)
                 {
+                    PreviousState = info.agentState;
                     info.agentState = (CreatureState)1; //agent notices
                     stateJustChanged = true;
                     //revert animation back to default
@@ -438,6 +441,7 @@ public class TestCreature : MonoBehaviour
             {
                 if (info.agentState != (CreatureState)0)
                 {
+                    PreviousState = info.agentState;
                     info.agentState = (CreatureState)0; //agent flees
                     stateJustChanged = true;
                     //revert animation back to default
@@ -473,7 +477,7 @@ public class TestCreature : MonoBehaviour
                                 //if the AgentState is not in the desired state yet it becomes the desired state
                                 if (/*AgentState*/ info.agentState != (CreatureState)2) //it may lead to bugs down the line when agent state does not match the state the time gives -- (add other states to the check here) 
                                 {
-                                    //PreviousState = info.agentState; //assign the previous state
+                                    PreviousState = info.agentState; //assign the previous state
                                     /*AgentState*/
                                     info.agentState = (CreatureState)2; //agent goes to sleep
                                     stateJustChanged = true;
@@ -488,7 +492,7 @@ public class TestCreature : MonoBehaviour
                             {
                                 if (info.agentState != (CreatureState)0)
                                 {
-                                    //PreviousState = info.agentState; //assign the previous state
+                                    PreviousState = info.agentState; //assign the previous state
                                     info.agentState = (CreatureState)0; //agent walks
                                     stateJustChanged = true;
                                     break;
@@ -502,7 +506,7 @@ public class TestCreature : MonoBehaviour
                             {
                                 if (info.agentState != (CreatureState)1)
                                 {
-                                    //PreviousState = info.agentState; //assign the previous state
+                                    PreviousState = info.agentState; //assign the previous state
                                     info.agentState = (CreatureState)1; //agent notices
                                     stateJustChanged = true;
                                     break;
@@ -515,7 +519,7 @@ public class TestCreature : MonoBehaviour
                             {
                                 if (info.agentState != (CreatureState)2)
                                 {
-                                    //PreviousState = info.agentState; //assign the previous state
+                                    PreviousState = info.agentState; //assign the previous state
                                     info.agentState = (CreatureState)2; //agent sleeps
                                     stateJustChanged = true;
                                     break;
@@ -532,7 +536,7 @@ public class TestCreature : MonoBehaviour
                             {
                                 if (info.agentState != (CreatureState)4)
                                 {
-                                    //PreviousState = info.agentState; //assign the previous state
+                                    PreviousState = info.agentState; //assign the previous state
                                     info.agentState = (CreatureState)4; //agent washes face - UNIQUE
                                     if (UniqueLocations.Length <= 1)
                                     {
@@ -556,7 +560,7 @@ public class TestCreature : MonoBehaviour
                             {
                                 if (info.agentState != (CreatureState)2)
                                 {
-                                    //PreviousState = info.agentState; //assign the previous state
+                                    PreviousState = info.agentState; //assign the previous state
                                     info.agentState = (CreatureState)2; //agent sleeps
                                     stateJustChanged = true;
                                     //revert animation back to default
@@ -572,7 +576,7 @@ public class TestCreature : MonoBehaviour
                             {
                                 if (info.agentState != (CreatureState)2)
                                 {
-                                    //PreviousState = info.agentState; //assign the previous state
+                                    PreviousState = info.agentState; //assign the previous state
                                     info.agentState = (CreatureState)2; //agent sleeps
                                     stateJustChanged = true;
                                     break;
@@ -585,7 +589,7 @@ public class TestCreature : MonoBehaviour
                             {
                                 if (info.agentState != (CreatureState)3)
                                 {
-                                    //PreviousState = info.agentState; //assign the previous state
+                                    PreviousState = info.agentState; //assign the previous state
                                     info.agentState = (CreatureState)3; //agent "goes for food"
 
                                     //if the size of the foodlocations is less than 1
@@ -614,7 +618,7 @@ public class TestCreature : MonoBehaviour
                             {
                                 if (info.agentState != (CreatureState)2)
                                 {
-                                    //PreviousState = info.agentState; //assign the previous state
+                                    PreviousState = info.agentState; //assign the previous state
                                     info.agentState = (CreatureState)2; //agent sleeps
                                     stateJustChanged = true;
                                     break;
@@ -627,7 +631,7 @@ public class TestCreature : MonoBehaviour
                             {
                                 if (info.agentState != (CreatureState)3)
                                 {
-                                    //PreviousState = info.agentState; //assign the previous state
+                                    PreviousState = info.agentState; //assign the previous state
                                     info.agentState = (CreatureState)3; //agent "goes for food"
 
                                     //if the size of the foodlocations is less than 1
@@ -654,7 +658,7 @@ public class TestCreature : MonoBehaviour
                             {
                                 if (info.agentState != (CreatureState)5)
                                 {
-                                    //PreviousState = info.agentState; //assign the previous state
+                                    PreviousState = info.agentState; //assign the previous state
                                     info.agentState = (CreatureState)5; //agent chases tail - UNIQUE
                                     if (UniqueLocations.Length <= 1)
                                     {
@@ -678,7 +682,7 @@ public class TestCreature : MonoBehaviour
                             {
                                 if (info.agentState != (CreatureState)2)
                                 {
-                                    //PreviousState = info.agentState; //assign the previous state
+                                    PreviousState = info.agentState; //assign the previous state
                                     info.agentState = (CreatureState)2; //agent sleeps
                                     stateJustChanged = true;
                                     //revert animation back to default
@@ -696,7 +700,7 @@ public class TestCreature : MonoBehaviour
                             {
                                 if (info.agentState != (CreatureState)2)
                                 {
-                                    //PreviousState = info.agentState; //assign the previous state
+                                    PreviousState = info.agentState; //assign the previous state
                                     info.agentState = (CreatureState)2; //agent sleeps
                                     stateJustChanged = true;
                                     break;
@@ -709,7 +713,7 @@ public class TestCreature : MonoBehaviour
                             {
                                 if (info.agentState != (CreatureState)3)
                                 {
-                                    //PreviousState = info.agentState; //assign the previous state
+                                    PreviousState = info.agentState; //assign the previous state
                                     info.agentState = (CreatureState)3; //agent "goes for food"
 
                                     //if the size of the foodlocations is less than 1
@@ -736,7 +740,7 @@ public class TestCreature : MonoBehaviour
                             {
                                 if (info.agentState != (CreatureState)6)
                                 {
-                                    //PreviousState = info.agentState; //assign the previous state
+                                    PreviousState = info.agentState; //assign the previous state
                                     info.agentState = (CreatureState)6; //agent roars - UNIQUE
                                     if (UniqueLocations.Length <= 1)
                                     {
@@ -760,7 +764,7 @@ public class TestCreature : MonoBehaviour
                             {
                                 if (info.agentState != (CreatureState)2)
                                 {
-                                    //PreviousState = info.agentState; //assign the previous state
+                                    PreviousState = info.agentState; //assign the previous state
                                     info.agentState = (CreatureState)2; //agent sleeps
                                     stateJustChanged = true;
                                     //revert animation back to default
@@ -778,7 +782,7 @@ public class TestCreature : MonoBehaviour
                             {
                                 if (info.agentState != (CreatureState)2)
                                 {
-                                    //PreviousState = info.agentState; //assign the previous state
+                                    PreviousState = info.agentState; //assign the previous state
                                     info.agentState = (CreatureState)2; //agent sleeps
                                     stateJustChanged = true;
                                     break;
@@ -791,7 +795,7 @@ public class TestCreature : MonoBehaviour
                             {
                                 if (info.agentState != (CreatureState)3)
                                 {
-                                    //PreviousState = info.agentState; //assign the previous state
+                                    PreviousState = info.agentState; //assign the previous state
                                     info.agentState = (CreatureState)3; //agent "goes for food"
 
                                     //if the size of the foodlocations is less than 1
@@ -818,7 +822,7 @@ public class TestCreature : MonoBehaviour
                             {
                                 if (info.agentState != (CreatureState)7)
                                 {
-                                    //PreviousState = info.agentState; //assign the previous state
+                                    PreviousState = info.agentState; //assign the previous state
                                     info.agentState = (CreatureState)7; //agent roars - UNIQUE
                                     if (UniqueLocations.Length <= 1)
                                     {
@@ -842,7 +846,7 @@ public class TestCreature : MonoBehaviour
                             {
                                 if (info.agentState != (CreatureState)2)
                                 {
-                                    //PreviousState = info.agentState; //assign the previous state
+                                    PreviousState = info.agentState; //assign the previous state
                                     info.agentState = (CreatureState)2; //agent sleeps
                                     stateJustChanged = true;
                                     //revert animation back to default
@@ -860,7 +864,7 @@ public class TestCreature : MonoBehaviour
                             {
                                 if (info.agentState != (CreatureState)8)
                                 {
-                                    //PreviousState = info.agentState; //assign the previous state
+                                    PreviousState = info.agentState; //assign the previous state
                                     info.agentState = (CreatureState)8; //agent goes rolls                                
                                     if (UniqueLocations.Length <= 1)
                                     {
@@ -883,7 +887,7 @@ public class TestCreature : MonoBehaviour
                             {
                                 if (info.agentState != (CreatureState)2)
                                 {
-                                    //PreviousState = info.agentState; //assign the previous state
+                                    PreviousState = info.agentState; //assign the previous state
                                     info.agentState = (CreatureState)2; //agent sleeps                               
                                     stateJustChanged = true;
                                     //revert animation back to default
@@ -899,7 +903,7 @@ public class TestCreature : MonoBehaviour
                             {
                                 if (info.agentState != (CreatureState)2)
                                 {
-                                    //PreviousState = info.agentState; //assign the previous state
+                                    PreviousState = info.agentState; //assign the previous state
                                     info.agentState = (CreatureState)2; //agent sleeps                               
                                     stateJustChanged = true;
                                     break;
@@ -912,7 +916,7 @@ public class TestCreature : MonoBehaviour
                             {
                                 if (info.agentState != (CreatureState)3)
                                 {
-                                    //PreviousState = info.agentState; //assign the previous state
+                                    PreviousState = info.agentState; //assign the previous state
                                     info.agentState = (CreatureState)3; //agent sleeps
                                                                         //if the size of the foodlocations is less than 1
                                     if (FoodLocations.Length <= 1)
@@ -939,7 +943,7 @@ public class TestCreature : MonoBehaviour
                             {
                                 if (info.agentState != (CreatureState)2)
                                 {
-                                    //PreviousState = info.agentState; //assign the previous state
+                                    PreviousState = info.agentState; //assign the previous state
                                     info.agentState = (CreatureState)2; //agent sleeps
                                     stateJustChanged = true;
                                     break;
@@ -952,7 +956,7 @@ public class TestCreature : MonoBehaviour
                             {
                                 if (info.agentState != (CreatureState)3)
                                 {
-                                    //PreviousState = info.agentState; //assign the previous state
+                                    PreviousState = info.agentState; //assign the previous state
                                     info.agentState = (CreatureState)3; //agent "goes for food"
 
                                     //if the size of the foodlocations is less than 1
@@ -979,7 +983,7 @@ public class TestCreature : MonoBehaviour
                             {
                                 if (info.agentState != (CreatureState)9)
                                 {
-                                    //PreviousState = info.agentState; //assign the previous state
+                                    PreviousState = info.agentState; //assign the previous state
                                     info.agentState = (CreatureState)9; //agent pecks - UNIQUE
                                     if (UniqueLocations.Length <= 1)
                                     {
@@ -1003,7 +1007,7 @@ public class TestCreature : MonoBehaviour
                             {
                                 if (info.agentState != (CreatureState)2)
                                 {
-                                    //PreviousState = info.agentState; //assign the previous state
+                                    PreviousState = info.agentState; //assign the previous state
                                     info.agentState = (CreatureState)2; //agent sleeps
                                     stateJustChanged = true;
                                     //revert animation back to default
@@ -1021,7 +1025,7 @@ public class TestCreature : MonoBehaviour
                             {
                                 if (info.agentState != (CreatureState)10)
                                 {
-                                    //PreviousState = info.agentState; //assign the previous state
+                                    PreviousState = info.agentState; //assign the previous state
                                     info.agentState = (CreatureState)10; //agent levitates                                
                                     if (UniqueLocations.Length <= 1)
                                     {
@@ -1044,7 +1048,7 @@ public class TestCreature : MonoBehaviour
                             {
                                 if (info.agentState != (CreatureState)2)
                                 {
-                                    //PreviousState = info.agentState; //assign the previous state
+                                    PreviousState = info.agentState; //assign the previous state
                                     info.agentState = (CreatureState)2; //agent sleeps                               
                                     stateJustChanged = true;
                                     //revert animation back to default
@@ -1060,7 +1064,7 @@ public class TestCreature : MonoBehaviour
                             {
                                 if (info.agentState != (CreatureState)2)
                                 {
-                                    //PreviousState = info.agentState; //assign the previous state
+                                    PreviousState = info.agentState; //assign the previous state
                                     info.agentState = (CreatureState)2; //agent roars - UNIQUE                                
                                     stateJustChanged = true;
                                     break;
@@ -1073,7 +1077,7 @@ public class TestCreature : MonoBehaviour
                             {
                                 if (info.agentState != (CreatureState)3)
                                 {
-                                    //PreviousState = info.agentState; //assign the previous state
+                                    PreviousState = info.agentState; //assign the previous state
                                     info.agentState = (CreatureState)3; //agent sleeps
                                                                         //if the size of the foodlocations is less than 1
                                     if (FoodLocations.Length <= 1)
@@ -1100,7 +1104,7 @@ public class TestCreature : MonoBehaviour
                             {
                                 if (info.agentState != (CreatureState)3)
                                 {
-                                    //PreviousState = info.agentState; //assign the previous state
+                                    PreviousState = info.agentState; //assign the previous state
                                     info.agentState = (CreatureState)3; //agent eats                               
                                     if (FoodLocations.Length <= 1)
                                     {
@@ -1123,7 +1127,7 @@ public class TestCreature : MonoBehaviour
                             {
                                 if (info.agentState != (CreatureState)2)
                                 {
-                                    //PreviousState = info.agentState; //assign the previous state
+                                    PreviousState = info.agentState; //assign the previous state
                                     info.agentState = (CreatureState)2; //agent sleeps                               
                                     stateJustChanged = true;
                                     //revert animation back to default
@@ -1139,7 +1143,7 @@ public class TestCreature : MonoBehaviour
                             {
                                 if (info.agentState != (CreatureState)2)
                                 {
-                                    //PreviousState = info.agentState; //assign the previous state
+                                    PreviousState = info.agentState; //assign the previous state
                                     info.agentState = (CreatureState)2; //agent roars - UNIQUE                                
                                     stateJustChanged = true;
                                     break;
@@ -1152,7 +1156,7 @@ public class TestCreature : MonoBehaviour
                             {
                                 if (info.agentState != (CreatureState)11)
                                 {
-                                    //PreviousState = info.agentState; //assign the previous state
+                                    PreviousState = info.agentState; //assign the previous state
                                     info.agentState = (CreatureState)11; //agent sleeps is ANGER
                                                                          //if the size of the foodlocations is less than 1
                                     if (UniqueLocations.Length <= 1)
@@ -1365,6 +1369,7 @@ public class TestCreature : MonoBehaviour
                 canSnore = true;
                 sleepSnoreIterator = 0;
                 photoCanWork = true;
+                PlaySleepVFXAnimation();
             }
         }
         if(distanceToPlayer < (distanceMaxSound * distanceMaxSound) && canSnore)
@@ -2059,6 +2064,22 @@ public class TestCreature : MonoBehaviour
     {
         Debug.Log("" + this.gameObject + " finished an Animation");
         creatureAnimator.SetTrigger("FinishedTrigger");
+        if (vfxAnimators[2] != null)
+        {
+            //only call this if we just came out of the slide state (and we are a dragon)
+            if(ID == 4 && PreviousState == CreatureState.Flop)
+            {
+                vfxAnimators[2].SetTrigger("FinishedTrigger");
+            }
+                       
+        }
+        if(vfxAnimators[1] != null) //end sleep
+        {
+            if (PreviousState == CreatureState.Sleep)//if the previous state is sleep
+            {
+                vfxAnimators[1].SetTrigger("FinishTrigger"); //Declan wrote it as FinishTrigger instead of FinishedTrigger...
+            }
+        }
     }
 
     //call this after play finished animation to prevent bugs?
@@ -2066,6 +2087,7 @@ public class TestCreature : MonoBehaviour
     {
         //Debug.Log("" + this.gameObject + " clearing FinishedTrigger");
         creatureAnimator.ResetTrigger("FinishedTrigger");
+        
     }
 
     //eat animation (shared by all creatures) - needs to be turned off
@@ -2080,6 +2102,30 @@ public class TestCreature : MonoBehaviour
     {
         Debug.Log("" + this.gameObject + " started sleep Animation");
         creatureAnimator.SetTrigger("SleepTrigger");
+
+        if (vfxAnimators[2] != null)
+        {
+            //only call this if we came out of the levitate state (and we are a cat)
+            if (ID == 7 && PreviousState == CreatureState.Levitate)
+            {
+                vfxAnimators[2].SetTrigger("FinishedTrigger");
+            }
+
+            if (ID == 1 && PreviousState == CreatureState.Wash)
+            {
+                vfxAnimators[2].SetTrigger("FinishedTrigger");
+            }
+        }
+        
+      
+    }
+
+    public void PlaySleepVFXAnimation()
+    {
+        if (vfxAnimators[1] != null)
+        {
+            vfxAnimators[1].SetTrigger("SleepTrigger");
+        }
     }
 
     //passive (shared by half creatures) - needs to be turned off
@@ -2087,6 +2133,11 @@ public class TestCreature : MonoBehaviour
     {
         Debug.Log("" + this.gameObject + " started passive Animation");
         creatureAnimator.SetTrigger("PassiveTrigger");
+        if (vfxAnimators[0] != null)
+        {
+            vfxAnimators[0].SetTrigger("PassiveTrigger"); 
+        }
+
     }
 
     //scared (shared by half creatures, handles transition to run) - needs to be turned off
@@ -2094,6 +2145,26 @@ public class TestCreature : MonoBehaviour
     {
         Debug.Log("" + this.gameObject + " started scared Animation");
         creatureAnimator.SetTrigger("ScaredTrigger");
+
+        if (vfxAnimators[2] != null)
+        {
+            //only call this if we came out of the levitate state (and we are a cat)
+            if (ID == 7 && PreviousState == CreatureState.Levitate)
+            {
+                vfxAnimators[2].SetTrigger("FinishedTrigger");
+            }
+
+            if (ID == 1 && PreviousState == CreatureState.Wash)
+            {
+                vfxAnimators[2].SetTrigger("FinishedTrigger");
+            }
+        }
+
+        if (vfxAnimators[0] != null)
+        {
+            vfxAnimators[0].SetTrigger("PassiveTrigger");
+        }
+        
     }
 
     //fish splash animation - needs to be turned off
@@ -2101,6 +2172,10 @@ public class TestCreature : MonoBehaviour
     {
         Debug.Log("" + this.gameObject + " started splash Animation");
         creatureAnimator.SetTrigger("SplashTrigger");
+        if (vfxAnimators[2] != null)
+        {
+            vfxAnimators[2].SetTrigger("SplashTrigger");
+        }
     }
 
     //dog notice tail animation (just the start, animator handles transition to run, - needs to be turned off)
@@ -2129,6 +2204,10 @@ public class TestCreature : MonoBehaviour
     {
         Debug.Log("" + this.gameObject + " started slide Animation");
         creatureAnimator.SetTrigger("Slide2Trigger");
+        if (vfxAnimators[2] != null)
+        {
+            vfxAnimators[2].SetTrigger("SlideTrigger");
+        }
     }
 
     //cow roll - needs to be turned off
@@ -2150,6 +2229,10 @@ public class TestCreature : MonoBehaviour
     {
         Debug.Log("" + this.gameObject + " started levitate Animation");
         creatureAnimator.SetTrigger("LevitateTrigger");
+        if (vfxAnimators[2] != null)
+        {
+            vfxAnimators[2].SetTrigger("LevitateTrigger");
+        }
     }
 
     //rabbit punch - (animator handles end transition)
@@ -2157,5 +2240,9 @@ public class TestCreature : MonoBehaviour
     {
         Debug.Log("" + this.gameObject + " started punch Animation");
         creatureAnimator.SetTrigger("PunchTrigger");
+        if (vfxAnimators[2] != null)
+        {
+            vfxAnimators[2].SetTrigger("PunchTrigger"); 
+        }
     }
 }

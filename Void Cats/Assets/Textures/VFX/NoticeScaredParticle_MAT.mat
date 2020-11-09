@@ -1,0 +1,34 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!21 &2100000
+Material:
+  serializedVersion: 6
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: NoticeScaredParticle_MAT
+  m_Shader: {fileID: -6465566751694194690, guid: 3ca2e7293e0f8bb49aefed2759385134,
+    type: 3}
+  m_ShaderKeywords: 
+  m_LightmapFlags: 4
+  m_EnableInstancingVariants: 0
+  m_DoubleSidedGI: 0
+  m_CustomRenderQueue: -1
+  stringTagMap: {}
+  disabledShaderPasses: []
+  m_SavedProperties:
+    serializedVersion: 3
+    m_TexEnvs:
+    - _Texture:
+        m_Texture: {fileID: 2800000, guid: 80ac92b41252b39408d0625ce84a38dc, type: 3}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    m_Floats:
+    - _AlphaAdjustment: 1
+    - _Bol_AlphaIsTransparent: 1
+    - _Bol_DualColour: 1
+    - _TextureRotation: 0
+    m_Colors:
+    - _PrimaryColour: {r: 0.9474164, g: 0.8745098, b: 1, a: 0}
+    - _SecondaryColour: {r: 0.880719, g: 0.7137255, b: 1, a: 0}

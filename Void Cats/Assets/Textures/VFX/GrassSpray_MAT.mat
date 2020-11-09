@@ -1,0 +1,35 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!21 &2100000
+Material:
+  serializedVersion: 6
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: GrassSpray_MAT
+  m_Shader: {fileID: -6465566751694194690, guid: 25f87f1b8b95ff947a51f2e16dc1a948,
+    type: 3}
+  m_ShaderKeywords: 
+  m_LightmapFlags: 4
+  m_EnableInstancingVariants: 0
+  m_DoubleSidedGI: 0
+  m_CustomRenderQueue: -1
+  stringTagMap: {}
+  disabledShaderPasses: []
+  m_SavedProperties:
+    serializedVersion: 3
+    m_TexEnvs:
+    - _Texture:
+        m_Texture: {fileID: 2800000, guid: 05237e54bec8e46419995dc09583b718, type: 3}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    m_Floats:
+    - _AlphaAdjustment: 1
+    - _Bol_AlphaIsTransparent: 0
+    - _Bol_DualColour: 1
+    - _Bol_UseTextureColour: 0
+    - _TextureRotation: 0
+    m_Colors:
+    - _PrimaryColour: {r: 0.45608452, g: 1, b: 0.43867922, a: 0}
+    - _SecondaryColour: {r: 0.054512277, g: 0.3301887, b: 0.062815756, a: 0}
